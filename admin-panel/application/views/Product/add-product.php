@@ -184,12 +184,13 @@
                                                                 <div class="col-md-6 col-sm-6 col-xs-12 mar-12">
                                                                     <input type="text" class="form-control "
                                                                         name="brand_title[]" placeholder="Brand title"
-                                                                        value="<?php echo $value->title ?>">
+                                                                        value="<?php  echo(!empty($value->title))?$value->title:'';  ?>">
                                                                 </div>
                                                                 <div class="col-md-4 col-sm-4 col-xs-12">
                                                                     <input type="number" class="form-control "
                                                                         name="brand_price[]" placeholder="Brand price"
-                                                                        value="<?php echo $value->price ?>">
+                                                                        value="<?php  echo(!empty($value->title))?$value->price:'';  ?>">
+                                                                        <input type="hidden" value="<?php  echo(!empty($value->brand_uniq))?$value->brand_uniq:'';  ?>" name="brndunq[]">
                                                                 </div>
                                                                 <div class="col-md-2 col-sm-2">
                                                                     <a id="brandremove" class="brandremove brandplus remov" value="<?php echo $value->id ?>"><i
@@ -200,11 +201,11 @@
                                                             <div class="row" id="addnext">
                                                                 <div class="col-md-6 col-sm-6 col-xs-12 mar-12">
                                                                     <input type="text" class="form-control "
-                                                                        name="brand_title[]" placeholder="Brand title">
+                                                                        name="brand_title[]" placeholder="Brand title" value="">
                                                                 </div>
                                                                 <div class="col-md-4 col-sm-4 col-xs-12">
                                                                     <input type="number" class="form-control "
-                                                                        name="brand_price[]" placeholder="Brand price">
+                                                                        name="brand_price[]" placeholder="Brand price" value="">
                                                                 </div>
                                                                 <div class="col-md-2 col-sm-2">
                                                                     <a id="brandplus" class="brandplus"><i

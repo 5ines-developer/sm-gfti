@@ -135,7 +135,8 @@
                         <td><?php echo (!empty($value->update_on))?date("d-M-y", strtotime($value->update_on)):''; ?></td>
                          <td><?php echo $this->ci->Product_model->createdby($value->created_by) ?></td> 
                         <td style="text-align:center;"><a href="<?php echo base_url('edit-product/').$value->id?>" style="font-size: 22px;color: #2e9be0"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>&nbsp;&nbsp;
-                          <a class="exdelete" href="<?php echo base_url('delete-product/').$value->id?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a> 
+                          <a href="<?php echo base_url('view-product/').$value->id?>" style="font-size: 20px;color: #257225" ><i class="fa fa-eye" aria-hidden="true"></i></a>&nbsp;&nbsp;
+                          <a class="exdelete" href="<?php echo base_url('delete-product/').$value->id?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a>&nbsp;&nbsp;
                         </td>
                       </tr>
                     <?php } }?>

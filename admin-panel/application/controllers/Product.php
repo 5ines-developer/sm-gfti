@@ -59,9 +59,9 @@ class Product extends CI_Controller {
                 $product_id = $uniq;
             }
 
-            $brand_title       = $this->input->post('brand_title');
-            $brand_price       = $this->input->post('brand_price');
-            
+            $brand_title    = $this->input->post('brand_title');
+            $brand_price    = $this->input->post('brand_price');
+            $brndunq        = $this->input->post('brndunq');
 
             $files = $_FILES;
             $filesCount = count($_FILES['pimage']['name']);
@@ -118,19 +118,26 @@ class Product extends CI_Controller {
 
            $output1['product'] = $this->Product_model->insert($insert);
 
-
-           for ($i=0; $i < count($brand_title) ; $i++) {
-                       $brand = array(
-                        'product' =>  $output1['product']['id'],
-                        'title'   =>  $brand_title[$i],
-                        'price'   =>  $brand_price[$i],
-                        'status'  =>  '1',
-                        'brand_uniq' => random_string('alnum','16')
-                       );
-           $output2 = $this->Product_model->brandinsert($brand);
+           if ($brand_title !='') {
+                for ($i=0; $i < count($brand_title) ; $i++) {
+                    if ($brand_title[$i]) {
+                        $brand = array(
+                            'product' =>  $output1['product']['id'],
+                            'title'   =>  $brand_title[$i],
+                            'price'   =>  $brand_price[$i],
+                            'status'  =>  '1'
+                            );
+                            if (empty($brndunq[$i])) {
+                                $brand['brand_uniq'] = random_string('alnum', 16);
+                            } else {
+                                $brand['brand_uniq'] = $brndunq[$i];
+                            }
+                        $output2 = $this->Product_model->brandinsert($brand);
+                    }
+                }
            }
 
-            if($output2 != FALSE && $output1 !='')
+            if($output1 !='')
             {
                 $this->session->set_flashdata('success', 'Product added  Successfully');
                 redirect('manage-product','refresh');
@@ -196,6 +203,21 @@ class Product extends CI_Controller {
         $output = $this->Product_model->deletebrand($brandid);
         json_encode($output);
     }
+
+    /**
+     * Product -> Edit Product
+     * url : edit-product
+     * @param : id
+    */
+    public function view_product($productid='')
+    {
+        $data['title']      = 'View Product - Siemens';
+        $data['product']    = $this->Product_model->editproduct($productid);
+        $data['brand']      = $this->Product_model->getbrand($productid);
+        $this->load->view('product/view-product',$data);
+    }
+
+    
 
 
     

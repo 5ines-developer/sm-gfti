@@ -79,6 +79,8 @@ $route['add-product'] 		     = 'Product/index';
 $route['insert-product'] 		 = 'Product/add_product';
 $route['manage-product'] 		 = 'Product/manage_product';
 $route['delete-product/(:any)']  = 'Product/delete_product/$1';
+$route['view-product/(:any)']    = 'Product/view_product/$1';
 $route['delete-brand']           = 'Product/delete_brand';
 $route['edit-product/(:any)']    = 'Product/edit_product/$1';
+
 

@@ -4988,19 +4988,21 @@ ul.notifications {
     z-index: 9;
     border: 1px solid #ececec;
 }
-.brand-pricing{
-background-color: #efefef;
-padding: 9px;
-border-radius: 3px;
-border: none;
-box-shadow: 0 1px 1px 0 rgba(60, 64, 67, .08), 0 1px 3px 1px rgba(60, 64, 67, .16);
-cursor: pointer;
- }
- .branddown{
-    float: right;
- }
 
- .brandplus .fa.fa-plus {
+.brand-pricing {
+    background-color: #efefef;
+    padding: 9px;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0 1px 1px 0 rgba(60, 64, 67, .08), 0 1px 3px 1px rgba(60, 64, 67, .16);
+    cursor: pointer;
+}
+
+.branddown {
+    float: right;
+}
+
+.brandplus .fa.fa-plus {
     margin-left: 21px;
     font-size: 14px;
     background-color: #26b99a;
@@ -5008,7 +5010,11 @@ cursor: pointer;
     margin-top: 4px;
     color: #e7e7e7;
 }
-.collapse.brand-pricing{ box-shadow: 0 0px 0px 0 rgba(60, 64, 67, .08), 0 1px 0px 1px rgba(60, 64, 67, .16); }
+
+.collapse.brand-pricing {
+    box-shadow: 0 0px 0px 0 rgba(60, 64, 67, .08), 0 1px 0px 1px rgba(60, 64, 67, .16);
+}
+
 .brandplus.remov .fa.fa-times {
     margin-left: 21px;
     font-size: 14px;
@@ -5017,10 +5023,33 @@ cursor: pointer;
     margin-top: 4px;
     color: #e7e7e7;
 }
-.mar-12{margin-bottom: 12px;}
- .table-image{
-        width: auto;
+
+.mar-12 {
+    margin-bottom: 12px;
+}
+
+.table-image {
+    width: auto;
     display: block;
     max-height: 50px;
     margin-top: -6px;
-    margin-bottom: -6px; }
+    margin-bottom: -6px;
+}
+
+.product-image {
+    margin-top: 35px;
+}
+
+#viewproduct th {
+    text-align: left;
+    width: 200px;
+    padding: 6px;
+    font-size: 14px;
+}
+
+#viewproduct td {
+    padding: 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 6px;
+}
