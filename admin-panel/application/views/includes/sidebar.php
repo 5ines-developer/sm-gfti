@@ -31,6 +31,12 @@
                       <li><a href="<?php echo base_url() ?>manage-banner">Manage Banner</a></li>
                       </ul>
                   </li>
+                  <li><a><i class="fa fa-server" aria-hidden="true"></i>Domain<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="<?php echo base_url() ?>add-domain">Add Domain</a></li>
+                      <li><a href="<?php echo base_url() ?>manage-domain">Manage Domain</a></li>
+                      </ul>
+                  </li>
 
 
                 </ul>

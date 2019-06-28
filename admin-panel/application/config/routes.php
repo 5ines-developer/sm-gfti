@@ -88,4 +88,10 @@ $route['insert-banner'] 		 = 'Banner/add_banner';
 $route['manage-banner'] 		 = 'Banner/manage_banner';
 $route['delete-banner/(:any)']   = 'Banner/delete_banner/$1';
 $route['edit-banner/(:any)']     = 'Banner/edit_banner/$1';
+// Banner
+$route['add-domain'] 		     = 'Domain/index';
+$route['insert-domain'] 		 = 'Domain/add_domain';
+$route['manage-domain'] 		 = 'Domain/manage_domain';
+$route['delete-domain/(:any)']   = 'Domain/delete_domain/$1';
+
 

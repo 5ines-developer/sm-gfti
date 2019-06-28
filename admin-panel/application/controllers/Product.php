@@ -7,7 +7,7 @@ class Product extends CI_Controller {
 	function __construct() {
         parent::__construct();
         $this->load->model('Product_model');
-        $this->load->model('category_model');
+        $this->load->model('Category_model');
         $this->load->library('email');          
         $this->load->library('session'); 
         $this->load->library('form_validation'); 
