@@ -40,6 +40,8 @@ class Product extends CI_Controller {
 	 */
     public function add_product($value='')
     {
+        
+            $edit    = $this->input->post('edit');
             $product    = $this->input->post('product');
             $category   = $this->input->post('category');
             $price      = $this->input->post('price');
@@ -48,11 +50,18 @@ class Product extends CI_Controller {
             $description = $this->input->post('description');
             $uniq       = $this->input->post('uniq');
             $desc       = trim($description);
-            $txt        = strtoupper( substr($product, 0, 2 ) ).substr( $product, 2 );
-            $result     = mb_substr($txt, 0, 2);
-            $product_id = $result.$uniq;
+
+            if (empty($edit)) {
+                $txt        = strtoupper( substr($product, 0, 2 ) ).substr( $product, 2 );
+                $result     = mb_substr($txt, 0, 2);
+                $product_id = $result.$uniq;
+            }else{
+                $product_id = $uniq;
+            }
+
             $brand_title       = $this->input->post('brand_title');
             $brand_price       = $this->input->post('brand_price');
+            
 
             $files = $_FILES;
             $filesCount = count($_FILES['pimage']['name']);
@@ -72,8 +81,6 @@ class Product extends CI_Controller {
             }
             else
             {
-
-
                 $upload_data = $this->upload->data();
                 $config['image_library']    =   'gd2';
                 $config['source_image']     =   $upload_data['full_path'];
@@ -88,7 +95,6 @@ class Product extends CI_Controller {
                 $file_tumb      =   $upload_data['raw_name'];       
                 $file_tumb_ex   =   $upload_data['file_ext'];                      
                 $thum_file      =   $file_tumb.'_thumb'.$file_tumb_ex; 
-
             }
             }
 
@@ -170,11 +176,29 @@ class Product extends CI_Controller {
     */
     public function edit_product($productid='')
     {
-        $data['title'] = 'Edit Product - Siemens';
-        $data['product']   = $this->Product_model->editproduct($productid);
+        $data['title']      = 'Edit Product - Siemens';
+        $data['product']    = $this->Product_model->editproduct($productid);
+        $data['category']   = $this->category_model->getcategory();
+        $data['brand']      = $this->Product_model->getbrand($productid);
         $this->load->view('product/add-product',$data);
     }
 
+
+    /**
+     * Product -> delete brand
+     * url : delete-brand
+     * @param : id
+    */
+    public function delete_brand()
+    {
+        $brandid = $this->input->get('brandid');
+        // send to model
+        $output = $this->Product_model->deletebrand($brandid);
+        json_encode($output);
+    }
+
+
+    
     
     
 

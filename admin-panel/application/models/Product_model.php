@@ -76,7 +76,8 @@ class Product_model extends CI_Model {
 			{
 				return false;
 			}
-        }
+		}
+		
 
         /**
          * delete product 
@@ -114,7 +115,45 @@ class Product_model extends CI_Model {
 			{
 				return false;
 			}
+		}
+
+
+		/**
+         * product -> edit product
+         * url : edit-product
+         * @param : id
+        */
+        public function getbrand($productid)
+		{
+            $this->db->where('product', $productid);
+			$query = $this->db->get('brad_pricing');
+			if ($query->num_rows() > 0) 
+			{
+				return $query->result();
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+
+		/**
+         * delete brand 
+         * @url : delete-brand
+         * @param : brand id
+         * 
+        */
+        public function deletebrand($brandid)
+		{
+			$this->db->where('id', $brandid);
+			return $this->db->delete('brad_pricing');
+			
         }
+		
+
+		
+
 
         /**
          * get created by (admin name)
