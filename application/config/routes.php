@@ -49,15 +49,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'welcome';
+$route['default_controller'] = 'web';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
 //  employee authendication
-$route['register'] = 'authendication/register';
-$route['email-verification'] = 'authendication/email_verification';
-$route['login'] = 'authendication/login';
-$route['forgot-password'] = 'authendication/forgot_password';
-$route['forgot-password-set'] = 'authendication/forgot_password_set';
+$route['register']              = 'authendication/register';
+$route['email-verification']    = 'authendication/email_verification';
+$route['login']                 = 'authendication/login';
+$route['forgot-password']       = 'authendication/forgot_password';
+$route['forgot-password-set']   = 'authendication/forgot_password_set';
+// account
+$route['account-setting']       = 'account';
+$route['change-psw']            = 'account/change_psw';
+// page
+
 

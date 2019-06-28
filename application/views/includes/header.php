@@ -153,7 +153,9 @@
                             <div class="box-search">
                                 <input type="text" name="search" placeholder="Search what you looking for ?">
                                 <span class="btn-search">
-                                    <button type="submit" class="waves-effect"><img src="<?php echo base_url() ?>assets/images/icons/search.png" alt=""></button>
+                                    <button type="submit" class="waves-effect"><img
+                                            src="<?php echo base_url() ?>assets/images/icons/search.png"
+                                            alt=""></button>
                                 </span>
                                 <div class="search-suggestions">
                                     <div class="box-suggestions">
@@ -163,7 +165,8 @@
                                         <ul>
                                             <li>
                                                 <div class="image">
-                                                    <img src="<?php echo base_url() ?>assets/images/product/other/s05.jpg" alt="">
+                                                    <img src="<?php echo base_url() ?>assets/images/product/other/s05.jpg"
+                                                        alt="">
                                                 </div>
                                                 <div class="info-product">
                                                     <div class="name">
@@ -181,7 +184,8 @@
                                             </li>
                                             <li>
                                                 <div class="image">
-                                                    <img src="<?php echo base_url() ?>assets/images/product/other/s06.jpg" alt="">
+                                                    <img src="<?php echo base_url() ?>assets/images/product/other/s06.jpg"
+                                                        alt="">
                                                 </div>
                                                 <div class="info-product">
                                                     <div class="name">
@@ -196,7 +200,8 @@
                                             </li>
                                             <li>
                                                 <div class="image">
-                                                    <img src="<?php echo base_url() ?>assets/images/product/other/14.jpg" alt="">
+                                                    <img src="<?php echo base_url() ?>assets/images/product/other/14.jpg"
+                                                        alt="">
                                                 </div>
                                                 <div class="info-product">
                                                     <div class="name">
@@ -211,7 +216,8 @@
                                             </li>
                                             <li>
                                                 <div class="image">
-                                                    <img src="<?php echo base_url() ?>assets/images/product/other/02.jpg" alt="">
+                                                    <img src="<?php echo base_url() ?>assets/images/product/other/02.jpg"
+                                                        alt="">
                                                 </div>
                                                 <div class="info-product">
                                                     <div class="name">
@@ -226,7 +232,8 @@
                                             </li>
                                             <li>
                                                 <div class="image">
-                                                    <img src="<?php echo base_url() ?>assets/images/product/other/l01.jpg" alt="">
+                                                    <img src="<?php echo base_url() ?>assets/images/product/other/l01.jpg"
+                                                        alt="">
                                                 </div>
                                                 <div class="info-product">
                                                     <div class="name">
@@ -244,7 +251,8 @@
                                             </li>
                                             <li>
                                                 <div class="image">
-                                                    <img src="<?php echo base_url() ?>assets/images/product/other/s08.jpg" alt="">
+                                                    <img src="<?php echo base_url() ?>assets/images/product/other/s08.jpg"
+                                                        alt="">
                                                 </div>
                                                 <div class="info-product">
                                                     <div class="name">
@@ -327,7 +335,8 @@
                                 <ul>
                                     <li>
                                         <div class="img-product">
-                                            <img src="<?php echo base_url() ?>assets/images/product/other/img-cart-1.jpg" alt="">
+                                            <img src="<?php echo base_url() ?>assets/images/product/other/img-cart-1.jpg"
+                                                alt="">
                                         </div>
                                         <div class="info-product">
                                             <div class="name">
@@ -343,7 +352,8 @@
                                     </li>
                                     <li>
                                         <div class="img-product">
-                                            <img src="<?php echo base_url() ?>assets/images/product/other/img-cart-2.jpg" alt="">
+                                            <img src="<?php echo base_url() ?>assets/images/product/other/img-cart-2.jpg"
+                                                alt="">
                                         </div>
                                         <div class="info-product">
                                             <div class="name">
@@ -445,11 +455,14 @@
                                                         Headphones
                                                     </div>
                                                     <div class="more-link">
-                                                        <a href="#" title="">Shop Now <img src="<?php echo base_url() ?>assets/images/icons/right-2.png" alt=""></a>
+                                                        <a href="#" title="">Shop Now <img
+                                                                src="<?php echo base_url() ?>assets/images/icons/right-2.png"
+                                                                alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="banner-img">
-                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-01.png" alt="">
+                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-01.png"
+                                                        alt="">
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </li>
@@ -459,11 +472,14 @@
                                                         TV & Audio
                                                     </div>
                                                     <div class="more-link">
-                                                        <a href="#" title="">Shop Now <img src="<?php echo base_url() ?>assets/images/icons/right-2.png" alt=""></a>
+                                                        <a href="#" title="">Shop Now <img
+                                                                src="<?php echo base_url() ?>assets/images/icons/right-2.png"
+                                                                alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="banner-img">
-                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-02.png" alt="">
+                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-02.png"
+                                                        alt="">
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </li>
@@ -473,15 +489,18 @@
                                                         Computers
                                                     </div>
                                                     <div class="more-link">
-                                                        <a href="#" title="">Shop Now <img src="<?php echo base_url() ?>assets/images/icons/right-2.png" alt=""></a>
+                                                        <a href="#" title="">Shop Now <img
+                                                                src="<?php echo base_url() ?>assets/images/icons/right-2.png"
+                                                                alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="banner-img">
-                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-03.png" alt="">
+                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-03.png"
+                                                        alt="">
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </li>
-                                        </ul>	
+                                        </ul>
                                     </div>
                                 </div>
                             </li>
@@ -553,11 +572,14 @@
                                                         Headphones
                                                     </div>
                                                     <div class="more-link">
-                                                        <a href="#" title="">Shop Now <img src="<?php echo base_url() ?>assets/images/icons/right-2.png" alt=""></a>
+                                                        <a href="#" title="">Shop Now <img
+                                                                src="<?php echo base_url() ?>assets/images/icons/right-2.png"
+                                                                alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="banner-img">
-                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-01.png" alt="">
+                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-01.png"
+                                                        alt="">
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </li>
@@ -567,11 +589,14 @@
                                                         TV & Audio
                                                     </div>
                                                     <div class="more-link">
-                                                        <a href="#" title="">Shop Now <img src="<?php echo base_url() ?>assets/images/icons/right-2.png" alt=""></a>
+                                                        <a href="#" title="">Shop Now <img
+                                                                src="<?php echo base_url() ?>assets/images/icons/right-2.png"
+                                                                alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="banner-img">
-                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-02.png" alt="">
+                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-02.png"
+                                                        alt="">
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </li>
@@ -581,15 +606,18 @@
                                                         Computers
                                                     </div>
                                                     <div class="more-link">
-                                                        <a href="#" title="">Shop Now <img src="<?php echo base_url() ?>assets/images/icons/right-2.png" alt=""></a>
+                                                        <a href="#" title="">Shop Now <img
+                                                                src="<?php echo base_url() ?>assets/images/icons/right-2.png"
+                                                                alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="banner-img">
-                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-03.png" alt="">
+                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-03.png"
+                                                        alt="">
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </li>
-                                        </ul>	
+                                        </ul>
                                     </div>
                                 </div>
                             </li>
@@ -655,11 +683,14 @@
                                                         Headphones
                                                     </div>
                                                     <div class="more-link">
-                                                        <a href="#" title="">Shop Now <img src="<?php echo base_url() ?>assets/images/icons/right-2.png" alt=""></a>
+                                                        <a href="#" title="">Shop Now <img
+                                                                src="<?php echo base_url() ?>assets/images/icons/right-2.png"
+                                                                alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="banner-img">
-                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-01.png" alt="">
+                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-01.png"
+                                                        alt="">
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </li>
@@ -669,11 +700,14 @@
                                                         TV & Audio
                                                     </div>
                                                     <div class="more-link">
-                                                        <a href="#" title="">Shop Now <img src="<?php echo base_url() ?>assets/images/icons/right-2.png" alt=""></a>
+                                                        <a href="#" title="">Shop Now <img
+                                                                src="<?php echo base_url() ?>assets/images/icons/right-2.png"
+                                                                alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="banner-img">
-                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-02.png" alt="">
+                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-02.png"
+                                                        alt="">
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </li>
@@ -683,15 +717,18 @@
                                                         Computers
                                                     </div>
                                                     <div class="more-link">
-                                                        <a href="#" title="">Shop Now <img src="<?php echo base_url() ?>assets/images/icons/right-2.png" alt=""></a>
+                                                        <a href="#" title="">Shop Now <img
+                                                                src="<?php echo base_url() ?>assets/images/icons/right-2.png"
+                                                                alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="banner-img">
-                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-03.png" alt="">
+                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-03.png"
+                                                        alt="">
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </li>
-                                        </ul>	
+                                        </ul>
                                     </div>
                                 </div>
                             </li>
@@ -787,11 +824,14 @@
                                                         Headphones
                                                     </div>
                                                     <div class="more-link">
-                                                        <a href="#" title="">Shop Now <img src="<?php echo base_url() ?>assets/images/icons/right-2.png" alt=""></a>
+                                                        <a href="#" title="">Shop Now <img
+                                                                src="<?php echo base_url() ?>assets/images/icons/right-2.png"
+                                                                alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="banner-img">
-                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-01.png" alt="">
+                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-01.png"
+                                                        alt="">
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </li>
@@ -801,11 +841,14 @@
                                                         TV & Audio
                                                     </div>
                                                     <div class="more-link">
-                                                        <a href="#" title="">Shop Now <img src="<?php echo base_url() ?>assets/images/icons/right-2.png" alt=""></a>
+                                                        <a href="#" title="">Shop Now <img
+                                                                src="<?php echo base_url() ?>assets/images/icons/right-2.png"
+                                                                alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="banner-img">
-                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-02.png" alt="">
+                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-02.png"
+                                                        alt="">
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </li>
@@ -815,15 +858,18 @@
                                                         Computers
                                                     </div>
                                                     <div class="more-link">
-                                                        <a href="#" title="">Shop Now <img src="<?php echo base_url() ?>assets/images/icons/right-2.png" alt=""></a>
+                                                        <a href="#" title="">Shop Now <img
+                                                                src="<?php echo base_url() ?>assets/images/icons/right-2.png"
+                                                                alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="banner-img">
-                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-03.png" alt="">
+                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-03.png"
+                                                        alt="">
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </li>
-                                        </ul>	
+                                        </ul>
                                     </div>
                                 </div>
                             </li>
@@ -899,11 +945,14 @@
                                                         Headphones
                                                     </div>
                                                     <div class="more-link">
-                                                        <a href="#" title="">Shop Now <img src="<?php echo base_url() ?>assets/images/icons/right-2.png" alt=""></a>
+                                                        <a href="#" title="">Shop Now <img
+                                                                src="<?php echo base_url() ?>assets/images/icons/right-2.png"
+                                                                alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="banner-img">
-                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-01.png" alt="">
+                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-01.png"
+                                                        alt="">
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </li>
@@ -913,11 +962,14 @@
                                                         TV & Audio
                                                     </div>
                                                     <div class="more-link">
-                                                        <a href="#" title="">Shop Now <img src="<?php echo base_url() ?>assets/images/icons/right-2.png" alt=""></a>
+                                                        <a href="#" title="">Shop Now <img
+                                                                src="<?php echo base_url() ?>assets/images/icons/right-2.png"
+                                                                alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="banner-img">
-                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-02.png" alt="">
+                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-02.png"
+                                                        alt="">
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </li>
@@ -927,15 +979,18 @@
                                                         Computers
                                                     </div>
                                                     <div class="more-link">
-                                                        <a href="#" title="">Shop Now <img src="<?php echo base_url() ?>assets/images/icons/right-2.png" alt=""></a>
+                                                        <a href="#" title="">Shop Now <img
+                                                                src="<?php echo base_url() ?>assets/images/icons/right-2.png"
+                                                                alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="banner-img">
-                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-03.png" alt="">
+                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-03.png"
+                                                        alt="">
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </li>
-                                        </ul>	
+                                        </ul>
                                     </div>
                                 </div>
                             </li>
@@ -1007,11 +1062,14 @@
                                                         Headphones
                                                     </div>
                                                     <div class="more-link">
-                                                        <a href="#" title="">Shop Now <img src="<?php echo base_url() ?>assets/images/icons/right-2.png" alt=""></a>
+                                                        <a href="#" title="">Shop Now <img
+                                                                src="<?php echo base_url() ?>assets/images/icons/right-2.png"
+                                                                alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="banner-img">
-                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-01.png" alt="">
+                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-01.png"
+                                                        alt="">
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </li>
@@ -1021,11 +1079,14 @@
                                                         TV & Audio
                                                     </div>
                                                     <div class="more-link">
-                                                        <a href="#" title="">Shop Now <img src="<?php echo base_url() ?>assets/images/icons/right-2.png" alt=""></a>
+                                                        <a href="#" title="">Shop Now <img
+                                                                src="<?php echo base_url() ?>assets/images/icons/right-2.png"
+                                                                alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="banner-img">
-                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-02.png" alt="">
+                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-02.png"
+                                                        alt="">
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </li>
@@ -1035,15 +1096,18 @@
                                                         Computers
                                                     </div>
                                                     <div class="more-link">
-                                                        <a href="#" title="">Shop Now <img src="<?php echo base_url() ?>assets/images/icons/right-2.png" alt=""></a>
+                                                        <a href="#" title="">Shop Now <img
+                                                                src="<?php echo base_url() ?>assets/images/icons/right-2.png"
+                                                                alt=""></a>
                                                     </div>
                                                 </div>
                                                 <div class="banner-img">
-                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-03.png" alt="">
+                                                    <img src="<?php echo base_url() ?>assets/images/banner_boxes/menu-03.png"
+                                                        alt="">
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </li>
-                                        </ul>	
+                                        </ul>
                                     </div>
                                 </div>
                             </li>
@@ -1058,34 +1122,44 @@
                                     <a href="index.html" title="">Home</a>
                                     <ul class="submenu">
                                         <li>
-                                            <a href="index.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Home Layout 01</a>
+                                            <a href="index.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Home Layout 01</a>
                                         </li>
                                         <li>
-                                            <a href="index-v2.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Home Layout 02</a>
+                                            <a href="index-v2.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Home Layout 02</a>
                                         </li>
                                         <li>
-                                            <a href="index-v3.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Home Layout 03</a>
+                                            <a href="index-v3.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Home Layout 03</a>
                                         </li>
                                         <li>
-                                            <a href="index-v4.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Home Layout 04</a>
+                                            <a href="index-v4.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Home Layout 04</a>
                                         </li>
                                         <li>
-                                            <a href="index-v5.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Home Layout 05</a>
+                                            <a href="index-v5.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Home Layout 05</a>
                                         </li>
                                         <li>
-                                            <a href="index-v6.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Home Layout 06</a>
+                                            <a href="index-v6.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Home Layout 06</a>
                                         </li>
                                         <li>
-                                            <a href="index-v7.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Home Layout 07</a>
+                                            <a href="index-v7.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Home Layout 07</a>
                                         </li>
                                         <li>
-                                            <a href="index-v8.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Home Layout 08</a>
+                                            <a href="index-v8.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Home Layout 08</a>
                                         </li>
                                         <li>
-                                            <a href="index-v9.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Home Layout 09</a>
+                                            <a href="index-v9.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Home Layout 09</a>
                                         </li>
                                         <li>
-                                            <a href="index-v10.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Home Layout 10</a>
+                                            <a href="index-v10.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Home Layout 10</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -1093,25 +1167,32 @@
                                     <a href="shop.html" title="">Shop</a>
                                     <ul class="submenu">
                                         <li>
-                                            <a href="shop.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Shop left sidebar</a>
+                                            <a href="shop.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Shop left sidebar</a>
                                         </li>
                                         <li>
-                                            <a href="shop-v2.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Shop right sidebar</a>
+                                            <a href="shop-v2.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Shop right sidebar</a>
                                         </li>
                                         <li>
-                                            <a href="shop-v3.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Shop list view</a>
+                                            <a href="shop-v3.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Shop list view</a>
                                         </li>
                                         <li>
-                                            <a href="shop-v4.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Shop full width</a>
+                                            <a href="shop-v4.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Shop full width</a>
                                         </li>
                                         <li>
-                                            <a href="shop-v5.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Shop 03 column</a>
+                                            <a href="shop-v5.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Shop 03 column</a>
                                         </li>
                                         <li>
-                                            <a href="shop-cart.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Shop cart</a>
+                                            <a href="shop-cart.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Shop cart</a>
                                         </li>
                                         <li>
-                                            <a href="shop-checkout.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Shop checkout</a>
+                                            <a href="shop-checkout.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Shop checkout</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -1119,22 +1200,28 @@
                                     <a href="#" title="">Features</a>
                                     <ul class="submenu">
                                         <li>
-                                            <a href="#" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Home Theater Systems</a>
+                                            <a href="#" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Home Theater Systems</a>
                                         </li>
                                         <li>
-                                            <a href="#" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Receivers & Amplifiers</a>
+                                            <a href="#" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Receivers & Amplifiers</a>
                                         </li>
                                         <li>
-                                            <a href="#" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Speakers</a>
+                                            <a href="#" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Speakers</a>
                                         </li>
                                         <li>
-                                            <a href="#" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>CD Players & Turntables</a>
+                                            <a href="#" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>CD
+                                                Players & Turntables</a>
                                         </li>
                                         <li>
-                                            <a href="#" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>High-Resolution Audio</a>
+                                            <a href="#" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>High-Resolution Audio</a>
                                         </li>
                                         <li>
-                                            <a href="#" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>4K Ultra HD TVs</a>
+                                            <a href="#" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>4K
+                                                Ultra HD TVs</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -1249,7 +1336,8 @@
                                                 <div class="banner-box">
                                                     <div class="inner-box">
                                                         <a href="#" title="">
-                                                            <img src="<?php echo base_url() ?>assets/images/banner_boxes/submenu-01.png" alt="">
+                                                            <img src="<?php echo base_url() ?>assets/images/banner_boxes/submenu-01.png"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                 </div>
@@ -1258,7 +1346,8 @@
                                                 <div class="banner-box">
                                                     <div class="inner-box">
                                                         <a href="#" title="">
-                                                            <img src="<?php echo base_url() ?>assets/images/banner_boxes/submenu-02.png" alt="">
+                                                            <img src="<?php echo base_url() ?>assets/images/banner_boxes/submenu-02.png"
+                                                                alt="">
                                                         </a>
                                                     </div>
                                                 </div>
@@ -1270,46 +1359,60 @@
                                     <a href="#" title="">Pages</a>
                                     <ul class="submenu">
                                         <li>
-                                            <a href="about.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>About</a>
+                                            <a href="about.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>About</a>
                                         </li>
                                         <li>
-                                            <a href="404.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>404 Page</a>
+                                            <a href="404.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>404 Page</a>
                                         </li>
                                         <li>
-                                            <a href="brands.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Brands Page</a>
+                                            <a href="brands.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Brands Page</a>
                                         </li>
                                         <li>
-                                            <a href="categories.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Categories 01</a>
+                                            <a href="categories.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Categories 01</a>
                                         </li>
                                         <li>
-                                            <a href="categories-v2.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Categories 02</a>
+                                            <a href="categories-v2.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Categories 02</a>
                                         </li>
                                         <li>
-                                            <a href="element.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Element</a>
+                                            <a href="element.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Element</a>
                                         </li>
                                         <li>
-                                            <a href="faq.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>FAQ</a>
+                                            <a href="faq.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>FAQ</a>
                                         </li>
                                         <li>
-                                            <a href="order-tracking.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Order Tracking</a>
+                                            <a href="order-tracking.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Order Tracking</a>
                                         </li>
                                         <li>
-                                            <a href="term-condition.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Terms & Conditions</a>
+                                            <a href="term-condition.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Terms & Conditions</a>
                                         </li>
                                         <li>
-                                            <a href="single-product.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Single Product 01</a>
+                                            <a href="single-product.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Single Product 01</a>
                                         </li>
                                         <li>
-                                            <a href="single-product-v2.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Single Product 02</a>
+                                            <a href="single-product-v2.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Single Product 02</a>
                                         </li>
                                         <li>
-                                            <a href="single-product-v3.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Single Product 03</a>
+                                            <a href="single-product-v3.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Single Product 03</a>
                                         </li>
                                         <li>
-                                            <a href="single-product-v4.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Single Product 04</a>
+                                            <a href="single-product-v4.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Single Product 04</a>
                                         </li>
                                         <li>
-                                            <a href="single-product-v5.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Single Product 05</a>
+                                            <a href="single-product-v5.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Single Product 05</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -1317,22 +1420,28 @@
                                     <a href="blog.html" title="">Blog</a>
                                     <ul class="submenu">
                                         <li>
-                                            <a href="blog.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Blog left sidebar</a>
+                                            <a href="blog.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Blog left sidebar</a>
                                         </li>
                                         <li>
-                                            <a href="blog-v2.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Blog right sidebar</a>
+                                            <a href="blog-v2.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Blog right sidebar</a>
                                         </li>
                                         <li>
-                                            <a href="blog-v3.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Blog list</a>
+                                            <a href="blog-v3.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Blog list</a>
                                         </li>
                                         <li>
-                                            <a href="blog-v4.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Blog 02 column</a>
+                                            <a href="blog-v4.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Blog 02 column</a>
                                         </li>
                                         <li>
-                                            <a href="blog-v5.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Blog full width</a>
+                                            <a href="blog-v5.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Blog full width</a>
                                         </li>
                                         <li>
-                                            <a href="blog-single.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Blog single</a>
+                                            <a href="blog-single.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Blog single</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -1340,10 +1449,12 @@
                                     <a href="contact.html" title="">Contact</a>
                                     <ul class="submenu">
                                         <li>
-                                            <a href="contact.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Contact 01</a>
+                                            <a href="contact.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Contact 01</a>
                                         </li>
                                         <li>
-                                            <a href="contact-v2.html" title=""><i class="fa fa-angle-right" aria-hidden="true"></i>Contact 02</a>
+                                            <a href="contact-v2.html" title=""><i class="fa fa-angle-right"
+                                                    aria-hidden="true"></i>Contact 02</a>
                                         </li>
                                     </ul>
                                 </li>

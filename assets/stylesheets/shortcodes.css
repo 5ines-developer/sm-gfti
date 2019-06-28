@@ -436,7 +436,7 @@
 }
 
 .product-box.color:hover .imagebox {
-	border-color:#f28b00 !important;
+	border-color:#22baba !important;
 }
 
 /* Product Box Style4 */
@@ -474,7 +474,7 @@
 	font-size:12px;
 	font-weight:600;
 	text-align:center;
-	background-color:#f28b00;
+	background-color:#22baba;
 	border-radius:50%;
 	z-index:99;
 }
@@ -519,7 +519,7 @@
 }
 
 .imagebox .box-content .product-name a:hover {
-	color:#f28b00;
+	color:#22baba;
 }
 
 .imagebox .box-content .price .sale {
@@ -561,7 +561,7 @@
 	top:0;
 	left:0;
 	z-index:-1;
-	background:#f28b00;
+	background:#22baba;
 	-webkit-transform:scaleX(0);
 	transform:scaleX(0);
 	-webkit-transform-origin:0 50%;
@@ -602,7 +602,7 @@
 }
 
 .imagebox .box-bottom .compare-wishlist a:hover {
-	color:#f28b00;
+	color:#22baba;
 }
 
 .imagebox .box-bottom .compare-wishlist a.compare {
@@ -768,12 +768,12 @@
 }
 
 .imagebox.style1.v1 ul.cat-list li a:hover {
-	color:#f28b00;
+	color:#22baba;
 }
 
 .imagebox.style1.v1 .btn-more a {
 	margin-top:15px;
-	color:#f28b00;
+	color:#22baba;
 	display:block;
 }
 
@@ -783,7 +783,7 @@
 }
 
 .imagebox.style1.v2:hover {
-	border-color:#f28b00;
+	border-color:#22baba;
 	box-shadow:none;
 }
 
@@ -1018,7 +1018,7 @@
 
 /* Box 6 Big */
 .box-6.big .product-box:hover {
-	border:2px solid #f28b00;
+	border:2px solid #22baba;
 }
 
 .box-6.big .product-box:hover .imagebox {
@@ -1160,7 +1160,7 @@
 	font-weight:bold;
 	font-size:18px;
 	color:#fff;
-	background-color:#f28b00;
+	background-color:#22baba;
 	height:54px;
 	line-height:53px;
 	padding:0 21px;
@@ -1420,7 +1420,7 @@
 .count-down .square .text {
 	margin-top:14px;
 	margin-left:-4px;
-	color:#f28b00;
+	color:#22baba;
 	font-size:20px;
 	font-family:'Nunito';
 	font-weight:500;
@@ -1499,7 +1499,7 @@
 	position:absolute;
 	top:36px;
 	left:-2px;
-	background-color:#f28b00;
+	background-color:#22baba;
 	padding:0px 36px 0 30px;
 	height:62px;
 	line-height:67px;
@@ -1608,7 +1608,7 @@
 }
 
 .imagebox:hover.style4 {
-	border:2px solid #f28b00;
+	border:2px solid #22baba;
 }
 
 
@@ -1619,7 +1619,7 @@
 }
 
 .imagebox:hover.style4-4 {
-	border:1px solid #f28b00 !important;
+	border:1px solid #22baba !important;
 }
 
 
@@ -1845,7 +1845,7 @@ ul.product-list.style1.v2 li:not(:last-child) {
 
 .iconbox .box-header:hover .image:before {
 	
-	border:2px solid #f28b00;
+	border:2px solid #22baba;
 	
 }
 
@@ -1958,7 +1958,7 @@ body.background section.flat-row.flat-banner-box .container {
 }
 
 .product-wrap.style2 .product .product-item .imagebox.style2:hover {
-	border:2px solid #f28b00;
+	border:2px solid #22baba;
 }
 
 .flat-imagebox.style2 .product-wrap.style2 .product .product-item .imagebox.style2 {
@@ -2101,7 +2101,7 @@ ul.flat-infomation.style1 li img {
 	font-family:'Nunito';
 	font-size:70px;
 	font-weight:500;
-	color:#f28b00;
+	color:#22baba;
 	margin-bottom:15px;
 }
 
@@ -2265,7 +2265,7 @@ ul.flat-infomation.style1 li img {
 	margin-bottom:12px;
 	margin-top:0px;
 	font-size:70px;
-	color:#f28b00;
+	color:#22baba;
 }
 
 .slider .slider-item.style4 .item-text .header-item p:last-child {
@@ -2394,12 +2394,12 @@ ul.flat-infomation.style1 li img {
 
 .slider .slider-item.style8 .item-text .content-item .price .sale {
 	background:transparent;
-	color:#f28b00;
+	color:#22baba;
 }
 
 .slider .slider-item.style8 .item-text .content-item .btn-shop a {
-	border-color:#f28b00;
-	background:#f28b00;
+	border-color:#22baba;
+	background:#22baba;
 	color:#fff;
 	line-height:48px;
 	margin-left:4px;
@@ -2558,7 +2558,7 @@ ul.flat-infomation.style1 li img {
 }
 
 .slider-item.style2 .item-text .content-item .price .sale {
-	background-color:#f28b00;
+	background-color:#22baba;
 }
 
 .slider-item.style2.v2 {
@@ -2644,7 +2644,7 @@ ul.flat-infomation.style1 li img {
 
 .slider .slider-item.style10 .item-text .content-item .price .sale {
 	background:transparent;
-	color:#f28b00;
+	color:#22baba;
 	font-weight:bold;
 }
 
@@ -3025,7 +3025,7 @@ main#home-4 {
 	top:-1px;
 	left:0;
 	height:100%;
-	border-color:#f28b00;
+	border-color:#22baba;
 	border-width:1px 0 1px 0;
 	-webkit-transition-delay:0.05s;
 	transition-delay:0.05s;
@@ -3049,7 +3049,7 @@ main#home-4 {
 	top:0px;
 	left:-1px;
 	height:100%;
-	border-color:#f28b00;
+	border-color:#22baba;
 	border-width:0 1px 0 1px;
 	-webkit-transition-delay:0.05s;
 	transition-delay:0.05s;
@@ -3178,7 +3178,7 @@ main#home-4 {
 /* Owl Carousel-3 */
 .owl-carousel-3.owl-theme .owl-controls .owl-nav div.owl-prev:hover,
 .owl-carousel-3.owl-theme .owl-controls .owl-nav div.owl-next:hover {
-	border:2px solid #f28b00;
+	border:2px solid #22baba;
 }
 
 .owl-carousel-3.owl-theme .owl-controls .owl-nav div.owl-next {
@@ -3748,7 +3748,7 @@ body.background .flat-imagebox.style4 .owl-carousel-3.owl-theme .owl-controls .o
 }
 
 .header-bottom .grid-right {
-	background-color:#f28b00;
+	background-color:#22baba;
 	border-radius:5px;
 	padding:7px 45px 8px 62px;
 }
@@ -3889,7 +3889,7 @@ body.background .flat-imagebox.style4 .owl-carousel-3.owl-theme .owl-controls .o
 
 .widget-categories > ul.cat-list.style1 > li.active > span,
 .widget-categories > ul.cat-list.style1 > li > span:hover {
-	color:#f28b00;
+	color:#22baba;
 }
 
 .widget-categories > ul.cat-list.style1 > li > span.active:before {
@@ -3997,7 +3997,7 @@ body.background .flat-imagebox.style4 .owl-carousel-3.owl-theme .owl-controls .o
 }
 
 input[type="checkbox"]:checked + label:before {
-	background-color:#f28b00;
+	background-color:#22baba;
 }
 
 .check-box input[type="checkbox"]:checked + label:before {
@@ -4141,7 +4141,7 @@ input[type="checkbox"]:checked + label:before {
 
 /* Box Filter */
 .filter {
-	background-color:#f28b00;
+	background-color:#22baba;
 	padding:0 33px;
 	color:#fff;
 	height:40px;
@@ -4210,7 +4210,7 @@ input[type="checkbox"]:checked + label:before {
 }
 
 .box-filter .widget .widget-content .box-checkbox .check-box input[type="checkbox"]:checked + label:before  {
-	background: #f28b00;
+	background: #22baba;
 }
 
 /* Wrap Imagebox Style1 */
@@ -4281,7 +4281,7 @@ input[type="checkbox"]:checked + label:before {
 }
 
 .queue i {
-	color:#f28b00;
+	color:#22baba;
 	font-size:11px;
 	margin-right:5px;
 }
@@ -4630,7 +4630,7 @@ input[type="checkbox"]:checked + label:before {
 }
 
 .product-detail.style2 .quanlity-box .text p.price {
-	color:#f28b00;
+	color:#22baba;
 	font-size:16px;
 }
 
@@ -4847,7 +4847,7 @@ input[type="checkbox"]:checked + label:before {
 }
 
 .rating .queue-box li span i {
-	color:#f28b00;
+	color:#22baba;
 	font-size:14px;
 	margin-right:8px;
 }
@@ -5145,7 +5145,7 @@ input[type="checkbox"]:checked + label:before {
 	height:45px;
 	line-height:45px;
 	width:45px;
-	background:#f28b00;
+	background:#22baba;
 	border-radius:50%;
 	color:#fff;
 	font-size:13px;
@@ -5215,7 +5215,7 @@ input[type="checkbox"]:checked + label:before {
 	height:45px;
 	line-height:45px;
 	width:45px;
-	background:#f28b00;
+	background:#22baba;
 	border-radius:50%;
 	color:#fff;
 	font-size:13px;
@@ -5511,7 +5511,7 @@ input[type="checkbox"]:checked + label:before {
 }
 
 .table-cart tr td .total {
-	color:#f28b00;
+	color:#22baba;
 	font-size:20px;
 	font-family:'Nunito';
 }
@@ -5598,7 +5598,7 @@ input[type="checkbox"]:checked + label:before {
 	font-size:24px;
 	font-weight:500;
 	font-family:'Nunito';
-	color:#f28b00;
+	color:#22baba;
 	padding:22px 0;
 }
 
@@ -5713,7 +5713,7 @@ input[type="checkbox"]:checked + label:before {
 }
 
 .box-checkout .checkout-login a {
-	color:#f28b00;
+	color:#22baba;
 }
 
 .billing-fields .fields-title h3,
@@ -5826,7 +5826,7 @@ input[type="checkbox"] {
 }
 
 .checkbox input[type="checkbox"]:checked + label::after {
-	background-color:#f28b00;
+	background-color:#22baba;
 }
 
 /* Cart Total Style 2 */
@@ -6024,7 +6024,7 @@ table.product thead tr th:last-child {
 	color:#fff;
 	font-size:16px;
 	font-weight:600;
-	background-color:#f28b00;
+	background-color:#22baba;
 	height:50px;
 	line-height:50px;
 	border-radius:25px;
@@ -6176,7 +6176,7 @@ table.product thead tr th:last-child {
 }
 
 .table-wishlist tbody tr td > div.price {
-	color:#f28b00;
+	color:#22baba;
 	font-size:20px;
 	font-family:'Nunito';
 }
@@ -6321,7 +6321,7 @@ table.product thead tr th:last-child {
 }
 
 .table-compare tr td.price {
-	color:#f28b00;
+	color:#22baba;
 	font-size:22px;
 	font-family:'Nunito';
 	font-weight:500;
@@ -6354,7 +6354,7 @@ table.product thead tr th:last-child {
 	height:100%;
 	top:0;
 	left:0;
-	background:#f28b00;
+	background:#22baba;
 	z-index:-1;
 	-webkit-transform:scaleX(0);
 	transform:scaleX(0);
@@ -6463,7 +6463,7 @@ table.product thead tr th:last-child {
 }
 
 .team-member .member .image-member:hover img {
-	border:2px solid #f28b00;
+	border:2px solid #22baba;
 }
 
 .team-member .member .member-info .name-member {
@@ -6892,7 +6892,7 @@ table.product thead tr th:last-child {
 	height:100%;
 	top:0;
 	left:0;
-	background:#f28b00;
+	background:#22baba;
 	z-index:-1;
 	-webkit-transform:scaleX(0);
 	transform:scaleX(0);
@@ -7010,7 +7010,7 @@ table.product thead tr th:last-child {
 	height:6px;
 	width:0;
 	border-radius:3px;
-	background-color:#f28b00;
+	background-color:#22baba;
 }
 
 .progress-circle {
@@ -7103,7 +7103,7 @@ table.product thead tr th:last-child {
 
 .form-input .form-box .form-box-content ul li:hover,
 .form-input .form-box .form-box-content ul li.active {
-	color:#f28b00;
+	color:#22baba;
 }
 
 .form-input .form-box .form-box-content ul li:not(:last-child) {
@@ -7171,7 +7171,7 @@ ul.brands-tablist li {
 
 ul.brands-tablist li:hover,
 ul.brands-tablist li.active {
-	color:#f28b00;
+	color:#22baba;
 }
 
 .brands-list {
@@ -7197,7 +7197,7 @@ ul.brands-tablist li.active {
 }
 
 .brands-list .brands-item a.box-cat:hover {
-	background-color:#f28b00;
+	background-color:#22baba;
 	color:#fff;
 }
 
@@ -7255,7 +7255,7 @@ ul.brands-tablist li.active {
 }
 
 .imagebox.style6 .box-content .btn-more a {
-	color:#f28b00;
+	color:#22baba;
 	font-size:14px;
 	font-weight:600;
 }
@@ -7372,7 +7372,7 @@ ul.brands-tablist li.active {
 }
 
 .location .location-content ul.location-list li:hover {
-	color:#f28b00;
+	color:#22baba;
 }
 
 .location-detail {
@@ -7451,7 +7451,7 @@ ul.brands-tablist li.active {
 	height:40px;
 	right:10px;
 	top:-20px;
-	background-color:#f28b00;
+	background-color:#22baba;
 	border-radius:50%;
 	cursor:pointer;
 }

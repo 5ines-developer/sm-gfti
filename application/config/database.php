@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'sm_ecommerece',
+	'hostname' => 'www.5ineprojects.com',
+	'username' => 'a5inepro_siemens',
+	'password' => 'szmGbB*O+b8U',
+	'database' => 'a5inepro_siemens',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
