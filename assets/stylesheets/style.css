@@ -3439,3 +3439,17 @@ ol.comment-list li.comment .comment-text .comment-content p {
   .model-icon{font-size: 5em;margin-bottom: 10px}
   .mb15{margin-bottom: 15px}
   .content{font-size: 14px}
+
+  /* account settings */
+#account-settings{ background-color: #f8f8f8; padding: 50px 0px; }
+.sidebar { background: #fff; padding: 20px; border-radius: 2px; box-shadow: 0px 2px 3px 0px rgba(234, 234, 234, 1); margin-bottom: 20px;}
+.card { padding: 50px; box-shadow: 0px 0px 5px #80808040; }
+.mb-30{margin-bottom: 30px}
+
+/* home */
+.tab-list-full { position: relative; overflow-x: auto; overflow-y: hidden; width: 100%; margin: 0 auto; white-space: nowrap; }
+
+
+  @media (max-width:600px){
+	.card { padding: 30px;}
+  }
