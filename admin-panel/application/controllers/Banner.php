@@ -61,7 +61,7 @@ class Banner extends CI_Controller {
             $files = $_FILES;
             $filesCount = count($_FILES['banner']['name']);
             if(file_exists($_FILES['banner']['tmp_name'])) {
-            $config['upload_path']          = 'banner-image/';
+            $config['upload_path']          = '../banner-image/';
             $config['allowed_types']        = 'jpg|png|jpeg';                
             $config['max_width']            = 0;
             $config['encrypt_name']         = TRUE;
@@ -77,7 +77,6 @@ class Banner extends CI_Controller {
             else
             {
                 $upload_data = $this->upload->data();
-                $path           =   $upload_data['full_path'];
                 $file_name      =   $upload_data['file_name'];        
                 
             }
@@ -94,7 +93,7 @@ class Banner extends CI_Controller {
 
             if(file_exists($_FILES['banner']['tmp_name'])) {
                 $insert['image']     =  $file_name;
-                $insert['path']      =   $path ;
+                $insert['path']      =  'banner-image/'.$file_name ;
                 
             }
            $output = $this->Banner_model->insert($insert);

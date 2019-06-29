@@ -81,6 +81,7 @@ $route['manage-product'] 		 = 'Product/manage_product';
 $route['delete-product/(:any)']  = 'Product/delete_product/$1';
 $route['view-product/(:any)']    = 'Product/view_product/$1';
 $route['delete-brand']           = 'Product/delete_brand';
+$route['delete-marquee']         = 'Product/delete_marquee';
 $route['edit-product/(:any)']    = 'Product/edit_product/$1';
 // Banner
 $route['add-banner'] 		     = 'Banner/index';
@@ -94,5 +95,8 @@ $route['insert-domain'] 		 = 'Domain/add_domain';
 $route['manage-domain'] 		 = 'Domain/manage_domain';
 $route['delete-domain/(:any)']   = 'Domain/delete_domain/$1';
 $route['edit-domain/(:any)']     = 'Domain/edit_domain/$1';
-
+//employee
+$route['manage-employee'] 		 = 'Employee/index';
+$route['delete-employee/(:any)'] = 'Employee/delete_employee/$1';
+$route['view-employee/(:any)'] = 'Employee/view_employee/$1';
 

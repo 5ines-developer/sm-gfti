@@ -102,7 +102,7 @@
                     <?php } ?>
 
                   <div class="x_title">
-                    <h2>Banner List</h2>
+                    <h2>Domain List</h2>
                     <div class="banner-button">
                     	<a type="button" class="btn btn-success" href="<?php echo base_url()?>add-banner"><i class="fa fa-plus" aria-hidden="true"></i> Add Banner</a>
                     </div>

@@ -123,7 +123,7 @@
                                                             <div class="">
                                                                 <div class="image view view-first">
                                                                     <img style="width: 100%; display: block;"
-                                                                    src="<?php echo base_url().'category-image/'.$category['image'] ?>"
+                                                                    src="<?php echo $this->config->item('web_url').'category-image/'.$category['image'] ?>"
                                                                     alt="image">
                                                                 </div>
                                                             </div>

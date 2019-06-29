@@ -51,7 +51,7 @@ class Category extends CI_Controller {
         $data = base64_decode($data);
         $imageName = time().'.png';
 
-         file_put_contents('category-image/'.$imageName, $data);
+         file_put_contents('../category-image/'.$imageName, $data);
 
 
         $insert = array(
@@ -62,6 +62,7 @@ class Category extends CI_Controller {
 
         if ($bancheck !='') {
             $insert['image'] = $imageName;
+            $insert['path']  = 'category-image/'.$imageName;
         }
 
         $result = $this->Category_model->insert($insert);

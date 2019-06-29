@@ -157,23 +157,21 @@
 
 
                                                             <?php 
-                                                            if(!empty($brand)){
-                                                            foreach ($brand as $key => $value) { ?>
+                                                            if(!empty($marquee)){
+                                                            foreach ($marquee as $key => $value) { ?>
 
                                                             <div class="row" id="marqaddnext">
                                                                 <div class="col-md-6 col-sm-6 col-xs-12 mar-12">
-                                                                    <input type="text" class="form-control "
-                                                                        name="brand_title[]" placeholder="Brand title"
-                                                                        value="<?php  echo(!empty($value->title))?$value->title:'';  ?>">
+                                                                <input type="text" class="form-control " name="marquee_title[]" placeholder="Marquee title" value="<?php  echo(!empty($value->title))?$value->title:'';  ?>">
+
                                                                 </div>
                                                                 <div class="col-md-4 col-sm-4 col-xs-12">
-                                                                    <input type="number" class="form-control "
-                                                                        name="brand_price[]" placeholder="Brand price"
-                                                                        value="<?php  echo(!empty($value->title))?$value->price:'';  ?>">
-                                                                        <input type="hidden" value="<?php  echo(!empty($value->brand_uniq))?$value->brand_uniq:'';  ?>" name="marqueeunq[]">
+                                                                <input type="test" class="form-control "
+                                                                        name="marquee_link[]" placeholder="Marquee link" value="<?php  echo(!empty($value->link))?$value->link:'';  ?>">
+                                                                        <input type="hidden" value="<?php  echo(!empty($value->uniq))?$value->uniq:'';  ?>" name="marqueeunq[]">
                                                                 </div>
                                                                 <div class="col-md-2 col-sm-2">
-                                                                    <a id="brandremove" class="brandremove brandplus remov" value="<?php echo $value->id ?>"><i
+                                                                    <a id="brandremove" class="marqueeremove brandplus remov" value="<?php echo $value->id ?>"><i
                                                                             class="fa fa-times" aria-hidden="true"></i></a>
                                                                 </div>
                                                             </div>
@@ -321,7 +319,7 @@
                                                         <div class="">
                                                             <div class="image view view-first">
                                                                 <img style="width: 100%; display: block;"
-                                                                    src="<?php echo base_url().'product-image/'.$product['image_thumbnail'] ?>"
+                                                                    src="<?php echo $this->config->item('web_url').'product-image/'.$product['image_thumbnail'] ?>"
                                                                     alt="image">
                                                             </div>
                                                         </div>
@@ -461,6 +459,35 @@
                     type: "get",
                     data: {
                         "brandid": brandid,
+                    },
+                    success: function(data) {
+                        if (!empty(data)) {
+                            alert('ok');
+                        }else{
+                            alert('not ok')
+                        }
+                    }
+                });
+            }
+        });
+    });
+    </script>
+
+
+<script>
+    $(document).ready(function() {
+        $('.marqueeremove').on('click', function(e) {
+            e.preventDefault();
+            var marqueid = $(this).attr('value');
+
+            if (!confirm("Are you sure you want to delete this item?")){
+                  return false;
+                }else{
+                    $.ajax({
+                    url: "<?php echo base_url();?>delete-marquee",
+                    type: "get",
+                    data: {
+                        "marqueid": marqueid,
                     },
                     success: function(data) {
                         if (!empty(data)) {

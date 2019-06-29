@@ -72,7 +72,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <!-- <h3>product</h3> -->
+                <h3></h3>
               </div>
             </div>
 
@@ -102,10 +102,7 @@
                     <?php } ?>
 
                   <div class="x_title">
-                    <h2>products</h2>
-                    <div class="banner-button">
-                    	<a type="button" class="btn btn-success" href="<?php echo base_url()?>add-product"><i class="fa fa-plus" aria-hidden="true"></i> Add Product</a>
-                    </div>
+                    <h2>Employee List</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -113,30 +110,26 @@
                       <thead>
                         <tr>
                           <th>Sl No.</th>
-                          <th>product</th>
-                          <th>product image</th>
-                          <th>product ID</th>
-                          <th>Created On</th>
-                          <th>Updated On</th>
-                          <th>Created By</th>
+                          <th>Name</th>
+                          <th>Email</th>
+                          <th>Phone</th>
+                          <th>Registered On</th>
                           <th>Operations</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <?php  $cont = 0; if (!empty($product)) 
+                        <?php  $cont = 0; if (!empty($employee)) 
                         {
-                         foreach ($product as $key => $value) {$cont = $cont + 1;?>
+                         foreach ($employee as $key => $value) {$cont = $cont + 1;?>
                         <tr>
-                        <td><?php echo (!empty($product))?$cont:'' ?></td>
-                        <td><?php echo (!empty($value->title))?$value->title:''  ?></td>
-                        <td><center><img class="table-image" src="<?php echo $this->config->item('web_url').'product-image/'.$value->image_thumbnail ?>" alt="image"></center></td>
-                        <td><?php echo (!empty($value->product_id))?$value->product_id:''  ?></td>
+                        <td><?php echo (!empty($employee))?$cont:'' ?></td>
+                        <td><?php echo (!empty($value->name))?$value->name:''  ?></td>
+                        <td><?php echo (!empty($value->email))?$value->email:''  ?></td>
+                        <td><?php echo (!empty($value->phone))?$value->phone:''  ?></td>
                         <td><?php echo (!empty($value->created_on))?date("d-M-y", strtotime($value->created_on)):''; ?></td>
-                        <td><?php echo (!empty($value->update_on))?date("d-M-y", strtotime($value->update_on)):''; ?></td>
-                         <td><?php echo $this->ci->Product_model->createdby($value->created_by) ?></td> 
-                        <td style="text-align:center;"><a href="<?php echo base_url('edit-product/').$value->id?>" style="font-size: 22px;color: #2e9be0"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>&nbsp;&nbsp;
-                          <a href="<?php echo base_url('view-product/').$value->id?>" style="font-size: 20px;color: #257225" ><i class="fa fa-eye" aria-hidden="true"></i></a>&nbsp;&nbsp;
-                          <a class="exdelete" href="<?php echo base_url('delete-product/').$value->id?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a>&nbsp;&nbsp;
+                        <td style="text-align:center;">
+                        <a href="<?php echo base_url('view-employee/').$value->id?>" style="font-size: 20px;color: #257225" ><i class="fa fa-eye" aria-hidden="true"></i></a>&nbsp;&nbsp;
+                          <a class="exdelete" href="<?php echo base_url('delete-employee/').$value->id?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a> 
                         </td>
                       </tr>
                     <?php } }?>
