@@ -41,15 +41,15 @@ class Product extends CI_Controller {
     public function add_product($value='')
     {
         
-            $edit    = $this->input->post('edit');
-            $product    = $this->input->post('product');
-            $category   = $this->input->post('category');
-            $price      = $this->input->post('price');
-            $stock      = $this->input->post('stock');
-            $tags       = $this->input->post('tags');
+            $edit        = $this->input->post('edit');
+            $product     = $this->input->post('product');
+            $category    = $this->input->post('category');
+            $price       = $this->input->post('price');
+            $stock       = $this->input->post('stock');
+            $tags        = $this->input->post('tags');
             $description = $this->input->post('description');
-            $uniq       = $this->input->post('uniq');
-            $desc       = trim($description);
+            $uniq        = $this->input->post('uniq');
+            $desc        = trim($description);
 
             if (empty($edit)) {
                 $txt        = strtoupper( substr($product, 0, 2 ) ).substr( $product, 2 );
@@ -62,6 +62,10 @@ class Product extends CI_Controller {
             $brand_title    = $this->input->post('brand_title');
             $brand_price    = $this->input->post('brand_price');
             $brndunq        = $this->input->post('brndunq');
+
+            $marquee_title  = $this->input->post('marquee_title');
+            $marquee_link   = $this->input->post('marquee_link');
+            $marqueeunq     = $this->input->post('marqueeunq');
 
             $files = $_FILES;
             $filesCount = count($_FILES['pimage']['name']);
@@ -120,7 +124,7 @@ class Product extends CI_Controller {
 
            if ($brand_title !='') {
                 for ($i=0; $i < count($brand_title) ; $i++) {
-                    if ($brand_title[$i]) {
+                    if ($brand_title[$i] !='' ) {
                         $brand = array(
                             'product' =>  $output1['product']['id'],
                             'title'   =>  $brand_title[$i],
@@ -133,6 +137,26 @@ class Product extends CI_Controller {
                                 $brand['brand_uniq'] = $brndunq[$i];
                             }
                         $output2 = $this->Product_model->brandinsert($brand);
+                    }
+                }
+           }
+
+
+           if ($marquee_title !='') {
+                for ($i=0; $i < count($marquee_title) ; $i++) {
+                    if ($marquee_title[$i] !='' ) {
+                        $marquee = array(
+                            'product' =>  $output1['product']['id'],
+                            'title'   =>  $marquee_title[$i],
+                            'link'    =>  $marquee_link[$i],
+                            'status'  =>  '1'
+                            );
+                            if (empty($marqueeunq[$i])) {
+                                $marquee['uniq'] = random_string('alnum', 16);
+                            } else {
+                                $marquee['uniq'] = $marqueeunq[$i];
+                            }
+                        $output3 = $this->Product_model->marqueeinsert($marquee);
                     }
                 }
            }

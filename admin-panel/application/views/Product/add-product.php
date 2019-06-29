@@ -135,6 +135,80 @@
                                                             value="<?php echo (!empty($product['price']))?$product['price']:''; ?>">
                                                     </div>
                                                 </div>
+
+
+
+
+
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                        for="first-name"><span class="required"></span>
+                                                    </label>
+                                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                                        <div class="brand-pricing <?php echo(!empty($brand))?'collapsed':''; ?>" data-toggle="collapse"
+                                                            data-target="#marquee">
+                                                            <h5>Marquee<span class="branddown"><i
+                                                                        class="fa fa-chevron-down"
+                                                                        aria-hidden="true"></i> </span></h5>
+                                                        </div>
+                                                        <div id="marquee" class="brand-pricing collapse <?php echo(!empty($brand))?'in':''; ?>">
+
+
+
+                                                            <?php 
+                                                            if(!empty($brand)){
+                                                            foreach ($brand as $key => $value) { ?>
+
+                                                            <div class="row" id="marqaddnext">
+                                                                <div class="col-md-6 col-sm-6 col-xs-12 mar-12">
+                                                                    <input type="text" class="form-control "
+                                                                        name="brand_title[]" placeholder="Brand title"
+                                                                        value="<?php  echo(!empty($value->title))?$value->title:'';  ?>">
+                                                                </div>
+                                                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                                                    <input type="number" class="form-control "
+                                                                        name="brand_price[]" placeholder="Brand price"
+                                                                        value="<?php  echo(!empty($value->title))?$value->price:'';  ?>">
+                                                                        <input type="hidden" value="<?php  echo(!empty($value->brand_uniq))?$value->brand_uniq:'';  ?>" name="marqueeunq[]">
+                                                                </div>
+                                                                <div class="col-md-2 col-sm-2">
+                                                                    <a id="brandremove" class="brandremove brandplus remov" value="<?php echo $value->id ?>"><i
+                                                                            class="fa fa-times" aria-hidden="true"></i></a>
+                                                                </div>
+                                                            </div>
+                                                            <?php } } ?>
+                                                            <div class="row" id="marqaddnext">
+                                                                <div class="col-md-6 col-sm-6 col-xs-12 mar-12">
+                                                                    <input type="text" class="form-control "
+                                                                        name="marquee_title[]" placeholder="Marquee title" value="">
+                                                                </div>
+                                                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                                                    <input type="test" class="form-control "
+                                                                        name="marquee_link[]" placeholder="Marquee link" value="">
+                                                                </div>
+                                                                <div class="col-md-2 col-sm-2">
+                                                                    <a id="marqueeplus" class="marqueeplus"><i
+                                                                            class="fa fa-plus" aria-hidden="true"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12"
                                                         for="first-name">Total Stock<span class="required">*</span>
@@ -168,7 +242,7 @@
                                                     <div class="col-md-8 col-sm-8 col-xs-12">
                                                         <div class="brand-pricing <?php echo(!empty($brand))?'collapsed':''; ?>" data-toggle="collapse"
                                                             data-target="#demo">
-                                                            <h5>Add Brand Pricing <span class="branddown"><i
+                                                            <h5>Add Brand Charges <span class="branddown"><i
                                                                         class="fa fa-chevron-down"
                                                                         aria-hidden="true"></i> </span></h5>
                                                         </div>
@@ -346,6 +420,25 @@
 
             });
             $(document).on('click', '.brandplus.remov', function(e) {
+                e.preventDefault();
+                $(this).closest('div.row').remove();
+            });
+        });
+    });
+    </script>
+
+
+    <script>
+    $(document).ready(function() {
+
+        $(function() {
+            $('#marqueeplus').on('click', function(e) {
+                e.preventDefault();
+                $('<div class="row"><div class="col-md-6 col-sm-6 col-xs-12 mar-12"><input type="text"class="form-control " name="marquee_title[]" placeholder="Marquee title"></div> <div class="col-md-4 col-sm-4 col-xs-12"> <input type="text"class="form-control" name="marquee_link[]" placeholder="Marquee link"> </div> <div class="col-md-2 col-sm-2"> <a id="brandplus" class="marqueeplus remov"><i class="fa fa-times" aria-hidden="true"></i></a></div></div>')
+                    .append().insertAfter('#marqaddnext');
+
+            });
+            $(document).on('click', '.marqueeplus.remov', function(e) {
                 e.preventDefault();
                 $(this).closest('div.row').remove();
             });

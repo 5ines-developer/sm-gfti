@@ -57,6 +57,31 @@ class Product_model extends CI_Model {
         }
 
 
+         /**
+		 * Product -> add marquee 
+		 * @url : insert-product
+		 * @param : marquee data
+		 * 
+		 */
+        public function marqueeinsert($marquee)
+		{
+			$this->db->where('uniq', $marquee['uniq']);
+			$query = $this->db->get('marquee');
+			if ($query->num_rows() > 0) 
+			{
+				$this->db->where('uniq', $marquee['uniq']);
+				return $this->db->update('marquee', $marquee);
+			}
+			else
+			{
+				return $this->db->insert('marquee',$marquee);
+			}
+        }
+
+
+        
+
+
         
 
         /**
@@ -90,6 +115,9 @@ class Product_model extends CI_Model {
 			$this->db->where('product', $id);
 			if($this->db->delete('brad_pricing'))
 			{
+				$this->db->where('product', $id);
+				$this->db->delete('banner');
+
 				$this->db->where('id', $id);
 				return $this->db->delete('product');
 			}else{
@@ -150,10 +178,6 @@ class Product_model extends CI_Model {
 			return $this->db->delete('brad_pricing');
 			
         }
-		
-
-		
-
 
         /**
          * get created by (admin name)

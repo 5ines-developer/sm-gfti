@@ -5011,11 +5011,29 @@ ul.notifications {
     color: #e7e7e7;
 }
 
+.marqueeplus .fa.fa-plus {
+    margin-left: 21px;
+    font-size: 14px;
+    background-color: #26b99a;
+    padding: 7px;
+    margin-top: 4px;
+    color: #e7e7e7;
+}
+
 .collapse.brand-pricing {
     box-shadow: 0 0px 0px 0 rgba(60, 64, 67, .08), 0 1px 0px 1px rgba(60, 64, 67, .16);
 }
 
 .brandplus.remov .fa.fa-times {
+    margin-left: 21px;
+    font-size: 14px;
+    background-color: #de1212;
+    padding: 7px;
+    margin-top: 4px;
+    color: #e7e7e7;
+}
+
+.marqueeplus.remov .fa.fa-times {
     margin-left: 21px;
     font-size: 14px;
     background-color: #de1212;
