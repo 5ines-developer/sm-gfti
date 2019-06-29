@@ -104,7 +104,7 @@
                                     <div class="col-md-7 col-sm-7 col-xs-12">
                                         <div class="col-md-10 col-sm-10 col-xs-12">
                                             <div class="product-image">
-                                                <img src="<?php echo base_url().'product-image/'.$product['image_path'] ?>" alt="..." />
+                                                <img src="<?php echo $this->config->item('web_url').'product-image/'.$product['image_path'] ?>" alt="..." />
                                             </div>
                                         </div>
 

@@ -188,7 +188,7 @@
                                                             <div class="">
                                                                 <div class="image view view-first">
                                                                     <img style="width: 100%; display: block;"
-                                                                    src="<?php echo base_url().'banner-image/'.$banner['image'] ?>"
+                                                                    src="<?php echo $this->config->item('web_url').'banner-image/'.$banner['image'] ?>"
                                                                     alt="image">
                                                                 </div>
                                                             </div>

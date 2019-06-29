@@ -129,7 +129,7 @@
                         <tr>
                         <td><?php echo (!empty($product))?$cont:'' ?></td>
                         <td><?php echo (!empty($value->title))?$value->title:''  ?></td>
-                        <td><center><img class="table-image" src="<?php echo base_url().'product-image/'.$value->image_thumbnail ?>" alt="image"></center></td>
+                        <td><center><img class="table-image" src="<?php echo $this->config->item('web_url').'product-image/'.$value->image_thumbnail ?>" alt="image"></center></td>
                         <td><?php echo (!empty($value->product_id))?$value->product_id:''  ?></td>
                         <td><?php echo (!empty($value->created_on))?date("d-M-y", strtotime($value->created_on)):''; ?></td>
                         <td><?php echo (!empty($value->update_on))?date("d-M-y", strtotime($value->update_on)):''; ?></td>

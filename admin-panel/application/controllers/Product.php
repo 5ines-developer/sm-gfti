@@ -70,7 +70,7 @@ class Product extends CI_Controller {
             $files = $_FILES;
             $filesCount = count($_FILES['pimage']['name']);
             if(file_exists($_FILES['pimage']['tmp_name'])) {
-            $config['upload_path']          = 'product-image/';
+            $config['upload_path']          = '../product-image/';
             $config['allowed_types']        = 'jpg|png|jpeg';                
             $config['max_width']            = 0;
             $config['encrypt_name']         = TRUE;
@@ -99,6 +99,7 @@ class Product extends CI_Controller {
                 $file_tumb      =   $upload_data['raw_name'];       
                 $file_tumb_ex   =   $upload_data['file_ext'];                      
                 $thum_file      =   $file_tumb.'_thumb'.$file_tumb_ex; 
+
             }
             }
 
@@ -116,7 +117,7 @@ class Product extends CI_Controller {
                 'created_by' => $this->session->userdata('unique_id')
             );
             if(file_exists($_FILES['pimage']['tmp_name'])) {
-             $insert['image_path'] =   $file_name ;
+             $insert['image_path'] =   'product-image/'.$file_name ;
              $insert['image_thumbnail'] =   $thum_file ;
             }
 
