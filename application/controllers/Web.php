@@ -20,6 +20,9 @@ class Web extends CI_Controller {
         $data['breadcrumbs'] = FALSE;
         $data['title'] = 'Change password';
         $data['categoryProduct'] = $this->categoryProduct();
+        $data['recent'] = $this->recently_added_products();
+        $data['ourproduct'] = $this->ourProducts();
+        $data['banner'] = $this->bannerGet();
         $this->load->view('pages/index', $data, FALSE);
         
     }
@@ -29,6 +32,34 @@ class Web extends CI_Controller {
     {
         $data = $this->m_web->getCategoryProduct();
         return  $data;
+    }
+
+    // recently added product   
+    public function recently_added_products($var = null)
+    {
+       $data = $this->m_web->recently_added_products();
+       return $data;
+    }
+
+    // home pge randum datas
+    public function ourProducts($var = null)
+    {
+        $data = $this->m_web->ourProducts();
+        return $data;
+    }
+
+    // slect category
+    public function category($var = null)
+    {
+        $data = $this->m_web->category();
+        return $data;
+    }
+
+    // fetch banner
+    public function bannerGet($var = null)
+    {
+        $data = $this->m_web->getBanner();
+        return $data;
     }
 
 }
