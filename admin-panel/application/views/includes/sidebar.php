@@ -37,6 +37,11 @@
                       <li><a href="<?php echo base_url() ?>manage-domain">Manage Domain</a></li>
                       </ul>
                   </li>
+                <li><a href="<?php echo base_url() ?>manage-employee"><i class="fa fa-users" aria-hidden="true"></i>Manage Employee</a></li>
+
+
+                  
+
 
 
                 </ul>
