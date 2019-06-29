@@ -6,7 +6,7 @@ class Category extends CI_Controller {
     /*--construct--*/
 	function __construct() {
         parent::__construct();
-        $this->load->model('category_model');
+        $this->load->model('Category_model');
         $this->load->library('email');          
         $this->load->library('session'); 
         $this->load->library('form_validation'); 
@@ -64,7 +64,7 @@ class Category extends CI_Controller {
             $insert['image'] = $imageName;
         }
 
-        $result = $this->category_model->insert($insert);
+        $result = $this->Category_model->insert($insert);
         if($result){
                 $this->session->set_flashdata('success', 'category added  Successfully');
                 redirect('manage-category','refresh');
@@ -82,7 +82,7 @@ class Category extends CI_Controller {
     public function manage_category()
     {
         $data['title'] = 'Manage Category - Siemens';
-        $data['category']	= $this->category_model->getcategory();
+        $data['category']	= $this->Category_model->getcategory();
 		$this->load->view('category/manage-category',$data);
     }
 
@@ -94,7 +94,7 @@ class Category extends CI_Controller {
     public function edit_category($categoryId='')
     {
         $data['title'] = 'Edit Category - Siemens';
-        $data['category']	= $this->category_model->editcategory($categoryId);
+        $data['category']	= $this->Category_model->editcategory($categoryId);
 		$this->load->view('category/add-category',$data);
     }
 
@@ -106,7 +106,7 @@ class Category extends CI_Controller {
     public function delete_category($categoryId='')
     {
             // send to model
-             if($this->category_model->deletecategory($categoryId)){
+             if($this->Category_model->deletecategory($categoryId)){
                  $this->session->set_flashdata('success', 'Category Deleted Successfully');
                  redirect('manage-category','refresh'); // if you are redirect to list of the data add controller name here
              }else{

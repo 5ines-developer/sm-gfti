@@ -7,7 +7,7 @@ class Product extends CI_Controller {
 	function __construct() {
         parent::__construct();
         $this->load->model('Product_model');
-        $this->load->model('category_model');
+        $this->load->model('Category_model');
         $this->load->library('email');          
         $this->load->library('session'); 
         $this->load->library('form_validation'); 
@@ -28,8 +28,8 @@ class Product extends CI_Controller {
     public function index()
     {
         $data['title'] = 'Add Product - Siemens';
-        $data['category'] = $this->category_model->getcategory();
-		$this->load->view('product/add-product',$data);
+        $data['category'] = $this->Category_model->getcategory();
+		$this->load->view('Product/add-product',$data);
     }
 
      /**
@@ -156,7 +156,7 @@ class Product extends CI_Controller {
     {
         $data['title'] = 'Manage Product - Siemens';
         $data['product']   = $this->Product_model->getproduct();
-        $this->load->view('product/manage-product',$data);
+        $this->load->view('Product/manage-product',$data);
     }
 
     /**
@@ -185,9 +185,9 @@ class Product extends CI_Controller {
     {
         $data['title']      = 'Edit Product - Siemens';
         $data['product']    = $this->Product_model->editproduct($productid);
-        $data['category']   = $this->category_model->getcategory();
+        $data['category']   = $this->Category_model->getcategory();
         $data['brand']      = $this->Product_model->getbrand($productid);
-        $this->load->view('product/add-product',$data);
+        $this->load->view('Product/add-product',$data);
     }
 
 
@@ -214,7 +214,7 @@ class Product extends CI_Controller {
         $data['title']      = 'View Product - Siemens';
         $data['product']    = $this->Product_model->editproduct($productid);
         $data['brand']      = $this->Product_model->getbrand($productid);
-        $this->load->view('product/view-product',$data);
+        $this->load->view('Product/view-product',$data);
     }
 
     
