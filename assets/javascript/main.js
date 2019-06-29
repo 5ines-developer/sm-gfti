@@ -918,46 +918,46 @@
             });
         }; // Toggle Location
 
-        var showSuggestions = function() {
-            $( ".top-search form.form-search .box-search" ).each(function() {
-                $( "form.form-search .box-search input" ).on('focus', (function() {
-                    $(this).closest('.boxed').children('.overlay').css({
-                        opacity: '1',
-                        display: 'block'
-                    });
-                    $(this).parent('.box-search').children('.search-suggestions').css({
-                        opacity: '1',
-                        visibility: 'visible',
-                        top: '77px'
-                    });
-                }));
-                $( "form.form-search .box-search input" ).on('blur', (function() {
-                    $(this).closest('.boxed').children('.overlay').css({
-                        opacity: '0',
-                        display: 'none'
-                    });
-                    $(this).parent('.box-search').children('.search-suggestions').css({
-                        opacity: '0',
-                        visibility: 'hidden',
-                        top: '100px'
-                    });
-                }));
-            });
+        // var showSuggestions = function() {
+        //     $( ".top-search form.form-search .box-search" ).each(function() {
+        //         $( "form.form-search .box-search input" ).on('focus', (function() {
+        //             $(this).closest('.boxed').children('.overlay').css({
+        //                 opacity: '1',
+        //                 display: 'block'
+        //             });
+        //             $(this).parent('.box-search').children('.search-suggestions').css({
+        //                 opacity: '1',
+        //                 visibility: 'visible',
+        //                 top: '77px'
+        //             });
+        //         }));
+        //         $( "form.form-search .box-search input" ).on('blur', (function() {
+        //             $(this).closest('.boxed').children('.overlay').css({
+        //                 opacity: '0',
+        //                 display: 'none'
+        //             });
+        //             $(this).parent('.box-search').children('.search-suggestions').css({
+        //                 opacity: '0',
+        //                 visibility: 'hidden',
+        //                 top: '100px'
+        //             });
+        //         }));
+        //     });
 
-            $( ".top-search.style1 form.form-search .box-search" ).each(function() {
-                $( "form.form-search .box-search input" ).on('focus', (function() {
-                    $(this).closest('.boxed').children('.overlay').css({
-                        opacity: '1',
-                        display: 'block'
-                    });
-                    $(this).parent('.box-search').children('.search-suggestions').css({
-                        opacity: '1',
-                        visibility: 'visible',
-                        top: '50px'
-                    });
-                }));
-            });
-        }; // Toggle Location
+        //     $( ".top-search.style1 form.form-search .box-search" ).each(function() {
+        //         $( "form.form-search .box-search input" ).on('focus', (function() {
+        //             $(this).closest('.boxed').children('.overlay').css({
+        //                 opacity: '1',
+        //                 display: 'block'
+        //             });
+        //             $(this).parent('.box-search').children('.search-suggestions').css({
+        //                 opacity: '1',
+        //                 visibility: 'visible',
+        //                 top: '50px'
+        //             });
+        //         }));
+        //     });
+        // }; // Toggle Location
 
         var showAllcat = function() {
             $('.cat-wrap').each(function() {
@@ -1258,7 +1258,7 @@
         toggleCatlist();
         toggleDropdown();
         toggleLocation();
-        showSuggestions();
+        // showSuggestions();
         showAllcat();
         accordionToggle();
         flexProduct();

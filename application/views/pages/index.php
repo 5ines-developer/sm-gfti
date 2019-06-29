@@ -347,5 +347,24 @@
 
 		<script type="text/javascript" src="<?php echo base_url() ?>assets/javascript/main.js"></script>
 
+		<script>
+			$(document).ready(function () {
+				$('.box-search input[name=search]').keyup(function (e) { 
+					var length = $(this).val().length;
+					var url = '<?php echo base_url("search?q=") ?>'
+					var search = $(this).val();
+					var category =  $('.form-search select[name=category]').val();
+
+					if (length > 2) {
+						$.get(url+search+'&c='+category ,	function (data, textStatus, jqXHR) {
+								
+							},
+							"html"
+						);
+					}
+					
+				});
+			});
+		</script>
 	</body>	
 </html>
