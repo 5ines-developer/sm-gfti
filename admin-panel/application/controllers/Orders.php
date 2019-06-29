@@ -30,4 +30,17 @@ class Orders extends CI_Controller {
         $data['order']   = $this->Order_model->getorders();
         $this->load->view('order/manage-order',$data);
     }
+
+    /**
+      * Orders -> view Orders 
+     * url : view-order
+     * @param : id
+    */
+    public function view_order($id='')
+    {
+        $data['title']      = 'View Order - Siemens';
+        $data['order']      = $this->Order_model->singleorder($id);
+        $this->load->view('order/view-order',$data);
+    }
+
 }

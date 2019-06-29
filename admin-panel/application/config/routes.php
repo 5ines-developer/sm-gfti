@@ -101,4 +101,5 @@ $route['delete-employee/(:any)'] = 'Employee/delete_employee/$1';
 $route['view-employee/(:any)']   = 'Employee/view_employee/$1';
 //Orders
 $route['orders'] 		         = 'Orders/index';
+$route['view-order/(:any)'] 	 = 'Orders/view_order/$1';
 

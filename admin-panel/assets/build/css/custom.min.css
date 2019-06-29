@@ -5057,8 +5057,8 @@ ul.notifications {
 .product-image {
     margin-top: 35px;
     box-shadow: 1px 1px 2px #e6e6e6;
-    border: 1px solid #e6e6e6;
     margin-bottom: 20px;
+    border-radius: 5px;
 }
 
 #viewproduct th {
@@ -5092,4 +5092,11 @@ ul.notifications {
 .ship-border {
     border-color: #0CDD3B;
     background-color: #e8fbed;
+}
+
+.prod_title.ord {
+    border: none !important;
+    margin: 30px 0 10px 0;
+    font-size: 20px;
+    font-weight: 400;
 }

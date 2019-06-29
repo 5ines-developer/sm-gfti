@@ -1,5 +1,6 @@
 <?php
   $this->ci =& get_instance();
+  $this->ci->load->model('Order_model');
   $this->ci->load->model('Product_model');
 ?>
 <!DOCTYPE html>
@@ -131,6 +132,7 @@
                                                 <th>Product</th>
                                                 <th>Quantity</th>
                                                 <th>Status</th>
+                                                <th>Ordered By</th>
                                                 <th>Ordered On</th>
                                                 <th>Operations</th>
                                             </tr>
@@ -145,6 +147,7 @@
                                             <td><?php echo $this->ci->Product_model->productname($value1->product) ?></td> 
                                             <td><?php echo (!empty($value1->qty))?$value1->qty:''  ?></td>
                                             <td><?php echo (!empty($value1->status))?$value1->status:''  ?></td>
+                                            <td><?php echo $this->ci->Order_model->orderby((!empty($value1->order_by))?$value1->order_by:'') ?></td>
                                             <td><?php echo (!empty($value1->orderd_on))?$value1->orderd_on:''  ?></td>
                                             <td style="text-align:center;"> <a href="<?php echo base_url('view-order/').$value1->id?>" style="font-size: 20px;color: #257225" ><i class="fa fa-eye" aria-hidden="true"></i></a></td>
                                         </tr>
