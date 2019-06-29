@@ -145,9 +145,30 @@ class Product_model extends CI_Model {
 			}
 		}
 
+		
 
 		/**
-         * product -> edit product
+         * product -> get marquee detail
+         * url : edit-product
+         * @param : id
+        */
+        public function getmarquee($productid)
+		{
+            $this->db->where('product', $productid);
+			$query = $this->db->get('marquee');
+			if ($query->num_rows() > 0) 
+			{
+				return $query->result();
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+
+		/**
+         * product -> get brand charges detail
          * url : edit-product
          * @param : id
         */
@@ -177,7 +198,23 @@ class Product_model extends CI_Model {
 			$this->db->where('id', $brandid);
 			return $this->db->delete('brad_pricing');
 			
-        }
+		}
+
+		/**
+         * delete brand 
+         * @url : delete-brand
+         * @param : brand id
+         * 
+        */
+        public function deletemarquee($marqueid)
+		{
+			$this->db->where('id', $marqueid);
+			return $this->db->delete('marquee');
+			
+		}
+		
+
+		
 
         /**
          * get created by (admin name)

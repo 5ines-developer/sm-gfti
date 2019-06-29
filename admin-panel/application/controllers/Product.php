@@ -211,6 +211,7 @@ class Product extends CI_Controller {
         $data['product']    = $this->Product_model->editproduct($productid);
         $data['category']   = $this->Category_model->getcategory();
         $data['brand']      = $this->Product_model->getbrand($productid);
+        $data['marquee']    = $this->Product_model->getmarquee($productid);
         $this->load->view('Product/add-product',$data);
     }
 
@@ -227,6 +228,23 @@ class Product extends CI_Controller {
         $output = $this->Product_model->deletebrand($brandid);
         json_encode($output);
     }
+
+
+    /**
+     * Product -> delete brand
+     * url : delete-brand
+     * @param : id
+    */
+    public function delete_marquee()
+    {
+        $marqueid = $this->input->get('marqueid');
+        // send to model
+        $output = $this->Product_model->deletemarquee($marqueid);
+        json_encode($output);
+    }
+
+
+    
 
     /**
      * Product -> Edit Product
