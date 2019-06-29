@@ -20,8 +20,6 @@ class Web extends CI_Controller {
         $data['breadcrumbs'] = FALSE;
         $data['title'] = 'Change password';
         $data['categoryProduct'] = $this->categoryProduct();
-
-        exit;
         $this->load->view('pages/index', $data, FALSE);
         
     }
