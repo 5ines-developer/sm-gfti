@@ -5078,3 +5078,18 @@ ul.notifications {
 .descriptn {
     margin-left: 10px;
 }
+
+.shipping-box {
+    border: 1px solid #d7d4d4;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+#shipping-box-address>tbody>tr>th {
+    padding: 4px;
+}
+
+.ship-border {
+    border-color: #0CDD3B;
+    background-color: #e8fbed;
+}

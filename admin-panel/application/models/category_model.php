@@ -86,6 +86,9 @@ class Category_model extends CI_Model {
 				}else{
 					$brand = 0;
 				}
+
+				$this->db->where('product', $productid);
+				$this->db->delete('marquee');
 			}
 
 				$this->db->where('category', $categoryId);

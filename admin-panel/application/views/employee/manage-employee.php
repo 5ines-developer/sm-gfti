@@ -128,6 +128,7 @@
                         <td><?php echo (!empty($value->phone))?$value->phone:''  ?></td>
                         <td><?php echo (!empty($value->created_on))?date("d-M-y", strtotime($value->created_on)):''; ?></td>
                         <td style="text-align:center;">
+                        <a href="<?php echo base_url('view-employee/').$value->id?>" style="font-size: 20px;color: #257225" ><i class="fa fa-eye" aria-hidden="true"></i></a>&nbsp;&nbsp;
                           <a class="exdelete" href="<?php echo base_url('delete-employee/').$value->id?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a> 
                         </td>
                       </tr>

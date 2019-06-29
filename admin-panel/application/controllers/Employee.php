@@ -48,4 +48,27 @@ class Employee extends CI_Controller {
                     redirect('manage-employee','refresh'); // if you are redirect to list of the data add controller name here
                 }
         }
+
+        /**
+        * Employee -> view employee 
+         * url : view-employee
+         * @param:id
+         */
+        public function view_employee($id="")
+        {
+            $data['title'] = 'View Employee - Siemens';
+            $data['employee']   = $this->Employee_model->viewemployee($id);
+            $data['order']      = $this->Employee_model->employeeorder($id);
+            $data['shipping']   = $this->Employee_model->shippingaddress($id);
+
+
+            foreach ($data['order'] as $key => $value) {
+                $billingid = $value->billing;
+            }
+
+            $this->load->view('employee/view-employee',$data);
+        }
+        
+
+        
 }

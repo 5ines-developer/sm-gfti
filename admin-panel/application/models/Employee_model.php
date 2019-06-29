@@ -14,7 +14,6 @@ class Employee_model extends CI_Model {
 			$query = $this->db->get('employee');
 			if ($query->num_rows() > 0) 
 			{
-				
 				return $query->result();
 			}
 			else
@@ -33,8 +32,73 @@ class Employee_model extends CI_Model {
 		{
 			$this->db->where('id', $id);
 			return $this->db->delete('employee');
+        }
+        
+        /**
+         * employee -> view employee
+         * url : view-employee
+         * @param : id
+        */
+        public function viewemployee($id)
+		{
+            $this->db->where('id', $id);
+			$query = $this->db->get('employee');
+			if ($query->num_rows() > 0) 
+			{
+				
+				return $query->row_array();
+			}
+			else
+			{
+				return false;
+			}
+        }
+        
+
+        /**
+         * employee -> get employee orders
+         * url : view-employee
+         * @param : id
+        */
+        public function employeeorder($id)
+		{
+            $this->db->where('order_by', $id);
+			$query = $this->db->get('orders');
+			if ($query->num_rows() > 0) 
+			{
+				
+				return $query->result();
+			}
+			else
+			{
+				return false;
+			}
+        }
+        
+
+        /**
+         * employee -> shippingaddress
+         * url : view-employee
+         * @param : id
+        */
+        public function shippingaddress($id)
+		{
+            $this->db->where('employee', $id);
+			$query = $this->db->get('shipping_address');
+			if ($query->num_rows() > 0) 
+			{
+				
+				return $query->result();
+			}
+			else
+			{
+				return false;
+			}
 		}
 
+        
+
+        
         
 
     
