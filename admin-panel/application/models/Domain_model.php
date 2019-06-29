@@ -24,9 +24,9 @@ class Domain_model extends CI_Model {
 			}
         }
 
-                /**
-         * get banner 
-         * @url : manage-banner
+        /**
+         * get domain 
+         * @url : manage-domain
          * 
         */
         public function getdomain()

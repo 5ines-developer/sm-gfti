@@ -98,5 +98,7 @@ $route['edit-domain/(:any)']     = 'Domain/edit_domain/$1';
 //employee
 $route['manage-employee'] 		 = 'Employee/index';
 $route['delete-employee/(:any)'] = 'Employee/delete_employee/$1';
-$route['view-employee/(:any)'] = 'Employee/view_employee/$1';
+$route['view-employee/(:any)']   = 'Employee/view_employee/$1';
+//Orders
+$route['orders'] 		         = 'Orders/index';
 

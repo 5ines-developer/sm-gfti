@@ -38,10 +38,7 @@
                       </ul>
                   </li>
                 <li><a href="<?php echo base_url() ?>manage-employee"><i class="fa fa-users" aria-hidden="true"></i>Manage Employee</a></li>
-
-
-                  
-
+                <li><a href="<?php echo base_url() ?>orders"><i class="fa fa-cart-plus" aria-hidden="true"></i></i>orders</a></li>
 
 
                 </ul>
