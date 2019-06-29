@@ -164,6 +164,20 @@ class Product_model extends CI_Model {
         	$this->db->where('id', $id);
 			$result = $this->db->get('admin')->row_array();
 			return $result['createdby'];
-        }
+		}
+
+		/**
+         * get created by (admin name)
+        */
+        public function productname($id)
+        {
+        	$this->db->select('title as productname');
+        	$this->db->where('id', $id);
+			$result = $this->db->get('product')->row_array();
+			return $result['productname'];
+		}
+		
+
+		
 
 }

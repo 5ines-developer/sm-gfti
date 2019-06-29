@@ -144,7 +144,7 @@
                     
                     </td>
                         <td><?php echo (!empty($value->price))?$value->price:''  ?></td>
-                        <td><?php echo (!empty($value->product))?$value->product:''  ?></td>
+                        <td><?php echo $this->ci->Product_model->productname($value->product) ?></td> 
                         <td style="text-align:center;"><a href="<?php echo base_url('edit-banner/').$value->id?>" style="font-size: 22px;color: #2e9be0"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>&nbsp;&nbsp;
                           <a class="exdelete" href="<?php echo base_url('delete-banner/').$value->id?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a> 
                         </td>

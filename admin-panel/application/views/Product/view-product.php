@@ -143,7 +143,7 @@
                                                 </tr>
                                                 <tr>
                                                     <th>Category</th>
-                                                    <td><?php echo (!empty($product['category']))?$product['category']:''?></td>
+                                                    <td><?php echo $this->ci->category_model->categoryname($product['category']) ?></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Total Stock</th>
@@ -163,7 +163,7 @@
                                                 </tr>
                                                 <tr>
                                                     <th>Added By</th>
-                                                    <td><?php echo (!empty($product['created_by']))?$product['created_by']:''?></td>
+                                                    <td><?php echo $this->ci->Product_model->createdby($product['created_by']) ?></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Updated On</th>

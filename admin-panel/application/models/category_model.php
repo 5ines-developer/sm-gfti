@@ -111,8 +111,21 @@ class Category_model extends CI_Model {
 				}else{
 					return false;
 				}
+		}
+		
+		/**
+         * get created by (admin name)
+        */
+        public function categoryname($id)
+        {
+        	$this->db->select('name as categoryname');
+        	$this->db->where('id', $id);
+			$result = $this->db->get('category')->row_array();
+			return $result['categoryname'];
         }
-        
+		
+		
+		
         
 
     
