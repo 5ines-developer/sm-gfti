@@ -102,8 +102,10 @@
                                 <div class="x_content">
 
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                        <div class="product-image">
-                                            <img src="<?php echo base_url().'product-image/'.$product['image_path'] ?>" alt="..." />
+                                        <div class="col-md-10 col-sm-10 col-xs-12">
+                                            <div class="product-image">
+                                                <img src="<?php echo base_url().'product-image/'.$product['image_path'] ?>" alt="..." />
+                                            </div>
                                         </div>
 
                                         <?php 
@@ -128,6 +130,30 @@
                                         </div>
                                         <br />
                                         <?php } ?>
+
+
+                                        <?php 
+                                        if(!empty($marquee)){ ?>
+                                        <br />
+                                        <div class="col-md-10 col-sm-10 col-xs-12">
+                                            <h2>Marquee</h2>
+                                            <table class="table table-striped table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Title</th>
+                                                    <th>Link</th>
+                                                </tr>
+                                            <?php foreach ($marquee as $key => $value) { ?>
+                                                <tr>
+                                                    <td><?php echo (!empty($value->title))?$value->title:''?></td>
+                                                    <td><?php echo (!empty($value->link))?$value->link:''?></td>
+                                                </tr>
+                                                <?php } ?>
+                                            </tbody>
+                                        </table>
+                                        </div>
+                                        <br />
+                                        <?php } ?>
                                         
                                     </div>
 
@@ -143,7 +169,7 @@
                                                 </tr>
                                                 <tr>
                                                     <th>Category</th>
-                                                    <td><?php echo $this->ci->category_model->categoryname($product['category']) ?></td>
+                                                    <td><?php echo $this->ci->Category_model->categoryname($product['category']) ?></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Total Stock</th>
@@ -181,8 +207,10 @@
                                     
 
                                     <div class="col-md-10">
+                                    <div class="descriptn">
                                         <h4>Description</h4>
                                         <p><?php echo (!empty($product['des']))?$product['des']:''?></p>
+                                    </div>
                                     </div>
                                 </div>
                             </div>

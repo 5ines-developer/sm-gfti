@@ -256,6 +256,7 @@ class Product extends CI_Controller {
         $data['title']      = 'View Product - Siemens';
         $data['product']    = $this->Product_model->editproduct($productid);
         $data['brand']      = $this->Product_model->getbrand($productid);
+        $data['marquee']    = $this->Product_model->getmarquee($productid);
         $this->load->view('Product/view-product',$data);
     }
 
