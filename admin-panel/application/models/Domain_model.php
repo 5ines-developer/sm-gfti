@@ -53,7 +53,28 @@ class Domain_model extends CI_Model {
 		{
 			$this->db->where('id', $id);
 			return $this->db->delete('domain');
-        }
+		}
+		
+		/**
+         * product -> edit banner
+         * url : edit-banner
+         * @param : id
+        */
+        public function edit_domain($id)
+		{
+            $this->db->where('id', $id);
+			$query = $this->db->get('domain');
+			if ($query->num_rows() > 0) 
+			{
+				
+				return $query->row_array();
+			}
+			else
+			{
+				return false;
+			}
+		}
+
 
         
 

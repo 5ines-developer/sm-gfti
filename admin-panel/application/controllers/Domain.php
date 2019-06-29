@@ -83,6 +83,22 @@ class Domain extends CI_Controller {
                 }
         }
 
+        /**
+         * Domain -> Edit domain
+         * url : edit-domain
+         * @param : id
+        */
+        public function edit_domain($id='')
+        { 
+            $data['title']     = 'Edit Domain - Siemens';
+            $data['domain']    = $this->Domain_model->edit_domain($id);
+            $this->load->view('domain/add-domain',$data);
+        }
+
+
+
+        
+
 
         
 

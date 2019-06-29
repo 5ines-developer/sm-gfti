@@ -93,5 +93,6 @@ $route['add-domain'] 		     = 'Domain/index';
 $route['insert-domain'] 		 = 'Domain/add_domain';
 $route['manage-domain'] 		 = 'Domain/manage_domain';
 $route['delete-domain/(:any)']   = 'Domain/delete_domain/$1';
+$route['edit-domain/(:any)']     = 'Domain/edit_domain/$1';
 
 

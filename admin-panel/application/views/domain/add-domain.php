@@ -108,8 +108,8 @@
                         <div class="col-md-6 col-md-offset-3 col-sm-6 col-xs-12">
                           <label class="control-label" for="first-name">Domain<span class="required">*</span>
                         </label>
-                          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" name="domain">
-                          <input type="hidden" value="<?php echo (!empty($banner['uniq']))?$banner['uniq']:random_string('alnum','20');  ?>"
+                          <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" name="domain" value="<?php echo (!empty($domain['domain']))?$domain['domain']:random_string('alnum','20');  ?>">
+                          <input type="hidden" value="<?php echo (!empty($domain['uniq']))?$domain['uniq']:random_string('alnum','20');  ?>"
                                                     name="uniq">
                         </div>
                       </div>
