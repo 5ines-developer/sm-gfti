@@ -92,7 +92,6 @@ class Banner extends CI_Controller {
             );
 
             if(file_exists($_FILES['banner']['tmp_name'])) {
-                $insert['image']     =  $file_name;
                 $insert['path']      =  'banner-image/'.$file_name ;
                 
             }

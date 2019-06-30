@@ -146,12 +146,7 @@
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-            <p>©2019 Weaves! All Rights Reserved.  Developed by - <a href="http://www.5ines.com/" style="color: saddlebrown" target="_blank">5ine</a> </p> 
-          </div>
-          <div class="clearfix"></div>
-        </footer>
+        <?php $this->load->view('includes/footer'); ?>
         <!-- /footer content -->
       </div>
     </div>

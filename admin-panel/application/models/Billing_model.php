@@ -31,6 +31,7 @@ class Billing_model extends CI_Model {
         */
         public function getbilling()
 		{
+			$this->db->order_by('id', 'desc');
 			$query = $this->db->get('billing_address');
 			if ($query->num_rows() > 0) 
 			{

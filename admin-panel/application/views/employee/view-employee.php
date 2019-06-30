@@ -80,7 +80,7 @@
                                     class="js-scroll-trigger nav-link active">Profile</a>
                             </li>
                             <li role="presentation"><a href="#shippingaddress"
-                                    class="js-scroll-trigger nav-link active">Shipping address</a>
+                                    class="js-scroll-trigger nav-link ">Shipping address</a>
                             </li>
                             <li role="presentation"><a href="#bookedcustomer"
                                     class="js-scroll-trigger nav-link">Orders</a>
@@ -201,11 +201,11 @@
                         {
                          foreach ($order as $key1 => $value1) {$cont = $cont + 1;?>
                                         <tr>
-                                            <td><a href="<?php echo (!empty($value1->id))?$value1->id:'' ?>" ><?php echo (!empty($order))?$cont:'' ?></a></td>
-                                            <td><a href="<?php echo (!empty($value1->id))?$value1->id:'' ?>" ><?php echo $this->ci->Product_model->productname($value1->product) ?></td> 
-                                            <td><a href="<?php echo (!empty($value1->id))?$value1->id:'' ?>" ><?php echo (!empty($value1->qty))?$value1->qty:''  ?></a></td>
-                                            <td><a href="<?php echo (!empty($value1->id))?$value1->id:'' ?>" ><?php echo (!empty($value1->status))?$value1->status:''  ?></a></td>
-                                            <td><a href="<?php echo (!empty($value1->id))?$value1->id:'' ?>" ><?php echo (!empty($value1->orderd_on))?$value1->orderd_on:''  ?></a></td>
+                                            <td><a href="<?php echo base_url('view-order/').$value1->id ?>" ><?php echo (!empty($order))?$cont:'' ?></a></td>
+                                            <td><a href="<?php echo base_url('view-order/').$value1->id ?>" ><?php echo $this->ci->Product_model->productname($value1->product) ?></td> 
+                                            <td><a href="<?php echo base_url('view-order/').$value1->id ?>" ><?php echo (!empty($value1->qty))?$value1->qty:''  ?></a></td>
+                                            <td><a href="<?php echo base_url('view-order/').$value1->id ?>" ><?php echo (!empty($value1->status))?$value1->status:''  ?></a></td>
+                                            <td><a href="<?php echo base_url('view-order/').$value1->id ?>" ><?php echo (!empty($value1->orderd_on))?$value1->orderd_on:''  ?></a></td>
                                         </tr>
                                         <?php } }?>
                                     </tbody>
@@ -223,12 +223,7 @@
             <!-- /page content -->
 
             <!-- footer content -->
-            <footer>
-                <div class="pull-right">
-                    Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-                </div>
-                <div class="clearfix"></div>
-            </footer>
+           <?php $this->load->view('includes/footer'); ?>
             <!-- /footer content -->
         </div>
     </div>

@@ -181,14 +181,14 @@
                                                 </div><br>
                                             </div>
 
-                                            <?php if(!empty($banner['image']))
+                                            <?php if(!empty($banner['path']))
                                                 {?>
                                                         <input type="hidden" name="edit" value="edit">
                                                         <div class="col-md-6 " id="edt-image">
                                                             <div class="">
                                                                 <div class="image view view-first">
                                                                     <img style="width: 100%; display: block;"
-                                                                    src="<?php echo $this->config->item('web_url').'banner-image/'.$banner['image'] ?>"
+                                                                    src="<?php echo $this->config->item('web_url').$banner['path'] ?>"
                                                                     alt="image">
                                                                 </div>
                                                             </div>

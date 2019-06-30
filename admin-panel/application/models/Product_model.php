@@ -91,6 +91,7 @@ class Product_model extends CI_Model {
         */
         public function getproduct()
 		{
+			$this->db->order_by('id', 'desc');
 			$query = $this->db->get('product');
 			if ($query->num_rows() > 0) 
 			{
@@ -117,6 +118,9 @@ class Product_model extends CI_Model {
 			{
 				$this->db->where('product', $id);
 				$this->db->delete('banner');
+
+				$this->db->where('product', $id);
+				$this->db->delete('marquee');
 
 				$this->db->where('id', $id);
 				return $this->db->delete('product');

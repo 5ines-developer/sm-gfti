@@ -10,6 +10,7 @@ class Order_model extends CI_Model {
         */
         public function getorders()
 		{
+            $this->db->order_by('id', 'desc');
 			$query = $this->db->get('orders');
 			if ($query->num_rows() > 0) 
 			{

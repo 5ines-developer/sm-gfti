@@ -62,6 +62,7 @@ class Employee_model extends CI_Model {
         */
         public function employeeorder($id)
 		{
+			$this->db->order_by('id', 'desc');
             $this->db->where('order_by', $id);
 			$query = $this->db->get('orders');
 			if ($query->num_rows() > 0) 

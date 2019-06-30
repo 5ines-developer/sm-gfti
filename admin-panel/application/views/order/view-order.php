@@ -221,6 +221,10 @@
                                             <table id="shipping-box-address" class="table viedet "
                                                 style="margin-bottom: 0px;">
                                                 <tr>
+                                                    <th>Company</th>
+                                                    <td><?php echo (!empty($value->company_name))?$value->company_name:''  ?></td>
+                                                </tr>
+                                                <tr>
                                                     <th>Street</th>
                                                     <td><?php echo (!empty($value->street))?$value->street:''  ?></td>
                                                 </tr>
@@ -244,12 +248,8 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Phone</th>
-                                                    <td><?php echo (!empty($value->phone))?$value->phone:''  ?> </td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Email</th>
-                                                    <td><?php echo (!empty($value->email))?$value->email:''  ?> </td>
+                                                    <th>GST Number</th>
+                                                    <td><?php echo (!empty($value->gst_number))?$value->gst_number:''  ?> </td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -268,13 +268,7 @@
             <!-- /page content -->
 
             <!-- footer content -->
-            <footer>
-                <div class="pull-right">
-                    <p>©2019 Weaves! All Rights Reserved. Developed by - <a href="http://www.5ines.com/"
-                            style="color: saddlebrown" target="_blank">5ine</a> </p>
-                </div>
-                <div class="clearfix"></div>
-            </footer>
+            <?php $this->load->view('includes/footer'); ?>
             <!-- /footer content -->
         </div>
     </div>

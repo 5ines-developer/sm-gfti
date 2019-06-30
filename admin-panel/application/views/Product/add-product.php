@@ -319,7 +319,7 @@
                                                         <div class="">
                                                             <div class="image view view-first">
                                                                 <img style="width: 100%; display: block;"
-                                                                    src="<?php echo $this->config->item('web_url').'product-image/'.$product['image_thumbnail'] ?>"
+                                                                    src="<?php echo $this->config->item('web_url').$product['image_path'] ?>"
                                                                     alt="image">
                                                             </div>
                                                         </div>

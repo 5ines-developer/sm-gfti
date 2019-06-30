@@ -42,6 +42,7 @@ class Banner_model extends CI_Model {
         */
         public function getbanner()
 		{
+            $this->db->order_by('id', 'desc');
 			$query = $this->db->get('banner');
 			if ($query->num_rows() > 0) 
 			{

@@ -129,7 +129,7 @@
                         <tr>
                         <td><?php echo (!empty($product))?$cont:'' ?></td>
                         <td><?php echo (!empty($value->title))?$value->title:''  ?></td>
-                        <td><center><img class="table-image" src="<?php echo $this->config->item('web_url').'product-image/'.$value->image_thumbnail ?>" alt="image"></center></td>
+                        <td><center><img class="table-image" src="<?php echo $this->config->item('web_url').$value->image_path ?>" alt="image"></center></td>
                         <td><?php echo (!empty($value->product_id))?$value->product_id:''  ?></td>
                         <td><?php echo (!empty($value->created_on))?date("d-M-y", strtotime($value->created_on)):''; ?></td>
                         <td><?php echo (!empty($value->update_on))?date("d-M-y", strtotime($value->update_on)):''; ?></td>
@@ -153,12 +153,7 @@
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-            <p>©2019 Weaves! All Rights Reserved.  Developed by - <a href="http://www.5ines.com/" style="color: saddlebrown" target="_blank">5ine</a> </p> 
-          </div>
-          <div class="clearfix"></div>
-        </footer>
+        <?php $this->load->view('includes/footer.php'); ?>
         <!-- /footer content -->
       </div>
     </div>
