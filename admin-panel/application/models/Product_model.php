@@ -216,9 +216,6 @@ class Product_model extends CI_Model {
 			return $this->db->delete('marquee');
 			
 		}
-		
-
-		
 
         /**
          * get created by (admin name)
@@ -240,6 +237,17 @@ class Product_model extends CI_Model {
         	$this->db->where('id', $id);
 			$result = $this->db->get('product')->row_array();
 			return $result['productname'];
+		}
+
+		/**
+         * get category id
+        */
+        public function categoryid($name)
+        {
+        	$this->db->select('id');
+        	$this->db->where('name', $name);
+			$result = $this->db->get('category')->row_array();
+			return $result['id'];
 		}
 		
 
