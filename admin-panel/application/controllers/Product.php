@@ -350,7 +350,7 @@ class Product extends CI_Controller {
                             'image_path' => $path
                         );
 
-                        $output1['product'] = $this->Product_model->insert($insert);
+                        $output1['product'] = $this->Product_model->insertbulk($insert);
 
                         if ($marquee_title !='') {
                             for ($i=0; $i < count($marquee_title) ; $i++) {

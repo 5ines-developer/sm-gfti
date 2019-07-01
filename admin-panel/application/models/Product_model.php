@@ -32,7 +32,26 @@ class Product_model extends CI_Model {
 					return $this->db->get('product')->row_array();
 				}
 			}
-        }
+		}
+
+		/**
+		 * Product -> add Product  bulk with excell
+		 * @url : insert-product
+		 * @param : image ,uniqid,product name, created by id,tags,stock,price
+		 * 
+		*/
+
+		public function insertbulk($insert)
+		{
+			if($this->db->insert('product',$insert))
+			{
+				$this->db->select('id');
+				$this->db->where('product_id', $insert['product_id']);
+				return $this->db->get('product')->row_array();
+			}
+		}
+		
+		
 
 
         /**
