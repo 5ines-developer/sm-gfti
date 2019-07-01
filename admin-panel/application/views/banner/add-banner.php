@@ -104,7 +104,7 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Add Banner</h2>
+                                    <h2><?php echo (!empty($banner['title']))?'Edit':'Add'; ?> Banner</h2>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
@@ -203,7 +203,7 @@
                                                             <div class="">
                                                                 <div class="image view view-first">
                                                                     <img style="width: 100%; display: block;"
-                                                                    src="<?php echo base_url().'product-image/'.$value->image_thumbnail; ?>"
+                                                                    src="<?php echo $this->config->item('web_url').$value->image_path; ?>"
                                                                     alt="image">
                                                                 </div>
                                                             </div>

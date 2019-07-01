@@ -137,7 +137,7 @@
                         <td><?php echo (!empty($value->zip_code))?$value->zip_code:''  ?></td>
                         <td><?php echo (!empty($value->gst_number))?$value->gst_number:''  ?></td>
                         <td style="text-align:center;"><a href="<?php echo base_url('edit-billing-address/').$value->id?>" style="font-size: 22px;color: #2e9be0"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>&nbsp;&nbsp;
-                          <a class="exdelete" href="<?php echo base_url('delete-billing-address/').$value->id?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a> 
+                          <a onclick="return confirm('Are you sure you want to delete this item?');" href="<?php echo base_url('delete-billing-address/').$value->id?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a> 
                         </td>
                       </tr>
                     <?php } }?>

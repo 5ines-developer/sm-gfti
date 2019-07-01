@@ -147,7 +147,7 @@
                         <td><?php echo (!empty($value->price))?$value->price:''  ?></td>
                         <td><?php echo $this->ci->Product_model->productname($value->product) ?></td> 
                         <td style="text-align:center;"><a href="<?php echo base_url('edit-banner/').$value->id?>" style="font-size: 22px;color: #2e9be0"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>&nbsp;&nbsp;
-                          <a class="exdelete" href="<?php echo base_url('delete-banner/').$value->id?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a> 
+                          <a onclick="return confirm('Are you sure you want to delete this item?');" href="<?php echo base_url('delete-banner/').$value->id?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a> 
                         </td>
                       </tr>
                     <?php } }?>
@@ -164,12 +164,7 @@
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-            <p>©2019 Weaves! All Rights Reserved.  Developed by - <a href="http://www.5ines.com/" style="color: saddlebrown" target="_blank">5ine</a> </p> 
-          </div>
-          <div class="clearfix"></div>
-        </footer>
+        <?php $this->load->view('includes/footer.php'); ?>
         <!-- /footer content -->
       </div>
     </div>
@@ -205,22 +200,24 @@
     <script src="<?php echo base_url()?>assets/build/js/custom.min.js"></script>
 
     <script>
-    $(document).ready(function () {
-        $('#message1').toggleClass('in');
-        setTimeout(function(){$('.alert').fadeOut(3000)},4000);
-      });
-</script>
-
-<script>
       $(document).ready(function(){
-
         $(".exdelete").click(function(){
+        alert('test');
                 if (!confirm("Are you sure you want to delete this item?")){
                   return false;
                 }
            });
       })
     </script>
+
+    <script>
+    $(document).ready(function () {
+        $('#message1').toggleClass('in');
+        setTimeout(function(){$('.alert').fadeOut(3000)},4000);
+      });
+</script>
+
+
 
 
   </body>

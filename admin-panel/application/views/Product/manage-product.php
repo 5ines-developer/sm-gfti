@@ -113,9 +113,9 @@
                       <thead>
                         <tr>
                           <th>Sl No.</th>
-                          <th>product</th>
-                          <th>product image</th>
-                          <th>product ID</th>
+                          <th>Product</th>
+                          <th>Product image</th>
+                          <th>Product ID</th>
                           <th>Created On</th>
                           <th>Updated On</th>
                           <th>Created By</th>
@@ -136,7 +136,7 @@
                          <td><?php echo $this->ci->Product_model->createdby($value->created_by) ?></td> 
                         <td style="text-align:center;"><a href="<?php echo base_url('edit-product/').$value->id?>" style="font-size: 22px;color: #2e9be0"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>&nbsp;&nbsp;
                           <a href="<?php echo base_url('view-product/').$value->id?>" style="font-size: 20px;color: #257225" ><i class="fa fa-eye" aria-hidden="true"></i></a>&nbsp;&nbsp;
-                          <a class="exdelete" href="<?php echo base_url('delete-product/').$value->id?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a>&nbsp;&nbsp;
+                          <a onclick="return confirm('Are you sure you want to delete this item?');"  href="<?php echo base_url('delete-product/').$value->id?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a>&nbsp;&nbsp;
                         </td>
                       </tr>
                     <?php } }?>

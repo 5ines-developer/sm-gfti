@@ -103,11 +103,13 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Add Product</h2>
+                                    <h2><?php echo (!empty($product['title']))?'Edit':'Add'; ?>  Product</h2>
                                     <div class="banner-button">
+                                        <?php if (empty($product['title'])) {?>
                                         <button type="button" class="btn btn-info" data-toggle="modal"
                                             data-target="#upolp"><i class="fa fa-download" aria-hidden="true"></i>
                                             Import excel</button>
+                                            <?php } ?>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -136,11 +138,13 @@
                                                             required="required">
                                                             <option value="">-----Select-----</option>
                                                             <?php
+                                                            if (!empty($category)) {
+                                                            
                                                                                 foreach ($category as $key => $value) { ?>
                                                             <option value="<?php echo $value->id ?>"
                                                                 <?php if(!empty($product['category']) && $value->id == $product['category']){ echo 'selected'; } ?>>
                                                                 <?php echo $value->name ?> </option>
-                                                            <?php  } ?>
+                                                            <?php } } ?>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -338,18 +342,17 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12 mb-20"
-                                                        for="upload ">Product Image<span
-                                                            class="required">*</span></label>
+                                                        for="upload ">Product Image<?php echo (empty($product['image_path']))?'<span class="required">*</span>':''; ?></label>
                                                     <div class="col-md-8 col-sm-8 col-xs-12">
                                                         <input type="file" id="upload"
                                                             class="form-control col-md-7 col-xs-12" name="pimage"
-                                                            <?php echo (empty($product['image_thumbnail']))?'required="required"':''; ?>>
+                                                            <?php echo (empty($product['image_path']))?'required="required"':''; ?>>
                                                         <p style="color:red"><small>Only PNG|JPG|JPEG Files are
                                                                 allowed</small>
                                                     </div>
                                                 </div>
 
-                                                <?php if(!empty($product['image_thumbnail']))
+                                                <?php if(!empty($product['image_path']))
                                                                         {?>
                                                 <div class="form-group">
                                                     <input type="hidden" name="edit" value="edit">

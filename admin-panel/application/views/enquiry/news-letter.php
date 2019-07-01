@@ -103,9 +103,6 @@
 
                   <div class="x_title">
                     <h2>Newletter Subscribers List</h2>
-                    <div class="banner-button">
-                    	<a type="button" class="btn btn-success" href="<?php echo base_url()?>add-domain"><i class="fa fa-plus" aria-hidden="true"></i> Add Domain</a>
-                    </div>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -124,7 +121,7 @@
                         <tr>
                         <td><?php echo (!empty($news))?$cont:'' ?></td>
                         <td><?php echo (!empty($value->email))?$value->email:''  ?></td>
-                        <td><?php echo (!empty($value->subscribe_on))?date("d-M-y", strtotime($value->subscribe_on)):''; ?></td>
+                        <td><?php echo (!empty($value->subscribe_on))?date("d-M-y h:i:sa", strtotime($value->subscribe_on)):''; ?></td>
                       </tr>
                     <?php } }?>
                       </tbody>

@@ -1,7 +1,7 @@
 <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a  class="site_title"><img src="<?php echo base_url() ?>assets/img/logo.png" alt="Gift Express"></a>
+              <a  class="site_title"><img class="dash-logo" src="<?php echo base_url() ?>assets/images/logo.svg" alt="Gift Express"></a>
             </div>
 
             <div class="clearfix"></div>
@@ -10,7 +10,6 @@
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <h3>General</h3>
                 <ul class="nav side-menu">
                 <li><a href="<?php echo base_url() ?>dashboard"><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a></li>
                   <li><a><i class="fa fa-list-alt" aria-hidden="true"></i> Category <span class="fa fa-chevron-down"></span></a>

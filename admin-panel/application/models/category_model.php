@@ -89,6 +89,9 @@ class Category_model extends CI_Model {
 				}
 
 				$this->db->where('product', $productid);
+				$this->db->delete('banner');
+
+				$this->db->where('product', $productid);
 				$this->db->delete('marquee');
 			}
 

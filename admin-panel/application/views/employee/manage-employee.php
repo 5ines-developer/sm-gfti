@@ -129,7 +129,7 @@
                         <td><?php echo (!empty($value->created_on))?date("d-M-y", strtotime($value->created_on)):''; ?></td>
                         <td style="text-align:center;">
                         <a href="<?php echo base_url('view-employee/').$value->id?>" style="font-size: 20px;color: #257225" ><i class="fa fa-eye" aria-hidden="true"></i></a>&nbsp;&nbsp;
-                          <a class="exdelete" href="<?php echo base_url('delete-employee/').$value->id?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a> 
+                          <a onclick="return confirm('Are you sure you want to delete this item?');" href="<?php echo base_url('delete-employee/').$value->id?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a> 
                         </td>
                       </tr>
                     <?php } }?>
@@ -189,15 +189,15 @@
 </script>
 
 <script>
-      $(document).ready(function(){
+      
 
-        $(".exdelete").click(function(){
+        $(".empdelete").click(function(){
                 if (!confirm("Are you sure you want to delete this item?")){
                   return false;
                 }
-           });
-      })
-    </script>
+           })
+     
+</script>
 
 
   </body>

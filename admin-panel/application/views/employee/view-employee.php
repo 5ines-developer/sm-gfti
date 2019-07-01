@@ -75,7 +75,7 @@
 
                     <div class="clearfix"></div>
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        <ul class="nav nav-pills" role="tablist" style="margin-top: 11px;">
+                        <ul class="nav nav-pills bg-whte" role="tablist" style="margin-top: 11px;">
                             <li role="presentation"><a href="#detsail"
                                     class="js-scroll-trigger nav-link active">Profile</a>
                             </li>

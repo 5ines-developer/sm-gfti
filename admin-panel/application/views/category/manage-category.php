@@ -128,10 +128,10 @@
                         <td><?php echo (!empty($category))?$cont:'' ?></td>
                         <td><?php echo (!empty($value->name))?$value->name:''  ?></td>
                         <td><center><img class="table-image" src="<?php echo $this->config->item('web_url').$value->path ?>" alt="image"></center></td>
-                        <td><?php echo (!empty($value->created_on))?date("d-M-y", strtotime($value->created_on)):''; ?></td>
+                        <td><?php echo (!empty($value->created_on))?date("d-M-y h:i:sa", strtotime($value->created_on)):''; ?></td>
                         <td><?php echo $this->ci->Product_model->createdby($value->created_by) ?></td> 
                         <td style="text-align:center;"><a href="<?php echo base_url('edit-category/').$value->id?>" style="font-size: 22px;color: #2e9be0"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>&nbsp;&nbsp;
-                          <a class="exdelete" href="<?php echo base_url('delete-category/').$value->id?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a> 
+                          <a onclick="return confirm('Are you sure you want to delete this item?');" href="<?php echo base_url('delete-category/').$value->id?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a> 
                         </td>
                       </tr>
                     <?php } }?>
@@ -152,6 +152,7 @@
         <!-- /footer content -->
       </div>
     </div>
+  
 
     <!-- jQuery -->
     <script src="<?php echo base_url()?>assets/vendors/jquery/dist/jquery.min.js"></script>

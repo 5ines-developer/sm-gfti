@@ -104,7 +104,7 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Add Category</h2>
+                                    <h2><?php echo (!empty($category))?'Edit':'Add' ?> Category</h2>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
@@ -115,7 +115,7 @@
                                         <div class="row">
                                             <div class="col-md-6 col-sm-12 col-xs-12">
 
-                                                <?php if(!empty($category['image']))
+                                                <?php if(!empty($category['path']))
                                                 {?>
                                                     <div class="form-group">
                                                         <input type="hidden" name="edit" value="edit">
@@ -148,12 +148,12 @@
 
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12 mb-20"
-                                                        for="upload">Select Image<span class="required">*</span></label>
+                                                        for="upload">Select Image <?php echo (empty($category['path']))?'<span class="required">*</span>':''; ?> </label>
                                                     <div class="col-md-7 col-sm-7 col-xs-12">
                                                         <input type="file" id="upload" class="form-control col-md-7 col-xs-12"
-                                                        <?php echo (empty($category['name']))?'required="required"':''; ?>  >
+                                                        <?php echo (empty($category['path']))?'required="required"':''; ?>  >
                                                         <br><br>
-                                                        <p><small>(For good view use 1000 x 451px ratio image)</small>
+                                                        <p><small>(For good view use 400 x 210px ratio image)</small>
                                                         </p>
                                                         <input name="bancheck" class="bancheck" type="hidden" value="">
                                                     </div>

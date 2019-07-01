@@ -75,7 +75,8 @@ class Product extends CI_Controller {
             $config['allowed_types']        = 'jpg|png|jpeg';                
             $config['max_width']            = 0;
             $config['encrypt_name']         = TRUE;
-            $this->load->library('upload', $config);
+            $this->load->library('upload');
+            $this->upload->initialize($config);
             if(!is_dir($config['upload_path'])) mkdir($config['upload_path'], 0777, TRUE);
             if ( ! $this->upload->do_upload('pimage'))
             {
@@ -86,6 +87,7 @@ class Product extends CI_Controller {
             }
             else
             {
+            	// echo "ok";exit();
                 $upload_data = $this->upload->data();
                 $config['image_library']    =   'gd2';
                 $config['source_image']     =   $upload_data['full_path'];
@@ -119,7 +121,6 @@ class Product extends CI_Controller {
             );
             if(file_exists($_FILES['pimage']['tmp_name'])) {
              $insert['image_path'] =   'product-image/'.$file_name ;
-             $insert['image_thumbnail'] =   $thum_file ;
             }
 
            $output1['product'] = $this->Product_model->insert($insert);

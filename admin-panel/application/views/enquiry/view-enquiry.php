@@ -106,7 +106,7 @@
                                             <td><?php echo (!empty($enquiry['subject']))?$enquiry['subject']:''  ?></td>
                                         </tr>
                                         <tr>
-                                            <th>Registered On</th>
+                                            <th>Contacted On</th>
                                             <td><?php echo (!empty($enquiry['contacted_on']))?$enquiry['contacted_on']:''  ?>
                                             </td>
                                         </tr>

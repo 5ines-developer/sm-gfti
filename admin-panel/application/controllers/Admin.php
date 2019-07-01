@@ -88,7 +88,7 @@ class Admin extends CI_Controller {
 		{
 			if($this->session->userdata('unique_id') != '') 
 				{ 
-					$data['title']	= 'Dashboard - Siemens';	
+					$data['title']	= 'Exhibitions - Siemens';	
 					// $data['exbtn']	= $this->ExhibitionModel->getex();
 					$this->load->view('site/dashboard.php',$data);
 				} 

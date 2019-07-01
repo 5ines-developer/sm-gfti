@@ -65,7 +65,8 @@ class Banner extends CI_Controller {
             $config['allowed_types']        = 'jpg|png|jpeg';                
             $config['max_width']            = 0;
             $config['encrypt_name']         = TRUE;
-            $this->load->library('upload', $config);
+            $this->load->library('upload');
+            $this->upload->initialize($config);
             if(!is_dir($config['upload_path'])) mkdir($config['upload_path'], 0777, TRUE);
             if ( ! $this->upload->do_upload('banner'))
             {

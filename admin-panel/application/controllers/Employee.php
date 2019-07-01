@@ -61,10 +61,11 @@ class Employee extends CI_Controller {
             $data['order']      = $this->Employee_model->employeeorder($id);
             $data['shipping']   = $this->Employee_model->shippingaddress($id);
 
-
-            foreach ($data['order'] as $key => $value) {
-                $billingid = $value->billing;
-            }
+            // if (!empty($data['order'])) {
+            //     foreach ($data['order'] as $key => $value) {
+            //         $billingid = $value->billing;
+            //     }
+            // }
 
             $this->load->view('employee/view-employee',$data);
         }

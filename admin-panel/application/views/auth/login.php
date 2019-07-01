@@ -92,8 +92,8 @@
               
 
                 <div>
-                  <h1 style="margin: 10px 0 0px;"><img src="<?php echo base_url() ?>assets/img/logo.png" alt="Gifting Express"></h1>
-                  <p>©<?php echo date("Y"); ?>Gifting Express! All Rights Reserved. Developed by - <a href="http://www.5ines.com/" style="color: saddlebrown" target="_blank">5ine</a> </p> 
+                  <h1 style="margin: 10px 0 0px;"><img class="sim-logo" src="<?php echo base_url() ?>assets/images/logo.svg" alt="Gifting Express"></h1>
+                  <p>©<?php echo date("Y"); ?> Gifting Express! All Rights Reserved. Developed by - <a href="http://www.5ines.com/" style="color: saddlebrown" target="_blank">5ine</a> </p> 
                 </div>
               </div>
             </form>
@@ -121,8 +121,8 @@
 
                 <div class="clearfix"></div>
                 <div>
-                  <h1 style="margin: 10px 0 0px;"><img src="<?php echo base_url() ?>assets/img/logo.png" alt="Gifting Express"></h1>
-                  <p>©<?php echo date("Y"); ?>Gifting Express! All Rights Reserved .  Developed by - <a href="http://www.5ines.com/" style="color: saddlebrown" target="_blank">5ine</a> </p> 
+                  <h1 style="margin: 10px 0 0px;"><img class="sim-logo" src="<?php echo base_url() ?>assets/images/logo.svg" alt="Gifting Express"></h1>
+                  <p>©<?php echo date("Y"); ?> Gifting Express! All Rights Reserved .  Developed by - <a href="http://www.5ines.com/" style="color: saddlebrown" target="_blank">5ine</a> </p> 
                 </div>
               </div>
             </form>

@@ -129,7 +129,7 @@
                         <td><?php echo $this->ci->Product_model->createdby($value->created_by) ?></td> 
                         <td><?php echo (!empty($value->created_on))?date("d-M-y", strtotime($value->created_on)):''; ?></td>
                         <td style="text-align:center;"><a href="<?php echo base_url('edit-domain/').$value->id?>" style="font-size: 22px;color: #2e9be0"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>&nbsp;&nbsp;
-                          <a class="exdelete" href="<?php echo base_url('delete-domain/').$value->id?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a> 
+                          <a onclick="return confirm('Are you sure you want to delete this item?');" href="<?php echo base_url('delete-domain/').$value->id?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a> 
                         </td>
                       </tr>
                     <?php } }?>
@@ -146,7 +146,12 @@
         <!-- /page content -->
 
         <!-- footer content -->
-        <?php $this->load->view('includes/footer'); ?>
+        <footer>
+          <div class="pull-right">
+            <p>©2019 Weaves! All Rights Reserved.  Developed by - <a href="http://www.5ines.com/" style="color: saddlebrown" target="_blank">5ine</a> </p> 
+          </div>
+          <div class="clearfix"></div>
+        </footer>
         <!-- /footer content -->
       </div>
     </div>
