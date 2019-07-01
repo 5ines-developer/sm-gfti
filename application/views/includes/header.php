@@ -21,9 +21,9 @@
                 </div><!-- /.col-md-3 -->
                 <div class="col-md-6">
                     <div class="top-search">
-                        <form action="#" method="get" class="form-search" accept-charset="utf-8">
+                        <form action="<?php echo base_url('search') ?>" method="get" class="form-search" accept-charset="utf-8">
                             <div class="cat-wrap">
-                                <select name="category">
+                                <select name="c">
                                     <option hidden value="">All Category</option>
                                     <option hidden value="">Cameras</option>
                                     <option hidden value="">Computer</option>
@@ -71,7 +71,7 @@
                                 <span><i class="fa fa-angle-down" aria-hidden="true"></i></span>
                             </div><!-- /.cat-wrap -->
                             <div class="box-search">
-                                <input type="text" name="search" autocomplete="off"
+                                <input type="text" name="q" autocomplete="off"
                                     placeholder="Search what you looking for ?">
                                 <span class="btn-search">
                                     <button type="submit" class="waves-effect"><img
@@ -79,8 +79,9 @@
                                             alt=""></button>
                                 </span>
                                 <!-- suggetion box -->
-                                <div class="sg-box">
+                                <div class="sg-box" id="sg-box">
                                     <div class="title">Search Suggestions</div>
+                                    <ul class="sg-result"> </ul>
                                 </div>
                                
                             </div><!-- /.box-search -->

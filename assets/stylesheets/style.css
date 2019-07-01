@@ -2519,7 +2519,7 @@ article.main-post.style4 .content-post h3.title-post {
 
 .blog-pagination span {
 	float:left;
-	line-height:42px;
+	line-height:0px;
 }
 
 ul.flat-pagination {
@@ -3452,8 +3452,25 @@ ol.comment-list li.comment .comment-text .comment-content p {
 .box-image img{max-width: 100%;height: auto;max-height: 209px}
 .bg-white { background: #fff; z-index: 1; position: relative; padding: 0 7px; }
 .style4 .box-image img{max-height: 101px}
-.sg-box{ padding: 15px; vertical-align: middle; width: calc(100% - 46px); background: #fff; height: 400px; position: absolute; left: 0; right: 0; margin: auto; box-shadow: 0px 4px 5px #8080801f; border-radius: 4px 4px; }
-.sg-box .title { color: #f28b00; font-size: 14px; font-weight: 600; margin-bottom: 15px; }
+
+/* serach */
+.sg-box { visibility: hidden; opacity: 0; z-index: 999999; transition: 0.05s; padding: 15px; vertical-align: middle; width: calc(100% - 46px); background: #fff; max-height: 400px; position: absolute; left: 0; right: 0; margin: auto; box-shadow: 0px 4px 5px #8080801f; border-radius: 4px 4px; overflow-y: auto; scrollbar-width: thin; }.sg-box .title { color: #f28b00; font-size: 14px; font-weight: 600; margin-bottom: 15px; }
+.sgrl-item-title{ color: #484848; font-size: 16px; font-weight: 500; font-family: 'Nunito'; margin-right: 15px; }
+.sgrl-item-category{color: #c5c5c5;font-size:13px}
+.sg-result-list{line-height: 16px; padding:7px;}
+.sg-result-list:hover{background: #eaeaea; border-radius: 3px; box-shadow: 0px 0px 3px #80808026;}
+.sg-result-list:hover .sgrl-item-category{ color: #898989}
+.sg-result-list:hover .sgrl-item-title{ color: #000}
+.visible{visibility: visible;opacity: 1;}
+
+/* result */
+main#shop { background: #fff; margin-top:0 !important;padding: 50px 0px}
+.flat-pagination li span{line-height: 0px;border-radius: 50%;}
+.text-capitize{text-transform: capitalize}
+.float-left{float: left;}
+.product-des { padding: 50px 0; }
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; -moz-appearance: none; appearance: none; margin: 0;-moz-appearance:textfield; }
+
 
 
   @media (max-width:600px){

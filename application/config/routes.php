@@ -64,5 +64,8 @@ $route['forgot-password-set']   = 'authendication/forgot_password_set';
 $route['account-setting']       = 'account';
 $route['change-psw']            = 'account/change_psw';
 // page
-
+$route['search-sg']             = 'search/index';
+$route['search/(:any)']         = 'search/search/$1';
+$route['search']                = 'search/search';
+$route['product/(:any)']        = 'search/product_detail/$1';
 
