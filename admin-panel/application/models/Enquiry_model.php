@@ -5,8 +5,8 @@ class Enquiry_model extends CI_Model {
 
 
         /**
-         * get domain 
-         * @url : manage-domain
+         * get enquiry 
+         * @url : manage-enquiry
          * 
         */
         public function getenquiry()
@@ -39,6 +39,27 @@ class Enquiry_model extends CI_Model {
 			{
 				
 				return $query->row_array();
+			}
+			else
+			{
+				return false;
+			}
+		}
+		
+		
+
+		 /**
+         * news_letter 
+         * @url : newsletter-subscribers
+         * 
+        */
+        public function news_letter()
+		{
+			$query = $this->db->get('news_letter');
+			if ($query->num_rows() > 0) 
+			{
+				
+				return $query->result();
 			}
 			else
 			{

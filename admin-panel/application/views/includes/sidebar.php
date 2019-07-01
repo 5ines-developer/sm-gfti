@@ -46,7 +46,8 @@
                       </ul>
                   </li>
                   <li><a href="<?php echo base_url() ?>manage-enquiry"><i class="fa fa-comment" aria-hidden="true"></i>Manage Enquiry</a></li>
-
+                  <li><a href="<?php echo base_url() ?>newsletter-subscribers"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>Newsletter Subscribers</a></li>
+                  
 
                 </ul>
               </div>

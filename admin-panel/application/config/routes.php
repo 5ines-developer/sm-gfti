@@ -111,3 +111,5 @@ $route['edit-billing-address/(:any)']   = 'Billing/edit_billing/$1';
 //enquiry
 $route['manage-enquiry'] 	     = 'Enquiry/index';
 $route['view-enquiry/(:any)']    = 'Enquiry/view_enquiry/$1';
+//News letter 
+$route['newsletter-subscribers'] = 'Enquiry/news_letter';

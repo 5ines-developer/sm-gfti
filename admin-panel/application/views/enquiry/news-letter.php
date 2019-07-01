@@ -102,7 +102,7 @@
                     <?php } ?>
 
                   <div class="x_title">
-                    <h2>Domain List</h2>
+                    <h2>Newletter Subscribers List</h2>
                     <div class="banner-button">
                     	<a type="button" class="btn btn-success" href="<?php echo base_url()?>add-domain"><i class="fa fa-plus" aria-hidden="true"></i> Add Domain</a>
                     </div>
@@ -113,24 +113,18 @@
                       <thead>
                         <tr>
                           <th>Sl No.</th>
-                          <th>Domain</th>
-                          <th>Created By</th>
-                          <th>Created On</th>
-                          <th>Operations</th>
+                          <th>Email</th>
+                          <th>Subscribed on</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <?php  $cont = 0; if (!empty($domain)) 
+                        <?php  $cont = 0; if (!empty($news)) 
                         {
-                         foreach ($domain as $key => $value) {$cont = $cont + 1;?>
+                         foreach ($news as $key => $value) {$cont = $cont + 1;?>
                         <tr>
-                        <td><?php echo (!empty($domain))?$cont:'' ?></td>
-                        <td><?php echo (!empty($value->domain))?$value->domain:''  ?></td>
-                        <td><?php echo $this->ci->Product_model->createdby($value->created_by) ?></td> 
-                        <td><?php echo (!empty($value->created_on))?date("d-M-y", strtotime($value->created_on)):''; ?></td>
-                        <td style="text-align:center;"><a href="<?php echo base_url('edit-domain/').$value->id?>" style="font-size: 22px;color: #2e9be0"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>&nbsp;&nbsp;
-                          <a class="exdelete" href="<?php echo base_url('delete-domain/').$value->id?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a> 
-                        </td>
+                        <td><?php echo (!empty($news))?$cont:'' ?></td>
+                        <td><?php echo (!empty($value->email))?$value->email:''  ?></td>
+                        <td><?php echo (!empty($value->subscribe_on))?date("d-M-y", strtotime($value->subscribe_on)):''; ?></td>
                       </tr>
                     <?php } }?>
                       </tbody>
@@ -146,7 +140,7 @@
         <!-- /page content -->
 
         <!-- footer content -->
-        <?php $this->load->view('includes/footer'); ?>
+     <?php $this->load->view('includes/footer'); ?>
         <!-- /footer content -->
       </div>
     </div>

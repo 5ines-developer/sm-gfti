@@ -29,8 +29,6 @@ class Enquiry extends CI_Controller {
         
     }
     
-
-    
     /**
     * Enquiry -> manage Enquiry 
     * url : manage-enquiry
@@ -42,6 +40,21 @@ class Enquiry extends CI_Controller {
         $data['enquiry']    = $this->Enquiry_model->singleenquiry($id);
         $this->load->view('enquiry/view-enquiry',$data);
     }
+
+
+        
+    /**
+    * News letter sbscribers -> fetch email list 
+    * url : newsletter-subscribers
+    */
+    public function news_letter()
+    {
+        $data['title'] = 'Newsletter Subscribers - Siemens';
+        $data['news']   = $this->Enquiry_model->news_letter();
+        $this->load->view('enquiry/news-letter',$data);
+        
+    }
+
 }
 
 /* End of file Controllername.php */
