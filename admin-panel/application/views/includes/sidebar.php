@@ -45,6 +45,7 @@
                       <li><a href="<?php echo base_url() ?>manage-billing-address">Manage Billing Address</a></li>
                       </ul>
                   </li>
+                  <li><a href="<?php echo base_url() ?>manage-enquiry"><i class="fa fa-comment" aria-hidden="true"></i>Manage Enquiry</a></li>
 
 
                 </ul>

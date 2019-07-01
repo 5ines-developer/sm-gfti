@@ -108,3 +108,6 @@ $route['insert-billing-address'] = 'Billing/add_billing';
 $route['manage-billing-address'] = 'Billing/manage_billing';
 $route['delete-billing-address/(:any)'] = 'Billing/delete_billing/$1';
 $route['edit-billing-address/(:any)']   = 'Billing/edit_billing/$1';
+//enquiry
+$route['manage-enquiry'] 	     = 'Enquiry/index';
+$route['view-enquiry/(:any)']    = 'Enquiry/view_enquiry/$1';
