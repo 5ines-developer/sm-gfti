@@ -49,7 +49,19 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+
+    <style>
+    p {
+        font-size: 12px;
+    }
+
+    .banner-button {
+        float: right;
+    }
+    </style>
 </head>
+
+
 
 <body class="nav-md">
     <div class="container body">
@@ -61,9 +73,11 @@
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <!--  <h3>Product</h3> -->
+                            <!-- <h3>Product</h3> -->
+
                         </div>
                         <div class="title_right">
+
                         </div>
                     </div>
                     <?php if ($this->session->flashdata('success')) { ?>
@@ -90,6 +104,11 @@
                             <div class="x_panel">
                                 <div class="x_title">
                                     <h2>Add Product</h2>
+                                    <div class="banner-button">
+                                        <button type="button" class="btn btn-info" data-toggle="modal"
+                                            data-target="#upolp"><i class="fa fa-download" aria-hidden="true"></i>
+                                            Import excel</button>
+                                    </div>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
@@ -146,13 +165,14 @@
                                                         for="first-name"><span class="required"></span>
                                                     </label>
                                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                                        <div class="brand-pricing <?php echo(!empty($brand))?'collapsed':''; ?>" data-toggle="collapse"
-                                                            data-target="#marquee">
+                                                        <div class="brand-pricing <?php echo(!empty($brand))?'collapsed':''; ?>"
+                                                            data-toggle="collapse" data-target="#marquee">
                                                             <h5>Marquee<span class="branddown"><i
                                                                         class="fa fa-chevron-down"
                                                                         aria-hidden="true"></i> </span></h5>
                                                         </div>
-                                                        <div id="marquee" class="brand-pricing collapse <?php echo(!empty($brand))?'in':''; ?>">
+                                                        <div id="marquee"
+                                                            class="brand-pricing collapse <?php echo(!empty($brand))?'in':''; ?>">
 
 
 
@@ -162,28 +182,39 @@
 
                                                             <div class="row" id="marqaddnext">
                                                                 <div class="col-md-6 col-sm-6 col-xs-12 mar-12">
-                                                                <input type="text" class="form-control " name="marquee_title[]" placeholder="Marquee title" value="<?php  echo(!empty($value->title))?$value->title:'';  ?>">
+                                                                    <input type="text" class="form-control "
+                                                                        name="marquee_title[]"
+                                                                        placeholder="Marquee title"
+                                                                        value="<?php  echo(!empty($value->title))?$value->title:'';  ?>">
 
                                                                 </div>
                                                                 <div class="col-md-4 col-sm-4 col-xs-12">
-                                                                <input type="test" class="form-control "
-                                                                        name="marquee_link[]" placeholder="Marquee link" value="<?php  echo(!empty($value->link))?$value->link:'';  ?>">
-                                                                        <input type="hidden" value="<?php  echo(!empty($value->uniq))?$value->uniq:'';  ?>" name="marqueeunq[]">
+                                                                    <input type="test" class="form-control "
+                                                                        name="marquee_link[]" placeholder="Marquee link"
+                                                                        value="<?php  echo(!empty($value->link))?$value->link:'';  ?>">
+                                                                    <input type="hidden"
+                                                                        value="<?php  echo(!empty($value->uniq))?$value->uniq:'';  ?>"
+                                                                        name="marqueeunq[]">
                                                                 </div>
                                                                 <div class="col-md-2 col-sm-2">
-                                                                    <a id="brandremove" class="marqueeremove brandplus remov" value="<?php echo $value->id ?>"><i
-                                                                            class="fa fa-times" aria-hidden="true"></i></a>
+                                                                    <a id="brandremove"
+                                                                        class="marqueeremove brandplus remov"
+                                                                        value="<?php echo $value->id ?>"><i
+                                                                            class="fa fa-times"
+                                                                            aria-hidden="true"></i></a>
                                                                 </div>
                                                             </div>
                                                             <?php } } ?>
                                                             <div class="row" id="marqaddnext">
                                                                 <div class="col-md-6 col-sm-6 col-xs-12 mar-12">
                                                                     <input type="text" class="form-control "
-                                                                        name="marquee_title[]" placeholder="Marquee title" value="">
+                                                                        name="marquee_title[]"
+                                                                        placeholder="Marquee title" value="">
                                                                 </div>
                                                                 <div class="col-md-4 col-sm-4 col-xs-12">
                                                                     <input type="test" class="form-control "
-                                                                        name="marquee_link[]" placeholder="Marquee link" value="">
+                                                                        name="marquee_link[]" placeholder="Marquee link"
+                                                                        value="">
                                                                 </div>
                                                                 <div class="col-md-2 col-sm-2">
                                                                     <a id="marqueeplus" class="marqueeplus"><i
@@ -238,13 +269,14 @@
                                                         for="first-name"><span class="required"></span>
                                                     </label>
                                                     <div class="col-md-8 col-sm-8 col-xs-12">
-                                                        <div class="brand-pricing <?php echo(!empty($brand))?'collapsed':''; ?>" data-toggle="collapse"
-                                                            data-target="#demo">
+                                                        <div class="brand-pricing <?php echo(!empty($brand))?'collapsed':''; ?>"
+                                                            data-toggle="collapse" data-target="#demo">
                                                             <h5>Add Brand Charges <span class="branddown"><i
                                                                         class="fa fa-chevron-down"
                                                                         aria-hidden="true"></i> </span></h5>
                                                         </div>
-                                                        <div id="demo" class="brand-pricing collapse <?php echo(!empty($brand))?'in':''; ?>">
+                                                        <div id="demo"
+                                                            class="brand-pricing collapse <?php echo(!empty($brand))?'in':''; ?>">
 
 
 
@@ -262,22 +294,29 @@
                                                                     <input type="number" class="form-control "
                                                                         name="brand_price[]" placeholder="Brand price"
                                                                         value="<?php  echo(!empty($value->title))?$value->price:'';  ?>">
-                                                                        <input type="hidden" value="<?php  echo(!empty($value->brand_uniq))?$value->brand_uniq:'';  ?>" name="brndunq[]">
+                                                                    <input type="hidden"
+                                                                        value="<?php  echo(!empty($value->brand_uniq))?$value->brand_uniq:'';  ?>"
+                                                                        name="brndunq[]">
                                                                 </div>
                                                                 <div class="col-md-2 col-sm-2">
-                                                                    <a id="brandremove" class="brandremove brandplus remov" value="<?php echo $value->id ?>"><i
-                                                                            class="fa fa-times" aria-hidden="true"></i></a>
+                                                                    <a id="brandremove"
+                                                                        class="brandremove brandplus remov"
+                                                                        value="<?php echo $value->id ?>"><i
+                                                                            class="fa fa-times"
+                                                                            aria-hidden="true"></i></a>
                                                                 </div>
                                                             </div>
                                                             <?php } } ?>
                                                             <div class="row" id="addnext">
                                                                 <div class="col-md-6 col-sm-6 col-xs-12 mar-12">
                                                                     <input type="text" class="form-control "
-                                                                        name="brand_title[]" placeholder="Brand title" value="">
+                                                                        name="brand_title[]" placeholder="Brand title"
+                                                                        value="">
                                                                 </div>
                                                                 <div class="col-md-4 col-sm-4 col-xs-12">
                                                                     <input type="number" class="form-control "
-                                                                        name="brand_price[]" placeholder="Brand price" value="">
+                                                                        name="brand_price[]" placeholder="Brand price"
+                                                                        value="">
                                                                 </div>
                                                                 <div class="col-md-2 col-sm-2">
                                                                     <a id="brandplus" class="brandplus"><i
@@ -304,8 +343,7 @@
                                                     <div class="col-md-8 col-sm-8 col-xs-12">
                                                         <input type="file" id="upload"
                                                             class="form-control col-md-7 col-xs-12" name="pimage"
-                                                            <?php echo (empty($product['image_thumbnail']))?'required="required"':''; ?>
-                                                           >
+                                                            <?php echo (empty($product['image_thumbnail']))?'required="required"':''; ?>>
                                                         <p style="color:red"><small>Only PNG|JPG|JPEG Files are
                                                                 allowed</small>
                                                     </div>
@@ -319,7 +357,7 @@
                                                         <div class="">
                                                             <div class="image view view-first">
                                                                 <img style="width: 100%; display: block;"
-                                                                    src="<?php echo $this->config->item('web_url').'product-image/'.$product['image_thumbnail'] ?>"
+                                                                    src="<?php echo $this->config->item('web_url').$product['image_path'] ?>"
                                                                     alt="image">
                                                             </div>
                                                         </div>
@@ -353,6 +391,34 @@
             <!-- footer content -->
             <?php $this->load->view('includes/footer.php'); ?>
             <!-- /footer content -->
+
+
+            <!--import excell modal -->
+
+            <div class="modal fade" id="upolp" role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <h3>Product Bulk Upload! </h3>
+                            <form enctype="multipart/form-data" method="post"
+                                action="<?php echo base_url()?>Product/import_excel">
+                                <div class="form-group">
+                                    <input type="file" name="file" class="form-control" accept=".xls, .xlsx"> <br>
+                                    <label style="color:red">Please Select only .xls and .xlsx format.</label>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn-block btn btn-success">Upload</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
         </div>
     </div>
     <!-- jQuery -->
@@ -444,17 +510,17 @@
     });
     </script>
 
-    
-<script>
+
+    <script>
     $(document).ready(function() {
         $('.brandremove').on('click', function(e) {
             e.preventDefault();
             var brandid = $(this).attr('value');
 
-            if (!confirm("Are you sure you want to delete this item?")){
-                  return false;
-                }else{
-                    $.ajax({
+            if (!confirm("Are you sure you want to delete this item?")) {
+                return false;
+            } else {
+                $.ajax({
                     url: "<?php echo base_url();?>delete-brand",
                     type: "get",
                     data: {
@@ -463,7 +529,7 @@
                     success: function(data) {
                         if (!empty(data)) {
                             alert('ok');
-                        }else{
+                        } else {
                             alert('not ok')
                         }
                     }
@@ -474,16 +540,16 @@
     </script>
 
 
-<script>
+    <script>
     $(document).ready(function() {
         $('.marqueeremove').on('click', function(e) {
             e.preventDefault();
             var marqueid = $(this).attr('value');
 
-            if (!confirm("Are you sure you want to delete this item?")){
-                  return false;
-                }else{
-                    $.ajax({
+            if (!confirm("Are you sure you want to delete this item?")) {
+                return false;
+            } else {
+                $.ajax({
                     url: "<?php echo base_url();?>delete-marquee",
                     type: "get",
                     data: {
@@ -492,7 +558,7 @@
                     success: function(data) {
                         if (!empty(data)) {
                             alert('ok');
-                        }else{
+                        } else {
                             alert('not ok')
                         }
                     }

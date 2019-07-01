@@ -104,7 +104,7 @@
                   <div class="x_title">
                     <h2>Domain List</h2>
                     <div class="banner-button">
-                    	<a type="button" class="btn btn-success" href="<?php echo base_url()?>add-banner"><i class="fa fa-plus" aria-hidden="true"></i> Add Banner</a>
+                    	<a type="button" class="btn btn-success" href="<?php echo base_url()?>add-domain"><i class="fa fa-plus" aria-hidden="true"></i> Add Domain</a>
                     </div>
                     <div class="clearfix"></div>
                   </div>
@@ -146,12 +146,7 @@
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-            <p>©2019 Weaves! All Rights Reserved.  Developed by - <a href="http://www.5ines.com/" style="color: saddlebrown" target="_blank">5ine</a> </p> 
-          </div>
-          <div class="clearfix"></div>
-        </footer>
+        <?php $this->load->view('includes/footer'); ?>
         <!-- /footer content -->
       </div>
     </div>

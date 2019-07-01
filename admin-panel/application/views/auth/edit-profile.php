@@ -68,7 +68,6 @@
           <div class="">
             <div class="page-title">
               <div class="title_left ">
-                <h3>Profile</h3>
               </div>
               <div class="title_right">
               </div>
@@ -149,12 +148,7 @@
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-           <p>©2019 Weaves! All Rights Reserved.  Developed by - <a href="http://www.5ines.com/" style="color: saddlebrown" target="_blank">5ine</a> </p> 
-          </div>
-          <div class="clearfix"></div>
-        </footer>
+        <?php $this->load->view('includes/footer.php'); ?>
         <!-- /footer content -->
       </div>
     </div>

@@ -104,7 +104,7 @@
                                     <div class="col-md-7 col-sm-7 col-xs-12">
                                         <div class="col-md-10 col-sm-10 col-xs-12">
                                             <div class="product-image">
-                                                <img src="<?php echo $this->config->item('web_url').'product-image/'.$product['image_path'] ?>" alt="..." />
+                                                <img src="<?php echo $this->config->item('web_url').$product['image_path'] ?>" alt="..." />
                                             </div>
                                         </div>
 
@@ -181,7 +181,7 @@
                                                 </tr>
                                                 <tr>
                                                     <th>Price</th>
-                                                    <td><?php echo (!empty($product['price']))?$product['price'].' &#8377;':''?></td>
+                                                    <td><?php echo (!empty($product['price']))?'&#8377;'.$product['price']:''?></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Added On</th>
@@ -223,13 +223,7 @@
             <!-- /page content -->
 
             <!-- footer content -->
-            <footer>
-                <div class="pull-right">
-                    <p>©2019 Weaves! All Rights Reserved. Developed by - <a href="http://www.5ines.com/"
-                            style="color: saddlebrown" target="_blank">5ine</a> </p>
-                </div>
-                <div class="clearfix"></div>
-            </footer>
+            <?php $this->load->view('includes/footer.php'); ?>
             <!-- /footer content -->
         </div>
     </div>

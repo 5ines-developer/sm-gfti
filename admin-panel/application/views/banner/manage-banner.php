@@ -130,14 +130,15 @@
                         <td><center>
                             <?php 
 
-                            if (!empty($value->image )) { ?>
-                                <img class="table-image" src="<?php echo $this->config->item('web_url').'banner-image/'.$value->image ?>" alt="image">
+                            if (!empty($value->path )) { 
+                              ?>
+                                <img class="table-image" src="<?php echo $this->config->item('web_url').$value->path ?>" alt="image">
                                
                            <?php  }else{ 
                                if (!empty($product)) {
                                 foreach ($product as $key1 => $value1) { 
                                     if($value1->id == $value->product) { ?>
-                                        <img class="table-image" src="<?php echo $this->config->item('web_url').'product-image/'.$value1->image_thumbnail ?>" alt="image">
+                                        <img class="table-image" src="<?php echo $this->config->item('web_url').$value1->image_path ?>" alt="image">
                                 <?php } } } }?>
   
                         </center>

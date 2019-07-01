@@ -101,4 +101,15 @@ $route['delete-employee/(:any)'] = 'Employee/delete_employee/$1';
 $route['view-employee/(:any)']   = 'Employee/view_employee/$1';
 //Orders
 $route['orders'] 		         = 'Orders/index';
-
+$route['view-order/(:any)'] 	 = 'Orders/view_order/$1';
+//Billing address
+$route['add-billing-address'] 	 = 'Billing/index';
+$route['insert-billing-address'] = 'Billing/add_billing';
+$route['manage-billing-address'] = 'Billing/manage_billing';
+$route['delete-billing-address/(:any)'] = 'Billing/delete_billing/$1';
+$route['edit-billing-address/(:any)']   = 'Billing/edit_billing/$1';
+//enquiry
+$route['manage-enquiry'] 	     = 'Enquiry/index';
+$route['view-enquiry/(:any)']    = 'Enquiry/view_enquiry/$1';
+//News letter 
+$route['newsletter-subscribers'] = 'Enquiry/news_letter';

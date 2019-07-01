@@ -33,6 +33,7 @@ class Category_model extends CI_Model {
         */
         public function getcategory()
 		{
+			$this->db->order_by('id', 'desc');
 			$query = $this->db->get('category');
 			if ($query->num_rows() > 0) 
 			{
@@ -109,7 +110,7 @@ class Category_model extends CI_Model {
 					$category = 0;
 				}
 
-				if ($brand!='' || $product!='' || $category!='') {
+				if (!empty($brand) || $product!='' || $category!='') {
 					return true;
 				}else{
 					return false;

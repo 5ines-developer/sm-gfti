@@ -32,7 +32,26 @@ class Product_model extends CI_Model {
 					return $this->db->get('product')->row_array();
 				}
 			}
-        }
+		}
+
+		/**
+		 * Product -> add Product  bulk with excell
+		 * @url : insert-product
+		 * @param : image ,uniqid,product name, created by id,tags,stock,price
+		 * 
+		*/
+
+		public function insertbulk($insert)
+		{
+			if($this->db->insert('product',$insert))
+			{
+				$this->db->select('id');
+				$this->db->where('product_id', $insert['product_id']);
+				return $this->db->get('product')->row_array();
+			}
+		}
+		
+		
 
 
         /**
@@ -91,6 +110,7 @@ class Product_model extends CI_Model {
         */
         public function getproduct()
 		{
+			$this->db->order_by('id', 'desc');
 			$query = $this->db->get('product');
 			if ($query->num_rows() > 0) 
 			{
@@ -117,6 +137,9 @@ class Product_model extends CI_Model {
 			{
 				$this->db->where('product', $id);
 				$this->db->delete('banner');
+
+				$this->db->where('product', $id);
+				$this->db->delete('marquee');
 
 				$this->db->where('id', $id);
 				return $this->db->delete('product');
@@ -212,9 +235,6 @@ class Product_model extends CI_Model {
 			return $this->db->delete('marquee');
 			
 		}
-		
-
-		
 
         /**
          * get created by (admin name)
@@ -236,6 +256,17 @@ class Product_model extends CI_Model {
         	$this->db->where('id', $id);
 			$result = $this->db->get('product')->row_array();
 			return $result['productname'];
+		}
+
+		/**
+         * get category id
+        */
+        public function categoryid($name)
+        {
+        	$this->db->select('id');
+        	$this->db->where('name', $name);
+			$result = $this->db->get('category')->row_array();
+			return $result['id'];
 		}
 		
 

@@ -39,7 +39,15 @@
                   </li>
                 <li><a href="<?php echo base_url() ?>manage-employee"><i class="fa fa-users" aria-hidden="true"></i>Manage Employee</a></li>
                 <li><a href="<?php echo base_url() ?>orders"><i class="fa fa-cart-plus" aria-hidden="true"></i></i>orders</a></li>
-
+                <li><a><i class="fa fa-newspaper-o" aria-hidden="true"></i> Billing Address<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="<?php echo base_url() ?>add-billing-address">Add Billing Address</a></li>
+                      <li><a href="<?php echo base_url() ?>manage-billing-address">Manage Billing Address</a></li>
+                      </ul>
+                  </li>
+                  <li><a href="<?php echo base_url() ?>manage-enquiry"><i class="fa fa-comment" aria-hidden="true"></i>Manage Enquiry</a></li>
+                  <li><a href="<?php echo base_url() ?>newsletter-subscribers"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>Newsletter Subscribers</a></li>
+                  
 
                 </ul>
               </div>
