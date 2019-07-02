@@ -37,7 +37,7 @@
                       </ul>
                   </li>
                 <li><a href="<?php echo base_url() ?>manage-employee"><i class="fa fa-users" aria-hidden="true"></i>Manage Employee</a></li>
-                <li><a href="<?php echo base_url() ?>orders"><i class="fa fa-cart-plus" aria-hidden="true"></i></i>orders</a></li>
+                <li><a href="<?php echo base_url() ?>orders"><i class="fa fa-cart-plus" aria-hidden="true"></i>orders</a></li>
                 <li><a><i class="fa fa-newspaper-o" aria-hidden="true"></i> Billing Address<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo base_url() ?>add-billing-address">Add Billing Address</a></li>

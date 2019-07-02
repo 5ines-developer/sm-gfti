@@ -141,5 +141,102 @@ class Admin_model extends CI_Model {
           }
         }
 
+
+        /**
+		    *Dashboard -> get total orders count
+        */
+        public function getorders()
+        {
+          $this->db->select('id');
+          $query = $this->db->get('orders');
+          if ($query->num_rows() > 0) {
+            return $query->num_rows();
+          }else{
+            return false;
+          }
+        }
+
+        /**
+		    *Dashboard -> get total users count
+        */
+        public function getusers()
+        {
+          $this->db->select('id');
+          $query = $this->db->get('employee');
+          if ($query->num_rows() > 0) {
+            return $query->num_rows();
+          }else{
+            return false;
+          }
+        }
+
+
+        /**
+		    *Dashboard -> get total Products count
+        */
+        public function getproducts()
+        {
+          $this->db->select('id');
+          $query = $this->db->get('product');
+          if ($query->num_rows() > 0) {
+            return $query->num_rows();
+          }else{
+            return false;
+          }
+        }
+
+        /**
+		    *Dashboard -> get total Category count
+        */
+        public function getcategory()
+        {
+          $this->db->select('id');
+          $query = $this->db->get('category');
+          if ($query->num_rows() > 0) {
+            return $query->num_rows();
+          }else{
+            return false;
+          }
+        }
+
+        
+      /**
+      * get total orders by month to display in graph
+      * @url : Admin/getordergraph
+      * 
+      */
+      public function getordergraph($startdate)
+      {
+        
+        $this->db->select('orderd_on');
+        $now    = date("Y-m-d H:i:s");
+        $this->db->where('orderd_on <=', $now);        
+        $this->db->where('orderd_on >=', $startdate);
+        $query = $this->db->get('orders')->result();
+
+        foreach ($query as $key => $value) {
+          $newData[]= date("M",strtotime($value->orderd_on));
+        }
+        $vals = array_count_values($newData);
+
+        $counts = array();
+        for ($m=1; $m<=12; $m++) {
+          $month = date('M', mktime(0,0,0,$m, 1, date('Y')));
+          
+              if(!empty($vals[$month])){
+                  $counts[]= array("valeus"=>$vals[$month] , "month"=>$month);
+              }else{
+                  $counts[]= array("valeus"=>0 , "month"=>$month);
+              }
+          }
+
+        return $counts;
+
+      }
+
+
+
+
+
        
 }

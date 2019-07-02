@@ -88,8 +88,11 @@ class Admin extends CI_Controller {
 		{
 			if($this->session->userdata('unique_id') != '') 
 				{ 
-					$data['title']	= 'Exhibitions - Siemens';	
-					// $data['exbtn']	= $this->ExhibitionModel->getex();
+					$data['title']		= 'Dashboard - Siemens';	
+					$data['order']		= $this->admin_model->getorders();//fetch total orders count
+					$data['user']		= $this->admin_model->getusers();//fetch total users count
+					$data['product']	= $this->admin_model->getproducts();//fetch total products count
+					$data['category']	= $this->admin_model->getcategory();//fetch total categories count
 					$this->load->view('site/dashboard.php',$data);
 				} 
 			else 
@@ -98,6 +101,20 @@ class Admin extends CI_Controller {
 					redirect('admin');
 				} 
 		}
+
+		/**
+		* get total orders by month to display in graph
+		* @url : Admin/getordergraph
+		* 
+		*/
+		public function getordergraph()
+		{
+			$startdate 	= date('Y-m-d H:i:s',strtotime(date('Y-01-01'))); //start date of the year (jan first)
+			$result		= $this->admin_model->getordergraph($startdate);
+			echo json_encode($result);
+		}
+
+		
 
 		/**
 		* logout

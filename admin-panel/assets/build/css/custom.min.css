@@ -2009,7 +2009,7 @@ span.right {
 
 .tile_count .tile_stats_count {
     border-bottom: 1px solid #D9DEE4;
-    padding: 0 10px 0 20px;
+    padding: 0 10px 0 10px;
     position: relative
 }
 
@@ -2018,7 +2018,7 @@ span.right {
     position: absolute;
     left: 0;
     height: 65px;
-    border-left: 2px solid #ADB2B5;
+    border-left: none;
     margin-top: 10px
 }
 
@@ -2027,7 +2027,7 @@ span.right {
         margin-left: 230px
     }
     .tile_count .tile_stats_count {
-        margin-bottom: 10px;
+        margin-bottom: 0px;
         border-bottom: 0;
         padding-bottom: 10px
     }
@@ -2044,7 +2044,8 @@ span.right {
 
 @media (min-width:768px) {
     .tile_count .tile_stats_count .count {
-        font-size: 40px
+        font-size: 25px;
+        text-align: center;
     }
 }
 
@@ -2059,8 +2060,9 @@ span.right {
 }
 
 @media (min-width:768px) {
-    .tile_count .tile_stats_count span {
-        font-size: 13px
+    .tile_count .tile_stats_count .count_top {
+        font-size: 19px;
+        text-align: center;
     }
 }
 
@@ -2070,7 +2072,8 @@ span.right {
 
 .dashboard_graph {
     background: #fff;
-    padding: 7px 10px
+    padding: 20px 20px;
+    box-shadow: 0 1px 1px 0 rgba(60, 64, 67, .08), 0 1px 3px 1px rgba(60, 64, 67, .16);
 }
 
 .dashboard_graph .col-md-3,
@@ -5101,16 +5104,28 @@ ul.notifications {
     font-weight: 400;
 }
 
-.sim-logo{
-width: 150px;
-margin-bottom: 15px;
+.sim-logo {
+    width: 150px;
+    margin-bottom: 15px;
 }
-.dash-logo{
+
+.dash-logo {
     width: 140px;
-margin: 7px 2px 0px 23px; }
+    margin: 7px 2px 0px 23px;
+}
 
 .nav.nav-pills.bg-whte {
     background-color: #fff;
     margin-bottom: 20px;
     box-shadow: 0 1px 1px 0 rgba(60, 64, 67, .08), 0 1px 3px 1px rgba(60, 64, 67, .16);
+}
+
+.total-ordr {
+    background-color: #fff;
+    padding: 14px 20px;
+    box-shadow: 0 1px 1px 0 rgba(60, 64, 67, .08), 0 1px 3px 1px rgba(60, 64, 67, .16);
+}
+
+.tile_count .tile_stats_count {
+    margin-top: 21px;
 }
