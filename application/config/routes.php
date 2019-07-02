@@ -68,4 +68,9 @@ $route['search-sg']             = 'search/index';
 $route['search/(:any)']         = 'search/search/$1';
 $route['search']                = 'search/search';
 $route['product/(:any)']        = 'search/product_detail/$1';
+$route['add-cart/(:any)']       =  'cart/index/$1';
+//my orders
+$route['my-orders']             = 'Orders/index';
+$route['order/(:any)']          = 'Orders/order_detail/$1';
+
 

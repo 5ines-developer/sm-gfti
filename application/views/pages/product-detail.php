@@ -36,106 +36,113 @@
         <?php $this->load->view('includes/header');?>
 
         <section class="flat-product-detail">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="flexslider">
-							<ul class="slides">
-							    <li data-thumb="<?php echo base_url().$product->image_path ?>">
-							      <a href='#' id="zoom" class='zoom'><img src="<?php echo base_url().$product->image_path ?>" alt='<?php echo $product->title ?>' width='400' height='300' /></a>
-							      <!-- <span>NEW</span> -->
-							    </li>
-							</ul><!-- /.slides -->
-						</div><!-- /.flexslider -->
-					</div><!-- /.col-md-6 -->
-					<div class="col-md-6">
-						<div class="product-detail">
-							<div class="header-detail">
-								<h4 class="name text-capitalize"><?php echo $product->title ?></h4>
-								<div class="category">
-                                 <?php echo $product->name ?>
-								</div>
-								
-							</div><!-- /.header-detail -->
-							<div class="content-detail">
-								<div class="price">
-									
-									<div class="sale">
-                                    &#8377; <?php echo $product->price ?>
-									</div>
-								</div>
-								<div class="info-text">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="flexslider">
+                            <ul class="slides">
+                                <li data-thumb="<?php echo base_url().$product->image_path ?>">
+                                    <a href='#' id="zoom" class='zoom'><img
+                                            src="<?php echo base_url().$product->image_path ?>"
+                                            alt='<?php echo $product->title ?>' width='400' height='300' /></a>
+                                    <!-- <span>NEW</span> -->
+                                </li>
+                            </ul><!-- /.slides -->
+                        </div><!-- /.flexslider -->
+                    </div><!-- /.col-md-6 -->
+                    <div class="col-md-6">
+                        <div class="product-detail">
+                            <div class="header-detail">
+                                <h4 class="name text-capitalize"><?php echo $product->title ?></h4>
+                                <div class="category">
+                                    <?php echo $product->name ?>
+                                </div>
+
+                            </div><!-- /.header-detail -->
+                            <div class="content-detail">
+                                <div class="price">
+
+                                    <div class="sale">
+                                        &#8377; <?php echo $product->price ?>
+                                    </div>
+                                </div>
+                                <div class="info-text">
                                     <?php echo   mb_strimwidth($product->des, 0, 120, "...") ?>
                                 </div>
-								<div class="product-id">
-									SKU: <span class="id"><?php echo $product->product_id  ?></span>
-								</div>
-							</div><!-- /.content-detail -->
-							<div class="footer-detail">
-								<div class="quanlity-box ">
-                                    <?php if(!empty($brand)) { ?>
-									<div class="colors float-left">
-										<select name="color">
-											<option >Branding Charges</option>
-											<?php foreach ($brand as $key => $value) {
+                                <div class="product-id">
+                                    SKU: <span class="id"><?php echo $product->product_id  ?></span>
+                                </div>
+                            </div><!-- /.content-detail -->
+                            <div class="footer-detail">
+                                <form action="<?php echo base_url('add-cart/').$product->product_id ?>" method="post">
+                                    <div class="quanlity-box ">
+                                        <?php if(!empty($brand)) { ?>
+                                        <div class="colors float-left">
+                                            <select name="brand">
+                                                <option>Branding Charges</option>
+                                                <?php foreach ($brand as $key => $value) {
                                                 echo '<option  value="'. $value->id.'">'.$value->title.'</option>';
                                             } ?>
-										</select>
-                                    </div>
-                                    <?php } ?>
-									<div class="quanlity">
-										<span class="btn-down"></span>
-										<input type="number" name="number" value="1" min="1" max="1000" placeholder="Quanlity">
-										<span class="btn-up"></span>
-									</div>
-								</div><!-- /.quanlity-box -->
-								<div class="box-cart style2">
-									<div class="btn-add-cart">
-										<a href="#" title=""><img src="<?php echo base_url()?>assets/images/icons/add-cart.png" alt="">Add to Cart</a>
-									</div>
-									
-								</div><!-- /.box-cart -->
-								<div class="social-single">
-									<span>SHARE</span>
-									<ul class="social-list style2">
-										<li>
-											<a href="#" title="">
-												<i class="fa fa-facebook" aria-hidden="true"></i>
-											</a>
-										</li>
-										<li>
-											<a href="#" title="">
-												<i class="fa fa-twitter" aria-hidden="true"></i>
-											</a>
-										</li>
-										<li>
-											<a href="#" title="">
-												<i class="fa fa-instagram" aria-hidden="true"></i>
-											</a>
-										</li>
-										<li>
-											<a href="#" title="">
-												<i class="fa fa-pinterest" aria-hidden="true"></i>
-											</a>
-										</li>
-										<li>
-											<a href="#" title="">
-												<i class="fa fa-dribbble" aria-hidden="true"></i>
-											</a>
-										</li>
-										<li>
-											<a href="#" title="">
-												<i class="fa fa-google" aria-hidden="true"></i>
-											</a>
-										</li>
-									</ul><!-- /.social-list -->
-								</div><!-- /.social-single -->
-							</div><!-- /.footer-detail -->
-						</div><!-- /.product-detail -->
-					</div><!-- /.col-md-6 -->
-				</div><!-- /.row -->
-			</div><!-- /.container -->
-		</section><!-- /.flat-product-detail -->
+                                            </select>
+                                        </div>
+                                        <?php } ?>
+                                        <div class="quanlity" id='qantity-box'>
+                                            <span class="btn-down"></span>
+                                            <input type="number" name="qty" value="1" min="1" id="qty" max="1000"
+                                                placeholder="Quanlity">
+                                            <span class="btn-up"></span>
+                                        </div>
+                                    </div><!-- /.quanlity-box -->
+                                    <div class="box-cart style2">
+                                        <div class="btn-add-cart">
+                                            <button class="add-cart" type="submit"><img
+                                                    src="<?php echo base_url()?>assets/images/icons/add-cart.png"
+                                                    alt="">Add to Cart</button>
+                                        </div>
+
+                                    </div><!-- /.box-cart -->
+                                </form>
+                                <div class="social-single">
+                                    <span>SHARE</span>
+                                    <ul class="social-list style2">
+                                        <li>
+                                            <a href="#" title="">
+                                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="">
+                                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="">
+                                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="">
+                                                <i class="fa fa-pinterest" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="">
+                                                <i class="fa fa-dribbble" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="">
+                                                <i class="fa fa-google" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                    </ul><!-- /.social-list -->
+                                </div><!-- /.social-single -->
+                            </div><!-- /.footer-detail -->
+                        </div><!-- /.product-detail -->
+                    </div><!-- /.col-md-6 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </section><!-- /.flat-product-detail -->
 
         <section class="product-des">
             <div class="container">
@@ -174,7 +181,25 @@
 
     <script type="text/javascript" src="<?php echo base_url() ?>assets/javascript/main.js"></script>
 
-	<?php $this->load->view('includes/searchq'); ?>
+    <?php $this->load->view('includes/searchq'); ?>
+    <script>
+    $(document).ready(function() {
+        $('.btn-down').click(function(e) {
+            e.preventDefault();
+            var qty = $('#qty').val();
+            if (qty > 1) {
+                var newqty = qty -= 1;
+                $('#qty').val(newqty);
+            }
+        });
+        $('.btn-up').click(function(e) {
+            e.preventDefault();
+            var qty = $('#qty').val();
+            var newqty = parseInt(qty) + parseInt(1);
+            $('#qty').val(newqty);
+        });
+    });
+    </script>
 </body>
 
 </html>

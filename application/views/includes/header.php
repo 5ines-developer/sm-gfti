@@ -950,9 +950,13 @@
                             </ul><!-- /.menu -->
                         </div><!-- /.mainnav -->
                     </div><!-- /.nav-wrap -->
+                    <?php if($this->session->userdata('sid') == '') {?>
                     <div class="today-deal">
-                        <a href="#" title="">TODAY DEALS</a>
+                        <a href="<?php echo base_url() ?>login" title="">Login</a>
+                        <span class="link-di"> | </span>
+                        <a href="<?php echo base_url() ?>register" title="">Register</a>
                     </div><!-- /.today-deal -->
+                    <?php } ?>
                     <div class="btn-menu">
                         <span></span>
                     </div><!-- //mobile menu button -->

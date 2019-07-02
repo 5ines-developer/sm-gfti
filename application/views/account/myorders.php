@@ -55,37 +55,69 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-4">
-                        <?php $this->load->view('includes/ds_sidebar'); ?><!-- /.sidebar -->
+                        <?php $this->load->view('includes/ds_sidebar'); ?>
+                        <!-- /.sidebar -->
                     </div><!-- /.col-lg-3 col-md-4 -->
                     <div class="col-lg-9 col-md-8">
-                        <div class="form-register">
-                                
-                            <div class="col-md-10 col-lg-7">
-                            <div class="widget-title mb-30">
-                                    <h3>My Profile<span></span></h3>
-                                </div>
-                                <form action="<?php echo base_url('account') ?>" method="post" id="accountsettings" accept-charset="utf-8">
-                                    <div class="form-box">
-                                        <label for="name">Full Name</label>
-                                        <input type="text" value="<?php echo $profile['name'] ?>" id="name" name="name">
-                                    </div><!-- /.form-box -->
-                                    <div class="form-box">
-                                        <label for="email">Email address <span class="error">*</span> </label>
-                                        <input type="text" value="<?php echo $profile['email'] ?>" readonly id="email" name="email">
-                                    </div><!-- /.form-box -->
-                                    <div class="form-box">
-                                        <label for="phone">Phone number <span class="error">*</span></label>
-                                        <input type="text" value="<?php echo $profile['phone'] ?>" id="phone" name="phone">
-                                    </div><!-- /.form-box -->
-                                    <div class="form-box">
-                                        <a href="<?php echo base_url('change-psw') ?>">Change password</a>
+                        <?php  
+                    if (!empty($orders)) {
+                    foreach ($orders as $key => $value) { ?>
+                        <div class="cart-items">
+                            <div class="cart-item">
+
+                            <div class="o-orderid">
+                            <a class="orderbutton" href="<?php echo base_url('order/').$value->orderid ?>"><?php echo $value->orderid ?> </a>
+                        </div>
+
+
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="cart-item-content">
+                                            <div class="c-title">
+                                                <span><a
+                                                        href="<?php echo base_url('product/').$value->product_id ?>"><?php echo $value->ptitle ?></a></span>
+                                            </div>
+                                            <div class="c-category">
+                                                <p><span><?php echo $value->name ?></p>
+                                                <p><span>SKU: </span> <?php echo $value->product_id ?></p>
+                                                <p><span>Quantity: </span> <?php echo $value->quantity ?></p>
+                                            </div>
+                                            <div class="c-price">
+                                                <p>Price : &#8377; <span><?php echo ($value->price)?></span></p>
+                                            </div>
+                                            <div class="brand-charge">
+                                                <div class="footer-detail">
+                                                    <div class="quanlity-box">
+                                                        <!-- <div class="colors">
+                                                              <select name="color">
+                                                                  <option value="">Select Color</option>
+                                                                  <option value="">Black</option>
+                                                                  <option value="">Red</option>
+                                                                  <option value="">White</option>
+                                                              </select>
+                                                          </div> -->
+                                                    </div><!-- /.quanlity-box -->
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="form-box">
-                                        <button type="submit" class="register">Update Profile</button>
-                                    </div><!-- /.form-box -->
-                                </form>
+
+                                    <div class="col-4">
+                                        <div class="cart-item-image">
+                                            <img src="http://localhost/siemens/product-image/pro%20(48).jpg" class=""
+                                                alt="">
+                                            <!-- <div class="quanlity">
+                                                  <span class="btn-down"></span>
+                                                  <input type="number" class="qtyi" name="number" value="<?php echo $value->qty ?>" min="1" max="100"
+                                                      placeholder="Quanlity">
+                                                  <span class="btn-up"></span>
+                                              </div> -->
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <?php  } } ?>
                     </div><!-- /.col-lg-9 col-md-8 -->
                 </div><!-- /.row -->
             </div><!-- /.container -->
@@ -122,7 +154,7 @@
             rules: {
                 phone: {
                     required: true,
-                    
+
                 },
 
                 email: {
@@ -132,7 +164,7 @@
 
             },
             messages: {
-                phone:  "Please provide a Phone number",
+                phone: "Please provide a Phone number",
                 email: "Please enter a valid email address",
             }
         });
