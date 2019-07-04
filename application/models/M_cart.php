@@ -34,14 +34,46 @@ class M_cart extends CI_Model {
     // get cart item
     public function getCart($eid)
     {
-        $this->db->select('qty, product_id, name, p.title as ptitle, p.image_path, p.price as price, b.title as title, b.price as bprice ');
-
+        $this->db->select('qty, product_id, name,c.id as cid, p.title as ptitle, p.image_path, p.price as price, b.title as title, b.price as bprice ');
         $this->db->where('emp_id', $eid);
         $this->db->from('cart c');
         $this->db->join('product p', 'p.id = c.product', 'left');
         $this->db->join('brad_pricing b', 'b.id = c.barand_price', 'left');
         $this->db->join('category ct', 'ct.id = p.category', 'left');
         return $this->db->get()->result();
+    }
+
+    //delete cart
+    public function deletecart($pid, $eid)
+    {
+
+        $this->db->where('id', $pid)->where('emp_id', $eid)->delete('cart');
+        if($this->db->affected_rows() > 0){
+            return true;
+        }else{
+            return false;
+        } 
+    }
+
+    //  update qty
+    public function setQty($cid, $data, $uid)
+    {
+        $this->db->where('id', $cid)
+            ->where('emp_id', $uid)
+            ->update('cart', $data);
+        return true;
+        
+    }
+
+    public function insertOrder($value)
+    {
+       
+       echo "<pre>";
+       print_r ($value);
+       echo "</pre>";
+
+       exit;
+       
     }
 
 }

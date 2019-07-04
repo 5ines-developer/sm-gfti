@@ -41,7 +41,7 @@ class Search extends CI_Controller {
     }
 
     // search product
-    public function search($page = 1)
+    public function search($page = '')
     {
         $perpage = 16;
         $data['breadcrumbs'] = FALSE;
@@ -55,6 +55,7 @@ class Search extends CI_Controller {
         $config['total_rows'] = count($data);
         $config['per_page'] = 16;
         $config['reuse_query_string'] = TRUE;
+        $config['num_links'] = 2;
 
         $config['full_tag_open']    = '<div class="style1"> <ul class="flat-pagination style1">';
         $config['full_tag_close']   = '</ul></div>';
@@ -74,11 +75,14 @@ class Search extends CI_Controller {
         $config['prev_link']        = '<img src="'.base_url().'assets/images/icons/left-1.png" alt=""> Prev Page';
 
 
-        $config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
+        $config['first_tag_open']   = '<li class=""><span class="">';
         $config['first_tag_close']  = '</span></li>';
+        $config['first_link']        = FALSE;
 
-        $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
+        $config['last_tag_open']    = '<li class=""><span class="">';
         $config['last_tag_close']   = '</span></li>';
+        $config['last_link']        = FALSE;
+
         
         $this->pagination->initialize($config);
         

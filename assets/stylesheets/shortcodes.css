@@ -5675,7 +5675,7 @@ input[type="checkbox"]:checked + label:before {
 }
 
 .cart-totals form .btn-cart-totals {
-	margin-top:108px;
+	margin-top:45px;
 	padding:0 5px;
 }
 

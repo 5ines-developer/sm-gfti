@@ -36,100 +36,55 @@
         <?php $this->load->view('includes/header');?>
 
         <section class="flat-shop-cart  ptb-50">
+            <div class="loderbox">
+                <div class="text-center">
+                    <div class="spinner">
+                        <div class="double-bounce1"></div>
+                        <div class="double-bounce2"></div>
+                    </div>
+                </div>
+            </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-sm-12">
                         <div class="flat-row-title style1">
                             <h3>Shopping Cart</h3>
                         </div>
+                    </div>
+                    <div class="col-lg-8">
 
-                        <?php  foreach ($cart as $key => $value) { ?>
-                          
-                            <div class="cart-items">
-                                <div class="cart-item">
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <div class="cart-item-content">
-                                                <div class="c-title">
-                                                    <span><a href="<?php echo base_url('product/').$value->product_id ?>"><?php echo $value->ptitle ?></a></span>
-                                                </div>
-                                                <div class="c-category">
-                                                    <p><span><?php echo $value->name ?></p>
-                                                    <p><span>SKU: </span> <?php echo $value->product_id ?></p>
-                                                </div>
-                                                <div class="c-price">
-                                                    <p>&#8377; <span><?php echo ($value->price * $value->qty) + ($value->qty * $value->bprice )?></span></p>
-                                                </div>
-                                                <div class="brand-charge">
-                                                    <div class="footer-detail">
-                                                        <div class="quanlity-box">
-                                                            <div class="colors">
-                                                                <select name="color">
-                                                                    <option value="">Select Color</option>
-                                                                    <option value="">Black</option>
-                                                                    <option value="">Red</option>
-                                                                    <option value="">White</option>
-                                                                </select>
-                                                            </div>
-                                                        </div><!-- /.quanlity-box -->
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
 
-                                        <div class="col-4">
-                                            <div class="cart-item-image">
-                                                <img src="http://localhost/siemens/product-image/pro%20(48).jpg" class=""
-                                                    alt="">
-                                                <div class="quanlity">
-                                                    <span class="btn-down"></span>
-                                                    <input type="number" class="qtyi" name="number" value="<?php echo $value->qty ?>" min="1" max="100"
-                                                        placeholder="Quanlity">
-                                                    <span class="btn-up"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div id="cart-box">
+                            <div class="text-center">
+                                <div class="spinner">
+                                    <div class="double-bounce1"></div>
+                                    <div class="double-bounce2"></div>
                                 </div>
                             </div>
-                        <?php } ?>
+                        </div>
 
                     </div><!-- /.col-lg-8 -->
                     <div class="col-lg-4">
                         <div class="cart-totals ">
-                            <h3>Cart Totals</h3>
-                            <form action="#" method="get" accept-charset="utf-8">
-                                <table>
+                            <h3 style="border-bottom: 1px dotted gray; padding-bottom: 15px;">Price details</h3>
+                            <form action="<?php echo base_url('checkout') ?>" method="post" >
+                                <table class="mt-50">
                                     <tbody>
-                                        <tr>
-                                            <td>Subtotal</td>
-                                            <td class="subtotal">$2,589.00</td>
+                                        <tr style="border-bottom: 1px dotted gray;">
+                                            <td>Price (<span class="items">0</span> items)</td>
+                                            <td class="subtotal">00.00</td>
                                         </tr>
-                                        <tr>
-                                            <td>Shipping</td>
-                                            <td class="btn-radio">
-                                                <div class="radio-info">
-                                                    <input type="radio" id="flat-rate" checked name="radio-flat-rate">
-                                                    <label for="flat-rate">Flat Rate: <span>$3.00</span></label>
-                                                </div>
-                                                <div class="radio-info">
-                                                    <input type="radio" id="free-shipping" name="radio-flat-rate">
-                                                    <label for="free-shipping">Free Shipping</label>
-                                                </div>
-                                                <div class="btn-shipping">
-                                                    <a href="#" title="">Calculate Shipping</a>
-                                                </div>
-                                            </td><!-- /.btn-radio -->
-                                        </tr>
+                                        
                                         <tr>
                                             <td>Total</td>
-                                            <td class="price-total">$1,591.00</td>
+                                            <td class="price-total">00.00</td>
                                         </tr>
                                     </tbody>
                                 </table>
+                                
                                 <div class="btn-cart-totals">
 
-                                    <a href="#" class="checkout" title="">Proceed to Checkout</a>
+                                    <button type="submit" class="checkout" >Proceed to Checkout</button>
                                 </div><!-- /.btn-cart-totals -->
                             </form><!-- /form -->
                         </div><!-- /.cart-totals -->
@@ -165,22 +120,100 @@
 
     <?php $this->load->view('includes/searchq'); ?>
     <script>
-    $(document).ready(function() {
-        $('.quanlity').find('.btn-down').click(function(e) {
+    $(function() {
+        // loder
+        function loder(status) {
+            if (status == true) {
+                $('.loderbox').css('display', 'block');
+            } else {
+                $('.loderbox').css('display', 'none');
+            }
+        }
+
+
+        // cart page
+        function cartitems() {
+            $.ajax({
+                type: "get",
+                url: "<?php echo base_url('get-cart') ?>",
+                data: "data",
+                dataType: "json",
+                success: function(response) {
+                    $('#cart-box').html(response.items);
+                    $('td.subtotal').html(response.total);
+                    $('td.price-total').html(response.total);
+                    $('.items').html(response.count);
+                    loder(false);
+                }
+            });
+        }
+
+        // change qty update
+        function cartqty(id, newqty) {
+            loder(true);
+            $.ajax({
+                type: "post",
+                url: "<?php echo base_url('update-qty') ?>",
+                data: {
+                    'id': id,
+                    'qty': newqty
+                },
+                success: function(response) {
+                    cartitems();
+                }
+            });
+        }
+
+        cartitems();
+
+
+        /****** QTY increement and decrement *******/
+        $(document).on("click", '.btn-down', function(e) {
             e.preventDefault();
             var qty = $(this).siblings('.qtyi').val();
 
             if (qty > 1) {
                 var newqty = qty -= 1;
                 $(this).siblings('.qtyi').val(newqty);
+                var id = $(this).closest('.cart-item').attr('dataid');
+                cartqty(id, newqty);
             }
         });
-        $('.quanlity').find('.btn-up').click(function(e) {
+        $(document).on("click", '.btn-up', function(e) {
             e.preventDefault();
             var qty = $(this).siblings('.qtyi').val();
             var newqty = parseInt(qty) + parseInt(1);
             $(this).siblings('.qtyi').val(newqty);
+            var id = $(this).closest('.cart-item').attr('dataid');
+            cartqty(id, newqty);
+        }); /****** QTY increement and decrement end *******/
+
+
+        /****** Total ammoun count *******/
+       
+        $(document).on('change', '.qtyi', function(e) {
+            e.preventDefault();
+            var qty = $('.qtyi').val();
+            var id = $(this).closest('.cart-item').attr('dataid');
+            cartqty(id, qty);
         });
+
+
+        /** delete cart item **/
+        $(document).on('click', '.remove-btn', function(e) {
+            e.preventDefault();
+            loder(true);
+            var url = $(this).attr('href');
+            $.ajax({
+                type: "get",
+                url: url,
+                data: "data",
+                success: function(response) {
+                    cartitems();
+                }
+            });
+        });
+
     });
     </script>
 </body>
