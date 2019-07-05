@@ -173,6 +173,7 @@
 
     <script type="text/javascript" src="<?php echo base_url() ?>assets/javascript/main.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>assets/javascript/jquery.validate.min.js"></script>
+    <?php $this->load->view('includes/searchq'); ?>
     <script>
     $(document).ready(function() {
         $("#accountsettings").validate({

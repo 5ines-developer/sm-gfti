@@ -891,16 +891,7 @@
             $('.cat-list.style1').each(function() {
                 $(this).children('li').children('ul.cat-child').hide();
                 // $(this).children('li').children('ul.cat-child').first().show()
-                $( ".cat-list.style1 li span" ).on('click', function() {
-                    $(this).parent('li').toggleClass('active');
-                    $(this).toggleClass('active');
-                    $(this).parent('li').children('ul.cat-child').slideToggle(300);
-                    // var liActive = $(this).index(),
-                    // contentActive = $(this).parent('li').siblings().removeClass('active').children('ul-cat-child').eq(liActive);
-                    // contentActive.addClass('active').parent('li').fadeIn("slow");
-                    // contentActive.parent('li').siblings().removeClass('active');
-                    // $(this).parent('li').addClass('active').children('.ul-cat-child').eq(liActive).siblings().hide();
-                });
+              
             })
         }; // Toggle Cat List
 

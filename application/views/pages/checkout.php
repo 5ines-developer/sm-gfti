@@ -136,8 +136,43 @@
                                                                 <select name="state"
                                                                     class="form-control form-control-large">
                                                                     <option>Select state</option>
+                                                                    <option>Andhra Pradesh</option>
+                                                                    <option>Arunachal Pradesh</option>
+                                                                    <option>Assam</option>
+                                                                    <option>Bihar</option>
+                                                                    <option>Chhattisgarh</option>
+                                                                    <option>Goa</option>
+                                                                    <option>Gujarat</option>
+                                                                    <option>Haryana</option>
+                                                                    <option>Himachal Pradesh</option>
+                                                                    <option>Jammu and Kashmir</option>
+                                                                    <option>Jharkhand</option>
                                                                     <option>Karnataka</option>
                                                                     <option>Kerala</option>
+                                                                    <option>Madhya Pradesh</option>
+                                                                    <option>Maharashtra</option>
+                                                                    <option>Manipur</option>
+                                                                    <option>Meghalaya</option>
+                                                                    <option>Mizoram</option>
+                                                                    <option>Nagaland</option>
+                                                                    <option>Odisha</option>
+                                                                    <option>Punjab</option>
+                                                                    <option>Rajasthan </option>
+                                                                    <option>Sikkim</option>
+                                                                    <option>Tamil Nadu</option>
+                                                                    <option>Telangana</option>
+                                                                    <option>Tripura</option>
+                                                                    <option>Uttar Pradesh</option>
+                                                                    <option>Uttarakhand</option>
+                                                                    <option>West Bengal</option>
+                                                                    <option>Andaman and Nicobar</option>
+                                                                    <option>Chandigarh</option>
+                                                                    <option>Dadar and Nagar Haveli</option>
+                                                                    <option>Daman and Diu</option>
+                                                                    <option>Delhi</option>
+                                                                    <option>Lakshadweep</option>
+                                                                    <option>Puducherry</option>
+
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -173,42 +208,42 @@
                     <div class="col-md-5">
                         <div class="cart-totals style2">
                             <h3>Your Order</h3>
-                            
-                                <table class="product">
-                                    <thead>
-                                        <tr>
-                                            <th>Product</th>
-                                            <th>Total</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php 
+
+                            <table class="product">
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php 
                                             $total = 0 ;
                                             foreach ($cart as $key => $value) { ?>
-                                        <tr>
-                                            <td><?php echo $value->name ?><br><?php  echo $value->product_id.' ('. $value->qty .' piece)'  ?>
-                                            </td>
-                                            <td>&#8377; <?php echo ($value->qty * $value->price) ?></td>
-                                        </tr>
-                                        <?php 
+                                    <tr>
+                                        <td><?php echo $value->name ?><br><?php  echo $value->product_id.' ('. $value->qty .' piece)'  ?>
+                                        </td>
+                                        <td>&#8377; <?php echo ($value->qty * $value->price) ?></td>
+                                    </tr>
+                                    <?php 
                                             $total = ($total +  ($value->qty * $value->price));
                                         } ?>
-                                    </tbody>
-                                </table><!-- /.product -->
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td>Total</td>
-                                            <td class="price-total">&#8377; <?php echo $total ?></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                </tbody>
+                            </table><!-- /.product -->
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>Total</td>
+                                        <td class="price-total">&#8377; <?php echo $total ?></td>
+                                    </tr>
+                                </tbody>
+                            </table>
 
 
-                                <div class="btn-order">
-                                    <a href="<?php echo base_url() ?>place-order" class="order" title="">Place Order</a>
-                                </div><!-- /.btn-order -->
-                            
+                            <div class="btn-order">
+                                <a href="<?php echo base_url() ?>place-order" class="order" title="">Place Order</a>
+                            </div><!-- /.btn-order -->
+
                         </div><!-- /.cart-totals style2 -->
                     </div><!-- /.col-md-5 -->
                 </div>
@@ -257,18 +292,20 @@
 
         });
 
-        $('.shippoption').change(function (e) { 
+        $('.shippoption').change(function(e) {
             e.preventDefault();
             var id = $(this).val();
             $.ajax({
                 type: "post",
                 url: "<?php echo base_url() ?>shipping-change",
-                data: {id : id},
-                success: function (response) {
-                   
+                data: {
+                    id: id
+                },
+                success: function(response) {
+
                 }
             });
-            
+
         });
     });
 

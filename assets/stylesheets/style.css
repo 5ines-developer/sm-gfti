@@ -3891,6 +3891,7 @@ button.checkout:hover::before {
         overflow: hidden;
         z-index: 3;
         width: 90%;
+        max-width: 200px;
 }
 
 .custom-btn::before {
@@ -3945,3 +3946,17 @@ button.checkout:hover::before {
 .track-order:hover{color:#000}
 .order-list { border-bottom: 1px dashed #bdbdbd; margin-bottom: 15px; }
 .order-list:last-child{border: none;margin-bottom: 0px}
+
+.modal-title {
+    font-size: 31px;
+}
+a.small-btn{
+    color: #fff !important;
+height: 26px;
+line-height: 26px;
+cursor: pointer;
+}
+
+.dl-small {
+    margin-bottom: 15px;
+}

@@ -169,7 +169,13 @@ class Cart extends CI_Controller {
            'phone'      =>  $input['phone'],
         );    
         $this->m_cart->saveShipping($data, $this->uid);
-        redirect('checkout','refresh');
+        if( !empty($input['addnew'])){
+            redirect('checkout','refresh');
+        }else{
+            $this->session->set_flashdata('success', 'Shipping address added successfuly');
+            redirect('shipping-address','refresh');
+        }
+        
         
     }
 

@@ -10,7 +10,7 @@ class Account extends CI_Controller {
         parent::__construct();
         if($this->session->userdata('sid') == ''){ redirect('login','refresh'); }
         $this->load->model('m_account');
-        
+        $this->uid = $this->session->userdata('sid');
     }
     
     //  profile
@@ -94,6 +94,48 @@ class Account extends CI_Controller {
             return FALSE;
         }
         
+    }
+
+    // shipping
+    public function shipping_address()
+    {
+        $this->load->model('m_cart');
+        $data['shipping'] = $this->m_cart->getShipping($this->uid);
+        $this->load->view('pages/shipping', $data, FALSE);
+        
+    }
+
+    // get single shipping
+    public function shipping_address_edit($id = null)
+    {
+        $data['shipping'] = $this->m_account->singleShipping($id);
+        $this->load->view('pages/shipping-edit', $data);
+        
+    }
+
+    // update
+    public function shipping_address_update()
+    {
+        $input = $this->input->post();   
+        $data = array(
+           'name'       => $input['name'], 
+           'street'     => $input['street'], 
+           'street1'    => $input['street1'], 
+           'religion'   => $input['state'], 
+           'city'       => $input['city'], 
+           'zip_code'   => $input['zip'], 
+           'employee'   => $this->uid, 
+           'status'     => 1,
+           'phone'      =>  $input['phone'],
+        ); 
+
+        if($this->m_account->shippingUpdate($data, $input['id'])){
+            $this->session->set_flashdata('success', 'Shipping address successfuly updated');
+            redirect('shipping-address','refresh');
+        }else{
+            $this->session->set_flashdata('error', 'Some error occured please try again');
+            redirect('shipping-address-edit/'.$input['id'],'refresh');
+        }
     }
 
 }

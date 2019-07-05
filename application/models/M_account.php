@@ -63,6 +63,24 @@ class M_account extends CI_Model {
             return false;
         }
     }
+
+    // get shipping addres
+    public function singleShipping($id = null)
+    {
+        return $this->db->where('id', $id)->get('shipping_address')->row();
+        
+    }
+
+    // update shipping address
+    public function shippingUpdate($data, $id)
+    {
+        $this->db->where('id', $id)->update('shipping_address', $data);
+        if( $this->db->affected_rows() > 0 ){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
 
 /* End of file M_account.php */
