@@ -34,7 +34,7 @@ class M_cart extends CI_Model {
     // get cart item
     public function getCart($eid)
     {
-        $this->db->select('qty, product_id, name,c.id as cid, p.title as ptitle, p.image_path, p.price as price, b.title as title, b.price as bprice ');
+        $this->db->select('qty, p.id as prid, product_id, name,c.id as cid, p.title as ptitle, p.image_path, p.price as price, b.title as title, b.price as bprice ');
         $this->db->where('emp_id', $eid);
         $this->db->from('cart c');
         $this->db->join('product p', 'p.id = c.product', 'left');
@@ -65,15 +65,67 @@ class M_cart extends CI_Model {
         
     }
 
-    public function insertOrder($value)
+    public function insertOrder($data)
     {
+       $this->db->insert('orders', $data);
+       $this->protectedQty($data);
+       return true;
        
-       echo "<pre>";
-       print_r ($value);
-       echo "</pre>";
+    }
 
-       exit;
-       
+
+    // decreez product qty
+    public function protectedQty($data)
+    {
+        $this->db->where('id', $data['product'])
+            ->set('available_stock', 'available_stock-'.$data['qty'], FALSE)
+            ->update('product');
+            return true;
+        
+    }
+
+    // save shipping address
+    public function saveShipping($data, $uid)
+    {
+        $this->db->where('employee', $uid);
+        $this->db->update('shipping_address', array('status' => 0));
+        $this->db->group_start();
+            $this->db->insert('shipping_address', $data);
+        $this->db->group_end();
+        return True;  
+        
+    }
+
+    // get shipping addres  detail
+    public function getShipping($id = null)
+    {
+        $this->db->where('employee', $id)->order_by('status', 'DESC');
+        return $this->db->get('shipping_address')->result();
+    }
+
+    // change address default
+    public function cahnge_address($sid, $uid)
+    {
+        
+        $this->db->where('employee', $uid);
+        $this->db->update('shipping_address', array('status' => 0));
+        $this->cahnge_address_update($sid, $uid);
+        return True;  
+    }
+
+    public function cahnge_address_update($sid, $uid)
+    {
+        $this->db->where('employee', $uid);
+        $this->db->where('id', $sid);
+        $this->db->update('shipping_address', array('status' => 1));
+        return true;
+    }
+
+    // Get default shipping address
+    public function getdefaultShipping($uid = null)
+    {
+        $query  = $this->db->where('employee', $uid)->where('status', '1')->get('shipping_address')->row();
+        return  $query->id; 
     }
 
 }

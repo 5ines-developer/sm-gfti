@@ -46,97 +46,134 @@
                     <div class="col-md-7">
                         <div class="box-checkout">
 
-
-                            <form action="#" method="get" class="" accept-charset="utf-8">
+                            <form role="form" method="post" action="<?php echo base_url() ?>save-shipping"
+                                class="custom-form">
 
                                 <div class="list-group">
+                                    <?php if(!empty($shipping)){ 
+                                            $ncheck = '';
+                                         foreach ($shipping as $key => $value) { ?>
                                     <div class="list-group-item">
                                         <div class="list-group-item-heading">
                                             <div class="row radio">
-                                                <div class="col-xs-3">
+                                                <div class="col-sm-4">
                                                     <label>
-                                                        <input type="radio" name="optionShipp" id="optionShipp1"
-                                                            value="option2">
-                                                        1509 Latona St
+                                                        <input type="radio"
+                                                            <?php echo($value->status == 1)? 'checked' : '' ?>
+                                                            name="optionShipp" class="shippoption"
+                                                            value="<?php echo $value->id ?>">
+                                                        <?php echo $value->name. ', '.  $value->street ?>
                                                     </label>
                                                 </div>
-                                                <div class="col-xs-5">
+                                                <div class="col-sm-8">
                                                     <dl class="dl-small">
-                                                        <dt>Miguel Perez</dt>
-                                                        <dd>1509 Latona St, Philadelphia, PA 19146 </dd>
+                                                        <dt><?php echo $value->name ?></dt>
+                                                        <dd><?php echo $value->street.', '.$value->street1.', '.$value->city ?>
+                                                        </dd>
+                                                        <dd><?php echo $value->religion.' - '.$value->zip_code ?> </dd>
                                                     </dl>
-                                                    <button class="btn btn-sm">Edit</button>
-                                                    <button class="btn btn-sm btn-link">Delete this address</button>
+                                                    <button class="btn small-btn btn-info">Edit</button>
+                                                    <button class="btn small-btn btn-link">Delete this address</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <?php } } else{ $ncheck = 'checked';  }?>
                                     <div class="list-group-item">
                                         <div class="list-group-item-heading">
                                             <div class="row">
-                                                <div class="col-xs-3">
+                                                <div class="col-sm-12">
                                                     <div class="radio">
-                                                        <label>
-                                                            <input type="radio" name="optionShipp" id="optionShipp2"
-                                                                value="option2" checked>
+                                                        <label class="bg-lable">
+                                                            <input <?php echo $ncheck ?> type="radio" name="optionShipp"
+                                                                id="optionShipp2" value="new">
                                                             A new address
                                                         </label>
                                                     </div>
                                                 </div>
-                                                <div class="col-xs-9">
-                                                    <form role="form" class="">
-                                                        <div class="form-group">
-                                                            <label for="inputname">Name</label>
-                                                            <input type="text" class="form-control form-control-large"
-                                                                id="inputname" placeholder="Enter name">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="inputAddress1">Street address 1</label>
-                                                            <input type="text" class="form-control form-control-large"
-                                                                id="inputAddress1" placeholder="Enter address">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="inputAddress2">Street address 2</label>
-                                                            <input type="text" class="form-control form-control-large"
-                                                                id="inputAddress2" placeholder="Enter address">
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-xs-3">
-                                                                <div class="form-group">
-                                                                    <label for="inputZip">ZIP Code</label>
-                                                                    <input type="text"
-                                                                        class="form-control form-control-small"
-                                                                        id="inputZip" placeholder="Enter zip">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-xs-9">
-                                                                <div class="form-group">
-                                                                    <label for="inputCity">City</label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="inputCity" placeholder="Enter city">
-                                                                </div>
+                                                <div class="col-sm-12 new-ad-form">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="inputname">Name</label>
+                                                                <input type="text"
+                                                                    class="form-control form-control-large"
+                                                                    id="inputname" name="name" required
+                                                                    placeholder="Enter name">
                                                             </div>
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label for="inputState" class="control-label">State</label>
-                                                            <select class="form-control form-control-large">
-                                                                <option>Select state</option>
-                                                            </select>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="inputname">Phone</label>
+                                                                <input type="number"
+                                                                    class="form-control form-control-large"
+                                                                    id="inputname" name="phone" required
+                                                                    placeholder="Enter name">
+                                                            </div>
                                                         </div>
-                                                    </form>
-                                                    <button class="btn btn-sm">Save Address</button>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="inputAddress1">Street address 1</label>
+                                                                <input type="text"
+                                                                    class="form-control form-control-large"
+                                                                    id="inputAddress1" name="street" required
+                                                                    placeholder="Enter address">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="inputAddress2">Street address 2</label>
+                                                                <input type="text"
+                                                                    class="form-control form-control-large"
+                                                                    id="inputAddress2" name="street1"
+                                                                    placeholder="Enter address">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="inputState"
+                                                                    class="control-label">State</label>
+                                                                <select name="state"
+                                                                    class="form-control form-control-large">
+                                                                    <option>Select state</option>
+                                                                    <option>Karnataka</option>
+                                                                    <option>Kerala</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="inputCity">City</label>
+                                                                <input name="city" type="text" class="form-control"
+                                                                    id="inputCity" required placeholder="Enter city">
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="inputZip">ZIP Code</label>
+                                                                <input name="zip" type="text"
+                                                                    class="form-control form-control-small"
+                                                                    id="inputZip" required placeholder="Enter zip">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button class="custom-btn" type="submit">Save Address</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </form><!-- /.checkout -->
-                        </div><!-- /.box-checkout -->
-                    </div><!-- /.col-md-7 -->
+                            </form>
+
+                        </div>
+                    </div>
+
                     <div class="col-md-5">
                         <div class="cart-totals style2">
                             <h3>Your Order</h3>
-                            <form action="#" method="get" accept-charset="utf-8">
+                            
                                 <table class="product">
                                     <thead>
                                         <tr>
@@ -145,77 +182,40 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php 
+                                            $total = 0 ;
+                                            foreach ($cart as $key => $value) { ?>
                                         <tr>
-                                            <td>Apple iPad Mini<br>G2356</td>
-                                            <td>$99.00</td>
+                                            <td><?php echo $value->name ?><br><?php  echo $value->product_id.' ('. $value->qty .' piece)'  ?>
+                                            </td>
+                                            <td>&#8377; <?php echo ($value->qty * $value->price) ?></td>
                                         </tr>
-                                        <tr>
-                                            <td>Beats Pill + Portable<br>Speaker</td>
-                                            <td>$100.00</td>
-                                        </tr>
+                                        <?php 
+                                            $total = ($total +  ($value->qty * $value->price));
+                                        } ?>
                                     </tbody>
                                 </table><!-- /.product -->
                                 <table>
                                     <tbody>
                                         <tr>
                                             <td>Total</td>
-                                            <td class="subtotal">$1,999.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Shipping</td>
-                                            <td class="btn-radio">
-                                                <div class="radio-info">
-                                                    <input type="radio" checked="" id="flat-rate"
-                                                        name="radio-flat-rate">
-                                                    <label for="flat-rate">Flat Rate: <span>$3.00</span></label>
-                                                </div>
-                                                <div class="radio-info">
-                                                    <input type="radio" id="free-shipping" name="radio-flat-rate">
-                                                    <label for="free-shipping">Free Shipping</label>
-                                                </div>
-                                                <div class="btn-shipping">
-                                                    <a href="#" title="">Calculate Shipping</a>
-                                                </div>
-                                            </td><!-- /.btn-radio -->
-                                        </tr>
-                                        <tr>
-                                            <td>Total</td>
-                                            <td class="price-total">$1,999.00</td>
+                                            <td class="price-total">&#8377; <?php echo $total ?></td>
                                         </tr>
                                     </tbody>
                                 </table>
-                                <div class="btn-radio style2">
-                                    <div class="radio-info">
-                                        <input type="radio" id="flat-payment" checked="" name="radio-cash-2">
-                                        <label for="flat-payment">Check Payments</label>
-                                        <p>Please send a check to Store Name, Store Street, Store <br>Town, Store State
-                                            / County, Store Postcode.</p>
-                                    </div>
-                                    <div class="radio-info">
-                                        <input type="radio" id="bank-transfer" name="radio-cash-2">
-                                        <label for="bank-transfer">Direct Bank Transfer</label>
-                                    </div>
-                                    <div class="radio-info">
-                                        <input type="radio" id="cash-delivery" name="radio-cash-2">
-                                        <label for="cash-delivery">Cash on Delivery</label>
-                                    </div>
-                                    <div class="radio-info">
-                                        <input type="radio" id="paypal" name="radio-cash-2">
-                                        <label for="paypal">Paypal</label>
-                                    </div>
-                                </div><!-- /.btn-radio style2 -->
-                                <div class="checkbox">
-                                    <input type="checkbox" id="checked-order" name="checked-order" checked="">
-                                    <label for="checked-order">I’ve read and accept the terms &amp; conditions *</label>
-                                </div><!-- /.checkbox -->
+
+
                                 <div class="btn-order">
-                                    <a href="#" class="order" title="">Place Order</a>
+                                    <a href="<?php echo base_url() ?>place-order" class="order" title="">Place Order</a>
                                 </div><!-- /.btn-order -->
-                            </form>
+                            
                         </div><!-- /.cart-totals style2 -->
                     </div><!-- /.col-md-5 -->
-                </div><!-- /.row -->
-            </div><!-- /.container -->
+                </div>
+            </div>
+
+
+
         </section>
 
 
@@ -237,7 +237,7 @@
     <!-- <script type="text/javascript" src="<?php echo base_url() ?>assets/javascript/jquery-ui.js"></script> -->
     <script type="text/javascript" src="<?php echo base_url() ?>assets/javascript/jquery.mCustomScrollbar.js"></script>
     <script type="text/javascript"
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtRmXKclfDp20TvfQnpgXSDPjut14x5wk&region=GB"></script>
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtRmXKclfDp20TvfQnpgsmDPjut14x5wk&region=GB"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>assets/javascript/gmap3.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>assets/javascript/waves.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>assets/javascript/jquery.countdown.js"></script>
@@ -245,6 +245,41 @@
     <script type="text/javascript" src="<?php echo base_url() ?>assets/javascript/main.js"></script>
 
     <?php $this->load->view('includes/searchq'); ?>
+    <script>
+    $(function() {
+
+        $(document).on('load, change', '#optionShipp2,  input[type=radio]', function(e) {
+            if ($('#optionShipp2').is(':checked')) {
+                $('.new-ad-form').css('display', 'block');
+            } else {
+                $('.new-ad-form').css('display', 'none');
+            }
+
+        });
+
+        $('.shippoption').change(function (e) { 
+            e.preventDefault();
+            var id = $(this).val();
+            $.ajax({
+                type: "post",
+                url: "<?php echo base_url() ?>shipping-change",
+                data: {id : id},
+                success: function (response) {
+                   
+                }
+            });
+            
+        });
+    });
+
+    $(document).ready(function() {
+        if ($('#optionShipp2').is(':checked')) {
+            $('.new-ad-form').css('display', 'block');
+        } else {
+            $('.new-ad-form').css('display', 'none');
+        }
+    });
+    </script>
 </body>
 
 </html>

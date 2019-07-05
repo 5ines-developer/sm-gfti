@@ -75,6 +75,9 @@ $route['delete-cart/(:any)']    = 'cart/deleteCart/$1';
 $route['cart']                  = 'cart/cartitem';
 $route['update-qty']            = 'cart/update_qty';
 $route['checkout']              = 'cart/checkout';
+$route['save-shipping']         = 'cart/save_shipping'; 
+$route['shipping-change']       = 'cart/shipping_change';
+$route['place-order']           =  'cart/place_order'; 
 
 //my orders
 $route['my-orders']             = 'Orders/index';
