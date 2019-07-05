@@ -59,65 +59,90 @@
                         <!-- /.sidebar -->
                     </div><!-- /.col-lg-3 col-md-4 -->
                     <div class="col-lg-9 col-md-8">
-                        <?php  
-                    if (!empty($orders)) {
-                    foreach ($orders as $key => $value) { ?>
+                        <?php
+                        if(!empty($orders)){ 
+                            foreach ($orders as $key => $value) {
+                                $toatalP = 0;
+                                foreach ($value as $keysd => $valuesd) {
+                                    $date = date('d M Y', strtotime($valuesd->orderd_on));
+                                    $toatalP =  $toatalP + $valuesd->price;
+                                }
+                        ?>
                         <div class="cart-items">
                             <div class="cart-item">
 
-                            <div class="o-orderid">
-                            <a class="orderbutton" href="<?php echo base_url('order/').$value->orderid ?>"><?php echo $value->orderid ?> </a>
-                        </div>
+                                <div class="ord-header">
+                                    <a href="#!" class="track-order">Track order</a>
+                                    <ul class="ord-header-list">
+                                        <li>
+                                            <p>Order Placed</p>
+                                            <span><?php echo $date; ?></span>
+                                        </li>
+                                        <li>
+                                            <p>Total</p>
+                                            <span> &#8377; <?php echo $toatalP; ?></span>
+                                        </li>
+                                        <li>
+                                            <p>Order id:</p>
+                                            <span># <?php echo $key ?></span>
+                                        </li>
+                                    </ul>
 
+                                </div>
+                                <?php
+                            foreach ($value as $vkey => $vale2) { ?>
+                                <div class="row order-list">
+                                    <div class="col-4">
+                                        <div class="cart-item-image">
+                                            <img src="<?php echo base_url().$vale2->image_path ?>" class=""
+                                                alt="">
 
-                                <div class="row">
+                                        </div>
+                                    </div>
                                     <div class="col-8">
                                         <div class="cart-item-content">
                                             <div class="c-title">
-                                                <span><a
-                                                        href="<?php echo base_url('product/').$value->product_id ?>"><?php echo $value->ptitle ?></a></span>
+                                                <span><a href="<?php echo base_url().$vale2->product_id ?>"><?php echo $vale2->ptitle ?></a></span>
                                             </div>
                                             <div class="c-category">
-                                                <p><span><?php echo $value->name ?></p>
-                                                <p><span>SKU: </span> <?php echo $value->product_id ?></p>
-                                                <p><span>Quantity: </span> <?php echo $value->quantity ?></p>
+                                                <p><span><?php echo $vale2->name ?></span></p>
+                                                <p><span>SKU: </span> <?php echo $vale2->product_id ?></p>
+                                                <p><span>Quantity: </span> <?php echo $vale2->quantity ?></p>
                                             </div>
                                             <div class="c-price">
-                                                <p>Price : &#8377; <span><?php echo ($value->price)?></span></p>
+                                                <p>Price : ₹ <span><?php echo $vale2->price ?></span></p>
                                             </div>
                                             <div class="brand-charge">
                                                 <div class="footer-detail">
                                                     <div class="quanlity-box">
-                                                        <!-- <div class="colors">
-                                                              <select name="color">
-                                                                  <option value="">Select Color</option>
-                                                                  <option value="">Black</option>
-                                                                  <option value="">Red</option>
-                                                                  <option value="">White</option>
-                                                              </select>
-                                                          </div> -->
+
                                                     </div><!-- /.quanlity-box -->
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-4">
-                                        <div class="cart-item-image">
-                                            <img src="http://localhost/siemens/product-image/pro%20(48).jpg" class=""
-                                                alt="">
-                                            <!-- <div class="quanlity">
-                                                  <span class="btn-down"></span>
-                                                  <input type="number" class="qtyi" name="number" value="<?php echo $value->qty ?>" min="1" max="100"
-                                                      placeholder="Quanlity">
-                                                  <span class="btn-up"></span>
-                                              </div> -->
-                                        </div>
-                                    </div>
+
                                 </div>
+
+                                <?php    } ?>
                             </div>
                         </div>
-                        <?php  } } ?>
+
+
+
+
+                        <?php       
+                            }
+                        }
+                        else{ 
+
+                        } 
+                    ?>
+
+
+
+
                     </div><!-- /.col-lg-9 col-md-8 -->
                 </div><!-- /.row -->
             </div><!-- /.container -->

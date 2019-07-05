@@ -69,6 +69,7 @@ class M_cart extends CI_Model {
     {
        $this->db->insert('orders', $data);
        $this->protectedQty($data);
+       $this->deleteCartitem();
        return true;
        
     }
@@ -82,6 +83,13 @@ class M_cart extends CI_Model {
             ->update('product');
             return true;
         
+    }
+
+    // delete cart items
+    public function deleteCartitem()
+    {
+        $this->db->where('emp_id', $this->session->userdata('sid'))->delete('cart');
+        return true;        
     }
 
     // save shipping address

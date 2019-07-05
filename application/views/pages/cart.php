@@ -143,6 +143,9 @@
                     $('td.subtotal').html(response.total);
                     $('td.price-total').html(response.total);
                     $('.items').html(response.count);
+                    if(response.count <= 0){
+                        $('.checkout ').hide();
+                    }
                     loder(false);
                 }
             });

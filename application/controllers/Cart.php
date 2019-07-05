@@ -36,72 +36,80 @@ class Cart extends CI_Controller {
     {
         $items = ''; $cout = 0; $total = 0;
         $cart = $this->m_cart->getCart($this->uid);
+        if(!empty($cart)){
+            foreach ($cart as $key => $value) {
+            $amount =  ($value->price * $value->qty) + ($value->qty * $value->bprice );
+            $total = $total + $amount;
+                $items .= '<div class="cart-items">
+                <div class="cart-item" dataid="'.$value->cid.'">
+                    <div class="row">
+                        <a class="remove-btn" href="'.base_url("delete-cart/").$value->cid.'"><img src="'.base_url().'assets/images/icons/delete.png" /><span> Remove </span></a>
+                        <div class="col-8">
+                            <div class="cart-item-content">
+                                <div class="c-title">
+                                    <span><a href="'.base_url("product/").$value->product_id.'">'. $value->ptitle .'</a></span>
+                                    
+                                </div>
+                                <div class="c-category">
+                                    <p><span>'. $value->name .'</span> </p>
+                                    <p><span>SKU: </span> '. $value->product_id .'</p>
+                                </div>
+                                <div class="c-price">
+                                    <p>&#8377;
+                                        <span>'.$amount.'</span>
+                                    </p>
+                                </div>
 
-        foreach ($cart as $key => $value) {
-           $amount =  ($value->price * $value->qty) + ($value->qty * $value->bprice );
-           $total = $total + $amount;
-            $items .= '<div class="cart-items">
-            <div class="cart-item" dataid="'.$value->cid.'">
-                <div class="row">
-                    <a class="remove-btn" href="'.base_url("delete-cart/").$value->cid.'"><img src="'.base_url().'assets/images/icons/delete.png" /><span> Remove </span></a>
-                    <div class="col-8">
-                        <div class="cart-item-content">
-                            <div class="c-title">
-                                <span><a href="'.base_url("product/").$value->product_id.'">'. $value->ptitle .'</a></span>
-                                
-                            </div>
-                            <div class="c-category">
-                                <p><span>'. $value->name .'</span> </p>
-                                <p><span>SKU: </span> '. $value->product_id .'</p>
-                            </div>
-                            <div class="c-price">
-                                <p>&#8377;
-                                    <span>'.$amount.'</span>
-                                </p>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="col-4">
-                        <div class="cart-item-image">
-                            <img src="'.base_url().$value->image_path .'" class="" alt="">
-
-                        </div>
-                    </div>
-
-                    <div class="col-6 col-sm-8">
-                        <div class="brand-charge">
-                            <div class="footer-detail">
-                                <div class="quanlity-box">
-                                    <div class="colors">
-                                        <select name="brandCharge">
-                                            <option value="">Select Color</option>
-                                            <option value="">Black</option>
-                                            <option value="">Red</option>
-                                            <option value="">White</option>
-                                        </select>
-                                    </div>
-                                </div><!-- /.quanlity-box -->
                             </div>
                         </div>
-                    </div>
-                    <div class="col-6 col-sm-4">
-                        <div class="cart-item-image">
-                            <div class="quanlity">
-                                <span class="btn-down"></span>
-                                <input type="number" class="qtyi" name="number"
-                                    value="'. $value->qty .'" min="1" max="100"
-                                    placeholder="Quanlity">
-                                <span class="btn-up"></span>
+
+                        <div class="col-4">
+                            <div class="cart-item-image">
+                                <img src="'.base_url().$value->image_path .'" class="" alt="">
+
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-sm-8">
+                            <div class="brand-charge">
+                                <div class="footer-detail">
+                                    <div class="quanlity-box">
+                                        <div class="colors">
+                                            <select name="brandCharge">
+                                                <option value="">Select Color</option>
+                                                <option value="">Black</option>
+                                                <option value="">Red</option>
+                                                <option value="">White</option>
+                                            </select>
+                                        </div>
+                                    </div><!-- /.quanlity-box -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4">
+                            <div class="cart-item-image">
+                                <div class="quanlity">
+                                    <span class="btn-down"></span>
+                                    <input type="number" class="qtyi" name="number"
+                                        value="'. $value->qty .'" min="1" max="100"
+                                        placeholder="Quanlity">
+                                    <span class="btn-up"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>';   
+                </div>';   
 
+            }
+        }else{
+            $items .= '<div class="cart-items text-center">
+                <center><img src="'.base_url().'assets/images/emptycart.png" style="max-width: 260px; width: 100%;"><center> 
+                <h2>Cart is empty</h2> 
+                </div>';
         }
+
+
         $data = array(
             'items' => $items,
             'count' => count($cart),
@@ -176,7 +184,7 @@ class Cart extends CI_Controller {
     {
        $this->userorders();
        $this->session->set_flashdata('msg', 'order placed');
-       redirect('','refresh');
+       redirect('my-orders','refresh');
        
     }
 

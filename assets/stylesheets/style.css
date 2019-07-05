@@ -3923,3 +3923,25 @@ button.checkout:hover::before {
 
 .bg-lable{margin-bottom: 10px; font-size: 16px; font-weight: 500;}
 .new-ad-form{display: none}
+
+/* order pge */
+.ord-header-list li {
+    display: inline-block;
+    padding: 0 14px;
+    line-height: 18px;
+    font-size: 12px;
+}
+.ord-header-list li span{color: #c0c0c0}
+.ord-header-list {
+    border-bottom: 1px dotted gray;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+}
+.track-order{
+    float: right;
+    color: #009999;
+    font-size: 14px
+}
+.track-order:hover{color:#000}
+.order-list { border-bottom: 1px dashed #bdbdbd; margin-bottom: 15px; }
+.order-list:last-child{border: none;margin-bottom: 0px}
