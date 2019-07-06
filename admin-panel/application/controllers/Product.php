@@ -50,6 +50,7 @@ class Product extends CI_Controller {
             $tags        = $this->input->post('tags');
             $description = $this->input->post('description');
             $uniq        = $this->input->post('uniq');
+            $mrp        = $this->input->post('mrp');
             $desc        = trim($description);
 
             if (empty($edit)) {
@@ -112,6 +113,7 @@ class Product extends CI_Controller {
                 'product_id'=>  $product_id,
                 'title'     =>  $product,
                 'price'     =>  $price,
+                'mrp'     =>   $mrp,
                 'total_stock'     =>  $stock,
                 'available_stock' =>  $stock,
                 'des'       =>  $desc,

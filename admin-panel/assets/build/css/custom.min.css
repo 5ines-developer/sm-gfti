@@ -3681,8 +3681,8 @@ ul.project_files li a i {
 }
 
 .thumbnail {
-    height: 190px;
-    overflow: hidden
+    height: 170px;
+    overflow: hidden;
 }
 
 .view {
@@ -3725,7 +3725,7 @@ ul.project_files li a i {
     font-size: 17px;
     padding: 3px;
     background: rgba(0, 0, 0, .35);
-    margin: 43px 0 0
+    margin: 86px 0 0;
 }
 
 .mask.no-caption .tools {
@@ -3969,7 +3969,8 @@ ul.project_files li a i {
 }
 
 .product-image img {
-    width: 100%;
+    width: auto;
+    max-height: 400px;
 }
 
 .prod_color li {
@@ -5128,4 +5129,26 @@ ul.notifications {
 
 .tile_count .tile_stats_count {
     margin-top: 21px;
+}
+
+.rightside {
+    height: 222px;
+    padding: 40px 20px;
+    margin-bottom: 20px;
+}
+
+.tile_stats_count .count_top {
+    font-size: 19px;
+    text-align: center;
+}
+
+.tile_stats_count .count {
+    font-size: 25px;
+    text-align: center;
+    line-height: 47px;
+    font-weight: 600;
+}
+
+#image-link {
+    display: none;
 }

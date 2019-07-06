@@ -98,7 +98,7 @@
               <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Add Domain</h2>
+                  <h2><?php echo (empty($domain))?'Add':'Edit' ?> Domain</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">

@@ -113,3 +113,10 @@ $route['manage-enquiry'] 	     = 'Enquiry/index';
 $route['view-enquiry/(:any)']    = 'Enquiry/view_enquiry/$1';
 //News letter 
 $route['newsletter-subscribers'] = 'Enquiry/news_letter';
+//Offers
+$route['add-offers']             = 'Offers/index';
+$route['insert-offers']          = 'Offers/add_offer';
+$route['manage-offers']          = 'Offers/manage_offers';
+$route['edit-offers/(:any)']     = 'Offers/edit_offers/$1';
+$route['delete-offers/(:any)']   = 'Offers/delete_offers/$1';
+

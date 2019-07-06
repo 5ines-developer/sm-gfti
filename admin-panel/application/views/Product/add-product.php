@@ -150,12 +150,22 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12"
-                                                        for="first-name">Price<span class="required">*</span>
+                                                        for="first-name">Sale Price
+                                                    </label>
+                                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                                        <input type="number" id="first-name" 
+                                                            class="form-control col-md-7 col-xs-12" name="price"
+                                                            value="<?php echo (!empty($product['price']))?$product['price']:''; ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                        for="first-name">M.R.P<span class="required">*</span>
                                                     </label>
                                                     <div class="col-md-8 col-sm-8 col-xs-12">
                                                         <input type="number" id="first-name" required="required"
-                                                            class="form-control col-md-7 col-xs-12" name="price"
-                                                            value="<?php echo (!empty($product['price']))?$product['price']:''; ?>">
+                                                            class="form-control col-md-7 col-xs-12" name="mrp"
+                                                            value="<?php echo (!empty($product['mrp']))?$product['mrp']:''; ?>">
                                                     </div>
                                                 </div>
 
@@ -171,7 +181,7 @@
                                                     <div class="col-md-8 col-sm-8 col-xs-12">
                                                         <div class="brand-pricing <?php echo(!empty($brand))?'collapsed':''; ?>"
                                                             data-toggle="collapse" data-target="#marquee">
-                                                            <h5>Marquee<span class="branddown"><i
+                                                            <h5>Add Hyperlink<span class="branddown"><i
                                                                         class="fa fa-chevron-down"
                                                                         aria-hidden="true"></i> </span></h5>
                                                         </div>
@@ -188,13 +198,13 @@
                                                                 <div class="col-md-6 col-sm-6 col-xs-12 mar-12">
                                                                     <input type="text" class="form-control "
                                                                         name="marquee_title[]"
-                                                                        placeholder="Marquee title"
+                                                                        placeholder="Hyperlink title"
                                                                         value="<?php  echo(!empty($value->title))?$value->title:'';  ?>">
 
                                                                 </div>
                                                                 <div class="col-md-4 col-sm-4 col-xs-12">
                                                                     <input type="test" class="form-control "
-                                                                        name="marquee_link[]" placeholder="Marquee link"
+                                                                        name="marquee_link[]" placeholder="Hyperlink"
                                                                         value="<?php  echo(!empty($value->link))?$value->link:'';  ?>">
                                                                     <input type="hidden"
                                                                         value="<?php  echo(!empty($value->uniq))?$value->uniq:'';  ?>"
@@ -213,11 +223,11 @@
                                                                 <div class="col-md-6 col-sm-6 col-xs-12 mar-12">
                                                                     <input type="text" class="form-control "
                                                                         name="marquee_title[]"
-                                                                        placeholder="Marquee title" value="">
+                                                                        placeholder="Hyperlink title" value="">
                                                                 </div>
                                                                 <div class="col-md-4 col-sm-4 col-xs-12">
                                                                     <input type="test" class="form-control "
-                                                                        name="marquee_link[]" placeholder="Marquee link"
+                                                                        name="marquee_link[]" placeholder="Hyperlink"
                                                                         value="">
                                                                 </div>
                                                                 <div class="col-md-2 col-sm-2">
@@ -229,19 +239,6 @@
                                                         </div>
                                                     </div>
                                                 </div><br>
-
-
-
-
-
-
-
-
-
-
-
-
-
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12"
                                                         for="first-name">Total Stock<span class="required">*</span>
@@ -501,7 +498,7 @@
         $(function() {
             $('#marqueeplus').on('click', function(e) {
                 e.preventDefault();
-                $('<div class="row"><div class="col-md-6 col-sm-6 col-xs-12 mar-12"><input type="text"class="form-control " name="marquee_title[]" placeholder="Marquee title"></div> <div class="col-md-4 col-sm-4 col-xs-12"> <input type="text"class="form-control" name="marquee_link[]" placeholder="Marquee link"> </div> <div class="col-md-2 col-sm-2"> <a id="brandplus" class="marqueeplus remov"><i class="fa fa-times" aria-hidden="true"></i></a></div></div>')
+                $('<div class="row"><div class="col-md-6 col-sm-6 col-xs-12 mar-12"><input type="text"class="form-control " name="marquee_title[]" placeholder="Hyperlink title"></div> <div class="col-md-4 col-sm-4 col-xs-12"> <input type="text"class="form-control" name="marquee_link[]" placeholder="Hyperlink"> </div> <div class="col-md-2 col-sm-2"> <a id="brandplus" class="marqueeplus remov"><i class="fa fa-times" aria-hidden="true"></i></a></div></div>')
                     .append().insertAfter('#marqaddnext');
 
             });

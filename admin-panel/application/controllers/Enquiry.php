@@ -9,7 +9,7 @@ class Enquiry extends CI_Controller {
         parent::__construct();
         if($this->session->userdata('unique_id') == '') 
         {
-            $this->session->set_flashdata('error', 'Please login andtry again');
+            $this->session->set_flashdata('error', 'Please login and try again');
             redirect('dashboard'); 
         }
         $this->load->model('Enquiry_model');

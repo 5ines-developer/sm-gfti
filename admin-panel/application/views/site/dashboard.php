@@ -91,7 +91,7 @@
                 <!-- /top tiles -->
 
                 <div class="row">
-                    <div class="col-md-12 col-sm-9 col-xs-12">
+                    <div class="col-md-9 col-sm-9 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
                                 <h2>Orders By Month</h2>
@@ -100,6 +100,26 @@
                             <div class="x_content">
                                 <canvas id="myChart"></canvas>
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
+                        <div class="total-ordr rightside">
+                        	<div style="text-align: center;font-size: 19px;">
+                        		<i class="fa fa-check" aria-hidden="true"></i>
+                        	</div>
+                        	
+                            <div class="count_top"> Completed Orders</div>
+                            <div class="count blue"><a class="blue" href="<?php echo base_url('orders') ?>"><?php echo (!empty($category))?$category:'0' ;?></a> </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
+                        <div class="total-ordr rightside">
+                        	<div style="text-align: center;font-size: 19px;">
+                        		<i class="fa fa-clock-o" aria-hidden="true"></i>
+                        	</div>
+                            <div class="count_top">Pending Orders</div>
+                            <div class="count aero "><a class="dark" href="<?php echo base_url('orders') ?>"><?php echo (!empty($category))?$category:'0' ;?></a> </div>
                         </div>
                     </div>
 
@@ -324,7 +344,7 @@
                             borderJoinStyle: 'miter',
                             pointBorderColor: '#000',
                             pointBackgroundColor: 'rgba(75, 192, 192, 1)',
-                            pointBorderWidth: 5,
+                            pointBorderWidth: 3,
                             pointHoverRadius: 5,
                             pointHoverBackgroundColor: 'rgba(75, 192, 192, 1)',
                             pointHoverBorderColor: 'rgba(220, 220, 220, 1)',
