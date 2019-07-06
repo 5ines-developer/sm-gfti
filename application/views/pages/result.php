@@ -50,7 +50,7 @@
                                 <div class="sort-product style1">
                                     <ul class="icons">
                                         <li>
-                                            <h3 class="text-capitize"><?php echo $_GET['q'] ?></h3>
+                                            <h3 class="text-capitize"><?php echo (!empty($_GET['q'])) ? $_GET['q'] : '' ?></h3>
                                         </li>
 
                                         <!-- <li class="filter waves-effect">

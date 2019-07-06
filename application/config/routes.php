@@ -63,14 +63,28 @@ $route['forgot-password-set']   = 'authendication/forgot_password_set';
 // account
 $route['account-setting']       = 'account';
 $route['change-psw']            = 'account/change_psw';
+$route['shipping-address']      = 'account/shipping_address';
+$route['shipping-address-edit/(:any)'] = 'account/shipping_address_edit/$1';
+$route['save-shipping-update'] = 'account/shipping_address_update';
+
 // page
 $route['search-sg']             = 'search/index';
 $route['search/(:any)']         = 'search/search/$1';
 $route['search']                = 'search/search';
 $route['product/(:any)']        = 'search/product_detail/$1';
-$route['add-cart/(:any)']       =  'cart/index/$1';
+// cart
+$route['add-cart/(:any)']       = 'cart/index/$1';
+$route['get-cart']              = 'cart/get_cart';
+$route['delete-cart/(:any)']    = 'cart/deleteCart/$1';
+$route['cart']                  = 'cart/cartitem';
+$route['update-qty']            = 'cart/update_qty';
+$route['checkout']              = 'cart/checkout';
+$route['save-shipping']         = 'cart/save_shipping'; 
+$route['shipping-change']       = 'cart/shipping_change';
+$route['place-order']           = 'cart/place_order'; 
 //my orders
 $route['my-orders']             = 'Orders/index';
 $route['order/(:any)']          = 'Orders/order_detail/$1';
 
+// 
 

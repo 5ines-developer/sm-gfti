@@ -19,11 +19,13 @@ class M_search extends CI_Model {
     public function search_pagination($query,$perpage,$page)
     {
         $this->db->from('product p');
-        $this->db->limit($perpage, $page); 
         $this->db->join('category c', 'c.id = p.category', 'left');
-        $this->db->like('title',$query)
-                ->or_like('tags',$query)
-                ->or_like('name', $query);
+        if($query != ''){
+            $this->db->like('title',$query)
+                    ->or_like('tags',$query)
+                    ->or_like('name', $query);
+        }
+        $this->db->limit($perpage, $page); 
         return $this->db->get()->result();
     }
 
