@@ -7,6 +7,11 @@ class Enquiry extends CI_Controller {
 	/*--construct--*/
 	function __construct() {
         parent::__construct();
+        if($this->session->userdata('unique_id') == '') 
+        {
+            $this->session->set_flashdata('error', 'Please login andtry again');
+            redirect('dashboard'); 
+        }
         $this->load->model('Enquiry_model');
         $this->load->library('email');          
         $this->load->library('session'); 

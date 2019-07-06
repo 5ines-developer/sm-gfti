@@ -95,8 +95,8 @@
                
 
                 <div>
-                  <h1 style="margin: 10px 0 0px;"><img src="<?php echo base_url() ?>assets/images/logo.svg" alt="weaves"></h1>
-                  <p>©2019 Weaves! All Rights Reserved.  Developed by - <a href="http://www.5ines.com/" style="color: saddlebrown" target="_blank">5ine</a> </p> 
+                  <h1 style="margin: 10px 0 0px;"><img src="<?php echo base_url() ?>assets/images/logo.svg" alt="logo"></h1>
+                  <p>©<?php echo date("Y"); ?> Gifing Express! All Rights Reserved.  Developed by - <a href="http://www.5ines.com/" style="color: saddlebrown" target="_blank">5ine</a> </p> 
                 </div>
               </div>
             </form>
