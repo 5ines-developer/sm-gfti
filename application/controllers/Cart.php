@@ -148,6 +148,8 @@ class Cart extends CI_Controller {
     {
         $data['cart'] = $this->m_cart->getCart($this->uid);
         $data['shipping'] = $this->m_cart->getShipping($this->uid);
+        $this->load->model('m_account');
+        $data['user'] = $this->m_account->profileGet($this->uid);
         $this->load->view('pages/checkout', $data, FALSE);
         
        
@@ -170,10 +172,11 @@ class Cart extends CI_Controller {
         );    
         $this->m_cart->saveShipping($data, $this->uid);
         if( !empty($input['addnew'])){
-            redirect('checkout','refresh');
-        }else{
             $this->session->set_flashdata('success', 'Shipping address added successfuly');
             redirect('shipping-address','refresh');
+        }else{
+            redirect('checkout','refresh');
+            
         }
         
         

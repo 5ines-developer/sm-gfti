@@ -73,7 +73,7 @@
                                                         <dd><?php echo $value->religion.' - '.$value->zip_code ?> </dd>
                                                     </dl>
                                                     <button class="btn small-btn btn-info">Edit</button>
-                                                    <button class="btn small-btn btn-link">Delete this address</button>
+                                                    <a href="<?php echo base_url('delte-shipping/').$value->id.'/checkout' ?>" class="btn small-btn btn-link">Delete this address</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -241,7 +241,31 @@
 
 
                             <div class="btn-order">
-                                <a href="<?php echo base_url() ?>place-order" class="order" title="">Place Order</a>
+                                <?php
+                                        if($total >= 100000){
+                                            echo '<a href="<?php echo base_url() ?>place-order" class="order"
+                                title="">Place Order</a>';
+                                }else{
+                                echo '<form action="'.base_url().'payment/success/" method="POST">
+                                <script 
+                                    src="https://checkout.razorpay.com/v1/checkout.js" 
+                                    data-key="rzp_test_ZPtHNE4hO3uWul" 
+                                    data-amount="'.$total.'00" 
+                                    data-currency="INR"
+                                    data-buttontext="BUY NOW" 
+                                    data-name="Gifting express"
+                                    data-description="Gifting express"
+                                    data-image="'.base_url().'assets/images/img/logo.svg" 
+                                    data-prefill.name="'.$user["name"].'"
+                                    data-prefill.email="'.$user["email"].'" 
+                                    data-prefill.contact="'.$user["phone"].'"
+                                    data-theme.color="#009999">
+                                </script>
+                                    <input type="hidden" custom="Hidden Element" name="hidden">
+                            </form>';
+                                }
+                                ?>
+
                             </div><!-- /.btn-order -->
 
                         </div><!-- /.cart-totals style2 -->
@@ -252,6 +276,8 @@
 
 
         </section>
+
+        
 
 
         <?php $this->load->view('includes/footer');?>

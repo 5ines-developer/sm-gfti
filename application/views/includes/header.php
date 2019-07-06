@@ -1,11 +1,12 @@
 <div class="overlay"></div>
 
 <!-- Preloader -->
-<div class="preloader">
+<!-- <div class="preloader">
     <div class="clear-loading loading-effect-2">
         <span></span>
     </div>
-</div><!-- /.preloader -->
+</div> -->
+<!-- /.preloader -->
 
 <section id="header" class="header">
 

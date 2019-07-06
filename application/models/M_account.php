@@ -81,6 +81,17 @@ class M_account extends CI_Model {
             return false;
         }
     }
+
+    //  delete shipping
+    public function delte_shipping($id)
+    {
+        $this->db->where('id', $id)->delete('shipping_address');
+        if( $this->db->affected_rows() > 0 ){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
 
 /* End of file M_account.php */

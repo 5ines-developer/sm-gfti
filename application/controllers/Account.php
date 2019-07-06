@@ -138,6 +138,17 @@ class Account extends CI_Controller {
         }
     }
 
+    // delete
+    public function delte_shipping($id = null, $page)
+    {
+        $this->m_account->delte_shipping($id);
+        if($page == 'checkout'){
+            redirect('checkout','refresh');
+        }else{
+            redirect('shipping-address','refresh');
+        }
+    }
+
 }
 
 /* End of file account.php */

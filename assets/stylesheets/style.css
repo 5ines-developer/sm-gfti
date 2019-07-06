@@ -3878,7 +3878,7 @@ button.checkout:hover::before {
 .small-btn { padding: 0 15px; max-height: 26px; font-size: 14px;border: none}
 .custom-form input, .custom-form select{padding:.5rem .75rem;border-radius: 3px; max-height:calc(2.25rem + 2px); border: 1px solid #dedede;font-size: 13px;}
 .custom-form input:focus{border: 1px solid #03c9f3;}
-.custom-btn{
+.custom-btn, .razorpay-payment-button{
         display: inline-block;
         background-color: #f92400;
         color: #fff;
@@ -3894,7 +3894,7 @@ button.checkout:hover::before {
         max-width: 200px;
 }
 
-.custom-btn::before {
+.custom-btn::before, .razorpay-payment-button::before {
 	content: '';
 	position: absolute;
 	width: 100%;
@@ -3915,7 +3915,10 @@ button.checkout:hover::before {
 	transition-timing-function: ease-out;
 }
 
-.custom-btn:hover::before {
+.razorpay-payment-button{background: #099 !important; color:#fff !important;}
+.razorpay-payment-button:hover{background: #066f6f !important; color:#fff !important;box-shadow:0px 2px 12px -5px gray}
+
+.custom-btn:hover::before, .razorpay-payment-button:hover::before {
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
     -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
@@ -3959,4 +3962,16 @@ cursor: pointer;
 
 .dl-small {
     margin-bottom: 15px;
+}
+.list-group-item-heading {
+    width: 100%;
+}
+
+.btn-link{
+    background: gray;
+    border-radius: 3px;
+}
+.btn-link:hover{
+    background: #c0c0c0;
+    color: #151515 !important
 }

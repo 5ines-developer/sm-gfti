@@ -82,7 +82,7 @@
                                                 <dd><?php echo $value->religion.' - '.$value->zip_code ?> </dd>
                                             </dl>
                                             <a href="<?php echo base_url('shipping-address-edit/').$value->id ?>" class="btn small-btn btn-info">Edit</a>
-                                            <button class="btn small-btn btn-link">Delete this address</button>
+                                            <a class="btn small-btn btn-link" href="<?php echo base_url('delte-shipping/').$value->id.'/account' ?>">Delete this address</a>
                                         </div>
                                     </div>
                                 </div>

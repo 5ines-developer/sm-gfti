@@ -5,7 +5,7 @@
 						<div class="widget-ft widget-about">
 							<div class="logo logo-ft">
 								<a href="index.html" title="">
-									<img src="<?php echo base_url() ?>assets/images/logos/logo-ft.png" alt="">
+									<img src="<?php echo base_url() ?>assets/images/img/logo.svg" alt="">
 								</a>
 							</div><!-- /.logo-ft -->
 							<div class="widget-content">
@@ -142,69 +142,11 @@
 									<button type="submit"><img src="<?php echo base_url() ?>assets/images/icons/right-2.png" alt=""></button>
 								</div>
 							</form><!-- /.subscribe-form -->
-							<ul class="pay-list">
-								<li>
-									<a href="#" title="">
-										<img src="<?php echo base_url() ?>assets/images/logos/ft-01.png" alt="">
-									</a>
-								</li>
-								<li>
-									<a href="#" title="">
-										<img src="<?php echo base_url() ?>assets/images/logos/ft-02.png" alt="">
-									</a>
-								</li>
-								<li>
-									<a href="#" title="">
-										<img src="<?php echo base_url() ?>assets/images/logos/ft-03.png" alt="">
-									</a>
-								</li>
-								<li>
-									<a href="#" title="">
-										<img src="<?php echo base_url() ?>assets/images/logos/ft-04.png" alt="">
-									</a>
-								</li>
-								<li>
-									<a href="#" title="">
-										<img src="<?php echo base_url() ?>assets/images/logos/ft-05.png" alt="">
-									</a>
-								</li>
-							</ul><!-- /.pay-list -->
+							
 						</div><!-- /.widget-newsletter -->
 					</div><!-- /.col-lg-4 col-md-6 -->
 				</div><!-- /.row -->
-				<div class="row">
-					<div class="col-md-12">
-						<div class="widget widget-apps">
-							<div class="widget-title">
-								<h3>Mobile Apps</h3>
-							</div>
-							<ul class="app-list">
-								<li class="app-store">
-									<a href="#" title="">
-										<div class="img">
-											<img src="<?php echo base_url() ?>assets/images/icons/app-store.png" alt="">
-										</div>
-										<div class="text">
-											<h4>App Store</h4>
-											<p>Available now on the</p>
-										</div>
-									</a>
-								</li><!-- /.app-store -->
-								<li class="google-play">
-									<a href="#" title="">
-										<div class="img">
-											<img src="<?php echo base_url() ?>assets/images/icons/google-play.png" alt="">
-										</div>
-										<div class="text">
-											<h4>Google Play</h4>
-											<p>Get in on</p>
-										</div>
-									</a>	
-								</li><!-- /.google-play -->
-							</ul><!-- /.app-list -->
-						</div><!-- /.widget-apps -->
-					</div><!-- /.col-md-12 -->
-				</div><!-- /.row -->
+				
 			</div><!-- /.container -->
 		</footer><!-- /footer -->
 
@@ -212,7 +154,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<p class="copyright"> All Rights Reserved © Techno Store 2017</p>
+						<p class="copyright"> All Rights Reserved © Gifiting express <?php echo date('Y') ?></p>
 						<p class="btn-scroll">
 							<a href="#" title="">
 								<img src="<?php echo base_url() ?>assets/images/icons/top.png" alt="">
