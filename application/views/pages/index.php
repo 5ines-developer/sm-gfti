@@ -183,7 +183,7 @@
 											</div>
 											<div class="box-content">
 												<div class="cat-name">
-												<a href="<?php echo base_url('category/').$value->id ?>" title=""><?php echo $value->name ?>
+												<a href="<?php echo base_url('product/').$value->id ?>" title=""><?php echo $value->name ?>
 												</div>
 												<div class="product-name">
 													<a href="<?php echo base_url('product/').$value->product_id ?>">
@@ -259,66 +259,56 @@
 			<section class="flat-iconbox">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-3">
-							<div class="iconbox">
-								<div class="box-header">
-									<div class="image">
-										<img src="<?php echo base_url() ?>assets/images/icons/car.png" alt="">
-									</div>
-									<div class="box-title">
-										<h3>Worldwide Shipping</h3>
-									</div>
-								</div><!-- /.box-header -->
-								<div class="box-content">
-									<p>Free Shipping On Order Over $100</p>
-								</div><!-- /.box-content -->
-							</div><!-- /.iconbox -->
-						</div><!-- /.col-md-3 -->
-						<div class="col-md-3">
-							<div class="iconbox">
-								<div class="box-header">
-									<div class="image">
-										<img src="<?php echo base_url() ?>assets/images/icons/order.png" alt="">
-									</div>
-									<div class="box-title">
-										<h3>Order Online Service</h3>
-									</div>
-								</div><!-- /.box-header -->
-								<div class="box-content">
-									<p>Free return products in 30 days</p>
-								</div><!-- /.box-content -->
-							</div><!-- /.iconbox -->
-						</div><!-- /.col-md-3 -->
-						<div class="col-md-3">
-							<div class="iconbox">
-								<div class="box-header">
-									<div class="image">
-										<img src="<?php echo base_url() ?>assets/images/icons/payment.png" alt="">
-									</div>
-									<div class="box-title">
-										<h3>Payment</h3>
-									</div>
-								</div><!-- /.box-header -->
-								<div class="box-content">
-									<p>Secure System</p>
-								</div><!-- /.box-content -->
-							</div><!-- /.iconbox -->
-						</div><!-- /.col-md-3 -->
-						<div class="col-md-3">
-							<div class="iconbox">
-								<div class="box-header">
-									<div class="image">
-										<img src="<?php echo base_url() ?>assets/images/icons/return.png" alt="">
-									</div>
-									<div class="box-title">
-										<h3>Return 30 Days</h3>
-									</div>
-								</div><!-- /.box-header -->
-								<div class="box-content">
-									<p>Free return products in 30 days</p>
-								</div><!-- /.box-content -->
-							</div><!-- /.iconbox -->
-						</div><!-- /.col-md-3 -->
+						<div class="col-md-10 offset-md-1">
+							<div class="row">
+								<div class="col-md-4 ">
+									<div class="iconbox">
+										<div class="box-header">
+											<div class="image">
+												<img src="<?php echo base_url() ?>assets/images/icons/car.png" alt="">
+											</div>
+											<div class="box-title">
+												<h3>Worldwide Shipping</h3>
+											</div>
+										</div><!-- /.box-header -->
+										<div class="box-content">
+											<p>Free Shipping On Order Over $100</p>
+										</div><!-- /.box-content -->
+									</div><!-- /.iconbox -->
+								</div><!-- /.col-md-3 -->
+								<div class="col-md-4">
+									<div class="iconbox">
+										<div class="box-header">
+											<div class="image">
+												<img src="<?php echo base_url() ?>assets/images/icons/order.png" alt="">
+											</div>
+											<div class="box-title">
+												<h3>Order Online Service</h3>
+											</div>
+										</div><!-- /.box-header -->
+										<div class="box-content">
+											<p>Free return products in 30 days</p>
+										</div><!-- /.box-content -->
+									</div><!-- /.iconbox -->
+								</div><!-- /.col-md-3 -->
+								<div class="col-md-4">
+									<div class="iconbox">
+										<div class="box-header">
+											<div class="image">
+												<img src="<?php echo base_url() ?>assets/images/icons/payment.png" alt="">
+											</div>
+											<div class="box-title">
+												<h3>Payment</h3>
+											</div>
+										</div><!-- /.box-header -->
+										<div class="box-content">
+											<p>Secure System</p>
+										</div><!-- /.box-content -->
+									</div><!-- /.iconbox -->
+								</div><!-- /.col-md-3 -->
+							</div>
+						</div>
+						
 					</div><!-- /.row -->
 				</div><!-- /.container -->
 			</section><!-- /.flat-iconbox -->

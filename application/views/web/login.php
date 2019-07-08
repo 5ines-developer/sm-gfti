@@ -84,7 +84,7 @@
                                 </div>
                                 <div class="box-title">
 									<h3>Order Online Service</h3>
-									<?php echo validation_errors(); ?>
+									
                                 </div>
                                 <div class="clearfix"></div>
                             </div><!-- /.box-header -->

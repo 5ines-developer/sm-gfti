@@ -136,6 +136,14 @@ class M_cart extends CI_Model {
         return  $query->id; 
     }
 
+    // carrt item
+    public function cart_item($id = null)
+    {
+        $result =$this->db->where('emp_id', $id)->get('cart');
+        return $result->num_rows();
+        
+    }
+
 }
 
 /* End of file M_cart.php */

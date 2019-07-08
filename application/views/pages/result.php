@@ -50,7 +50,14 @@
                                 <div class="sort-product style1">
                                     <ul class="icons">
                                         <li>
-                                            <h3 class="text-capitize"><?php echo (!empty($_GET['q'])) ? $_GET['q'] : '' ?></h3>
+                                            <h3 class="text-capitize">
+                                                <?php
+                                                    $link = str_replace('-',' ', $this->input->get('c'));
+                                                    $category = str_replace('and','&', $link); 
+
+                                                    echo (!empty($_GET['q'])) ? $_GET['q'] : $category 
+                                                ?>
+                                            </h3>
                                         </li>
 
                                         <!-- <li class="filter waves-effect">
@@ -60,14 +67,14 @@
 
                                     <div class="sort">
 
-                                        <div class="showed">
+                                        <!-- <div class="showed">
                                             <select name="showed">
                                                 <option value="">Newest First</option>
                                                 <option value="">oldest First</option>
                                                 <option value="">Price -- Low to High</option>
                                                 <option value="">Price -- High to Low</option>
                                             </select>
-                                        </div>
+                                        </div> -->
                                     </div><!-- /.sort -->
                                     <div class="clearfix"></div>
                                 </div><!-- /.sort-product style1 -->

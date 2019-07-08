@@ -18,6 +18,7 @@ class Authendication extends CI_Controller {
     public function register()
     {
         $this->load->library('form_validation');
+        if($this->session->userdata('sid') != ''){ redirect('/','refresh'); }
 
         $data['breadcrumbs'] = false;
         $data['title'] = 'Register';
@@ -32,7 +33,7 @@ class Authendication extends CI_Controller {
             $email 		= $this->input->post('email');
             $hash 		= $this->bcrypt->hash_password($password);
             
-            $this->form_validation->set_rules('email', 'Email', 'required|is_unique[employee.email]');
+            $this->form_validation->set_rules('email', 'Email', 'required|is_unique[employee.email]|callback_domailcheck');
             $this->form_validation->set_rules('phone', 'Phone number', 'required|is_unique[employee.phone]');
             $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[5]');
             $this->form_validation->set_rules('cpassword', 'Password Confirmation', 'trim|required|matches[password]');
@@ -65,6 +66,24 @@ class Authendication extends CI_Controller {
         }
     }
 
+    public function domailcheck($email = null)
+    {
+        $exvalue = explode('@',  $email);
+        
+        if ($this->m_authendication->domain_check($exvalue['1']) == FALSE)
+        {
+            $this->form_validation->set_message('domailcheck', 'Invalid domain. Please use Comapny email id');
+            return FALSE;
+        }
+        else
+        {
+            return TRUE;
+        }
+
+        exit;
+    }
+
+
     // account activation
     public function email_verification($var = null)
     {
@@ -84,6 +103,7 @@ class Authendication extends CI_Controller {
     {
         $data['breadcrumbs'] = false;
         $data['title'] = 'Login';
+        if($this->session->userdata('sid') != ''){ redirect('/','refresh'); }
 
         $input = $this->input->post();
         if(count($input) > 0){
@@ -132,9 +152,15 @@ class Authendication extends CI_Controller {
     /* --  logout -- */ 
     public function logout() 
 	{
+        $session_data = array(
+            'suser' => $this->session->userdata('suser'),
+            'sid' 	=> $this->session->userdata('sid'),
+        ); 
+       
 		$this->session->unset_userdata($session_data);
 		$this->session->sess_destroy();
-		$this->session->set_flashdata('success', 'Successfully Logout');
+        $this->session->set_flashdata('succes', 'Successfully Logout');
+        
 		redirect(base_url());
     } 
     

@@ -5,18 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_search extends CI_Model {
 
     // get result()
-    public function getResult($query)
-    {
-        $this->db->from('product p');
-        $this->db->join('category c', 'c.id = p.category', 'left');
-        $this->db->like('title',$query)
-                ->or_like('tags',$query)
-                ->or_like('name', $query);
-        return $this->db->get()->result();
-    }
-
-    // get product with pagination
-    public function search_pagination($query,$perpage,$page)
+    public function getResult($query, $category = null)
     {
         $this->db->from('product p');
         $this->db->join('category c', 'c.id = p.category', 'left');
@@ -24,6 +13,25 @@ class M_search extends CI_Model {
             $this->db->like('title',$query)
                     ->or_like('tags',$query)
                     ->or_like('name', $query);
+        }
+        if($category != ''){
+            $this->db->like('name',$category);
+        }
+        return $this->db->get()->result();
+    }
+
+    // get product with pagination
+    public function search_pagination($query,$category,$perpage,$page)
+    {
+        $this->db->from('product p');
+        $this->db->join('category c', 'c.id = p.category', 'left');
+        if($query != ''){
+            $this->db->like('title',$query)
+                    ->or_like('tags',$query)
+                    ->or_like('name', $query);
+        }
+        if($category !=''){
+            $this->db->like('name',$category);
         }
         $this->db->limit($perpage, $page); 
         return $this->db->get()->result();

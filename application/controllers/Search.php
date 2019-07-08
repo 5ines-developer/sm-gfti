@@ -12,6 +12,10 @@ class Search extends CI_Controller {
         $this->load->model('m_search');
         $this->uid = $this->session->userdata('sid');
         $this->load->library('pagination');
+        $this->load->model('m_cart');
+        $this->data['cart_item'] = $this->m_cart->cart_item($this->session->userdata('sid'));
+        $this->load->model('m_web');
+        $this->data['categories'] = $this->m_web->categories();
     }
     
     // search suggetion
@@ -47,9 +51,12 @@ class Search extends CI_Controller {
         $data['breadcrumbs'] = FALSE;
         $data['title'] = $this->input->get('q');
 
+        $link = str_replace('-',' ', $this->input->get('c'));
+        $category = str_replace('and','&', $link); 
+
         $query = $this->input->get('q');
-        $data = $this->m_search->getResult($query);
-        $result =  $this->m_search->search_pagination($query,$perpage,$page);
+        $data = $this->m_search->getResult($query, $category);
+        $result =  $this->m_search->search_pagination($query,$category,$perpage,$page);
 
         $config['base_url'] = base_url().'search';
         $config['total_rows'] = count($data);
@@ -101,6 +108,13 @@ class Search extends CI_Controller {
         $data['title'] = $data['product']->title;
         $data['brand'] = $this->m_search->brand_product($data['product']->id);
         $this->load->view('pages/product-detail', $data, FALSE);
+    }
+
+    // category
+    public function category($name = null)
+    {
+       
+        
     }
 }
 

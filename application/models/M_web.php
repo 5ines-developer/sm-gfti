@@ -19,6 +19,21 @@ class M_web extends CI_Model {
         return $this->db->get('category', 5)->result();
     }
 
+    //  get all category 
+    public function categories()
+    {
+        $data['full'] = $this->db->get('category')->result();
+        $data['five'] = $this->getFiveCategiry();
+        return $data;
+    }
+
+    public function getFiveCategiry($var = null)
+    {
+        return $this->db->get('category', 5)->result();
+    }
+    
+    
+
     // get category item
     public function getItembyCategory($category = null)
     {
