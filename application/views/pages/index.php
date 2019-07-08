@@ -6,7 +6,7 @@
 		<!-- Basic Page Needs -->
 		<meta charset="UTF-8">
 		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-		<title>Techno Store - Home 2</title>
+		<title>Gifting Express</title>
 
 		<meta name="author" content="CreativeLayers">
 
@@ -183,7 +183,7 @@
 											</div>
 											<div class="box-content">
 												<div class="cat-name">
-												<a href="<?php echo base_url('product/').$value->id ?>" title=""><?php echo $value->name ?>
+												<a href="<?php echo base_url('product/').$value->product_id ?>" title=""><?php echo $value->name ?>
 												</div>
 												<div class="product-name">
 													<a href="<?php echo base_url('product/').$value->product_id ?>">
@@ -199,7 +199,7 @@
 											</div>
 											<div class="box-bottom">
 												<div class="btn-add-cart">
-													<a href="<?php echo base_url('product/').$value->product_id ?>" title="">
+													<a href="<?php echo base_url('add-cart/').$value->product_id ?>" title="">
 														<img src="<?php echo base_url() ?>assets/images/icons/add-cart.png" alt="">Add to Cart
 													</a>
 												</div>
@@ -234,7 +234,7 @@
 										</div><!-- /.box-image -->
 										<div class="box-content ">
 											<div class="cat-name">
-												<a href="<?php echo base_url('category/').$value->id ?>" title=""><?php echo $value->name ?></a>
+												<a href="<?php echo base_url('product/').$value->product_id ?>" title=""><?php echo $value->name ?></a>
 											</div>
 											<div class="product-name ">
 												<a href="<?php echo base_url('product/').$value->product_id ?>" title="">

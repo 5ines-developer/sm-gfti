@@ -8,7 +8,9 @@
             <li><span><a href="<?php echo base_url() ?>my-orders">My Orders</a></span></li>
             <li><span><a href="<?php echo base_url() ?>cart">Cart</a></span></li>
             <li><span><a href="<?php echo base_url() ?>shipping-address">Shipping Address</a></span></li>
-            <li>
+            <li><span><a href="<?php echo base_url() ?>logout">Logout</a></span></li>
+
+            <!-- <li>
                 <span>Accessories<i>(03)</i></span>
                 <ul class="cat-child">
                     <li>
@@ -21,7 +23,7 @@
                         <a href="#" title="">Software</a>
                     </li>
                 </ul>
-            </li>
+            </li> -->
 
         </ul><!-- /.cat-list -->
     </div><!-- /.widget-categories -->

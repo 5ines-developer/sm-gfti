@@ -53,7 +53,7 @@ class Authendication extends CI_Controller {
                         $this->session->set_flashdata('success', 'Before you can login, you must active your account with the code sent to your email address.');
                         redirect('login','refresh');
                     }else{
-                        $this->session->set_flashdata('error', 'Some error occured! Contact to support team');
+                        $this->session->set_flashdata('error', 'Some error occured! Contact to support team.(mail sending error)');
                         redirect('register','refresh');
                     }
                 }else{

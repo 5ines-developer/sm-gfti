@@ -22,7 +22,7 @@ if($this->session->userdata('sid') != ''){
             <div class="row">
                 <div class="col-md-3 hidden-sm-down">
                     <div id="logo" class="logo">
-                        <a href="index.html" title="">
+                        <a href="<?php echo base_url() ?>" title="">
                             <img src="<?php echo base_url() ?>assets/images/img/logo.svg" alt="">
                         </a>
                     </div><!-- /#logo -->
@@ -191,7 +191,7 @@ if($this->session->userdata('sid') != ''){
     </div><!-- /.header-bottom -->
 </section><!-- /#header -->
 
-<?php if(!empty($breadcrumbs) == true) { ?>
+<!-- <?php if(!empty($breadcrumbs) == true) { ?>
 <section class="flat-breadcrumb">
     <div class="container">
         <div class="row">
@@ -208,9 +208,29 @@ if($this->session->userdata('sid') != ''){
                     <li class="trail-end">
                         <a href="#" title="">Smartphones</a>
                     </li>
-                </ul><!-- /.breacrumbs -->
-            </div><!-- /.col-md-12 -->
-        </div><!-- /.row -->
-    </div><!-- /.container -->
-</section><!-- /.flat-breadcrumb -->
-<?php } ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<?php } ?> -->
+
+<?php 
+
+if(!empty($this->data['categories']['marquee']) && $this->session->userdata('sid') != ''){ ?>
+    
+        
+            <section class="marquee-section">
+                <div class="container">
+                    <div class="col-sm-12">
+                        <marquee >
+                        <?php foreach ($this->data['categories']['marquee'] as $key => $value) {  ?>
+                            <a href="<?php echo $value->link ?>"><?php echo $value->title ?></a> &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+                        <?php } ?>
+                        </marquee>
+                    </div>
+                </div>
+            </section>
+
+    
+                        <?php } ?>

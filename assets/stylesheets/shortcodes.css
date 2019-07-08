@@ -508,6 +508,9 @@
 .imagebox .box-content .product-name {
 	min-height: 32px;
 	margin-top: 6px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 }
 
 .imagebox .box-content .product-name a {
@@ -638,7 +641,7 @@
 .product-box:hover .imagebox .box-bottom {
 	opacity: 1;
 	display: block;
-	transform: translateY(0%);
+	transform: translateY(15px);
 	-webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
 	-ms-transition: all 0.3s ease-in-out;

@@ -41,8 +41,9 @@ class M_search extends CI_Model {
     public function single_product($id)
     {
         return $this->db->from('product p')
+        ->select('product_id, p.id as pid, image_path,title, price, mrp, des, tags, total_stock, available_stock, category, name, path, uniqid')
         ->where('product_id', $id)
-        ->join('category c', 'c.id = p.category', 'right')
+        ->join('category c', 'c.id = p.category', 'left')
         ->get()
         ->row();
     }

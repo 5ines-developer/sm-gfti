@@ -8,7 +8,7 @@
     <!-- Basic Page Needs -->
     <meta charset="UTF-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <title>Techno Store - Home 2</title>
+    <title>Gifting Express</title>
 
     <meta name="author" content="CreativeLayers">
 

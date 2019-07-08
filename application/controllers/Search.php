@@ -106,16 +106,11 @@ class Search extends CI_Controller {
         $data['product'] = $this->m_search->single_product($id);
         $data['breadcrumbs'] = FALSE;
         $data['title'] = $data['product']->title;
-        $data['brand'] = $this->m_search->brand_product($data['product']->id);
+        $data['brand'] = $this->m_search->brand_product($data['product']->pid);
         $this->load->view('pages/product-detail', $data, FALSE);
     }
 
-    // category
-    public function category($name = null)
-    {
-       
-        
-    }
+    
 }
 
 /* End of file Search.php */

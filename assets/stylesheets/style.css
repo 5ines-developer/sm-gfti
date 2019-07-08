@@ -1465,9 +1465,7 @@ ul.flat-unstyled li>ul>li>a {
     float: left;
 }
 
-#mainnav>ul.menu {
-    word-spacing: -4px;
-}
+
 
 #mainnav>ul.menu>li {
     display: inline-block;
@@ -3646,6 +3644,9 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     height: 37px;
     max-width: 200px;
     border: 1px solid #d5d5d5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .brand-charge .colors::before {
@@ -3653,7 +3654,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     position: absolute;
     font-family: 'Fontawesome';
     top: 7px;
-    right: 22px;
+    right: 14px;
     font-size: 14px;
     color: #1b1b19;
     z-index: 2;
@@ -4190,4 +4191,14 @@ a.small-btn {
 
     border: 1px solid #8080802e;
 
+}
+
+.single-prd .flex-control-thumbs{
+    display: none;
+}
+.marquee-section{background: #fff;padding: 5px 0;}
+.imagebox.style4 .box-content .product-name a{
+    text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 }

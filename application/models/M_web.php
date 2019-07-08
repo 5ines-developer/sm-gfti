@@ -24,6 +24,7 @@ class M_web extends CI_Model {
     {
         $data['full'] = $this->db->get('category')->result();
         $data['five'] = $this->getFiveCategiry();
+        $data['marquee'] = $this->marquee();
         return $data;
     }
 
@@ -32,6 +33,12 @@ class M_web extends CI_Model {
         return $this->db->get('category', 5)->result();
     }
     
+    // get marque
+    public function marquee()
+    {
+       return $this->db->get('marquee')->result();
+       
+    }
     
 
     // get category item

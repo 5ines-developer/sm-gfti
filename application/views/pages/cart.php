@@ -8,7 +8,7 @@
     <!-- Basic Page Needs -->
     <meta charset="UTF-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <title>Techno Store - Home 2</title>
+    <title>Gifting Express</title>
 
     <meta name="author" content="CreativeLayers">
 
@@ -191,6 +191,22 @@
             cartqty(id, newqty);
         }); /****** QTY increement and decrement end *******/
 
+        /****  brand change ****/
+        $(document).on('change', '.colors select', function (e) {
+            loder(true);
+            var value = $(this).val();
+            var url = '<?php echo base_url() ?>change-brand';
+            var prd = $(this).closest('.cart-item').attr('dataid');
+            $.ajax({
+                    type: "post",
+                    url: url,
+                    data: {ids : value, prd:  prd},
+                    success: function(response) {
+                        cartitems();
+                    }
+                });
+
+        });
 
         /****** Total ammoun count *******/
        

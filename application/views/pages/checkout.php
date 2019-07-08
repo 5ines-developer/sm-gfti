@@ -8,7 +8,7 @@
     <!-- Basic Page Needs -->
     <meta charset="UTF-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <title>Techno Store - Home 2</title>
+    <title>Gifting Express</title>
 
     <meta name="author" content="CreativeLayers">
 
@@ -243,7 +243,7 @@
                             <div class="btn-order">
                                 <?php
                                         if($total >= 100000){
-                                            echo '<a href="<?php echo base_url() ?>place-order" class="order"
+                                            echo '<a href=" '.base_url().' place-order" class="order"
                                 title="">Place Order</a>';
                                 }else{
                                 echo '<form action="'.base_url().'payment/success/" method="POST">
@@ -317,6 +317,8 @@
             }
 
         });
+
+        
 
         $('.shippoption').change(function(e) {
             e.preventDefault();

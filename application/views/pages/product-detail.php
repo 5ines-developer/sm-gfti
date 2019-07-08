@@ -8,7 +8,7 @@
     <!-- Basic Page Needs -->
     <meta charset="UTF-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <title>Techno Store - Home 2</title>
+    <title>Gifting Express</title>
 
     <meta name="author" content="CreativeLayers">
 
@@ -39,7 +39,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="flexslider">
+                        <div class="flexslider single-prd">
                             <ul class="slides">
                                 <li data-thumb="<?php echo base_url().$product->image_path ?>">
                                     <a href='#' id="zoom" class='zoom'><img
@@ -76,10 +76,12 @@
                             <div class="footer-detail">
                                 <form action="<?php echo base_url('add-cart/').$product->product_id ?>" method="post">
                                     <div class="quanlity-box ">
-                                        <?php if(!empty($brand)) { ?>
+                                        <?php 
+                                        
+                                        if(!empty($brand)) { ?>
                                         <div class="colors float-left">
                                             <select name="brand">
-                                                <option>Branding Charges</option>
+                                                <option value="">Branding Charges</option>
                                                 <?php foreach ($brand as $key => $value) {
                                                 echo '<option  value="'. $value->id.'">'.$value->title.'</option>';
                                             } ?>
