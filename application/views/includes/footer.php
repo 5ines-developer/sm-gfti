@@ -13,14 +13,16 @@
 									<img src="<?php echo base_url() ?>assets/images/icons/call.png" alt="">
 								</div>
 								<div class="info">
-									<p class="questions">Got Questions ? Call us 24/7!</p>
-									<p class="phone">Call Us: (888) 1234 56789</p>
+									<p class="questions">Got Questions ? Call us 9am to 7pm</p>
+									<p class="phone">Call Us: <a href="tel:08040909198">080 4090 9198</a></p>
 									<p class="address">
-										PO Box CT16122 Collins Street West, Victoria 8007,<br />Australia.
+									#16, 1st 'C' Cross,<br>
+									Lalbagh Road, Sudham Nagar<br>
+									Bangalore – 27
 									</p>
 								</div>
 							</div><!-- /.widget-content -->
-							<ul class="social-list">
+							<ul class="social-list text-center align-center">
 								<li>
 									<a href="#" title="">
 										<i class="fa fa-facebook" aria-hidden="true"></i>
@@ -38,19 +40,10 @@
 								</li>
 								<li>
 									<a href="#" title="">
-										<i class="fa fa-pinterest" aria-hidden="true"></i>
+										<i class="fa fa-youtube" aria-hidden="true"></i>
 									</a>
 								</li>
-								<li>
-									<a href="#" title="">
-										<i class="fa fa-dribbble" aria-hidden="true"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#" title="">
-										<i class="fa fa-google" aria-hidden="true"></i>
-									</a>
-								</li>
+								
 							</ul><!-- /.social-list -->
 						</div><!-- /.widget-about -->
 					</div><!-- /.col-lg-3 col-md-6 -->
@@ -60,27 +53,15 @@
 								<h3>Find By Categories</h3>
 							</div>
 							<ul class="cat-list-ft">
-								<li>
-									<a href="#" title="">Desktops</a>
-								</li>
-								<li>
-									<a href="#" title="">Laptops & Notebooks</a>
-								</li>
-								<li>
-									<a href="#" title="">Components</a>
-								</li>
-								<li>
-									<a href="#" title="">Tablets</a>
-								</li>
-								<li>
-									<a href="#" title="">Software</a>
-								</li>
-								<li>
-									<a href="#" title="">Phones & PDAs</a>
-								</li>
-								<li>
-									<a href="#" title="">Cameras</a>
-								</li>
+								<?php  foreach ($this->data['categories']['full'] as $key => $value) { 
+									if($key < 6){
+									$link = str_replace(' ','+', $value->name);
+									$nlink = str_replace('&','%26', $link);
+								?>
+									<li>
+										<a href="<?php echo base_url('search?q=&c=').$nlink ?>" title="">  <?php echo $value->name ?></a>
+									</li>
+								<?php } }?>
 							</ul><!-- /.cat-list-ft -->
 						</div><!-- /.widget-categories-ft -->
 					</div><!-- /.col-lg-3 col-md-6 -->
@@ -90,39 +71,31 @@
 								<h3>Customer Care</h3>
 							</div>
 							<ul>
+								<li><a href="<?php echo base_url() ?>" > Home </a></li>
 								<li>
-									<a href="#" title="">
+									<a href="<?php echo base_url() ?>contact-us" title="">
 										Contact us
 									</a>
 								</li>
 								<li>
-									<a href="#" title="">
-										Site Map
+									<a href="<?php echo base_url() ?>about-us" title="">
+										About Us
 									</a>
 								</li>
 								<li>
-									<a href="#" title="">
+									<a href="<?php echo base_url() ?>account" title="">
 										My Account
 									</a>
 								</li>
 								<li>
-									<a href="#" title="">
-										Wish List
+									<a href="<?php echo base_url() ?>my-orders" title="">
+										My orders
 									</a>
 								</li>
+								
 								<li>
-									<a href="#" title="">
-										Delivery Information
-									</a>
-								</li>
-								<li>
-									<a href="#" title="">
+									<a href="<?php echo base_url() ?>privacy-policy" title="">
 										Privacy Policy
-									</a>
-								</li>
-								<li>
-									<a href="#" title="">
-										Terms & Conditions
 									</a>
 								</li>
 							</ul>
@@ -131,10 +104,11 @@
 					<div class="col-lg-4 col-md-6">
 						<div class="widget-ft widget-newsletter">
 							<div class="widget-title">
-								<h3>Sign Up To New Letter</h3>
+								<h3>Products & Seasonal gifts</h3>
 							</div>
+							<p>Sign Up To New Products & Seasonal gifts</p>
 							<p>Make sure that you never miss our interesting <br />
-								news by joining our newsletter program
+							New Products & Seasonal gifts updates
 							</p>
 							<form action="#" class="subscribe-form" method="get" accept-charset="utf-8">
 								<div class="subscribe-content">
@@ -154,7 +128,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<p class="copyright"> All Rights Reserved © Gifiting express <?php echo date('Y') ?></p>
+						<p class="copyright"> All Rights Reserved © Gifiting Xpress <?php echo date('Y') ?> | Developed by <a href="http://www.5ines.com" target="_blank">5ines</a> </p>
 						<p class="btn-scroll">
 							<a href="#" title="">
 								<img src="<?php echo base_url() ?>assets/images/icons/top.png" alt="">

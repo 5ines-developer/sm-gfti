@@ -8,7 +8,7 @@
     <!-- Basic Page Needs -->
     <meta charset="UTF-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <title>Gifting Express</title>
+    <title>Gifting Xpress</title>
 
     <meta name="author" content="CreativeLayers">
 
@@ -47,7 +47,7 @@
 
                                     <div class="clearfix"></div>
                                 </div><!-- /.flat-row-title style4 -->
-                                <div class="sort-product style1">
+                                <!-- <div class="sort-product style1">
                                     <ul class="icons">
                                         <li>
                                             <h3 class="text-capitize">
@@ -60,29 +60,20 @@
                                             </h3>
                                         </li>
 
-                                        <!-- <li class="filter waves-effect">
-											Filter
-										</li> -->
-                                    </ul><!-- /.icons -->
+                                       
+                                    </ul>
 
                                     <div class="sort">
 
-                                        <!-- <div class="showed">
-                                            <select name="showed">
-                                                <option value="">Newest First</option>
-                                                <option value="">oldest First</option>
-                                                <option value="">Price -- Low to High</option>
-                                                <option value="">Price -- High to Low</option>
-                                            </select>
-                                        </div> -->
-                                    </div><!-- /.sort -->
+                                       
+                                    </div>
                                     <div class="clearfix"></div>
-                                </div><!-- /.sort-product style1 -->
+                                </div> -->
 
-                                <div class="row">
+                                <div class="row mob-plr5">
 
                                     <?php foreach ($result as $key => $value_prd) { ?>
-                                        <div class="col-lg-3 col-sm-6">
+                                        <div class="col-lg-3 col-6 mob-2">
                                             <div class="product-box">
                                                 <div class="imagebox style2">
                                                     <!-- <span class="item-new">NEW</span> -->
@@ -121,7 +112,21 @@
                                                 </div><!-- /.imagebox -->
                                             </div>
                                         </div>
-                                    <?php } ?>
+                                    <?php } 
+                                        if(empty($result)){
+                                            echo '
+                                            <div class="col-md-6 offset-md-3 col-12">
+
+
+                                            <div id="cart-box"><div class="cart-items text-center">
+                                        <center><img src="'.base_url().'assets/images/emptycart.png" style="max-width: 260px; width: 100%;"><center> 
+                                        <h2>No Result Found</h2> 
+                                        </center></center></div></div>
+                        
+                                            </div>
+                                            ';
+                                        }
+                                    ?>
 
                                 </div><!-- /.row -->
                             </div><!-- /.wrap-imagebox -->

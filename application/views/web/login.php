@@ -70,7 +70,7 @@
                                     <img src="<?php echo base_url() ?>assets/images/icons/car.png" alt="">
                                 </div>
                                 <div class="box-title">
-                                    <h3>Worldwide Shipping</h3>
+                                    <h3>Pan India Shipping</h3>
                                 </div>
                                 <div class="clearfix"></div>
                             </div><!-- /.box-header -->
@@ -110,7 +110,7 @@
                                     <img src="<?php echo base_url() ?>assets/images/icons/return.png" alt="">
                                 </div>
                                 <div class="box-title">
-                                    <h3>Return 30 Days</h3>
+                                    <h3>Warranty</h3>
                                 </div>
                                 <div class="clearfix"></div>
                             </div><!-- /.box-header -->

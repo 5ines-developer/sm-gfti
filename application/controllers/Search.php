@@ -51,9 +51,9 @@ class Search extends CI_Controller {
         $data['breadcrumbs'] = FALSE;
         $data['title'] = $this->input->get('q');
 
-        $link = str_replace('-',' ', $this->input->get('c'));
-        $category = str_replace('and','&', $link); 
-
+        $link = str_replace('+',' ', $this->input->get('c'));
+        $category = str_replace('%26','&', $link); 
+        
         $query = $this->input->get('q');
         $data = $this->m_search->getResult($query, $category);
         $result =  $this->m_search->search_pagination($query,$category,$perpage,$page);

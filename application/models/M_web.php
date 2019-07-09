@@ -22,7 +22,7 @@ class M_web extends CI_Model {
     //  get all category 
     public function categories()
     {
-        $data['full'] = $this->db->get('category')->result();
+        $data['full'] = $this->db->order_by('name', 'asc')->get('category')->result();
         $data['five'] = $this->getFiveCategiry();
         $data['marquee'] = $this->marquee();
         return $data;
@@ -30,7 +30,7 @@ class M_web extends CI_Model {
 
     public function getFiveCategiry($var = null)
     {
-        return $this->db->get('category', 5)->result();
+        return $this->db->order_by('name', 'asc')->get('category', 5)->result();
     }
     
     // get marque

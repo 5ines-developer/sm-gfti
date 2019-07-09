@@ -98,7 +98,7 @@
 
 			<section class="flat-row flat-imagebox">
 				<div class="container">
-					<div class="row">
+					<div class="row ">
 						<div class="col-md-12">
 							<div class="product-tab">
 								<ul class="tab-list tab-list-full">
@@ -114,12 +114,12 @@
 					<div class="box-product">
                         <?php foreach ($categoryProduct['category'] as $key => $value) {  ?>
                         
-                        <div class="row">
+                        <div class="row mob-plr5">
 
                             <?php foreach ($categoryProduct['products'] as $key_prd => $value_prd) { 
                                 if($value->id == $value_prd->category){
                             ?>
-                                <div class="col-lg-3 col-sm-6">
+                                <div class="col-lg-3 col-6 mob-2">
                                         <div class="product-box">
                                         <div class="imagebox style2">
                                             <!-- <span class="item-new">NEW</span> -->
@@ -233,15 +233,16 @@
 											</a>
 										</div><!-- /.box-image -->
 										<div class="box-content ">
-											<div class="cat-name">
-												<a href="<?php echo base_url('product/').$value->product_id ?>" title=""><?php echo $value->name ?></a>
-											</div>
+											
 											<div class="product-name ">
 												<a href="<?php echo base_url('product/').$value->product_id ?>" title="">
 												<?php 
 													$tag = explode(',', $value->tags);
-													echo $value->title .'<br/>'. $tag['0']?>
+													echo $value->title?>
 												</a>
+											</div>
+											<div class="cat-name">
+												<a href="<?php echo base_url('product/').$value->product_id ?>" title=""><?php echo $value->name ?></a>
 											</div>
 											<div class="price">
 												<span class="sale">&#8377; <?php echo $value->price ?></span>
@@ -256,62 +257,65 @@
 				</div><!-- /.container -->
 			</section><!-- /.flat-imagebox style4 -->
 
-			<section class="flat-iconbox">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-10 offset-md-1">
-							<div class="row">
-								<div class="col-md-4 ">
-									<div class="iconbox">
-										<div class="box-header">
-											<div class="image">
-												<img src="<?php echo base_url() ?>assets/images/icons/car.png" alt="">
-											</div>
-											<div class="box-title">
-												<h3>Worldwide Shipping</h3>
-											</div>
-										</div><!-- /.box-header -->
-										<div class="box-content">
-											<p>Free Shipping On Order Over $100</p>
-										</div><!-- /.box-content -->
-									</div><!-- /.iconbox -->
-								</div><!-- /.col-md-3 -->
-								<div class="col-md-4">
-									<div class="iconbox">
-										<div class="box-header">
-											<div class="image">
-												<img src="<?php echo base_url() ?>assets/images/icons/order.png" alt="">
-											</div>
-											<div class="box-title">
-												<h3>Order Online Service</h3>
-											</div>
-										</div><!-- /.box-header -->
-										<div class="box-content">
-											<p>Free return products in 30 days</p>
-										</div><!-- /.box-content -->
-									</div><!-- /.iconbox -->
-								</div><!-- /.col-md-3 -->
-								<div class="col-md-4">
-									<div class="iconbox">
-										<div class="box-header">
-											<div class="image">
-												<img src="<?php echo base_url() ?>assets/images/icons/payment.png" alt="">
-											</div>
-											<div class="box-title">
-												<h3>Payment</h3>
-											</div>
-										</div><!-- /.box-header -->
-										<div class="box-content">
-											<p>Secure System</p>
-										</div><!-- /.box-content -->
-									</div><!-- /.iconbox -->
-								</div><!-- /.col-md-3 -->
-							</div>
-						</div>
-						
-					</div><!-- /.row -->
-				</div><!-- /.container -->
-			</section><!-- /.flat-iconbox -->
+			<section class="flat-row flat-iconbox style1 background">
+            <div class="container" style="background-color: transparent; box-shadow: none;">
+                <div class="row" >
+                    <div class="col-md-6 col-lg-3">
+                        <div class="iconbox style1 v1">
+                            <div class="box-header">
+                                <div class="image">
+                                    <img src="<?php echo base_url() ?>assets/images/icons/car.png" alt="">
+                                </div>
+                                <div class="box-title">
+                                    <h3>Pan India Shipping</h3>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div><!-- /.box-header -->
+                        </div><!-- /.iconbox -->
+                    </div><!-- /.col-md-6 col-lg-3 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="iconbox style1 v1">
+                            <div class="box-header">
+                                <div class="image">
+                                    <img src="<?php echo base_url() ?>assets/images/icons/order.png" alt="">
+                                </div>
+                                <div class="box-title">
+									<h3>Order Online Service</h3>
+									
+                                </div>
+                                <div class="clearfix"></div>
+                            </div><!-- /.box-header -->
+                        </div><!-- /.iconbox -->
+                    </div><!-- /.col-md-6 col-lg-3 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="iconbox style1 v1">
+                            <div class="box-header">
+                                <div class="image">
+                                    <img src="<?php echo base_url() ?>assets/images/icons/payment.png" alt="">
+                                </div>
+                                <div class="box-title">
+                                    <h3>Payment</h3>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div><!-- /.box-header -->
+                        </div><!-- /.iconbox -->
+                    </div><!-- /.col-md-6 col-lg-3 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="iconbox style1 v1">
+                            <div class="box-header">
+                                <div class="image">
+                                    <img src="<?php echo base_url() ?>assets/images/icons/return.png" alt="">
+                                </div>
+                                <div class="box-title">
+                                    <h3>Warranty</h3>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div><!-- /.box-header -->
+                        </div><!-- /.iconbox -->
+                    </div><!-- /.col-md-6 col-lg-3 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </section><!-- /.flat-iconbox -->
 
 			<?php $this->load->view('includes/footer');?>
 

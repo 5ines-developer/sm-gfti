@@ -135,13 +135,13 @@ if($this->session->userdata('sid') != ''){
     <div class="header-bottom">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 col-2">
+                <div class="col-md-3 col-6">
                     <div id="mega-menu">
                         <div class="btn-mega"><span></span>ALL CATEGORIES</div>
                         <ul class="menu">
                         <?php foreach ($this->data['categories']['full'] as $key => $value) { 
-                            $link = str_replace(' ','-', $value->name);
-                            $nlink = str_replace('&','and', $link);    
+                           $link = str_replace(' ','+', $value->name);
+                           $nlink = str_replace('&','%26', $link); 
                         ?>
                             <li>
                                 <a href="<?php echo base_url('search?q=&c=').$nlink ?>" title="">
@@ -153,8 +153,14 @@ if($this->session->userdata('sid') != ''){
                         <?php } ?>
                         </ul>
                     </div>
+
+                    <div class="hidden-md-up mob-logo">
+                        <a href="<?php echo base_url() ?>">
+                            <img src="<?php echo base_url()  ?>assets/images/img/logo.png" alt="">
+                        </a>
+                    </div>
                 </div><!-- /.col-md-3 col-2 -->
-                <div class="col-md-9 col-10">
+                <div class="col-md-9 col-6">
                     <div class="nav-wrap">
                         <div id="mainnav" class="mainnav">
                             <ul class="menu">
@@ -163,8 +169,8 @@ if($this->session->userdata('sid') != ''){
                                     
                                 </li>
                             <?php foreach ($this->data['categories']['five'] as $key => $value) { 
-                                $link = str_replace(' ','-', $value->name);
-                                $nlink = str_replace('&','and', $link); 
+                                $link = str_replace(' ','+', $value->name);
+                                $nlink = str_replace('&','%26', $link); 
                             ?>
                                 
                                 <li class="column-1">
