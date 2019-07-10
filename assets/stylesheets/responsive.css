@@ -1092,9 +1092,7 @@
 		margin-bottom:30px;
 	}
 
-	.form-login, .form-register {
-		height:420px;
-	}
+	
 
 	.form-login .title, .form-register .title {
 		margin-bottom:40px;
@@ -1744,4 +1742,17 @@
 
 @media (max-width:320px) {
 	
+}
+
+@media (max-width: 767px){
+    .btn-menu-mega {
+		float: left;
+		display: none;
+	}
+
+	.header-bottom {
+
+		min-height: 55px;
+	
+	}
 }

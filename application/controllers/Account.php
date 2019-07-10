@@ -11,6 +11,10 @@ class Account extends CI_Controller {
         if($this->session->userdata('sid') == ''){ redirect('login','refresh'); }
         $this->load->model('m_account');
         $this->uid = $this->session->userdata('sid');
+        $this->load->model('m_cart');
+        $this->data['cart_item'] = $this->m_cart->cart_item($this->session->userdata('sid'));
+        $this->load->model('m_web');
+        $this->data['categories'] = $this->m_web->categories();
     }
     
     //  profile
@@ -135,6 +139,17 @@ class Account extends CI_Controller {
         }else{
             $this->session->set_flashdata('error', 'Some error occured please try again');
             redirect('shipping-address-edit/'.$input['id'],'refresh');
+        }
+    }
+
+    // delete
+    public function delte_shipping($id = null, $page)
+    {
+        $this->m_account->delte_shipping($id);
+        if($page == 'checkout'){
+            redirect('checkout','refresh');
+        }else{
+            redirect('shipping-address','refresh');
         }
     }
 

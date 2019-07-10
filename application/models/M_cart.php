@@ -136,6 +136,27 @@ class M_cart extends CI_Model {
         return  $query->id; 
     }
 
+    // carrt item
+    public function cart_item($id = null)
+    {
+        $result =$this->db->where('emp_id', $id)->get('cart');
+        return $result->num_rows();
+        
+    }
+
+    public function brandpriceFect($id = null)
+    {
+       $this->db->where('product', $id);
+       return $this->db->get('brad_pricing')->result();
+    }
+
+    public function updateBrand($id, $prd)
+    {
+        $this->db->where('id', $prd);
+        $this->db->update('cart', array('barand_price' => $id));
+        return true; 
+    }
+
 }
 
 /* End of file M_cart.php */

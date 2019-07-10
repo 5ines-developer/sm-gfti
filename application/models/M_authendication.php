@@ -101,6 +101,7 @@ class M_authendication extends CI_Model {
     {
         $this->db->where('email', $str);
         $result = $this->db->get('employee');
+
         if($result->num_rows() > 0){
             return true;
         }else{
@@ -119,6 +120,16 @@ class M_authendication extends CI_Model {
         }else{
             return false;
         }
+    }
+
+    public function domain_check($email = null)
+    {
+        $result = $this->db->where('domain', $email)->get('domain');
+        if( $result->num_rows() > 0){
+            return true;
+        }else{
+            return false;
+        }        
     }
 
 

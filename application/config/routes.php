@@ -60,18 +60,20 @@ $route['email-verification']    = 'authendication/email_verification';
 $route['login']                 = 'authendication/login';
 $route['forgot-password']       = 'authendication/forgot_password';
 $route['forgot-password-set']   = 'authendication/forgot_password_set';
+$route['logout']                = 'authendication/logout';
 // account
 $route['account-setting']       = 'account';
 $route['change-psw']            = 'account/change_psw';
 $route['shipping-address']      = 'account/shipping_address';
 $route['shipping-address-edit/(:any)'] = 'account/shipping_address_edit/$1';
-$route['save-shipping-update'] = 'account/shipping_address_update';
-
+$route['save-shipping-update']  = 'account/shipping_address_update';
+$route['delte-shipping/(:any)/(:any)'] = 'account/delte_shipping/$1/$2';
 // page
 $route['search-sg']             = 'search/index';
 $route['search/(:any)']         = 'search/search/$1';
 $route['search']                = 'search/search';
 $route['product/(:any)']        = 'search/product_detail/$1';
+$route['category/(:any)']       =  'search/category/$1';
 // cart
 $route['add-cart/(:any)']       = 'cart/index/$1';
 $route['get-cart']              = 'cart/get_cart';
@@ -82,9 +84,10 @@ $route['checkout']              = 'cart/checkout';
 $route['save-shipping']         = 'cart/save_shipping'; 
 $route['shipping-change']       = 'cart/shipping_change';
 $route['place-order']           = 'cart/place_order'; 
+$route['change-brand']          = 'cart/change_brand';
 //my orders
 $route['my-orders']             = 'Orders/index';
 $route['order/(:any)']          = 'Orders/order_detail/$1';
-
-// 
+// Payment 
+$route['payment/success']       = 'payment/success';
 

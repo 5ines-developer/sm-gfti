@@ -8,7 +8,7 @@
     <!-- Basic Page Needs -->
     <meta charset="UTF-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <title>Techno Store - Home 2</title>
+    <title>Gifting Xpress</title>
 
     <meta name="author" content="CreativeLayers">
 
@@ -73,7 +73,7 @@
                                                         <dd><?php echo $value->religion.' - '.$value->zip_code ?> </dd>
                                                     </dl>
                                                     <button class="btn small-btn btn-info">Edit</button>
-                                                    <button class="btn small-btn btn-link">Delete this address</button>
+                                                    <a href="<?php echo base_url('delte-shipping/').$value->id.'/checkout' ?>" class="btn small-btn btn-link">Delete this address</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -108,7 +108,7 @@
                                                                 <input type="number"
                                                                     class="form-control form-control-large"
                                                                     id="inputname" name="phone" required
-                                                                    placeholder="Enter name">
+                                                                    placeholder="Enter Phone">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
@@ -240,8 +240,43 @@
                             </table>
 
 
-                            <div class="btn-order">
-                                <a href="<?php echo base_url() ?>place-order" class="order" title="">Place Order</a>
+                            <div class="">
+                                <?php
+                                if(empty($shipping)){ 
+                                    echo '<a class="btn small-btn btn-link">Place Order</a><br>
+                                        <span class="error">Please add shipping address</span>
+                                    ';
+                                }
+                                else{
+                                                                    
+                                    if($total >= 100000){
+                                                echo '<a href="'.base_url().'place-razorpay-payment-button" class="order"
+                                    title="" >Place Order</a>';
+                                    }else{
+                                    
+                                    echo '<form action="'.base_url().'payment/success/" method="POST" style="float:left;margin-right:10px">
+                                    <script 
+                                        src="https://checkout.razorpay.com/v1/checkout.js" 
+                                        data-key="rzp_test_ZPtHNE4hO3uWul" 
+                                        data-amount="'.$total.'00" 
+                                        data-currency="INR"
+                                        data-buttontext="Pay via Credit Card" 
+                                        data-name="Gifting express"
+                                        data-description="Gifting express"
+                                        data-image="'.base_url().'assets/images/img/logo.svg" 
+                                        data-prefill.name="'.$user["name"].'"
+                                        data-prefill.email="'.$user["email"].'" 
+                                        data-prefill.contact="'.$user["phone"].'"
+                                        data-theme.color="#009999">
+                                    </script>
+                                        <input type="hidden" custom="Hidden Element" name="hidden">
+                                </form>';
+
+                                echo ' <span style="float:left;line-height: 48px;margin-right:10px">OR</span>  <a href="'.base_url().'place-order" class="razorpay-payment-button" >Place Order</a>'; 
+                                    } 
+                                }
+                                ?>
+
                             </div><!-- /.btn-order -->
 
                         </div><!-- /.cart-totals style2 -->
@@ -252,6 +287,8 @@
 
 
         </section>
+
+        
 
 
         <?php $this->load->view('includes/footer');?>
@@ -291,6 +328,8 @@
             }
 
         });
+
+        
 
         $('.shippoption').change(function(e) {
             e.preventDefault();

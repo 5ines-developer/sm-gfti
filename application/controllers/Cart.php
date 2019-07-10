@@ -11,6 +11,10 @@ class Cart extends CI_Controller {
         if($this->session->userdata('sid') == ''){ redirect('login','refresh'); }
         $this->load->model('m_cart');
         $this->uid = $this->session->userdata('sid');
+        $this->load->model('m_cart');
+        $this->data['cart_item'] = $this->m_cart->cart_item($this->session->userdata('sid'));
+        $this->load->model('m_web');
+        $this->data['categories'] = $this->m_web->categories();
     }
 
     public function index($pid = null)
@@ -36,8 +40,40 @@ class Cart extends CI_Controller {
     {
         $items = ''; $cout = 0; $total = 0;
         $cart = $this->m_cart->getCart($this->uid);
+       
         if(!empty($cart)){
             foreach ($cart as $key => $value) {
+                $brselect = '';
+                $nselect = '';
+            $brprice = $this->m_cart->brandpriceFect($value->prid);
+            
+                foreach ($brprice as $keys => $values) {
+                    if(!empty($values)){
+                        $brselect .= '<option value="'.$values->id.'">'.$values->title.'</option>';
+                    }
+                        
+                }
+
+                if(!empty($brprice)){
+                    $nselect .= '<div class="brand-charge">
+                                    <div class="footer-detail">
+                                        <div class="quanlity-box">
+                                            <div class="colors">
+                                            <select name="brandCharge"> 
+                                            <option value="">Branding Charges</option>
+                                            '.$brselect.' 
+                                            </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>';
+                    
+                }else{
+                    $nselect .= '';
+                }
+           
+            
+
             $amount =  ($value->price * $value->qty) + ($value->qty * $value->bprice );
             $total = $total + $amount;
                 $items .= '<div class="cart-items">
@@ -71,20 +107,7 @@ class Cart extends CI_Controller {
                         </div>
 
                         <div class="col-6 col-sm-8">
-                            <div class="brand-charge">
-                                <div class="footer-detail">
-                                    <div class="quanlity-box">
-                                        <div class="colors">
-                                            <select name="brandCharge">
-                                                <option value="">Select Color</option>
-                                                <option value="">Black</option>
-                                                <option value="">Red</option>
-                                                <option value="">White</option>
-                                            </select>
-                                        </div>
-                                    </div><!-- /.quanlity-box -->
-                                </div>
-                            </div>
+                            '.$nselect.'
                         </div>
                         <div class="col-6 col-sm-4">
                             <div class="cart-item-image">
@@ -148,6 +171,8 @@ class Cart extends CI_Controller {
     {
         $data['cart'] = $this->m_cart->getCart($this->uid);
         $data['shipping'] = $this->m_cart->getShipping($this->uid);
+        $this->load->model('m_account');
+        $data['user'] = $this->m_account->profileGet($this->uid);
         $this->load->view('pages/checkout', $data, FALSE);
         
        
@@ -170,10 +195,11 @@ class Cart extends CI_Controller {
         );    
         $this->m_cart->saveShipping($data, $this->uid);
         if( !empty($input['addnew'])){
-            redirect('checkout','refresh');
-        }else{
             $this->session->set_flashdata('success', 'Shipping address added successfuly');
             redirect('shipping-address','refresh');
+        }else{
+            redirect('checkout','refresh');
+            
         }
         
         
@@ -221,6 +247,15 @@ class Cart extends CI_Controller {
             $this->m_cart->insertOrder($data);
             
         }
+    }
+
+    // change brand
+    public function change_brand($var = null)
+    {
+       $id = $this->input->post('ids');
+       $prd = $this->input->post('prd');
+       $this->m_cart->updateBrand($id, $prd);
+       echo $id;
     }
 
 }

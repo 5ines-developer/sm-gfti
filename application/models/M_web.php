@@ -19,6 +19,28 @@ class M_web extends CI_Model {
         return $this->db->get('category', 5)->result();
     }
 
+    //  get all category 
+    public function categories()
+    {
+        $data['full'] = $this->db->order_by('name', 'asc')->get('category')->result();
+        $data['five'] = $this->getFiveCategiry();
+        $data['marquee'] = $this->marquee();
+        return $data;
+    }
+
+    public function getFiveCategiry($var = null)
+    {
+        return $this->db->order_by('name', 'asc')->get('category', 5)->result();
+    }
+    
+    // get marque
+    public function marquee()
+    {
+       return $this->db->get('marquee')->result();
+       
+    }
+    
+
     // get category item
     public function getItembyCategory($category = null)
     {

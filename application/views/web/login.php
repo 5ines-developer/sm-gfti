@@ -8,7 +8,7 @@
     <!-- Basic Page Needs -->
     <meta charset="UTF-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <title>Techno Store - My Account</title>
+    <title>Gifting Express</title>
     <meta name="author" content="CreativeLayers">
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -70,7 +70,7 @@
                                     <img src="<?php echo base_url() ?>assets/images/icons/car.png" alt="">
                                 </div>
                                 <div class="box-title">
-                                    <h3>Worldwide Shipping</h3>
+                                    <h3>Pan India Shipping</h3>
                                 </div>
                                 <div class="clearfix"></div>
                             </div><!-- /.box-header -->
@@ -84,7 +84,7 @@
                                 </div>
                                 <div class="box-title">
 									<h3>Order Online Service</h3>
-									<?php echo validation_errors(); ?>
+									
                                 </div>
                                 <div class="clearfix"></div>
                             </div><!-- /.box-header -->
@@ -110,7 +110,7 @@
                                     <img src="<?php echo base_url() ?>assets/images/icons/return.png" alt="">
                                 </div>
                                 <div class="box-title">
-                                    <h3>Return 30 Days</h3>
+                                    <h3>Warranty</h3>
                                 </div>
                                 <div class="clearfix"></div>
                             </div><!-- /.box-header -->

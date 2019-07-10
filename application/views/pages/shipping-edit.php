@@ -8,7 +8,7 @@
     <!-- Basic Page Needs -->
     <meta charset="UTF-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <title>Techno Store - My Account</title>
+    <title>Gifting Express</title>
     <meta name="author" content="CreativeLayers">
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -22,34 +22,12 @@
 
 </head>
 
-<body class="header_sticky">
+<body class="header_sticky background">
     <div class="boxed">
 
         <?php  $this->load->view('includes/header');?>
 
-        <section class="flat-breadcrumb">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <ul class="breadcrumbs">
-                            <li class="trail-item">
-                                <a href="#" title="">Home</a>
-                                <span><img src="<?php echo base_url() ?>assets/images/icons/arrow-right.png"
-                                        alt=""></span>
-                            </li>
-                            <li class="trail-item">
-                                <a href="#" title="">Shop</a>
-                                <span><img src="<?php echo base_url() ?>assets/images/icons/arrow-right.png"
-                                        alt=""></span>
-                            </li>
-                            <li class="trail-end">
-                                <a href="#" title="">Smartphones</a>
-                            </li>
-                        </ul><!-- /.breacrumbs -->
-                    </div><!-- /.col-md-12 -->
-                </div><!-- /.row -->
-            </div><!-- /.container -->
-        </section><!-- /.flat-breadcrumb -->
+        
 
         <main id="account-settings">
             <div class="container">
