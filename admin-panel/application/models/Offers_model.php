@@ -16,11 +16,8 @@ class Offers_model extends CI_Model {
 			$query = $this->db->get('offers');
 			if ($query->num_rows() > 0) 
 			{
-                
-                $result = $this->checkposition($insert);
-
-				// $this->db->where('uniq', $insert['uniq']);
-				// return $this->db->update('offers', $insert);
+				$this->db->where('uniq', $insert['uniq']);
+				return $this->db->update('offers', $insert);
 			}
 			else
 			{
@@ -28,57 +25,57 @@ class Offers_model extends CI_Model {
 			}
         }
 
-        public function checkposition($insert)
-		{
+  //       public function checkposition($insert)
+		// {
 
-            $query = $this->db->get('offers');
-            foreach ($query->result() as $key => $value) {
-                // echo 'mst-'. $value->position.'<br>';
-                if($this->input->post('opst') > $insert['position']){
+  //           $query = $this->db->get('offers');
+  //           foreach ($query->result() as $key => $value) {
+  //               // echo 'mst-'. $value->position.'<br>';
+  //               if($this->input->post('opst') > $insert['position']){
 
-                    if($insert['position'] >=  $value->position  && $value->position != $this->input->post('opst') && $value->position >= $insert['position'] ){
-                        echo $value->id.' id <br>';
-                        echo $value->position + 1 .' n <br>';
-                        echo $value->position.' p <br><br>';
-                        // $this->db->where('id',  $value->id)->update('offers', array('position' => $value->position + 1 ));
-                    }
-                    elseif($this->input->post('opst') == $value->position){
-                        echo $value->id.' id <br>';
-                        echo  $insert['position'].' n<br><br>';
-                        // $this->db->where('id',  $value->id)->update('offers', array('position' => $insert['position'] ));
-                    }elseif($this->input->post('opst') < $value->position){
-                        echo $value->id.' id <br>';
-                        echo  $insert['position'].' n<br><br>';
-                        echo  $value->position.' p<br><br>';
+  //                   if($insert['position'] >=  $value->position  && $value->position != $this->input->post('opst') && $value->position >= $insert['position'] ){
+  //                       echo $value->id.' id <br>';
+  //                       echo $value->position + 1 .' n <br>';
+  //                       echo $value->position.' p <br><br>';
+  //                       // $this->db->where('id',  $value->id)->update('offers', array('position' => $value->position + 1 ));
+  //                   }
+  //                   elseif($this->input->post('opst') == $value->position){
+  //                       echo $value->id.' id <br>';
+  //                       echo  $insert['position'].' n<br><br>';
+  //                       // $this->db->where('id',  $value->id)->update('offers', array('position' => $insert['position'] ));
+  //                   }elseif($this->input->post('opst') < $value->position){
+  //                       echo $value->id.' id <br>';
+  //                       echo  $insert['position'].' n<br><br>';
+  //                       echo  $value->position.' p<br><br>';
 
-                        // $this->db->where('id',  $value->id)->update('offers', array('position' => $value->position + 1 ));
-                    }
+  //                       // $this->db->where('id',  $value->id)->update('offers', array('position' => $value->position + 1 ));
+  //                   }
 
-                }else{
+  //               }else{
                     
 
 
-                }
-                    // if ($insert['position'] < $value->position) {
-                    //     echo '>'. $value->position.'<br>';
-                    // }
-                    // elseif($insert['position'] == $value->position){
-                    //     echo '='.$value->position .'<br>';
-                    // }
-                    // else{
-                    //     echo '<'. $value->position.'<br>';
-                    // }
+  //               }
+  //                   // if ($insert['position'] < $value->position) {
+  //                   //     echo '>'. $value->position.'<br>';
+  //                   // }
+  //                   // elseif($insert['position'] == $value->position){
+  //                   //     echo '='.$value->position .'<br>';
+  //                   // }
+  //                   // else{
+  //                   //     echo '<'. $value->position.'<br>';
+  //                   // }
                
                
                
-            }
+  //           }
 
             
             
          
-            exit;
+  //           exit;
 
-        }
+  //       }
 
         
 
