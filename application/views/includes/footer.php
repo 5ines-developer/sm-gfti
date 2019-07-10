@@ -47,24 +47,28 @@
 							</ul><!-- /.social-list -->
 						</div><!-- /.widget-about -->
 					</div><!-- /.col-lg-3 col-md-6 -->
-					<div class="col-lg-3 col-md-6">
-						<div class="widget-ft widget-categories-ft">
-							<div class="widget-title">
-								<h3>Find By Categories</h3>
-							</div>
-							<ul class="cat-list-ft">
-								<?php  foreach ($this->data['categories']['full'] as $key => $value) { 
-									if($key < 6){
-									$link = str_replace(' ','+', $value->name);
-									$nlink = str_replace('&','%26', $link);
-								?>
-									<li>
-										<a href="<?php echo base_url('search?q=&c=').$nlink ?>" title="">  <?php echo $value->name ?></a>
-									</li>
-								<?php } }?>
-							</ul><!-- /.cat-list-ft -->
-						</div><!-- /.widget-categories-ft -->
-					</div><!-- /.col-lg-3 col-md-6 -->
+					<?php if($this->session->userdata('sid') != ''){ ?>
+						<div class="col-lg-3 col-md-6">
+							<div class="widget-ft widget-categories-ft">
+								<div class="widget-title">
+									<h3>Find By Categories</h3>
+								</div>
+								<ul class="cat-list-ft">
+									<?php 
+									
+										foreach ($this->data['categories']['full'] as $key => $value) { 
+											if($key < 6){
+											$link = str_replace(' ','+', $value->name);
+											$nlink = str_replace('&','%26', $link);
+									?>
+										<li>
+											<a href="<?php echo base_url('search?q=&c=').$nlink ?>" title="">  <?php echo $value->name ?></a>
+										</li>
+									<?php } } ?>
+								</ul><!-- /.cat-list-ft -->
+							</div><!-- /.widget-categories-ft -->
+						</div><!-- /.col-lg-3 col-md-6 -->
+					<?php } ?>
 					<div class="col-lg-2 col-md-6">
 						<div class="widget-ft widget-menu">
 							<div class="widget-title">

@@ -37,13 +37,12 @@
                         <!-- /.sidebar -->
                     </div><!-- /.col-lg-3 col-md-4 -->
                     <div class="col-lg-9 col-md-8">
-                        <?php
-                        if(!empty($orders)){ 
+                        <?php   if(!empty($orders)){ 
                             foreach ($orders as $key => $value) {
                                 $toatalP = 0;
                                 foreach ($value as $keysd => $valuesd) {
                                     $date = date('d M Y', strtotime($valuesd->orderd_on));
-                                    $toatalP =  $toatalP + $valuesd->price;
+                                    $toatalP =  $toatalP + ($valuesd->price * $valuesd->quantity) + ($valuesd->brand_price * $valuesd->quantity);
                                 }
                         ?>
                         <div class="cart-items">
@@ -86,6 +85,8 @@
                                                 <p><span><?php echo $vale2->name ?></span></p>
                                                 <p><span>SKU: </span> <?php echo $vale2->product_id ?></p>
                                                 <p><span>Quantity: </span> <?php echo $vale2->quantity ?></p>
+                                                <?php echo (!empty($vale2->brand_price)) ? ' <p><span>Branding Charges: </span> '.$vale2->brand_price.' </p>' : '' ?>
+
                                             </div>
                                             <div class="c-price">
                                                 <p>Price : ₹ <span><?php echo $vale2->price ?></span></p>
