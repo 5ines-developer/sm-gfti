@@ -50,9 +50,14 @@ class Product extends CI_Controller {
             $tags        = $this->input->post('tags');
             $description = $this->input->post('description');
             $uniq        = $this->input->post('uniq');
-            $mrp        = $this->input->post('mrp');
+            $mrp         = $this->input->post('mrp');
             $desc        = trim($description);
+            $size_title  = $this->input->post('size_title');
+            $size        = $this->input->post('size');
 
+            
+           
+            
             if (empty($edit)) {
                 $txt        = strtoupper( substr($product, 0, 2 ) ).substr( $product, 2 );
                 $result     = mb_substr($txt, 0, 2);
@@ -60,7 +65,8 @@ class Product extends CI_Controller {
             }else{
                 $product_id = $uniq;
             }
-
+            
+            
             $brand_title    = $this->input->post('brand_title');
             $brand_price    = $this->input->post('brand_price');
             $brndunq        = $this->input->post('brndunq');
@@ -68,6 +74,7 @@ class Product extends CI_Controller {
             $marquee_title  = $this->input->post('marquee_title');
             $marquee_link   = $this->input->post('marquee_link');
             $marqueeunq     = $this->input->post('marqueeunq');
+
 
             $files = $_FILES;
             $filesCount = count($_FILES['pimage']['name']);
@@ -109,23 +116,31 @@ class Product extends CI_Controller {
 
             $splittedstring =   str_replace(",", ', ',$tags);
             $insert =  array(
-                'tags'      =>  $splittedstring,
-                'product_id'=>  $product_id,
-                'title'     =>  $product,
-                'price'     =>  $price,
-                'mrp'     =>   $mrp,
-                'total_stock'     =>  $stock,
-                'available_stock' =>  $stock,
-                'des'       =>  $desc,
-                'update_on' =>  date('Y-m-d H:i:s'),
-                'category'  =>  $category,
-                'created_by' => $this->session->userdata('unique_id')
+                'tags'              =>  $splittedstring,
+                'product_id'        =>  $product_id,
+                'title'             =>  $product,
+                'price'             =>  $price,
+                'mrp'               =>  $mrp,
+                'total_stock'       =>  $stock,
+                'available_stock'   =>  $stock,
+                'des'               =>  $desc,
+                'update_on'         =>  date('Y-m-d H:i:s'),
+                'category'          =>  $category,
+                'created_by'        =>  $this->session->userdata('unique_id'),
+                'discount'          =>  $this->input->post('discound'),
+                'hsn'               =>  $this->input->post('hsn'),
+                'gst'               =>  $this->input->post('gst'),
+                'other_tax'         =>  $this->input->post('otax'),
             );
             if(file_exists($_FILES['pimage']['tmp_name'])) {
              $insert['image_path'] =   'product-image/'.$file_name ;
             }
 
            $output1['product'] = $this->Product_model->insert($insert);
+
+           if($size_title != ''){
+                    $this->insertSize($size_title, $size, $output1['product']['id']);
+            }
 
            if ($brand_title !='') {
                 for ($i=0; $i < count($brand_title) ; $i++) {
@@ -146,6 +161,8 @@ class Product extends CI_Controller {
                 }
            }
 
+           
+           
 
            if ($marquee_title !='') {
                 for ($i=0; $i < count($marquee_title) ; $i++) {
@@ -176,6 +193,22 @@ class Product extends CI_Controller {
             }
     }
 
+
+    public function insertSize($size_title, $size, $product_id)
+    {
+        foreach ($size_title as $key => $value) {
+            if(!empty($value)){
+                $data  = array(
+                'prdid'      => $product_id,
+                'size_name'  => $value,
+                'size'       => $size[$key],
+                );
+                $this->Product_model->insertSize($data, $key);
+            }
+        }
+        
+        return true;
+    }
 
     /**
      * Product -> Product List
@@ -217,6 +250,8 @@ class Product extends CI_Controller {
         $data['category']   = $this->Category_model->getcategory();
         $data['brand']      = $this->Product_model->getbrand($productid);
         $data['marquee']    = $this->Product_model->getmarquee($productid);
+        $data['size']       = $this->Product_model->getsize($productid);
+        
         $this->load->view('Product/add-product',$data);
     }
 
@@ -262,6 +297,7 @@ class Product extends CI_Controller {
         $data['product']    = $this->Product_model->editproduct($productid);
         $data['brand']      = $this->Product_model->getbrand($productid);
         $data['marquee']    = $this->Product_model->getmarquee($productid);
+        $data['size']    = $this->Product_model->getsize($productid);
         $this->load->view('Product/view-product',$data);
     }
 

@@ -269,7 +269,21 @@ class Product_model extends CI_Model {
 			return $result['id'];
 		}
 		
+		public function insertSize($data, $key)
+		{
+			if($key == 0){
+				$this->db->where('prdid', $data['prdid'])->delete('size_chart');
+			}
+			$this->db->insert('size_chart', $data);
+			return true;
+			
+		}
 
+		public function getsize($productid)
+		{
+			return $this->db->where('prdid', $productid)->get('size_chart')->result();
+			
+		}
 		
 
 }

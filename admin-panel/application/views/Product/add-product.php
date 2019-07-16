@@ -100,287 +100,275 @@
                     <?php } ?>
                     <div class="clearfix"></div>
                     <div class="row">
+                        
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2><?php echo (!empty($product['title']))?'Edit':'Add'; ?>  Product</h2>
+                                    <h2><?php echo (!empty($product['title']))?'Edit':'Add'; ?> Product</h2>
                                     <div class="banner-button">
                                         <?php if (empty($product['title'])) {?>
                                         <button type="button" class="btn btn-info" data-toggle="modal"
                                             data-target="#upolp"><i class="fa fa-download" aria-hidden="true"></i>
                                             Import excel</button>
-                                            <?php } ?>
+                                        <?php } ?>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
-                                    <br />
-                                    <form action="<?php echo base_url() ?>insert-product" method="post"
-                                        enctype="multipart/form-data" id="productform"
-                                        class="form-horizontal form-label-left">
-                                        <div class="row">
-                                            <div class="col-md-10 col-sm-12 col-xs-12">
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"
-                                                        for="first-name">Product Name<span class="required">*</span>
-                                                    </label>
-                                                    <div class="col-md-8 col-sm-8 col-xs-12">
-                                                        <input type="text" id="first-name" required="required"
-                                                            class="form-control col-md-7 col-xs-12" name="product"
-                                                            value="<?php echo (!empty($product['title']))?$product['title']:''; ?>">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Select
-                                                        Category<span class="required">*</span></label>
-                                                    <div class="col-md-8 col-sm-8 col-xs-12">
-                                                        <select class="form-control" name="category"
-                                                            required="required">
-                                                            <option value="">-----Select-----</option>
-                                                            <?php
-                                                            if (!empty($category)) {
-                                                            
-                                                                                foreach ($category as $key => $value) { ?>
-                                                            <option value="<?php echo $value->id ?>"
-                                                                <?php if(!empty($product['category']) && $value->id == $product['category']){ echo 'selected'; } ?>>
-                                                                <?php echo $value->name ?> </option>
-                                                            <?php } } ?>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"
-                                                        for="first-name">Sale Price
-                                                    </label>
-                                                    <div class="col-md-8 col-sm-8 col-xs-12">
-                                                        <input type="number" id="first-name" 
-                                                            class="form-control col-md-7 col-xs-12" name="price"
-                                                            value="<?php echo (!empty($product['price']))?$product['price']:''; ?>">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"
-                                                        for="first-name">M.R.P<span class="required">*</span>
-                                                    </label>
-                                                    <div class="col-md-8 col-sm-8 col-xs-12">
-                                                        <input type="number" id="first-name" required="required"
-                                                            class="form-control col-md-7 col-xs-12" name="mrp"
-                                                            value="<?php echo (!empty($product['mrp']))?$product['mrp']:''; ?>">
-                                                    </div>
-                                                </div>
+                                    <div class="form-box">
+                                        <form 
+                                            action="<?php echo base_url() ?>insert-product" 
+                                            method="post" enctype="multipart/form-data" 
+                                            id="productform" 
+                                            class="form-horizontal form-label-left">
+                                            <div class="row">
+                                                <div class="form-section-box">
+                                                    <h2>Product Information</h2>
 
-
-
-
-
-
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"
-                                                        for="first-name"><span class="required"></span>
-                                                    </label>
-                                                    <div class="col-md-8 col-sm-8 col-xs-12">
-                                                        <div class="brand-pricing <?php echo(!empty($brand))?'collapsed':''; ?>"
-                                                            data-toggle="collapse" data-target="#marquee">
-                                                            <h5>Add Hyperlink<span class="branddown"><i
-                                                                        class="fa fa-chevron-down"
-                                                                        aria-hidden="true"></i> </span></h5>
-                                                        </div>
-                                                        <div id="marquee"
-                                                            class="brand-pricing collapse <?php echo(!empty($brand))?'in':''; ?>">
-
-
-
-                                                            <?php 
-                                                            if(!empty($marquee)){
-                                                            foreach ($marquee as $key => $value) { ?>
-
-                                                            <div class="row" id="marqaddnext">
-                                                                <div class="col-md-6 col-sm-6 col-xs-12 mar-12">
-                                                                    <input type="text" class="form-control "
-                                                                        name="marquee_title[]"
-                                                                        placeholder="Hyperlink title"
-                                                                        value="<?php  echo(!empty($value->title))?$value->title:'';  ?>">
-
-                                                                </div>
-                                                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                                                    <input type="test" class="form-control "
-                                                                        name="marquee_link[]" placeholder="Hyperlink"
-                                                                        value="<?php  echo(!empty($value->link))?$value->link:'';  ?>">
-                                                                    <input type="hidden"
-                                                                        value="<?php  echo(!empty($value->uniq))?$value->uniq:'';  ?>"
-                                                                        name="marqueeunq[]">
-                                                                </div>
-                                                                <div class="col-md-2 col-sm-2">
-                                                                    <a id="brandremove"
-                                                                        class="marqueeremove brandplus remov"
-                                                                        value="<?php echo $value->id ?>"><i
-                                                                            class="fa fa-times"
-                                                                            aria-hidden="true"></i></a>
-                                                                </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-sm-12">
+                                                            <div class="form-group">
+                                                                <label class="control-label " for="first-name"> Product Name <span class="required">*</span> </label>
+                                                                <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" name="product" value="<?php echo (!empty($product['title']))?$product['title']:''; ?>">
                                                             </div>
-                                                            <?php } } ?>
-                                                            <div class="row" id="marqaddnext">
-                                                                <div class="col-md-6 col-sm-6 col-xs-12 mar-12">
-                                                                    <input type="text" class="form-control "
-                                                                        name="marquee_title[]"
-                                                                        placeholder="Hyperlink title" value="">
-                                                                </div>
-                                                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                                                    <input type="test" class="form-control "
-                                                                        name="marquee_link[]" placeholder="Hyperlink"
-                                                                        value="">
-                                                                </div>
-                                                                <div class="col-md-2 col-sm-2">
-                                                                    <a id="marqueeplus" class="marqueeplus"><i
-                                                                            class="fa fa-plus" aria-hidden="true"></i>
-                                                                    </a>
-                                                                </div>
+
+                                                            <div class="form-group">
+                                                                <label class="control-label " for="upload ">Product Image <?php echo (empty($product['image_path']))?' <span class="required">*</span>':''; ?></label>
+                                                                <input type="file" id="upload" class="form-control col-md-7 col-xs-12" name="pimage" <?php echo (empty($product['image_path']))?'required="required"':''; ?>>
+                                                                <p><small class="text-info">Only PNG|JPG|JPEG Files are allowed</small>
                                                             </div>
+
+                                                            <?php if(!empty($product['image_path'])) {?>
+                                                                <div class="form-group">
+                                                                    <input type="hidden" name="edit" value="edit">
+                                                                    <div class="" id="edt-image">
+                                                                        <div class="image view view-first">
+                                                                            <img style="width: 100%; display: block;" src="<?php echo $this->config->item('web_url').$product['image_path'] ?>" alt="image">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            <?php }?>
+
+                                                            <div class="form-group">
+                                                                <label class="control-label " for="hsn"> HSN Code <span class="required">*</span> </label>
+                                                                <input type="text" id="hsn" required="required" class="form-control col-md-7 col-xs-12" name="hsn" value="<?php echo (!empty($product['hsn']))?$product['hsn']:''; ?>">
+                                                            </div>
+
                                                         </div>
-                                                    </div>
-                                                </div><br>
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"
-                                                        for="first-name">Total Stock<span class="required">*</span>
-                                                    </label>
-                                                    <div class="col-md-8 col-sm-8 col-xs-12">
-                                                        <input type="number" id="first-name" required="required"
-                                                            class="form-control col-md-7 col-xs-12" name="stock"
-                                                            value="<?php echo (!empty($product['total_stock']))?$product['total_stock']:''; ?>">
+
+                                                        <div class="col-md-6 col-sm-12">
+                                                            <div class="form-group">
+                                                                <label class="control-label">Select Category <span class="required">*</span></label>
+                                                                    <select class="form-control" name="category" required="required">
+                                                                        <option value="">-----Select-----</option>
+                                                                        <?php
+                                                                            if (!empty($category)) {
+                                                                                foreach ($category as $key => $value) { 
+                                                                        ?>
+                                                                            <option value="<?php echo $value->id ?>" <?php if(!empty($product['category']) && $value->id == $product['category']){ echo 'selected'; } ?>>
+                                                                                <?php echo $value->name ?> 
+                                                                            </option>
+                                                                        <?php } } ?>
+                                                                    </select>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label class="control-label " for="first-name">Total Stock <span class="required">*</span> </label>
+                                                                <input type="number" id="first-name" required="required" class="form-control col-md-7 col-xs-12" name="stock" value="<?php echo (!empty($product['total_stock']))?$product['total_stock']:''; ?>">
+                                                            </div>
+
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <div class="control-group">
-                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Input
-                                                            Tags</label>
-                                                        <div class="col-md-8 col-sm-8 col-xs-12">
-                                                            <input id="tags_1" type="text" class="tags form-control"
-                                                                value="<?php echo (!empty($product['tags']))?$product['tags']:''; ?>"
-                                                                name="tags" />
-                                                            <p style="color:red"><small>(Please press enter or comma For
-                                                                    seperate tags)</small>
-                                                                <!-- <div id="suggestions-container"
-                                                                                        style="position: relative; float: left; width: 250px; margin: 10px;">
-                                                                                    </div> -->
+
+                                                <div class="form-section-box">
+                                                    <h2>Price and Tax</h2>
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-sm-12">
+                                                                                    
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label class="control-label " for="first-name">Product Price</label>
+                                                                        <input type="number" id="first-name" class="form-control " name="price" value="<?php echo (!empty($product['price']))?$product['price']:''; ?>">
+                                                                    </div>              
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label class="control-label " for="first-name">Discount (percentage)</label>
+                                                                        <input type="number" id="first-name" class="form-control" name="discound" value="<?php echo (!empty($product['discount']))?$product['discount']:''; ?>">
+                                                                    </div>
+                                                                </div>                    
+                                                            </div> <!-- Price and discound -->
+
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label class="control-label" for="first-name">GST (percentage)</label>
+                                                                        <input type="number" id="first-name" class="form-control " name="gst" value="<?php echo (!empty($product['gst']))?$product['gst']:''; ?>">
+                                                                    </div>              
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label class="control-label " for="first-name">Other Tax (percentage)</label>
+                                                                        <input type="number" id="first-name" class="form-control" name="otax" value="<?php echo (!empty($product['other_tax']))?$product['other_tax']:''; ?>">
+                                                                    </div>
+                                                                </div>                    
+                                                            </div> <!-- tax -->
+
+                                                        </div>
+
+                                                        <div class="col-md-6 col-sm-12">
+                                                                <label class="control-label " for="first-name">Add Branding charges</label>                        
+                                                                <div class="brand-pricing <?php echo(!empty($brand))?'collapsed':''; ?>" data-toggle="collapse" data-target="#demo">
+                                                                    <h5>Add Brand Charges <span class="branddown"><i class="fa fa-chevron-down" aria-hidden="true"></i> </span></h5>
+                                                                </div>
+                                                                <div id="demo" class="brand-pricing collapse <?php echo(!empty($brand))?'in':''; ?>">
+
+                                                                <?php if(!empty($brand)){ foreach ($brand as $key => $value) { ?>
+                                                                    <div class="row" id="addnext">
+                                                                        <div class="col-md-6 col-sm-6 col-xs-12 mar-12">
+                                                                            <input type="text" class="form-control " name="brand_title[]" placeholder="Brand title" value="<?php  echo(!empty($value->title))?$value->title:'';  ?>">
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                                                            <input type="number" class="form-control " name="brand_price[]" placeholder="Brand price" value="<?php  echo(!empty($value->title))?$value->price:'';  ?>">
+                                                                            <input type="hidden" value="<?php  echo(!empty($value->brand_uniq))?$value->brand_uniq:'';  ?>" name="brndunq[]">
+                                                                        </div>
+                                                                        <div class="col-md-2 col-sm-2">
+                                                                            <a id="brandremove" class="brandremove brandplus remov" value="<?php echo $value->id ?>"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                        </div>
+                                                                    </div><!-- add next -->
+                                                                <?php } } ?>
+
+                                                                    <div class="row" id="addnext">
+                                                                        <div class="col-md-6 col-sm-6 col-xs-12 mar-12">
+                                                                            <input type="text" class="form-control " name="brand_title[]" placeholder="Brand title" value="">
+                                                                        </div>
+                                                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                                                            <input type="number" class="form-control " name="brand_price[]" placeholder="Brand price" value="">
+                                                                        </div>
+                                                                        <div class="col-md-2 col-sm-2">
+                                                                            <a id="brandplus" class="brandplus"><i class="fa fa-plus" aria-hidden="true"></i> </a>
+                                                                        </div>
+                                                                    </div>
+
                                                         </div>
                                                     </div>
+                                                </div>                                    
                                                 </div>
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"
-                                                        for="first-name"><span class="required"></span>
-                                                    </label>
-                                                    <div class="col-md-8 col-sm-8 col-xs-12">
-                                                        <div class="brand-pricing <?php echo(!empty($brand))?'collapsed':''; ?>"
-                                                            data-toggle="collapse" data-target="#demo">
-                                                            <h5>Add Brand Charges <span class="branddown"><i
-                                                                        class="fa fa-chevron-down"
-                                                                        aria-hidden="true"></i> </span></h5>
-                                                        </div>
-                                                        <div id="demo"
-                                                            class="brand-pricing collapse <?php echo(!empty($brand))?'in':''; ?>">
 
+                                                <div class="form-section-box">
+                                                    <h2>Product Size and Scrol Links</h2>
 
-
-                                                            <?php 
-                                                            if(!empty($brand)){
-                                                            foreach ($brand as $key => $value) { ?>
-
-                                                            <div class="row" id="addnext">
-                                                                <div class="col-md-6 col-sm-6 col-xs-12 mar-12">
-                                                                    <input type="text" class="form-control "
-                                                                        name="brand_title[]" placeholder="Brand title"
-                                                                        value="<?php  echo(!empty($value->title))?$value->title:'';  ?>">
+                                                    <div class="row">
+                                                        <div class="col-sm-12 col-md-6">
+                                                            <label class="control-label " for="">Scrolling Links</label>        
+                                                            <div class="form-group">
+                                                                <div class="brand-pricing <?php echo(!empty($brand))?'collapsed':''; ?>" data-toggle="collapse" data-target="#marquee">
+                                                                        <h5>Add Scrolling Links<span class="branddown"><i class="fa fa-chevron-down" aria-hidden="true"></i> </span></h5>
                                                                 </div>
-                                                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                                                    <input type="number" class="form-control "
-                                                                        name="brand_price[]" placeholder="Brand price"
-                                                                        value="<?php  echo(!empty($value->title))?$value->price:'';  ?>">
-                                                                    <input type="hidden"
-                                                                        value="<?php  echo(!empty($value->brand_uniq))?$value->brand_uniq:'';  ?>"
-                                                                        name="brndunq[]">
-                                                                </div>
-                                                                <div class="col-md-2 col-sm-2">
-                                                                    <a id="brandremove"
-                                                                        class="brandremove brandplus remov"
-                                                                        value="<?php echo $value->id ?>"><i
-                                                                            class="fa fa-times"
-                                                                            aria-hidden="true"></i></a>
-                                                                </div>
-                                                            </div>
-                                                            <?php } } ?>
-                                                            <div class="row" id="addnext">
-                                                                <div class="col-md-6 col-sm-6 col-xs-12 mar-12">
-                                                                    <input type="text" class="form-control "
-                                                                        name="brand_title[]" placeholder="Brand title"
-                                                                        value="">
-                                                                </div>
-                                                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                                                    <input type="number" class="form-control "
-                                                                        name="brand_price[]" placeholder="Brand price"
-                                                                        value="">
-                                                                </div>
-                                                                <div class="col-md-2 col-sm-2">
-                                                                    <a id="brandplus" class="brandplus"><i
-                                                                            class="fa fa-plus" aria-hidden="true"></i>
-                                                                    </a>
+                                                                <div id="marquee" class="brand-pricing collapse <?php echo(!empty($brand))?'in':''; ?>">
+                                                                        <?php if(!empty($marquee)){ foreach ($marquee as $key => $value) { ?>
+                                                                            <div class="row" id="marqaddnext">
+                                                                                <div class="col-md-6 col-sm-6 col-xs-12 mar-12">
+                                                                                    <input type="text" class="form-control " name="marquee_title[]" placeholder="Hyperlink title" value="<?php  echo(!empty($value->title))?$value->title:'';  ?>">
+                                                                                </div>
+                                                                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                                                                    <input type="test" class="form-control " name="marquee_link[]" placeholder="Hyperlink" value="<?php  echo(!empty($value->link))?$value->link:'';  ?>">
+                                                                                    <input type="hidden" value="<?php  echo(!empty($value->uniq))?$value->uniq:'';  ?>" name="marqueeunq[]">
+                                                                                </div>
+                                                                                <div class="col-md-2 col-sm-2">
+                                                                                    <a id="brandremove" class="marqueeremove brandplus remov" value="<?php echo $value->id ?>"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                                </div>
+                                                                            </div>
+                                                                        <?php } } ?>
+                                                                        <div class="row" id="marqaddnext">
+                                                                            <div class="col-md-6 col-sm-6 col-xs-12 mar-12">
+                                                                                <input type="text" class="form-control " name="marquee_title[]" placeholder="Hyperlink title" value="">
+                                                                            </div>
+                                                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                                                <input type="test" class="form-control " name="marquee_link[]" placeholder="Hyperlink" value="">
+                                                                            </div>
+                                                                            <div class="col-md-2 col-sm-2">
+                                                                                <a id="marqueeplus" class="marqueeplus"><i class="fa fa-plus" aria-hidden="true"></i> </a>
+                                                                            </div>
+                                                                        </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div><br>
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"
-                                                        for="first-name">Description<span class="required">*</span>
-                                                    </label>
-                                                    <div class="col-md-8 col-sm-8 col-xs-12">
-                                                        <textarea name="description" id="editor"
-                                                            class="form-control col-md-7 col-xs-12"><?php echo (!empty($product['des']))?$product['des']:''; ?></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12 mb-20"
-                                                        for="upload ">Product Image<?php echo (empty($product['image_path']))?'<span class="required">*</span>':''; ?></label>
-                                                    <div class="col-md-8 col-sm-8 col-xs-12">
-                                                        <input type="file" id="upload"
-                                                            class="form-control col-md-7 col-xs-12" name="pimage"
-                                                            <?php echo (empty($product['image_path']))?'required="required"':''; ?>>
-                                                        <p style="color:red"><small>Only PNG|JPG|JPEG Files are
-                                                                allowed</small>
-                                                    </div>
-                                                </div>
 
-                                                <?php if(!empty($product['image_path']))
-                                                                        {?>
-                                                <div class="form-group">
-                                                    <input type="hidden" name="edit" value="edit">
-                                                    <div class="col-md-4 col-md-offset-3" id="edt-image">
-                                                        <div class="">
-                                                            <div class="image view view-first">
-                                                                <img style="width: 100%; display: block;"
-                                                                    src="<?php echo $this->config->item('web_url').$product['image_path'] ?>"
-                                                                    alt="image">
-                                                            </div>
+                                                        <div class="col-sm-12 col-md-6">
+                                                            <label class="control-label " for="">Add Size Chart</label>        
+                                                            <div class="form-group">
+                                                                <div class="brand-pricing <?php echo(!empty($size))?'collapsed':''; ?>" data-toggle="collapse" data-target="#size">
+                                                                        <h5>Add Size Chart<span class="branddown"><i class="fa fa-chevron-down" aria-hidden="true"></i> </span></h5>
+                                                                </div>
+                                                                <div id="size" class="brand-pricing collapse <?php echo(!empty($size))?'in':''; ?>">
+                                                                        <?php if(!empty($size)){ foreach ($size as $key => $values) { ?>
+                                                                            <div class="row" id="sizeaddnext">
+                                                                                <div class="col-md-6 col-sm-6 col-xs-12 mar-12">
+                                                                                    <input type="text" class="form-control " name="size_title[]" placeholder="ex: xl, L, M" value="<?php  echo(!empty($values->size_name))?$values->size_name:'';  ?>">
+                                                                                </div>
+                                                                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                                                                    <input type="test" class="form-control " name="size[]" placeholder="32 cm" value="<?php  echo(!empty($values->size))?$values->size:'';  ?>">
+                                                                                    
+                                                                                </div>
+                                                                                <div class="col-md-2 col-sm-2">
+                                                                                    <a id="sizeremove" class="size sizep remov" value="<?php echo $values->id ?>"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                                                </div>
+                                                                            </div>
+                                                                        <?php } } ?>
+                                                                        <div class="row" id="sizeaddnext">
+                                                                            <div class="col-md-6 col-sm-6 col-xs-12 mar-12">
+                                                                                <input type="text" class="form-control " name="size_title[]" placeholder="ex: xl, L, M" value="">
+                                                                            </div>
+                                                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                                                <input type="test" class="form-control " name="size[]" placeholder="32 cm" value="">
+                                                                            </div>
+                                                                            <div class="col-md-2 col-sm-2">
+                                                                                <a id="sizep" class="sizep"><i class="fa fa-plus" aria-hidden="true"></i> </a>
+                                                                            </div>
+                                                                        </div>
+                                                                </div>
+                                                            </div>               
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <?php }?>
 
+                                                    </div>                
 
-                                                <input type="hidden"
-                                                    value="<?php echo (!empty($product['product_id']))?$product['product_id']:random_string('numeric','8');  ?>"
-                                                    name="uniq">
-                                                <div class="ln_solid"></div>
-                                                <div class="form-group">
-                                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                                        <button type="submit"
-                                                            class="btn btn-success upload-result">Submit</button>
-                                                        <button class="btn btn-primary" type="reset">Reset</button>
-                                                    </div>
+                                                    
+                                                
                                                 </div>
+
+                                                <div class="form-section-box">
+                                                    <h2>Product Description</h2>
+                                                    <div class="row">
+                                                        <div class="col-sm-12 col-md-8">
+
+                                                            <div class="form-group">
+                                                                <div class="control-group">
+                                                                    <label class="control-label">Add Tags ( <small>Tags are useful for seo</small> )</label>
+                                                                    <input id="tags_1" type="text" class="tags form-control" value="<?php echo (!empty($product['tags']))?$product['tags']:''; ?>" name="tags" />
+                                                                    <p class="text-info"><small>(Please press enter or comma For seperate tags)</small></p>
+                                                                </div>
+                                                            </div> 
+
+                                                            <div class="form-group">
+                                                                <label class="control-label" for="first-name">Description <span class="required">*</span> </label>
+                                                                <textarea name="description" id="editor" class="form-control col-md-7 col-xs-12"><?php echo (!empty($product['des']))?$product['des']:''; ?></textarea>
+                                                            </div>
+                                                            <input type="hidden" value="<?php echo (!empty($product['product_id']))?$product['product_id']:random_string('numeric','8');  ?>" name="uniq">
+
+                                                            <div class="form-group">
+                                                                <button type="submit" class="btn btn-success upload-result">Submit</button>
+                                                                <button class="btn btn-primary" type="reset">Reset</button>
+                                                            </div>
+                                                        </div>                    
+                                                    </div>                        
+                                                </div>
+
                                             </div>
-
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </div>                               
                                 </div>
                             </div>
                         </div>
@@ -484,6 +472,19 @@
 
             });
             $(document).on('click', '.brandplus.remov', function(e) {
+                e.preventDefault();
+                $(this).closest('div.row').remove();
+            });
+        });
+
+        $(function() {
+            $('#sizep').on('click', function(e) {
+                e.preventDefault();
+                $('<div class="row"><div class="col-md-6 col-sm-6 col-xs-12 mar-12"><input type="text"class="form-control " name="size_title[]" placeholder="ex: xl, L, M"></div> <div class="col-md-4 col-sm-4 col-xs-12"> <input type="number"class="form-control" name="size[]" placeholder="32 cm"> </div> <div class="col-md-2 col-sm-2"> <a id="sizep" class="sizep remov"><i class="fa fa-times" aria-hidden="true"></i></a></div></div>')
+                    .append().insertAfter('#sizeaddnext');
+
+            });
+            $(document).on('click', '.sizep.remov', function(e) {
                 e.preventDefault();
                 $(this).closest('div.row').remove();
             });

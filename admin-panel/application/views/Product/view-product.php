@@ -96,12 +96,13 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>View Product</h2>
+                                    <h2>View Product </h2>
+                                    <span class="hsn ">HSN: <span># <?php echo $product['hsn'] ?></span></span>
                                     <div class="clearfix"></div>
                                 </div>
-                                <div class="x_content">
+                                <div class="x_content v-prd">
 
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="col-md-10 col-sm-10 col-xs-12">
                                             <div class="product-image">
                                                 <center>
@@ -125,6 +126,28 @@
                                                 <tr>
                                                     <td><?php echo (!empty($value->title))?$value->title:''?></td>
                                                     <td><?php echo (!empty($value->price))?$value->price.' &#8377':''?></td>
+                                                </tr>
+                                                <?php } ?>
+                                            </tbody>
+                                        </table>
+                                        </div>
+                                        <br />
+                                        <?php }  ?>
+
+                                        <?php if(!empty($size)){ ?>
+                                        <br />
+                                        <div class="col-md-10 col-sm-10 col-xs-12">
+                                            <h2>Branding Charges</h2>
+                                            <table class="table table-striped table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Title</th>
+                                                    <th>Size</th>
+                                                </tr>
+                                            <?php foreach ($size as $key => $value) { ?>
+                                                <tr>
+                                                    <td><?php echo (!empty($value->size_name))?$value->size_name:''?></td>
+                                                    <td><?php echo (!empty($value->size))?$value->size:''?></td>
                                                 </tr>
                                                 <?php } ?>
                                             </tbody>
@@ -159,7 +182,7 @@
                                         
                                     </div>
 
-                                    <div class="col-md-5 col-sm-5 col-xs-12" style="border:0px solid #e5e5e5;">
+                                    <div class="col-md-6 col-sm-6 col-xs-12" style="border:0px solid #e5e5e5;">
 
                                         <h3 class="prod_title"><?php echo (!empty($product['title']))?$product['title']:''?></h3>
 
@@ -167,7 +190,11 @@
                                             <tbody>
                                                 <tr>
                                                     <th>Product Id</th>
-                                                    <td><?php echo (!empty($product['product_id']))?$product['product_id']:''?></td>
+                                                    <td># <?php echo (!empty($product['product_id']))?$product['product_id']:''?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Product Name</th>
+                                                    <td><?php echo (!empty($product['title']))?$product['title']:''?></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Category</th>
@@ -181,36 +208,89 @@
                                                     <th>Available Stock</th>
                                                     <td><?php echo (!empty($product['available_stock']))?$product['available_stock']:''?></td>
                                                 </tr>
+
+                                                <tr class="divide">
+                                                    <td colspan="2"></td>
+                                                </tr>
+
                                                 <tr>
-                                                    <th>Price</th>
-                                                    <td><?php echo (!empty($product['price']))?'&#8377;'.$product['price']:''?></td>
+                                                    <th>Orginal Price</th>
+                                                    <td><?php echo (!empty($product['price']))?'&#8377; '.$product['price']:''?></td>
+                                                </tr>
+                                                <?php if(!empty($product['discount'])){ ?>
+                                                <tr>
+                                                    <th>Discount  -&nbsp; <?php echo $product['discount'].' %' ?></th>
+                                                    <td><?php echo '&#8377; '. ($product['price'] * $product['discount']) / 100 ?></td>
+                                                </tr>
+                                                <?php } if(!empty($product['gst'])){ ?>
+                                                <tr>
+                                                    <th>GST -&nbsp; <?php echo (!empty($product['gst']))? $product['gst'].' %':''?></th>
+                                                    <td><?php echo '&#8377; '. ($product['price'] * $product['gst']) / 100 ?></td>
+                                                </tr>
+                                                <?php } if(!empty($product['other_tax'])){ ?>
+                                                <tr>
+                                                    <th>Other Tax  -&nbsp; <?php echo (!empty($product['other_tax']))? $product['other_tax'].' %':''?></th>
+                                                    <td><?php echo '&#8377; '. ($product['price'] * $product['other_tax']) / 100 ?></td>
+                                                </tr>
+                                                <?php }  ?>
+                                                <tr>
+                                                    <th>Selling Price</th>
+                                                    <td><?php 
+                                                        $discount = 0;
+                                                        $gst = 0;
+                                                        $otax = 0;
+                                                        if(!empty($product['discount'])){
+                                                            $discount = ($product['price'] * $product['discount']) / 100;
+                                                        }
+                                                        if(!empty($product['gst'])){
+                                                            $gst = ($product['price'] * $product['gst']) / 100;
+                                                        }
+                                                        if(!empty($product['other_tax'])){
+                                                            $otax = ($product['price'] * $product['other_tax']) / 100;
+                                                        }
+                                                        
+                                                        echo  '<span class="rate">&#8377; '. (($gst +  $otax + $product['price']) - $discount) .'</span>';
+                                                    
+                                                    ?></td>
+                                                </tr>
+                                                <tr class="divide">
+                                                    <td colspan="2"></td>
+                                                </tr>
+                                                
+                                                <tr>
+                                                    <th>Added By</th>
+                                                    <td><?php echo $this->ci->Product_model->createdby($product['created_by']) ?></td>
                                                 </tr>
                                                 <tr>
                                                     <th>Added On</th>
                                                     <td><?php echo (!empty($product['created_on']))?$product['created_on']:''?></td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Added By</th>
-                                                    <td><?php echo $this->ci->Product_model->createdby($product['created_by']) ?></td>
-                                                </tr>
-                                                <tr>
                                                     <th>Updated On</th>
                                                     <td><?php echo (!empty($product['update_on']))?$product['update_on']:''?></td>
                                                 </tr>
-                                                <tr>
+                                                <!-- <tr>
                                                     <th>Tags</th>
                                                     <td><?php echo (!empty($product['tags']))?$product['tags']:''?></td>
-                                                </tr>
+                                                </tr> -->
                                             </tbody>
                                         </table>
 
-                                        <br />
+                                        <div class="tagsblock">
+                                            <h2>Tags</h2>
+                                            <?php  if(!empty($product['tags'])){
+                                                $tag = explode(',', $product['tags']);
+                                                foreach ($tag as $key => $value) {
+                                                    echo  '<span class="label label-primary">'.$value.'</span> &nbsp;&nbsp;' ;
+                                                }
+                                            } ?>
+                                        </div>
                                     </div>
                                     
 
                                     <div class="col-md-10">
-                                    <div class="descriptn">
-                                        <h4>Description</h4>
+                                    <div class="descriptn v-prd">
+                                        <h2>Description</h2>
                                         <p><?php echo (!empty($product['des']))?$product['des']:''?></p>
                                     </div>
                                     </div>
