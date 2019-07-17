@@ -116,7 +116,7 @@
 
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12"
-                                                        for="first-name">Title<span class="required">*</span>
+                                                        for="first-name">Title <span class="required">*</span>
                                                     </label>
                                                     <div class="col-md-8 col-sm-8 col-xs-12">
                                                         <input type="text" id="first-name" required="required"
@@ -125,40 +125,57 @@
                                                     </div>
                                                 </div>
 
+                                                <br />
+
                                                 <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12"
+                                                        for="link">Link 
+                                                    </label>
+                                                    <div class="col-md-8 col-sm-8 col-xs-12">
+                                                        <input type="text" id="link"  placeholder="http://siemens.com/example"
+                                                            class="form-control col-md-7 col-xs-12" name="link"
+                                                            value="<?php echo (!empty($banner['link']))?$banner['link']:''; ?>">
+                                                    </div>
+                                                </div>
+
+                                                <!-- <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Product<span class="required">*</span></label>
                                                     <div class="col-md-8 col-sm-8 col-xs-12">
                                                         <select class="form-control" name="product"
                                                             required="required" id="selectproduct">
                                                             <option value="">-----Select-----</option>
-                                                            <?php 
+                                                            <?php /* 
                                                             if (!empty($product)) {
                                                             foreach ($product as $key => $value) { ?>
                                                             <option value="<?php echo $value->id ?>" <?php if(!empty($banner['product']) && $value->id == $banner['product']){ echo 'selected'; } ?>>
                                                                 <?php echo $value->title ?> </option>
-                                                            <?php  } } ?>
+                                                            <?php  } } */ ?>
                                                         </select>
                                                     </div>
-                                                </div>
+                                                </div> -->
 
-                                                <div class="form-group">
+                                                <!-- <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Price<span class="required">*</span></label>
                                                     <div class="col-md-8 col-sm-8 col-xs-12">
                                                          <input type="number" id="productprice" required="required" class="form-control col-md-7 col-xs-12" name="price" value="<?php echo (!empty($banner['price']))?$banner['price']:''; ?>">
                                                     </div>
-                                                </div>
+                                                </div> -->
 
-
+                                                <br />                
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12"
                                                         for="first-name">Image </label>
                                                     <div class="col-md-8 col-sm-8 col-xs-12">
                                                         <input type="file" id="first-name" class="form-control col-md-7 col-xs-12" name="banner">
-                                                        <p style="color:red"><small>Only PNG|JPG|JPEG Files are allowed</small>
+                                                        <p class="text-info">
+                                                            <small>Only PNG | JPG | JPEG Files are allowed</small><br>
+                                                            <small>For better View use 900 x 390 px image</small>
+                                                        </p>
+                                                        
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group">
+                                                <!-- <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12"
                                                         for="first-name">Subtitle<span class="required">*</span>
                                                     </label>
@@ -166,7 +183,7 @@
                                                         <textarea class="form-control col-md-7 col-xs-12" name="subtitle" id="" cols="10" rows="3" required="required"><?php echo (!empty($banner['subtitle']))?$banner['subtitle']:''; ?></textarea>
                                                       
                                                     </div>
-                                                </div>
+                                                </div> -->
 
                                                 <input type="hidden" value="<?php echo (!empty($banner['uniq']))?$banner['uniq']:random_string('alnum','20');  ?>"
                                                     name="uniq">

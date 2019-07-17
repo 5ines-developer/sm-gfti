@@ -52,10 +52,8 @@ class Banner extends CI_Controller {
     public function add_banner($value='')
     {
             $title      = $this->input->post('title');
-            $product    = $this->input->post('product');
-            $price      = $this->input->post('price');
+            $link    = $this->input->post('link');
             $uniq       = $this->input->post('uniq');
-            $subtitle   = $this->input->post('subtitle');
 
 
             $files = $_FILES;
@@ -85,9 +83,7 @@ class Banner extends CI_Controller {
 
             $insert =  array(
                 'title'     =>  $title,
-                'subtitle'  =>  $subtitle,
-                'price'     =>  $price,
-                'product'   =>  $product,
+                'link'      =>  $link,
                 'uniq'      =>  $uniq,
                 'status '   =>  '1'
             );

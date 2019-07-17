@@ -115,8 +115,6 @@
                           <th>Sl No.</th>
                           <th>Title</th>
                           <th>Banner image</th>
-                          <th>Price</th>
-                          <th>Product</th>
                           <th>Operations</th>
                         </tr>
                       </thead>
@@ -132,20 +130,20 @@
 
                             if (!empty($value->path )) { 
                               ?>
+                               <a href="<?php echo $value->link ?>">
                                 <img class="table-image" src="<?php echo $this->config->item('web_url').$value->path ?>" alt="image">
-                               
+                                </a>
                            <?php  }else{ 
                                if (!empty($product)) {
                                 foreach ($product as $key1 => $value1) { 
                                     if($value1->id == $value->product) { ?>
                                         <img class="table-image" src="<?php echo $this->config->item('web_url').$value1->image_path ?>" alt="image">
+                                   
                                 <?php } } } }?>
   
                         </center>
                     
                     </td>
-                        <td><?php echo (!empty($value->price))?$value->price:''  ?></td>
-                        <td><?php echo $this->ci->Product_model->productname($value->product) ?></td> 
                         <td style="text-align:center;"><a href="<?php echo base_url('edit-banner/').$value->id?>" style="font-size: 22px;color: #2e9be0"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>&nbsp;&nbsp;
                           <a onclick="return confirm('Are you sure you want to delete this item?');" href="<?php echo base_url('delete-banner/').$value->id?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a> 
                         </td>
