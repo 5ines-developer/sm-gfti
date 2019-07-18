@@ -4805,3 +4805,7 @@ input[type="checkbox"] {
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
     background-color: #099 !important;
 }
+
+.team-purpose textarea {
+    height: 75px;
+}

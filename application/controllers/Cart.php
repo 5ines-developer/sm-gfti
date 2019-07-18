@@ -217,7 +217,8 @@ class Cart extends CI_Controller {
     {
         $billid = $this->input->get('biilid');
         $billsess = array(
-            'bill_id'  => $billid );
+            'bill_id'  => $billid
+        );
         $this->session->set_userdata($billsess);
         
        echo $this->session->userdata('bill_id');
@@ -227,7 +228,10 @@ class Cart extends CI_Controller {
     // place order
     public function place_order(Type $var = null)
     {
-       $this->userorders();
+       $puropse = $this->input->post('purpose');
+       $team = $this->input->post('team');
+       
+       $this->userorders($puropse,$team);
        $this->session->set_flashdata('msg', 'order placed');
        $this->session->unset_userdata('bill_id');
        redirect('my-orders','refresh');
@@ -235,7 +239,7 @@ class Cart extends CI_Controller {
     }
 
     // fetch all order destil
-    public function userorders()
+    public function userorders($puropse='',$team='')
     {
         $this->load->helper('string');
         $bach = 'SMB-'.random_string('numeric', 14);
@@ -254,7 +258,9 @@ class Cart extends CI_Controller {
                 'order_by'      => $this->uid, 
                 'brand_price'   =>  $value->bprice, 
                 'qty'           =>  $value->qty, 
-                'price'         =>  $value->price
+                'price'         =>  $value->price,
+                'team'          => $team,
+                'purpose'       => $puropse
             );
 
             if (!empty($this->session->userdata('bill_id'))) {

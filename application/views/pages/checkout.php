@@ -60,16 +60,16 @@
                                 class="custom-form">
 
                                 <div class="loderbox">
-                                            <div class="text-center">
-                                                <div class="spinner">
-                                                    <div class="double-bounce1"></div>
-                                                    <div class="double-bounce2"></div>
-                                                </div>
-                                            </div>
+                                    <div class="text-center">
+                                        <div class="spinner">
+                                            <div class="double-bounce1"></div>
+                                            <div class="double-bounce2"></div>
                                         </div>
+                                    </div>
+                                </div>
 
                                 <div class="list-group">
-                                    <?php if(!empty($billing)){ ?>
+                                    <?php if (!empty($billing)) {?>
                                     <div class="list-group-item">
                                         <div class="list-group-item-heading">
                                             <div class="row ">
@@ -79,9 +79,9 @@
                                                             required>
                                                             <option selected="true" disabled="disabled" value="0">
                                                                 -----Choose the billing address-----</option>
-                                                            <?php foreach ($billing as $key => $value) { 
-                                                           echo '<option value='.$value->id.'>'.$value->company_name.','.$value->street.'-'.$value->zip_code.'</option>';
-                                                        }?>
+                                                            <?php foreach ($billing as $key => $value) {
+                                                                echo '<option value=' . $value->id . '>' . $value->company_name . ',' . $value->street . '-' . $value->zip_code . '</option>';
+                                                            }?>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -92,17 +92,11 @@
                                                 <label class="form-check-label" for="make-ship">Make this as shipping
                                                     address</label>
                                             </div>
-                                            <!-- <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
-                                                        value="option2">
-                                                    <label class="form-check-label" for="inlineCheckbox2">2</label>
-                                                </div> -->
                                         </div>
                                     </div>
                                     <?php }?>
                                 </div>
                             </form>
-
                         </div>
 
                         <div class="ship-my-order">
@@ -116,37 +110,37 @@
                                     class="custom-form">
 
                                     <div class="list-group">
-                                        <?php if(!empty($shipping)){ 
-                                            $ncheck = '';
-                                         foreach ($shipping as $key => $value) { ?>
+                                        <?php if (!empty($shipping)) {
+                                        $ncheck = '';
+                                        foreach ($shipping as $key => $value) {?>
                                         <div class="list-group-item">
                                             <div class="list-group-item-heading">
                                                 <div class="row radio">
                                                     <div class="col-sm-4">
                                                         <label>
                                                             <input type="radio"
-                                                                <?php echo($value->status == 1)? 'checked' : '' ?>
+                                                                <?php echo ($value->status == 1) ? 'checked' : '' ?>
                                                                 name="optionShipp" class="shippoption"
                                                                 value="<?php echo $value->id ?>">
-                                                            <?php echo $value->name. ', '.  $value->street ?>
+                                                            <?php echo $value->name . ', ' . $value->street ?>
                                                         </label>
                                                     </div>
                                                     <div class="col-sm-8">
                                                         <dl class="dl-small">
                                                             <dt><?php echo $value->name ?></dt>
-                                                            <dd><?php echo $value->street.', '.$value->street1.', '.$value->city ?>
+                                                            <dd><?php echo $value->street . ', ' . $value->street1 . ', ' . $value->city ?>
                                                             </dd>
-                                                            <dd><?php echo $value->religion.' - '.$value->zip_code ?>
+                                                            <dd><?php echo $value->religion . ' - ' . $value->zip_code ?>
                                                             </dd>
                                                         </dl>
                                                         <button class="btn small-btn btn-info">Edit</button>
-                                                        <a href="<?php echo base_url('delte-shipping/').$value->id.'/checkout' ?>"
+                                                        <a href="<?php echo base_url('delte-shipping/') . $value->id . '/checkout' ?>"
                                                             class="btn small-btn btn-link">Delete this address</a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <?php } } else{ $ncheck = 'checked';  }?>
+                                        <?php }} else { $ncheck = 'checked';}?>
                                         <div class="list-group-item">
                                             <div class="list-group-item-heading">
                                                 <div class="row">
@@ -274,6 +268,44 @@
                             </div>
                         </div>
 
+                        <div class="col-sm-12">
+                            <div class="flat-row-title mb15 style1">
+                                <h3 class="title">Team and Purpose of purchase&hellip;</h3>
+                            </div>
+                        </div>
+                        <div class="box-checkout">
+                            <form role="form" method="post" class="custom-form">
+                                <div class="list-group">
+                                    <?php if (!empty($billing)) {?>
+                                    <div class="list-group-item">
+                                        <div class="list-group-item-heading team-purpose">
+                                            <div class="row ">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="team-department">Team & Department <span class="error">*</span></label>
+                                                        <textarea class="form-control team-d" id="team-department"
+                                                            rows="1" required></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="purchase-purpose">Example textarea <span class="error">*</span></label>
+                                                        <textarea class="form-control team-d" id="purchase-purpose"
+                                                            rows="1" required></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                    <?php }?>
+                                </div>
+                            </form>
+                        </div>
+
+
+
 
                     </div>
 
@@ -289,17 +321,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php 
-                                            $total = 0 ;
-                                            foreach ($cart as $key => $value) { ?>
+                                    <?php
+                                    $total = 0;
+                                    foreach ($cart as $key => $value) {?>
                                     <tr>
-                                        <td><?php echo $value->name ?><br><?php  echo $value->product_id.' ('. $value->qty .' piece)'  ?>
+                                        <td><?php echo $value->name ?><br><?php echo $value->product_id . ' (' . $value->qty . ' piece)' ?>
                                         </td>
                                         <td>&#8377; <?php echo ($value->qty * $value->price) ?></td>
                                     </tr>
-                                    <?php 
-                                            $total = ($total +  ($value->qty * $value->price));
-                                        } ?>
+                                    <?php $total = ($total + ($value->qty * $value->price));
+                                        }?>
                                 </tbody>
                             </table><!-- /.product -->
                             <table>
@@ -316,21 +347,25 @@
                                 <div id="addres-empty">
                                     <a class="btn small-btn btn-link">Place Order</a><br>
                                     <span class="error">Please add shipping address</span>
-                                    <input type="hidden" value="<?php echo (!empty($shipping))?count($shipping):'' ?>"
+                                    <input type="hidden"
+                                        value="<?php echo (!empty($shipping)) ? count($shipping) : '' ?>"
                                         id="ship-count">
                                 </div>
 
                                 <div id="place-chck">
 
-                                    <?php if($total >= 100000){ ?>
-                                    <a href="<?php echo base_url() ?>place-razorpay-payment-button" class="order"
-                                        title="">Place Order</a>
-                                    <?php }else{ ?>
+                                    <?php if ($total >= 100000) {?>
+                                        <form action="<?php echo base_url() ?>place-order" method="POST" id="place-order-more">
+                                        <a href="#" class="razorpay-payment-button" id="more-lakh">Place Order</a>
+                                        <input type="hidden" custom="Hidden Element" name="team" id="more-taem">
+                                        <input type="hidden" custom="Hidden Element" name="purpose" id="more-purpose">
+                                    </form>
+                                    <?php } else {?>
 
                                     <form action="<?php echo base_url() ?>payment/success/" method="POST"
                                         style="float:left;margin-right:10px">
                                         <script src="https://checkout.razorpay.com/v1/checkout.js"
-                                            data-key="rzp_test_ZPtHNE4hO3uWul" data-amount="<?php echo $total.'00' ?>"
+                                            data-key="rzp_test_ZPtHNE4hO3uWul" data-amount="<?php echo $total . '00' ?>"
                                             data-currency="INR" data-buttontext="Pay via Credit Card"
                                             data-name="Gifting express" data-description="Gifting express"
                                             data-image="<?php echo base_url() ?>assets/images/img/logo.svg"
@@ -340,12 +375,17 @@
                                             data-theme.color="#009999">
                                         </script>
                                         <input type="hidden" custom="Hidden Element" name="hidden">
+                                        <input type="hidden" custom="Hidden Element place-taem" name="team" id="pay-team">
+                                        <input type="hidden" custom="Hidden Element place-purpose" name="purpose" id="pay-purpose">
                                     </form>
 
-                                    <span style="float:left;line-height: 48px;margin-right:10px">OR</span> <a
-                                        href="<?php echo base_url() ?>place-order" class="razorpay-payment-button">Place
-                                        Order</a>
-                                    <?php } ?>
+                                    <span style="float:left;line-height: 48px;margin-right:10px">OR</span> 
+                                    <form action="<?php echo base_url() ?>place-order" method="POST" id="place-order-less">
+                                        <a href="#" class="razorpay-payment-button" id="less-lakh">Place Order</a>
+                                        <input type="hidden" custom="Hidden Element place-taem" name="team"  id="less-taem">
+                                        <input type="hidden" custom="Hidden Element place-purpose" name="purpose" id="less-purpose">
+                                    </form>
+                                    <?php }?>
                                 </div>
                             </div><!-- /.btn-order -->
 
@@ -387,9 +427,11 @@
 
     <script type="text/javascript" src="<?php echo base_url() ?>assets/javascript/main.js"></script>
 
-    <?php $this->load->view('includes/searchq'); ?>
+    <?php $this->load->view('includes/searchq');?>
     <script>
     $(function() {
+
+        //check shipcount - if 0 then show to add address
         var shipcount = $("#ship-count").val();
         if (shipcount > 0) {
             $('#place-chck').css('display', 'block');
@@ -398,9 +440,10 @@
             $('#addres-empty').css('display', 'block');
             $('#place-chck').css('display', 'none');
         }
+        //destroy the session data
+        "<?php echo $this->session->unset_userdata('bill_id'); ?>";
 
 
-        "<?php echo $this->session->unset_userdata('bill_id');?>";
 
         $(document).on('load, change', '#optionShipp2,  input[type=radio]', function(e) {
             if ($('#optionShipp2').is(':checked')) {
@@ -430,6 +473,7 @@
         });
     });
 
+    //billing addres selected - show check box to make a ship address
     $(document).ready(function() {
         if ($('#optionShipp2').is(':checked')) {
             $('.new-ad-form').css('display', 'block');
@@ -451,6 +495,63 @@
             }
         });
 
+        
+        $("#more-lakh").click(function() {
+            var team = $("#team-department").val();
+            var purpose = $("#purchase-purpose").val();
+
+            if (team != '' && purpose != '') {
+                $("#more-taem").val(team);
+                $("#more-purpose").val(purpose);
+
+                var taemval = $("#more-taem").val();
+                var purposeval = $("#more-purpose").val();
+
+                if (team != '' && purpose != '') {
+                    $('#place-order-more').submit();
+                }else{
+                    return false;
+                }
+
+            }else{
+                $(".team-d").next("span").remove();
+                $("#team-department").after("<span class ='error'>Please enter a team detail</span>");
+                $("#purchase-purpose").after("<span class ='error'> Please enter a purpose of purchase</span>");
+                return false;
+            }
+
+        });
+
+        $("#less-lakh").click(function() {
+            var team = $("#team-department").val();
+            var purpose = $("#purchase-purpose").val();
+
+            if (team != '' && purpose != '') {
+                $("#less-taem").val(team);
+                $("#less-purpose").val(purpose);
+
+                var taemval = $("#less-taem").val();
+                var purposeval = $("#less-purpose").val();
+
+                if (team != '' && purpose != '') {
+                    $('#place-order-less').submit();
+                }else{
+                    return false;
+                }
+
+            }else{
+                $(".team-d").next("span").remove();
+                $("#team-department").after("<span class ='error'>Please enter a team detail</span>");
+                $("#purchase-purpose").after("<span class ='error'> Please enter a purpose of purchase</span>");
+                return false;
+            }
+
+        });
+
+        
+
+
+
         // make billing address as shipping address
         $("#make-ship").click(function() {
             var bill = $("#biilingaddress option:selected").val();
@@ -459,7 +560,7 @@
                     $('.ship-my-order').css('display', 'none');
                     loder(true);
                     $.ajax({
-                        url: "<?php echo base_url();?>bill-session",
+                        url: "<?php echo base_url(); ?>bill-session",
                         type: "get",
                         dataType: "html",
                         data: {
@@ -475,7 +576,7 @@
                     });
                 }
             } else {
-                "<?php echo $this->session->unset_userdata('bill_id');?>";
+                "<?php echo $this->session->unset_userdata('bill_id'); ?>";
                 $('.ship-my-order').css('display', 'block');
                 var shipcount = $("#ship-count").val();
                 if (shipcount > 0) {
@@ -485,11 +586,10 @@
                     $('#addres-empty').css('display', 'block');
                     $('#place-chck').css('display', 'none');
                 }
-
-
             }
         });
 
+        //page loader
         function loder(status) {
             if (status == true) {
                 $('.loderbox').css('display', 'block');
