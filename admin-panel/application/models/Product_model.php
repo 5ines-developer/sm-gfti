@@ -110,8 +110,17 @@ class Product_model extends CI_Model {
         */
         public function getproduct()
 		{
-			$this->db->order_by('id', 'desc');
-			$query = $this->db->get('product');
+			$this->db->select('c.id as cid, c.name,p.id as id, p.product_id as product_id, p.title, p.image_path, p.price, p.total_stock, p.available_stock, p.discount, p.gst');
+			
+			$this->db->from('product p');
+			$this->db->join('category c', 'c.id = p.category', 'left');
+			if(!empty($this->input->get('f'))){
+				$f =  $this->input->get('f');
+				$this->db->like('c.name', $f, 'after');
+			}
+			$this->db->order_by('p.id', 'desc');
+			$query = $this->db->get();
+
 			if ($query->num_rows() > 0) 
 			{
 				
@@ -135,8 +144,7 @@ class Product_model extends CI_Model {
 			$this->db->where('product', $id);
 			if($this->db->delete('brad_pricing'))
 			{
-				$this->db->where('product', $id);
-				$this->db->delete('banner');
+				
 
 				$this->db->where('product', $id);
 				$this->db->delete('marquee');

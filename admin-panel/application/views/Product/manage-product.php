@@ -104,7 +104,27 @@
                   <div class="x_title">
                     <h2>products</h2>
                     <div class="banner-button">
-                    	<a type="button" class="btn btn-success" href="<?php echo base_url()?>add-product"><i class="fa fa-plus" aria-hidden="true"></i> Add Product</a>
+                      <a class="btn btn-app btn-info filter-btn">
+                            <i class="fa fa-filter" aria-hidden="true"></i> Filter
+                          </a>
+
+                          <a class="btn btn-app btn-success" href="<?php echo base_url()?>add-product">
+                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                          </a>
+                    </div>
+
+                    <div class="filter-box">
+                      <h4>Category Filter</h4>
+                      <ul>
+                        <?php 
+                            $alpharange = range( 'A', 'Z' );
+                            foreach ($alpharange as  $value) {
+                              echo '<li> <a href="'.base_url().'manage-product?f='.$value.'">'.$value.'</a> </li>';
+                            }
+
+                        ?>
+                        
+                      </ul>
                     </div>
                     <div class="clearfix"></div>
                   </div>
@@ -114,11 +134,11 @@
                         <tr>
                           <th>Sl No.</th>
                           <th>Product</th>
+                          <th>Category</th>
                           <th>Product image</th>
-                          <th>Product ID</th>
-                          <th>Created On</th>
-                          <th>Updated On</th>
-                          <th>Created By</th>
+                          <th>Price</th>
+                          <td>Discount<br>(%)</td>
+                          <td>Available<br>Stock</td>
                           <th>Operations</th>
                         </tr>
                       </thead>
@@ -129,12 +149,13 @@
                         <tr>
                         <td><?php echo (!empty($product))?$cont:'' ?></td>
                         <td><?php echo (!empty($value->title))?$value->title:''  ?></td>
+                        <td><?php echo (!empty($value->name))?$value->name:''  ?></td>
                         <td><center><img class="table-image" src="<?php echo $this->config->item('web_url').$value->image_path ?>" alt="image"></center></td>
-                        <td><?php echo (!empty($value->product_id))?$value->product_id:''  ?></td>
-                        <td><?php echo (!empty($value->created_on))?date("d-M-y", strtotime($value->created_on)):''; ?></td>
-                        <td><?php echo (!empty($value->update_on))?date("d-M-y", strtotime($value->update_on)):''; ?></td>
-                         <td><?php echo $this->ci->Product_model->createdby($value->created_by) ?></td> 
-                        <td style="text-align:center;"><a href="<?php echo base_url('edit-product/').$value->id?>" style="font-size: 22px;color: #2e9be0"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>&nbsp;&nbsp;
+                        
+                        <td><?php echo $value->price ?></td>
+                        <td><?php echo $value->discount ?></td>
+                        <td class="<?php echo ($value->available_stock < 11) ? 'text-danger' : '' ?>"><?php echo ($value->available_stock <= 0) ? 'Out of stock'  : $value->available_stock ?></td>
+                                   <td style="text-align:center;"><a href="<?php echo base_url('edit-product/').$value->id?>" style="font-size: 22px;color: #2e9be0"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>&nbsp;&nbsp;
                           <a href="<?php echo base_url('view-product/').$value->id?>" style="font-size: 20px;color: #257225" ><i class="fa fa-eye" aria-hidden="true"></i></a>&nbsp;&nbsp;
                           <a onclick="return confirm('Are you sure you want to delete this item?');"  href="<?php echo base_url('delete-product/').$value->id?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a>&nbsp;&nbsp;
                         </td>
@@ -192,6 +213,22 @@
     $(document).ready(function () {
         $('#message1').toggleClass('in');
         setTimeout(function(){$('.alert').fadeOut(3000)},4000);
+
+        $('.filter-btn').click(function (e) { 
+          e.preventDefault();
+            $('.filter-box').css({
+              'opacity': '1',
+              'display': 'block',
+              'top': '58px',
+            });
+        });
+      });
+
+      $(document).mouseup(function(e) 
+      {
+        var container = $(".filter-box");
+        if (!container.is(e.target) && container.has(e.target).length === 0) 
+        { container.hide(); }
       });
 </script>
 

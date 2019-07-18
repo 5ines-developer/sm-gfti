@@ -4,6 +4,7 @@
             <div class="col-md-12">
 
                 <div class="">
+                    <?php echo '<span style="font-size: 18px; line-height: 47px;">'. (!empty($_GET['q']) ? $_GET['q'] : $_GET['c'] ).'</span>' ?>
                     <ul class="icons">
                         
                         <li class="filter waves-effect">
@@ -18,119 +19,20 @@
                                 <h3>Categories<span></span></h3>
                             </div>
                             <ul class="cat-list style1 widget-content">
+                            <?php foreach ($this->data['categories']['full'] as $key => $value) { 
+                                $link = str_replace(' ','+', $value->name);
+                                $nlink = str_replace('&','%26', $link); 
+                                if(!empty($_GET['min'])){$min = $_GET['min'];} else{$min = '';}
+                                if(!empty($_GET['max'])){$max = $_GET['max'];} else{$max = '';}
+                            ?>
                                 <li>
-                                    <span>Accessories<i>(03)</i></span>
-                                    <ul class="cat-child">
-                                        <li>
-                                            <a href="#" title="">TV</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="">Monitors</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="">Software</a>
-                                        </li>
-                                    </ul>
+                                <a href="<?php echo base_url('search?q=&c=').$nlink.'&min='.$min.'$max='.$max ?>" title="<?php echo $value->name ?>">
+                                    <span class="">
+                                        <?php echo $value->name ?>
+                                    </span>
+                                </a>
                                 </li>
-                                <li>
-                                    <span>Cameras<i>(19)</i></span>
-                                    <ul class="cat-child">
-                                        <li>
-                                            <a href="#" title="">Go Pro</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="">Video</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="">Software</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="">
-                                    <span>Computers<i>(56)</i></span>
-                                    <ul class="cat-child">
-                                        <li>
-                                            <a href="#" title="">Desktop</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="">Monitors</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="">Software</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                
-                                <li>
-                                    <span>Laptops<i>(03)</i></span>
-                                    <ul class="cat-child">
-                                        <li>
-                                            <a href="#" title="">Desktop</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="">Monitors</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="">Software</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <span>Networking<i>(03)</i></span>
-                                    <ul class="cat-child">
-                                        <li>
-                                            <a href="#" title="">Monitors</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="">Software</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <span>Old Products<i>(89)</i></span>
-                                    <ul class="cat-child">
-                                        <li>
-                                            <a href="#" title="">Monitors</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="">Software</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <span>Smartphones<i>(90)</i></span>
-                                    <ul class="cat-child">
-                                        <li>
-                                            <a href="#" title="">Apple</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="">HTC</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="">Sony</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="">Samsung</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="">LG</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <span>Software<i>(23)</i></span>
-                                    <ul class="cat-child">
-                                        <li>
-                                            <a href="#" title="">Desktop</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="">Monitors</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="">BKAV</a>
-                                        </li>
-                                    </ul>
-                                </li>
+                            <?php } ?>    
                             </ul><!-- /.cat-list -->
                         </div><!-- /.widget-categories -->
                         <div class="widget widget-price">
