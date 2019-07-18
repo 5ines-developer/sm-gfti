@@ -4,7 +4,10 @@
             <div class="col-md-12">
 
                 <div class="">
-                    <?php echo '<span style="font-size: 18px; line-height: 47px;">'. (!empty($_GET['q']) ? $_GET['q'] : $_GET['c'] ).'</span>' ?>
+                    <?php 
+
+                        echo '<span style="font-size: 18px; line-height: 47px;">'. (!empty($_GET['q']) ? $_GET['q'] : 'Results' ).'</span>' 
+                    ?>
                     <ul class="icons">
                         
                         <li class="filter waves-effect">

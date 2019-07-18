@@ -60,7 +60,7 @@ class M_web extends CI_Model {
     // recently added product list
     public function recently_added_products()
     {
-        return  $this->db->select('p.product_id, p.title, p.image_path, p.price, p.tags, c.name, c.id')
+        return  $this->db->select('p.product_id, p.title, p.image_path, p.price, p.tags, c.name, c.id, p.discount')
                 ->from('product p')
                 ->order_by('id', 'desc')
                 ->join('category c', 'c.id = p.category', 'left')

@@ -43,12 +43,13 @@
         <section class="banner">
             <div class="slick-slider">
                 <?php foreach ($banner as $key => $value)  { ?>
-                    <div class="slick-slider-iteme">
-                        <a href="<?php echo $value->link ?>">
-                            <img src="<?php echo base_url().$value->path ?>" class="img-responsive" alt="<?php echo $value->title ?>">
-                        </a>
-                    </div>
-                <?php } ?>    
+                <div class="slick-slider-iteme">
+                    <a href="<?php echo $value->link ?>">
+                        <img src="<?php echo base_url().$value->path ?>" class="img-responsive"
+                            alt="<?php echo $value->title ?>">
+                    </a>
+                </div>
+                <?php } ?>
             </div>
         </section>
 
@@ -139,19 +140,19 @@
                                                 title="<?php echo $value_prd->title ?>"><?php echo $value_prd->title ?></a>
                                         </div>
                                         <div class="price">
-                                            <span class="sale">&#8377; <?php echo $value_prd->price ?></span>
+                                            <span class="sale">&#8377; 
+                                                <?php 
+                                                    $discount =  ($value_prd->price * $value_prd->discount) / 100 ;
+                                                    echo $value_prd->price - $discount;
+                                                ?>
+                                            </span>
+                                            <?php 
+                                                if(!empty($value_prd->discount)){
+                                                    echo '<span class="regular">&#8377;'. $value_prd->price.'</span>';
+                                                }
+                                            ?>
                                         </div>
                                     </div><!-- /.box-content -->
-                                    <div class="box-bottom">
-                                        <div class="btn-add-cart">
-                                            <a href="<?php echo base_url('add-cart/').$value_prd->product_id ?>"
-                                                title="">
-                                                <img src="<?php echo base_url() ?>assets/images/icons/add-cart.png"
-                                                    alt="">Add to Cart
-                                            </a>
-                                        </div>
-
-                                    </div><!-- /.box-bottom -->
                                 </div><!-- /.imagebox -->
                             </div>
                         </div>
@@ -200,17 +201,20 @@
                                             </a>
                                         </div>
                                         <div class="price">
-                                            <span class="sale">&#8377; <?php echo $value->price ?></span>
+                                            <span class="sale">&#8377; 
+                                                <?php 
+                                                    $discount =  ($value_prd->price * $value_prd->discount) / 100 ;
+                                                    echo $value_prd->price - $discount;
+                                                ?>
+                                            </span>
+                                            <?php 
+                                                if(!empty($value_prd->discount)){
+                                                    echo '<span class="regular">&#8377;'. $value_prd->price.'</span>';
+                                                }
+                                            ?>
                                         </div>
                                     </div>
-                                    <div class="box-bottom">
-                                        <div class="btn-add-cart">
-                                            <a href="<?php echo base_url('add-cart/').$value->product_id ?>" title="">
-                                                <img src="<?php echo base_url() ?>assets/images/icons/add-cart.png"
-                                                    alt="">Add to Cart
-                                            </a>
-                                        </div>
-                                    </div>
+
                                 </div><!-- /.imagebox style1 -->
                             </div><!-- /.product-box style1 -->
                         </div><!-- /.owl-carousel-item -->
@@ -252,8 +256,19 @@
                                         <a href="<?php echo base_url('product/').$value->product_id ?>"
                                             title=""><?php echo $value->name ?></a>
                                     </div>
+
                                     <div class="price">
-                                        <span class="sale">&#8377; <?php echo $value->price ?></span>
+                                        <span class="sale">&#8377; 
+                                            <?php 
+                                                $discount =  ($value->price * $value->discount) / 100 ;
+                                                echo $value->price - $discount;
+                                            ?>
+                                        </span>
+                                        <?php 
+                                            if(!empty($value->discount)){
+                                                echo '<span class="regular">&#8377;'. $value->price.'</span>';
+                                            }
+                                        ?>
                                     </div>
                                 </div><!-- /.box-content -->
                             </div><!-- /.imagebox style4 v1 -->

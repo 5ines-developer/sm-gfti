@@ -323,19 +323,19 @@
 /* Product Box */
 
 .product-box {
-	height: 370px;
+	min-height: 190px;
 	margin-bottom: 30px;
 	overflow: hidden;
 }
 
 .product-box.style1 {
-	height: 250px;
+	min-height: 190px;
 	margin-bottom: 33px;
 	border-radius: 10px;
 }
 
 .product-box.style1 .imagebox.style1 {
-	min-height: 240px;
+	min-height: 190px;
 }
 
 .product-box.style1:hover {
@@ -418,7 +418,7 @@
 	border: 2px solid transparent;
 	position: relative;
 	z-index: 99;
-	min-height: 380px;
+	min-height: 325px;
 	overflow: visible;
 }
 
@@ -7632,4 +7632,36 @@ ul.brands-tablist li:hover, ul.brands-tablist li.active {
 
 .zoom img::selection {
 	background-color: transparent;
+}
+.cat-list.style1.widget-content {
+
+    max-height: 334px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+
+}
+
+.cat-list.style1.widget-content li a {
+
+    color: black;
+
+}
+
+.cat-list.style1.widget-content li a span{
+	color: #424242;
+	transition: 0.4s;
+}
+.cat-list.style1.widget-content li a:hover span{
+	margin-left: 5px;
+	color: #099;
+}
+
+@media (max-width:600px){
+	.cat-list.style1.widget-content {
+
+		max-height: 250px;
+		margin-bottom: 10px;
+	
+	}
 }
