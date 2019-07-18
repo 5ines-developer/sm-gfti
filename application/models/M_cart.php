@@ -111,6 +111,13 @@ class M_cart extends CI_Model {
         return $this->db->get('shipping_address')->result();
     }
 
+       // get billing addres  detail
+       public function getBilling($id = null)
+       {
+           $this->db->order_by('id', 'DESC');
+           return $this->db->get('billing_address')->result();
+       }
+
     // change address default
     public function cahnge_address($sid, $uid)
     {

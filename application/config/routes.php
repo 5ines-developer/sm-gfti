@@ -85,6 +85,8 @@ $route['save-shipping']         = 'cart/save_shipping';
 $route['shipping-change']       = 'cart/shipping_change';
 $route['place-order']           = 'cart/place_order'; 
 $route['change-brand']          = 'cart/change_brand';
+//store bill address in session
+$route['bill-session']          = 'cart/bill_session';
 //my orders
 $route['my-orders']             = 'Orders/index';
 $route['order/(:any)']          = 'Orders/order_detail/$1';

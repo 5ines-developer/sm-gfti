@@ -171,6 +171,7 @@ class Cart extends CI_Controller {
     {
         $data['cart'] = $this->m_cart->getCart($this->uid);
         $data['shipping'] = $this->m_cart->getShipping($this->uid);
+        $data['billing'] = $this->m_cart->getBilling();
         $this->load->model('m_account');
         $data['user'] = $this->m_account->profileGet($this->uid);
         $this->load->view('pages/checkout', $data, FALSE);
@@ -201,9 +202,9 @@ class Cart extends CI_Controller {
             redirect('checkout','refresh');
             
         }
-        
-        
     }
+
+
 
     // shipping address update
     public function shipping_change()
@@ -211,11 +212,24 @@ class Cart extends CI_Controller {
         $this->m_cart->cahnge_address($this->input->post('id'), $this->uid);
     }
 
+   //store bill address in sessio
+    public function bill_session($var = null)
+    {
+        $billid = $this->input->get('biilid');
+        $billsess = array(
+            'bill_id'  => $billid );
+        $this->session->set_userdata($billsess);
+        
+       echo $this->session->userdata('bill_id');
+        
+    }
+
     // place order
     public function place_order(Type $var = null)
     {
        $this->userorders();
        $this->session->set_flashdata('msg', 'order placed');
+       $this->session->unset_userdata('bill_id');
        redirect('my-orders','refresh');
        
     }
@@ -225,8 +239,10 @@ class Cart extends CI_Controller {
     {
         $this->load->helper('string');
         $bach = 'SMB-'.random_string('numeric', 14);
-
-        $shipping = $this->m_cart->getdefaultShipping($this->uid);
+        if(empty($this->session->userdata('bill_id')))
+        {
+            $shipping = $this->m_cart->getdefaultShipping($this->uid);
+        }
         $cartitesms = $this->m_cart->getCart($this->uid);
 
         foreach ($cartitesms as $key => $value) {
@@ -236,13 +252,18 @@ class Cart extends CI_Controller {
                 'order_bach'    => $bach, 
                 'product'       =>  $value->prid, 
                 'order_by'      => $this->uid, 
-                'shipping'      => $shipping, 
                 'brand_price'   =>  $value->bprice, 
                 'qty'           =>  $value->qty, 
-                'price'         =>  $value->price, 
-                'billing'       =>  '0', 
-                'shipping'      =>  $shipping, 
+                'price'         =>  $value->price
             );
+
+            if (!empty($this->session->userdata('bill_id'))) {
+                $data['billing'] = $this->session->userdata('bill_id');
+                $data['shipping'] = '0';
+            }else{
+                $data['billing'] = '0';
+                $data['shipping'] = $shipping;
+            }
 
             $this->m_cart->insertOrder($data);
             
