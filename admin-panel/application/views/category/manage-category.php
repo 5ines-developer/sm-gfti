@@ -104,7 +104,28 @@
                   <div class="x_title">
                     <h2>Category List</h2>
                     <div class="banner-button">
-                    	<a type="button" class="btn btn-success" href="<?php echo base_url()?>add-category"><i class="fa fa-plus" aria-hidden="true"></i> Add Category</a>
+                        
+                          <a class="btn btn-app btn-info filter-btn">
+                            <i class="fa fa-filter" aria-hidden="true"></i> Filter
+                          </a>
+
+                          <a class="btn btn-app btn-success" href="<?php echo base_url()?>add-category">
+                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                          </a>
+                        
+                    </div>
+                    <div class="filter-box">
+                      <h4>Category Filter</h4>
+                      <ul>
+                        <?php 
+                            $alpharange = range( 'A', 'Z' );
+                            foreach ($alpharange as  $value) {
+                              echo '<li> <a href="'.base_url().'manage-category?f='.$value.'">'.$value.'</a> </li>';
+                            }
+
+                        ?>
+                        
+                      </ul>
                     </div>
                     <div class="clearfix"></div>
                   </div>
@@ -188,6 +209,22 @@
     $(document).ready(function () {
         $('#message1').toggleClass('in');
         setTimeout(function(){$('.alert').fadeOut(3000)},4000);
+
+        $('.filter-btn').click(function (e) { 
+          e.preventDefault();
+            $('.filter-box').css({
+              'opacity': '1',
+              'display': 'block',
+              'top': '58px',
+            });
+        });
+      });
+
+      $(document).mouseup(function(e) 
+      {
+        var container = $(".filter-box");
+        if (!container.is(e.target) && container.has(e.target).length === 0) 
+        { container.hide(); }
       });
 </script>
 

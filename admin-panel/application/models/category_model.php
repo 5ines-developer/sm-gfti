@@ -34,6 +34,10 @@ class Category_model extends CI_Model {
         public function getcategory()
 		{
 			$this->db->order_by('id', 'desc');
+			if(!empty($this->input->get('f'))){
+				$f =  $this->input->get('f');
+				$this->db->like('name', $f, 'after');
+			}
 			$query = $this->db->get('category');
 			if ($query->num_rows() > 0) 
 			{
@@ -88,8 +92,7 @@ class Category_model extends CI_Model {
 					$brand = 0;
 				}
 
-				$this->db->where('product', $productid);
-				$this->db->delete('banner');
+				
 
 				$this->db->where('product', $productid);
 				$this->db->delete('marquee');

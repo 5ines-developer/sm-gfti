@@ -77,33 +77,41 @@
                                 <div class="row mob-plr5">
 
                                     <?php foreach ($result as $key => $value_prd) { ?>
-                                        <div class="col-lg-3 col-6 mob-2">
-                                            <div class="product-box">
-                                                <div class="imagebox style2">
-                                                    <!-- <span class="item-new">NEW</span> -->
-                                                    <div class="box-image">
-                                                        <a href="<?php echo base_url('product/').$value_prd->product_id ?>"
-                                                            title="<?php echo $value_prd->title ?>">
-                                                            <img src="<?php echo base_url().$value_prd->image_path ?> "
-                                                                alt="<?php echo $value_prd->title ?>">
-                                                        </a>
-                                                    </div><!-- /.box-image -->
+                                    <div class="col-lg-3 col-6 mob-2">
+                                        <div class="product-box">
+                                            <div class="imagebox style2">
+                                                <!-- <span class="item-new">NEW</span> -->
+                                                <div class="box-image">
+                                                    <a href="<?php echo base_url('product/').$value_prd->product_id ?>"
+                                                        title="<?php echo $value_prd->title ?>">
+                                                        <img src="<?php echo base_url().$value_prd->image_path ?> "
+                                                            alt="<?php echo $value_prd->title ?>">
+                                                    </a>
+                                                </div><!-- /.box-image -->
+                                                <a href="<?php echo base_url('product/').$value_prd->product_id ?>"
+                                                    title="<?php echo $value_prd->title ?>">
                                                     <div class="box-content">
                                                         <div class="cat-name">
-                                                            <a href="<?php echo base_url('product/').$value_prd->product_id ?>"
-                                                                title="<?php echo $value_prd->title ?>"><span
-                                                                    class="bg-white"><?php echo $value_prd->name ?></span></a>
+                                                            <span class="bg-white"><?php echo $value_prd->name ?></span>
                                                         </div>
                                                         <div class="product-name">
-                                                            <a href="<?php echo base_url('product/').$value_prd->product_id ?>"
-                                                                title="<?php echo $value_prd->title ?>"><?php echo $value_prd->title ?></a>
+                                                            <?php echo $value_prd->title ?>
                                                         </div>
                                                         <div class="price">
-                                                            <span class="sale">&#8377;
-                                                                <?php echo $value_prd->price ?></span>
+                                                            <span class="sale">&#8377; <?php 
+                                                                $discount =  ($value_prd->price * $value_prd->discount) / 100 ;
+                                                                echo $value_prd->price - $discount;
+                                                            ?></span>
+                                                            <?php 
+                                                                if(!empty($value_prd->discount)){
+                                                                    echo '<span class="regular">&#8377;'. $value_prd->price.'</span>';
+                                                                }
+                                                            ?>
+                                                            
                                                         </div>
                                                     </div><!-- /.box-content -->
-                                                    <div class="box-bottom">
+                                                </a>
+                                                <!-- <div class="box-bottom">
                                                         <div class="btn-add-cart">
                                                             <a href="<?php echo base_url('add-cart/').$value_prd->product_id ?>"
                                                                 title="">
@@ -112,10 +120,10 @@
                                                             </a>
                                                         </div>
 
-                                                    </div><!-- /.box-bottom -->
-                                                </div><!-- /.imagebox -->
-                                            </div>
+                                                    </div>/.box-bottom -->
+                                            </div><!-- /.imagebox -->
                                         </div>
+                                    </div>
                                     <?php } 
                                         if(empty($result)){
                                             echo '
@@ -135,7 +143,7 @@
                                 </div><!-- /.row -->
                             </div><!-- /.wrap-imagebox -->
                             <?php echo $pagelink ?>
-                            
+
                         </div><!-- /.main-shop -->
                     </div><!-- /.col-md-12 -->
                 </div><!-- /.row -->
