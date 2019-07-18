@@ -52,11 +52,14 @@ class Search extends CI_Controller {
         $data['title'] = $this->input->get('q');
 
         $link = str_replace('+',' ', $this->input->get('c'));
-        $category = str_replace('%26','&', $link); 
-        
+
+        $category = str_replace('%26','&', $link);         
         $query = $this->input->get('q');
-        $data = $this->m_search->getResult($query, $category);
-        $result =  $this->m_search->search_pagination($query,$category,$perpage,$page);
+        $min = $this->input->get('min');
+        $max = $this->input->get('max');
+
+        $data = $this->m_search->getResult($query, $category, $max, $min);
+        $result =  $this->m_search->search_pagination($query,$category,$perpage,$page, $max, $min);
 
         $config['base_url'] = base_url().'search';
         $config['total_rows'] = count($data);

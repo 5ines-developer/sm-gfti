@@ -5,10 +5,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_search extends CI_Model {
 
     // get result()
-    public function getResult($query, $category = null)
+    public function getResult($query = null, $category = null , $max = null, $min = null)
     {
+        
         $this->db->from('product p');
         $this->db->join('category c', 'c.id = p.category', 'left');
+        if($max != ''){
+           
+            $this->db->where('p.price <=', $max);
+            
+        }
+
+        if($min != ''){
+            $this->db->where('p.price >=', $min);
+        }
+
         if($query != ''){
             $this->db->like('title',$query)
                     ->or_like('tags',$query)
@@ -17,14 +28,30 @@ class M_search extends CI_Model {
         if($category != ''){
             $this->db->like('name',$category);
         }
+
+        
+
         return $this->db->get()->result();
     }
 
     // get product with pagination
-    public function search_pagination($query,$category,$perpage,$page)
+    public function search_pagination($query,$category,$perpage,$page, $max, $min)
     {
         $this->db->from('product p');
         $this->db->join('category c', 'c.id = p.category', 'left');
+
+        if($max != ''){
+           
+            $this->db->where('p.price <=', $max);
+            
+        }
+
+        if($min != ''){
+            $this->db->where('p.price >=', $min);
+        }
+
+
+
         if($query != ''){
             $this->db->like('title',$query)
                     ->or_like('tags',$query)

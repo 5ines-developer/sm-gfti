@@ -35,10 +35,14 @@
 
         <?php $this->load->view('includes/header');?>
 
+        <?php $this->load->view('includes/filter'); ?>
 
         <main id="shop" class="style2">
             <div class="container">
                 <div class="row">
+
+
+
                     <div class="col-md-12">
                         <div class="main-shop">
                             <div class="wrap-imagebox">
@@ -153,7 +157,7 @@
     <script type="text/javascript" src="<?php echo base_url() ?>assets/javascript/jquery.flexslider-min.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>assets/javascript/owl.carousel.js"></script>
 
-    <!-- <script type="text/javascript" src="<?php echo base_url() ?>assets/javascript/jquery-ui.js"></script> -->
+    <script type="text/javascript" src="<?php echo base_url() ?>assets/javascript/jquery-ui.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>assets/javascript/jquery.mCustomScrollbar.js"></script>
     <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtRmXKclfDp20TvfQnpgXSDPjut14x5wk&region=GB"></script>

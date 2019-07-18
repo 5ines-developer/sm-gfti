@@ -1996,7 +1996,7 @@ ul.menu li.column-1 .submenu>li>a i {
 
 .flat-breadcrumb {
     border-bottom: 1px solid #e5e5e5;
-    padding: 16px 0;
+    padding: 5px 0;
 }
 
 .flat-breadcrumb ul.breadcrumbs li {
@@ -4288,6 +4288,17 @@ a.small-btn {
 section.banner{ padding: 6px 0; background: #fff; }
 .banner-box img{width:100%}
 .stylebox { background: #fff; margin: 0 auto; width: 100%; text-align: center; border-radius: 8px; overflow: hidden; }
+
+.f-icon { display: block; text-align: center; font-size: 18px; line-height: 0; }
+.price.search-filter-input input{ border: 1px solid #ccc; border-radius: 0; padding: 4px 3px; max-width: 60px; max-height: 30px; background: #fff; border-radius: 2px; }
+.input-sets { float: left; margin: 0 8px 0 0; }
+.price.search-filter-input button{border: 1px solid #098888;transition: 0.3s; border-radius: 2px; background: #099; max-height: 30px; line-height: 30px; padding: 0px 10px; margin-top: 24px;}
+.price.search-filter-input button:hover{border: 1px solid #1aa; background: #23caca;}
+
+
+
+
+
 
 
 @media (min-width:1340px){

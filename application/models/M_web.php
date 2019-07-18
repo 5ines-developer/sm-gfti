@@ -92,10 +92,8 @@ class M_web extends CI_Model {
     // get banner
     public function getBanner($var = null)
     {
-        return $this->db->select('b.id, b.title, b.subtitle, b.price, b.path, p.image_path,p.product_id, p.des, c.name')
+        return $this->db->select('*')
                 ->from('banner b')
-                ->join('product p', 'p.id = b.product', 'left')
-                ->join('category c', 'c.id = p.category', 'left')
                 ->get()
                 ->result();        
     }

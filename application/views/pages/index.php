@@ -42,29 +42,13 @@
         <!-- slider -->
         <section class="banner">
             <div class="slick-slider">
-                <div class="slick-slider-iteme">
-                    <a href="">
-                        <img src="https://dummyimage.com/900x390/e02f2f/eff0f7" class="img-responsive" alt="">
-                    </a>
-                </div>
-
-                <div class="slick-slider-iteme">
-                    <a href="">
-                        <img src="https://dummyimage.com/900x390/2f8cde/eff0f7" class="img-responsive" alt="">
-                    </a>
-                </div>
-
-                <div class="slick-slider-iteme">
-                    <img src="https://dummyimage.com/900x390/8e31e6/eff0f7" class="img-responsive" alt="">
-                </div>
-
-                <div class="slick-slider-iteme">
-                    <img src="https://dummyimage.com/900x390/7ae633/eff0f7" class="img-responsive" alt="">
-                </div>
-
-                <div class="slick-slider-iteme">
-                    <img src="https://dummyimage.com/900x390/ff9500/eff0f7" class="img-responsive" alt="">
-                </div>
+                <?php foreach ($banner as $key => $value)  { ?>
+                    <div class="slick-slider-iteme">
+                        <a href="<?php echo $value->link ?>">
+                            <img src="<?php echo base_url().$value->path ?>" class="img-responsive" alt="<?php echo $value->title ?>">
+                        </a>
+                    </div>
+                <?php } ?>    
             </div>
         </section>
 
