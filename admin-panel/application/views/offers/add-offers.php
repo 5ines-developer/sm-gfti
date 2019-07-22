@@ -149,7 +149,7 @@
                                                 <input type="text" id="first-name" required="required"
                                                     class="form-control col-md-7 col-xs-12" name="link"
                                                     value="<?php echo (!empty($offers['link']))?$offers['link']:''  ?>">
-                                                    <input type="hidden" name="opst" value="<?php echo $offers['position'] ?>">
+                                                    <input type="hidden" name="opst" value="<?php echo (!empty($offers['position']))?$offers['position']:''  ?>">
                                             </div>
                                         </div>
                                         <?php if(!empty($offers['image']))
@@ -246,11 +246,11 @@
             if (position == '1') {
                 $('#image-link').css('display', 'block');
                 $("#ratio > small").remove();
-                $("#ratio").append(" <small>Please use 360 x 200 ratio image for good view </small>");
+                $("#ratio").append(" <small>Please use 390 x 200 ratio image for good view </small>");
             } else if (position == '2') {
                 $('#image-link').css('display', 'block');
                 $("#ratio > small").remove();
-                $("#ratio").append(" <small>Please use 360 x 200 ratio image for good view </small>");
+                $("#ratio").append(" <small>Please use 390 x 200 ratio image for good view </small>");
             } else if (position == '3') {
                 $('#image-link').css('display', 'block');
                 $("#ratio > small").remove();
@@ -258,7 +258,7 @@
             } else if (position == '4') {
                 $('#image-link').css('display', 'block');
                 $("#ratio > small").remove();
-                $("#ratio").append(" <small>Please use 400 x 475 ratio image for good view </small>");
+                $("#ratio").append(" <small>Please use 380 x 470 ratio image for good view </small>");
             } else {
                 alert('Please select the position');
             }

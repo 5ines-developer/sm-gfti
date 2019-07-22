@@ -15,7 +15,7 @@ class M_web extends CI_Model {
     public function getCatogory($var = null)
     {
         $this->db->select('id, name');
-        $this->db->order_by('id', 'desc');
+        $this->db->order_by('name', 'asc');
         return $this->db->get('category', 5)->result();
     }
 
@@ -97,6 +97,17 @@ class M_web extends CI_Model {
                 ->get()
                 ->result();        
     }
+
+        // get offer
+        public function getoffer($var = null)
+        {
+            return $this->db->select('*')
+                    ->from('offers o')
+                    ->get()
+                    ->result();        
+        }
+
+    
 }
 
 /* End of file M_web.php */
