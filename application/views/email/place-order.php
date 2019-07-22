@@ -101,13 +101,39 @@ $this->ci->load->model('m_cart');
                   <td width="560" valign="top" align="center" style="padding:0;Margin:0;"> 
                    <table style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:separate;border-spacing:0px;border-color:#EFEFEF;border-style:solid;border-width:1px;border-radius:3px;background-color:#FFFFFF;" width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffffff"> 
                      <tr style="border-collapse:collapse;width: 100%;"> 
-                      <td align="center" style="padding:0;margin:0;padding-bottom:15px;padding-top:20px;"> <h3 style="Margin:0;line-height:22px;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;font-size:18px;font-style:normal;font-weight:normal;color:#333333;">Order Detail</h3></td>                     
+                      <td align="center"  colspan="2" align="center" style="padding:0;margin:0;padding-bottom:15px;padding-top:20px;"> <h3 style="Margin:0;line-height:22px;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;font-size:18px;font-style:normal;font-weight:normal;color:#333333;">Order Detail</h3></td>                     
                      </tr> 
                      <tr>   <td align="left" style="padding:10px;Margin:0;padding-bottom:15px;padding-top:20px;">Order Id : <?php echo $bach ?></td>
                        <td align="right" style="padding:10px;Margin:0;padding-bottom:15px;padding-top:20px;">Date: <?php echo date("d-m-Y H:i:s"); ?></td>
-                       
-                       
                      </tr>
+                     <tr>   
+                     <th align="left" style="padding:10px;Margin:0;padding-bottom:15px;padding-top:20px;">Billing Address :</th>
+                     
+                     <th align="left" style="padding:10px;Margin:0;padding-bottom:0px;padding-top:20px;">Shipping Address :</th> </tr>
+                     <tr>
+                     
+                      <td align="left" style="padding:10px;Margin:0;padding-bottom:0px;" width="50%">
+                      <table>
+                        <tr> <td><?php echo $bill['company_name'] ?></td></tr>
+                        <tr> <td><?php echo $bill['street'] ?></td></tr>
+                        <tr>  <td><?php echo $bill['city'].','.$bill['religion'] ?></td></tr>
+                        <tr>  <td><?php echo $bill['country'].'-'.$bill['zip_code'] ?></td></tr>
+                        <tr>  <td><?php echo $bill['gst_number'] ?></td> </tr>
+                        </table>
+                      </td>
+
+
+                      <td align="left" style="padding:10px;Margin:0;padding-bottom:0px;" width="50%">
+                        <table>
+                          <tr> <td><?php echo $ship['name'] ?></td></tr>
+                          <tr> <td><?php echo $ship['street'] ?></td></tr>
+                          <tr>  <td><?php echo $ship['street1'] ?></td></tr>
+                          <tr>  <td><?php echo $ship['city'].','.$ship['religion'] ?></td></tr>
+                          <tr>  <td><?php echo $ship['country'].'-'.$ship['zip_code'] ?></td></tr>
+                          <tr>  <td><?php echo $ship['phone'] ?></tr>
+                        </table>
+                      </td>
+                      </tr>
                      <tr style="padding:10px;width: 100%;">
 
                      <table border="1" style="width: 100%;padding:10px;">
@@ -115,7 +141,7 @@ $this->ci->load->model('m_cart');
                         <th>Product</th>
                         <th>quantity</th>                        
                         <th>Unit Price</th>
-                        <th>Branding Price</th>
+                        <th>Branding Charges</th>
                         <th>Price</th>
                       </tr>
                       <?php if (!empty($detail)){
