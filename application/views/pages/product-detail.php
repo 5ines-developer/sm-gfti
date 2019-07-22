@@ -36,6 +36,15 @@
         <?php $this->load->view('includes/header');?>
 
         <section class="flat-product-detail">
+
+            <div class="loderbox">
+                <div class="text-center">
+                    <div class="spinner">
+                        <div class="double-bounce1"></div>
+                        <div class="double-bounce2"></div>
+                    </div>
+                </div>
+            </div>
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
@@ -76,18 +85,6 @@
                             <div class="footer-detail">
                                 <form action="<?php echo base_url('add-cart/').$product->product_id ?>" method="post">
                                     <div class="quanlity-box ">
-                                        <?php 
-                                        
-                                        if(!empty($brand)) { ?>
-                                        <div class="colors float-left">
-                                            <select name="brand">
-                                                <option value="">Branding Charges</option>
-                                                <?php foreach ($brand as $key => $value) {
-                                                echo '<option  value="'. $value->id.'">'.$value->title.'</option>';
-                                            } ?>
-                                            </select>
-                                        </div>
-                                        <?php } ?>
                                         <div class="quanlity" id='qantity-box'>
                                             <span class="btn-down"></span>
                                             <input type="number" name="qty" value="1" min="1" id="qty" max="1000"
@@ -95,6 +92,28 @@
                                             <span class="btn-up"></span>
                                         </div>
                                     </div><!-- /.quanlity-box -->
+                                    <div class="quanlity-box " id="selectbrand">
+                                        <?php 
+                                        
+                                        if(!empty($brand)) { ?>
+                                        <div class="colors float-left">
+                                            <select name="brand" class="brandng-charge">
+                                                <option value="">Branding Charges</option>
+                                                <?php foreach ($brand as $key => $value) {
+                                                echo '<option  value="'. $value->id.'">'.$value->title.'</option>';
+                                            } ?>
+                                            </select>
+                                        </div>
+                                        <?php } ?>
+                                        <div class="">
+                                            <p class="brandc-price">Price : </p>
+                                        </div>
+                                        <span class="more-brandc">
+                                            <a id="brand-plus" class="brandplus"><i class="fa fa-plus"
+                                                    aria-hidden="true"></i> </a>
+                                        </span>
+                                    </div><!-- /.quanlity-box -->
+
                                     <div class="box-cart style2">
                                         <div class="btn-add-cart">
                                             <button class="add-cart" type="submit"><img
@@ -200,6 +219,54 @@
             var newqty = parseInt(qty) + parseInt(1);
             $('#qty').val(newqty);
         });
+
+        // fetch branding charges price and display
+        $('.brandng-charge').change(function() {
+            var brand = $(this).val();
+            if (brand == '') {
+                $('.brandc-price>span').remove();
+                return false;
+            } else {
+                loder(true);
+                $.ajax({
+                    url: '<?php echo base_url() ?>Search/brand_price',
+                    datatype: 'html',
+                    data: {
+                        'brandid': brand
+                    }, // change this to send js object
+                    type: "get",
+                    success: function(data) {
+                        if (data != '') {
+                            $('.brandc-price>span').remove();
+                            $('.brandc-price').append("<span>&#8377; " + data + "</span>");
+                        }
+                        loder(false);
+                    }
+                });
+            }
+
+        });
+
+
+        $('#brand-plus').on('click', function(e) {
+            e.preventDefault();
+            $(' <div class="quanlity-box " id="selectbrand"> <?php if(!empty($brand)) { ?> <div class="colors float-left"> <select name="brand" class="brandng-charge"> <option value="">Branding Charges</option> <?php foreach ($brand as $key => $value) { echo '<option  value="'. $value->id.'">'.$value->title.'</option>'; } ?> </select> </div> <?php } ?> <div class=""> <p class="brandc-price">Price : </p> </div> <span class="close-brandc"> <a id="brand-plus" class="brandplus"><i class="fa fa-close" aria-hidden="true"></i> </a> </span> </div>')
+                .append().insertBefore('#selectbrand');
+
+        });
+
+
+        // loder
+        function loder(status) {
+            if (status == true) {
+                $('.loderbox').css('display', 'block');
+            } else {
+                $('.loderbox').css('display', 'none');
+            }
+        }
+
+
+
     });
     </script>
 </body>
