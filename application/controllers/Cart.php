@@ -83,6 +83,7 @@ class Cart extends CI_Controller {
                 $brndprice='';
                 $brprice='';
                 $dprice='';
+                $brcgprice='';
             $brprice = $this->m_cart->brandpriceFect($value->cid);
                     if(!empty($brprice)){
                     $nselect .= '<div class="brand-charge"> <div class="footer-detail c-category"><span>Branding Charges:</span> <ul>';
