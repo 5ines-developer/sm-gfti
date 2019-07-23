@@ -275,8 +275,11 @@ class Cart extends CI_Controller {
                 $address['ship'] = $this->m_cart->selectedship($shipping);
             }
 
-            $this->m_cart->insertOrder($data);
-            $this->sendorder($cartitesms,$bach,$address);
+            if($this->m_cart->insertOrder($data))
+            {
+                $this->sendorder($cartitesms,$bach,$address);
+                $this->sendadmin($cartitesms,$bach,$address);
+            }
         }
     }
 
@@ -318,6 +321,38 @@ class Cart extends CI_Controller {
             }
             
         }
+
+
+        //  place order request
+        function sendadmin($cartitesms='', $bach='',$address='')
+        {
+
+            $data['detail'] = $cartitesms;
+            $data['bach']   = $bach;
+            $data['bill']   = $address['bill'];
+            $data['ship']   = $address['ship'];
+            $this->load->config('email');
+            $this->load->library('email');
+            $from = $this->config->item('smtp_user');
+            $msg = $this->load->view('email/place-order-admin', $data, true);
+            $this->email->set_newline("\r\n");
+            $this->email->from($from , 'Gifting Express');
+            $this->email->to('prathwi@5ine.in');
+            $this->email->subject('Purchase order request'); 
+            $this->email->message($msg);
+            if($this->email->send())  
+            { 
+                return true;
+            } 
+            else
+            {
+                return false;
+            }
+            
+        }
+
+
+        
 
 }
 

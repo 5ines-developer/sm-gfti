@@ -85,10 +85,10 @@ $this->ci->load->model('m_cart');
                   <td width="600" valign="top" align="center" style="padding:0;Margin:0;"> 
                    <table style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:separate;border-spacing:0px;border-radius:3px;background-color:#FCFCFC;" width="100%" cellspacing="0" cellpadding="0" bgcolor="#fcfcfc"> 
                      <tr style="border-collapse:collapse;"> 
-                      <td class="es-m-txt-l" align="left" style="padding:0;Margin:0;padding-left:20px;padding-right:20px;padding-top:30px;"> <h2 style="Margin:0;line-height:31px;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;font-size:26px;font-style:normal;font-weight:normal;color:#333333;">Purchase Order Confirmation!</h2></td> 
+                      <td class="es-m-txt-l" align="left" style="padding:0;Margin:0;padding-left:20px;padding-right:20px;padding-top:30px;"> <h2 style="Margin:0;line-height:31px;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;font-size:26px;font-style:normal;font-weight:normal;color:#333333;">Order Placed Successfully!</h2></td> 
                      </tr> 
                      <tr style="border-collapse:collapse;"> 
-                      <td bgcolor="#fcfcfc" align="left" style="padding:0;Margin:0;padding-top:10px;padding-left:20px;padding-right:20px;"> <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;line-height:21px;color:#333333;">Thank you for Shopping with Gifting Xpress!<br> We have sent your purchase order request to admin. Our team will contact you soon.</p></td> 
+                      <td bgcolor="#fcfcfc" align="left" style="padding:0;Margin:0;padding-top:10px;padding-left:20px;padding-right:20px;"> <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:14px;font-family:helvetica, 'helvetica neue', arial, verdana, sans-serif;line-height:21px;color:#333333;">Thank you for Shopping with Gifting Xpress!<br> Your order has been placed and is now being processed!.</p></td> 
                      </tr> 
                    </table> </td> 
                  </tr> 
@@ -124,7 +124,7 @@ $this->ci->load->model('m_cart');
 
 
                       <td align="left" style="padding:10px;Margin:0;padding-bottom:0px;" width="50%">
-                      <table>
+                        <table>
                         <tr> <td><?php echo (!empty($ship['name']))?$ship['name']:$this->session->userdata('suser'); ?></td></tr>
                         <tr> <td><?php echo (!empty($ship['street']))?$ship['street']:$bill['company_name']; ?></td></tr>
                         <tr> <td><?php echo (!empty($ship['street1']))?$ship['street1']:$bill['street']; ?></td></tr>

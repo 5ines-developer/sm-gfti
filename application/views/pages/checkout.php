@@ -77,7 +77,7 @@
                                                     <div class="form-group">
                                                         <select class="form-control form-control-lg" id="biilingaddress"
                                                             required>
-                                                            <option  value="">
+                                                            <option value="">
                                                                 -----Choose the billing address-----</option>
                                                             <?php foreach ($billing as $key => $value) {
                                                                 echo '<option value=' . $value->id . '>' . $value->company_name . ',' . $value->street . '-' . $value->zip_code . '</option>';
@@ -282,21 +282,23 @@
                                             <div class="row ">
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label for="team-department">Team & Department <span class="error">*</span></label>
+                                                        <label for="team-department">Team & Department <span
+                                                                class="error">*</span></label>
                                                         <textarea class="form-control team-d" id="team-department"
                                                             rows="1" required></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label for="purchase-purpose">Purpose of Purchase <span class="error">*</span></label>
+                                                        <label for="purchase-purpose">Purpose of Purchase <span
+                                                                class="error">*</span></label>
                                                         <textarea class="form-control team-d" id="purchase-purpose"
                                                             rows="1" required></textarea>
                                                     </div>
                                                 </div>
                                             </div>
-                                            
-                                            
+
+
                                         </div>
                                     </div>
                                     <?php }?>
@@ -345,7 +347,7 @@
 
                             <div class="">
                                 <div id="addres-empty">
-                                    <a class="btn small-btn btn-link">Place Order</a><br>
+                                    <a class="btn small-btn btn-link">Purchase Order</a><br>
                                     <span class="error">Please add shipping address</span>
                                     <input type="hidden"
                                         value="<?php echo (!empty($shipping)) ? count($shipping) : '' ?>"
@@ -355,15 +357,16 @@
                                 <div id="place-chck">
 
                                     <?php if ($total >= 100000) {?>
-                                        <form action="<?php echo base_url() ?>place-order" method="POST" id="place-order-more">
-                                        <a href="#" class="razorpay-payment-button" id="more-lakh">Place Order</a>
+                                    <form action="<?php echo base_url() ?>place-order" method="POST"
+                                        id="place-order-more">
+                                        <a href="#" class="razorpay-payment-button" id="more-lakh">Purchase Order</a>
                                         <input type="hidden" custom="Hidden Element" name="team" id="more-taem">
                                         <input type="hidden" custom="Hidden Element" name="purpose" id="more-purpose">
                                     </form>
                                     <?php } else {?>
 
                                     <form action="<?php echo base_url() ?>payment/success/" method="POST"
-                                        style="float:left;margin-right:10px">
+                                        style="float:left;margin-right:10px" id="pay-form">
                                         <script src="https://checkout.razorpay.com/v1/checkout.js"
                                             data-key="rzp_test_ZPtHNE4hO3uWul" data-amount="<?php echo $total . '00' ?>"
                                             data-currency="INR" data-buttontext="Pay via Credit Card"
@@ -375,15 +378,20 @@
                                             data-theme.color="#009999">
                                         </script>
                                         <input type="hidden" custom="Hidden Element" name="hidden">
-                                        <input type="hidden" custom="Hidden Element place-taem" name="team" id="pay-team">
-                                        <input type="hidden" custom="Hidden Element place-purpose" name="purpose" id="pay-purpose">
+                                        <input type="hidden" custom="Hidden Element place-taem" name="team"
+                                            id="pay-team">
+                                        <input type="hidden" custom="Hidden Element place-purpose" name="purpose"
+                                            id="pay-purpose">
                                     </form>
 
-                                    <span style="float:left;line-height: 48px;margin-right:10px">OR</span> 
-                                    <form action="<?php echo base_url() ?>place-order" method="POST" id="place-order-less">
-                                        <a href="#" class="razorpay-payment-button" id="less-lakh">Place Order</a>
-                                        <input type="hidden" custom="Hidden Element place-taem" name="team"  id="less-taem">
-                                        <input type="hidden" custom="Hidden Element place-purpose" name="purpose" id="less-purpose">
+                                    <span style="float:left;line-height: 48px;margin-right:10px">OR</span>
+                                    <form action="<?php echo base_url() ?>place-order" method="POST"
+                                        id="place-order-less">
+                                        <a href="#" class="razorpay-payment-button" id="less-lakh">Purchase Order</a>
+                                        <input type="hidden" custom="Hidden Element place-taem" name="team"
+                                            id="less-taem">
+                                        <input type="hidden" custom="Hidden Element place-purpose" name="purpose"
+                                            id="less-purpose">
                                         <input type="hidden" class="bill-val" name="bill_val">
                                     </form>
                                     <?php }?>
@@ -441,6 +449,7 @@
             $('#addres-empty').css('display', 'block');
             $('#place-chck').css('display', 'none');
         }
+
         //destroy the session data
         "<?php echo $this->session->unset_userdata('bill_id'); ?>";
 
@@ -502,8 +511,10 @@
             var purpose = $("#purchase-purpose").val();
             var bill = $("#biilingaddress option:selected").val();
 
-            if (bill =='') {
-                $("#biilingaddress").after("<span class ='error'> Please Select the billing address</span>");
+            if (bill == '') {
+                $("#biilingaddress").next(".error").remove();
+                $("#biilingaddress").after(
+                    "<span class ='error'> Please Select the billing address</span>");
                 return false;
             }
 
@@ -516,20 +527,62 @@
                 var purposeval = $("#more-purpose").val();
                 var billval = $(".bill-val").val();
 
-                if (team != '' && purpose != '' && bill!='') {
+                if (team != '' && purpose != '' && bill != '') {
                     $('#place-order-more').submit();
-                }else{
+                } else {
                     return false;
                 }
 
-            }else{
+            } else {
                 $(".team-d").next("span").remove();
                 $("#team-department").after("<span class ='error'>Please enter a team detail</span>");
-                $("#purchase-purpose").after("<span class ='error'> Please enter a purpose of purchase</span>");
+                $("#purchase-purpose").after(
+                    "<span class ='error'> Please enter a purpose of purchase</span>");
                 return false;
             }
 
         });
+
+        //send values if price is more than 1lakh 
+        $("#pay-form").submit(function() {
+            var team = $("#team-department").val();
+            var purpose = $("#purchase-purpose").val();
+            var bill = $("#biilingaddress option:selected").val();
+
+            if (bill == '') {
+                $("#biilingaddress").next(".error").remove();
+                $("#biilingaddress").after(
+                    "<span class ='error'> Please Select the billing address</span>");
+                return false;
+            }
+
+            if (team != '' && purpose != '') {
+                $("#more-taem").val(team);
+                $("#more-purpose").val(purpose);
+                $(".bill-val").val(bill);
+
+                var taemval = $("#pay-taem").val();
+                var purposeval = $("#pay-purpose").val();
+                var billval = $(".bill-val").val();
+
+                if (team != '' && purpose != '' && bill != '') {
+                    $('#pay-form').submit();
+                } else {
+                    return false;
+                }
+
+            } else {
+                $(".team-d").next("span").remove();
+                $("#team-department").after("<span class ='error'>Please enter a team detail</span>");
+                $("#purchase-purpose").after(
+                    "<span class ='error'> Please enter a purpose of purchase</span>");
+                return false;
+            }
+
+        });
+
+
+
 
         //send values if price is less than 1lakh
         $("#less-lakh").click(function() {
@@ -538,10 +591,12 @@
 
             var bill = $("#biilingaddress option:selected").val();
 
-if (bill =='') {
-    $("#biilingaddress").after("<span class ='error'> Please Select the billing address</span>");
-    return false;
-}
+            if (bill == '') {
+                $("#biilingaddress").next(".error").remove();
+                $("#biilingaddress").after(
+                    "<span class ='error'> Please Select the billing address</span>");
+                return false;
+            }
 
             if (team != '' && purpose != '') {
                 $("#less-taem").val(team);
@@ -554,20 +609,21 @@ if (bill =='') {
 
                 if (team != '' && purpose != '') {
                     $('#place-order-less').submit();
-                }else{
+                } else {
                     return false;
                 }
 
-            }else{
+            } else {
                 $(".team-d").next("span").remove();
                 $("#team-department").after("<span class ='error'>Please enter a team detail</span>");
-                $("#purchase-purpose").after("<span class ='error'> Please enter a purpose of purchase</span>");
+                $("#purchase-purpose").after(
+                    "<span class ='error'> Please enter a purpose of purchase</span>");
                 return false;
             }
 
         });
 
-        
+
 
 
 

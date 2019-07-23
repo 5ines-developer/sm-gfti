@@ -21,8 +21,11 @@ class payment extends CI_Controller {
         
         $this->load->helper('string');
         $bach = 'SMB-'.random_string('numeric', 14);
-
-        $shipping = $this->m_cart->getdefaultShipping($this->uid);
+        if(empty($this->session->userdata('bill_id')))
+        {
+            $shipping = $this->m_cart->getdefaultShipping($this->uid);
+        }
+        
         $cartitesms = $this->m_cart->getCart($this->uid);
 
         foreach ($cartitesms as $key => $value) {
@@ -32,21 +35,94 @@ class payment extends CI_Controller {
                 'order_bach'    => $bach, 
                 'product'       =>  $value->prid, 
                 'order_by'      => $this->uid, 
-                'shipping'      => $shipping, 
                 'brand_price'   =>  $value->bprice, 
                 'qty'           =>  $value->qty, 
-                'price'         =>  $value->price, 
-                'billing'       =>  '0', 
-                'shipping'      =>  $shipping, 
+                'price'         =>  $value->price,
+                'team'          => $team,
+                'purpose'       => $puropse, 
                 'payment_id'    => $paymentid,
             );
 
-            $this->m_cart->insertOrder($data);
+            if (!empty($this->session->userdata('bill_id'))) {
+                $data['billing'] = $this->session->userdata('bill_id');
+                $data['shipping'] = '0';
+                $address['bill'] = $this->m_cart->selectedbilling($data['billing']);
+                $address['ship'] = $this->m_cart->selectedbilling($data['billing']);
+            }else{
+                $data['billing'] = $this->input->post('bill_val');
+                $data['shipping'] = $shipping;
+                $address['bill'] = $this->m_cart->selectedbilling($data['billing']);
+                $address['ship'] = $this->m_cart->selectedship($shipping);
+            }
 
+            if($this->m_cart->insertOrder($data))
+            {
+                $this->sendorder($cartitesms,$bach,$address);
+                $this->sendadmin($cartitesms,$bach,$address);
+            }
             redirect('my-orders','refresh');
         }
         
     }
+
+
+            //  place order request
+            function sendorder($cartitesms='', $bach='',$address='')
+            {
+    
+                $to = $this->session->userdata('suser');
+                $data['detail'] = $cartitesms;
+                $data['bach']   = $bach;
+                $data['bill']   = $address['bill'];
+                $data['ship']   = $address['ship'];
+                $this->load->config('email');
+                $this->load->library('email');
+                $from = $this->config->item('smtp_user');
+                $msg = $this->load->view('email/place-order', $data, true);
+                $this->email->set_newline("\r\n");
+                $this->email->from($from , 'Gifting Express');
+                $this->email->to($to);
+                $this->email->subject('Purchase order request'); 
+                $this->email->message($msg);
+                if($this->email->send())  
+                { 
+                    return true;
+                } 
+                else
+                {
+                    return false;
+                }
+                
+            }
+
+
+          //  place order request
+          function sendadmin($cartitesms='', $bach='',$address='')
+          {
+  
+              $data['detail'] = $cartitesms;
+              $data['bach']   = $bach;
+              $data['bill']   = $address['bill'];
+              $data['ship']   = $address['ship'];
+              $this->load->config('email');
+              $this->load->library('email');
+              $from = $this->config->item('smtp_user');
+              $msg = $this->load->view('email/place-order-admin', $data, true);
+              $this->email->set_newline("\r\n");
+              $this->email->from($from , 'Gifting Express');
+              $this->email->to('prathwi@5ine.in');
+              $this->email->subject('Purchase order request'); 
+              $this->email->message($msg);
+              if($this->email->send())  
+              { 
+                  return true;
+              } 
+              else
+              {
+                  return false;
+              }
+              
+          }
 
     
 
