@@ -24,11 +24,13 @@ class Cart extends CI_Controller {
 
         $qty = $this->input->post('qty');
         $brand = $this->input->post('brand');
+        $size = $this->input->post('size');
 
+        
         if (empty($qty)) { $qty = 1; }
         if (empty($brand)) { $brand = ''; }
         
-        $datas = array('qty' => $qty, 'barand_price' => $brand, 'product' => $pid);
+        $datas = array('qty' => $qty, 'barand_price' => $brand, 'product' => $pid, 'size' => $size);
         $this->m_cart->addTocart($datas, $this->uid);
 
         // $data['cart'] = $this->m_cart->getCart($this->uid);

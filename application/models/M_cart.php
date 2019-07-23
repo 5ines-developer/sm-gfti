@@ -10,7 +10,7 @@ class M_cart extends CI_Model
     {
         $prid = $this->getProductid($datas['product']);
 
-        $data = array('qty' => $datas['qty'], 'barand_price' => $datas['barand_price'], 'product' => $prid, 'emp_id' => $eid);
+        $data = array('qty' =>$datas['qty'], 'size' => $datas['size'], 'barand_price' => $datas['barand_price'], 'product' => $prid, 'emp_id' => $eid);
 
         $this->db->where('emp_id', $eid);
         $this->db->where('product', $prid);

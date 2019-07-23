@@ -67,37 +67,71 @@
                                     <?php echo $product->name ?>
                                 </div>
 
+                                <div class="reviewed">
+									<!-- <div class="review">
+										<div class="queue">
+											<i class="fa fa-star" aria-hidden="true"></i>
+											<i class="fa fa-star" aria-hidden="true"></i>
+											<i class="fa fa-star" aria-hidden="true"></i>
+											<i class="fa fa-star" aria-hidden="true"></i>
+											<i class="fa fa-star" aria-hidden="true"></i>
+										</div>
+										<div class="text">
+											<span>3 Reviews</span>
+											<span class="add-review">Add Your Review</span>
+										</div>
+									</div> -->
+									<div class="status-product">
+                                        Availablity 
+                                        <?php
+                                            if($product->available_stock > 0){
+                                                echo '<span class="green">In stock</span>';
+                                            }else{
+                                                echo '<span >Out of stock</span>';
+                                            }
+                                        ?>    
+                                        
+									</div>
+								</div>
+
                             </div><!-- /.header-detail -->
                             <div class="content-detail">
                                 <div class="price">
-
+                                    <div >
+                                        <span class="regular">
+                                            &#8377; <?php echo $product->price ?>
+                                        </span>
+                                    <span class="percentace">
+                                        <?php echo  (!empty($product->discount)) ? $product->discount.' % off' :'' ?>
+                                    </span>
+									</div>
                                     <div class="sale">
-                                        &#8377; <?php echo $product->price ?>
+                                        &#8377; <?php  $discount =  ($product->price * $product->discount) / 100 ; echo $product->price - $discount; ?>
                                     </div>
                                 </div>
                                 <div class="info-text">
                                     <?php echo   mb_strimwidth($product->des, 0, 120, "...") ?>
                                 </div>
                                 <div class="product-id">
-                                    SKU: <span class="id"><?php echo $product->product_id  ?></span>
+                                    HSN: <span class="id"><?php echo $product->hsn  ?></span>
                                 </div>
                             </div><!-- /.content-detail -->
                             <div class="footer-detail">
                                 <form action="<?php echo base_url('add-cart/').$product->product_id ?>" method="post">
                                     <div class="quanlity-box ">
-                                        <div class="quanlity" id='qantity-box'>
+                                       
+                                        <div class="quanlity float-left mr8" id='qantity-box'>
                                             <span class="btn-down"></span>
                                             <input type="number" name="qty" value="1" min="1" id="qty" max="1000"
                                                 placeholder="Quanlity">
                                             <span class="btn-up"></span>
                                         </div>
-                                    </div><!-- /.quanlity-box -->
-                                    <div class="quanlity-box " id="selectbrand">
+
                                         <?php 
                                         
                                         if(!empty($brand)) { ?>
-                                        <div class="colors float-left">
-                                            <select name="brand" class="brandng-charge">
+                                        <div class="colors ">
+                                            <select name="brand">
                                                 <option value="">Branding Charges</option>
                                                 <?php foreach ($brand as $key => $value) {
                                                 echo '<option  value="'. $value->id.'">'.$value->title.'</option>';
@@ -105,59 +139,34 @@
                                             </select>
                                         </div>
                                         <?php } ?>
-                                        <div class="">
-                                            <p class="brandc-price">Price : </p>
-                                        </div>
-                                        <span class="more-brandc">
-                                            <a id="brand-plus" class="brandplus"><i class="fa fa-plus"
-                                                    aria-hidden="true"></i> </a>
-                                        </span>
-                                    </div><!-- /.quanlity-box -->
 
+                                    </div><!-- /.quanlity-box -->
+                                    <div class="clearfix"></div>
+                                    <?php if(!empty($size)){ ?>
+                                        <div class="size-box">
+                                            <span class="size-text">Size:</span>
+                                            <ul>
+                                                <?php  foreach ($size as $key => $value) { ?>
+                                                    <li>
+                                                        <label for="" class="<?php echo ($key == 0)? 'cheked' : '' ?>">
+                                                            <span class="c-box"><?php echo $value->size_name ?></span>
+                                                            <input <?php echo ($key == 0)? 'checked' : '' ?> type="radio" value="<?php echo $value->id ?>" name="size" id="">
+                                                        </label>
+                                                    </li>
+                                                <?php } ?>
+                                            </ul>
+                                        </div>
+                                    <?php } ?>    
                                     <div class="box-cart style2">
                                         <div class="btn-add-cart">
-                                            <button class="add-cart" type="submit"><img
+                                            <button class="add-cart" type="<?php echo($product->available_stock > 0) ? 'disabled' : 'disabled' ?>"><img
                                                     src="<?php echo base_url()?>assets/images/icons/add-cart.png"
                                                     alt="">Add to Cart</button>
                                         </div>
 
                                     </div><!-- /.box-cart -->
                                 </form>
-                                <div class="social-single">
-                                    <span>SHARE</span>
-                                    <ul class="social-list style2">
-                                        <li>
-                                            <a href="#" title="">
-                                                <i class="fa fa-facebook" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="">
-                                                <i class="fa fa-twitter" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="">
-                                                <i class="fa fa-instagram" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="">
-                                                <i class="fa fa-pinterest" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="">
-                                                <i class="fa fa-dribbble" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="">
-                                                <i class="fa fa-google" aria-hidden="true"></i>
-                                            </a>
-                                        </li>
-                                    </ul><!-- /.social-list -->
-                                </div><!-- /.social-single -->
+                                
                             </div><!-- /.footer-detail -->
                         </div><!-- /.product-detail -->
                     </div><!-- /.col-md-6 -->
@@ -220,53 +229,12 @@
             $('#qty').val(newqty);
         });
 
-        // fetch branding charges price and display
-        $('.brandng-charge').change(function() {
-            var brand = $(this).val();
-            if (brand == '') {
-                $('.brandc-price>span').remove();
-                return false;
-            } else {
-                loder(true);
-                $.ajax({
-                    url: '<?php echo base_url() ?>Search/brand_price',
-                    datatype: 'html',
-                    data: {
-                        'brandid': brand
-                    }, // change this to send js object
-                    type: "get",
-                    success: function(data) {
-                        if (data != '') {
-                            $('.brandc-price>span').remove();
-                            $('.brandc-price').append("<span>&#8377; " + data + "</span>");
-                        }
-                        loder(false);
-                    }
-                });
-            }
-
-        });
-
-
-        $('#brand-plus').on('click', function(e) {
+        $('.size-box ul li label').click(function (e) { 
             e.preventDefault();
-            $(' <div class="quanlity-box " id="selectbrand"> <?php if(!empty($brand)) { ?> <div class="colors float-left"> <select name="brand" class="brandng-charge"> <option value="">Branding Charges</option> <?php foreach ($brand as $key => $value) { echo '<option  value="'. $value->id.'">'.$value->title.'</option>'; } ?> </select> </div> <?php } ?> <div class=""> <p class="brandc-price">Price : </p> </div> <span class="close-brandc"> <a id="brand-plus" class="brandplus"><i class="fa fa-close" aria-hidden="true"></i> </a> </span> </div>')
-                .append().insertBefore('#selectbrand');
-
+            $(this).find('input[type=radio]').prop("checked", true);
+            $('.size-box ul li label').removeClass('cheked');
+            $(this).addClass('cheked');
         });
-
-
-        // loder
-        function loder(status) {
-            if (status == true) {
-                $('.loderbox').css('display', 'block');
-            } else {
-                $('.loderbox').css('display', 'none');
-            }
-        }
-
-
-
     });
     </script>
 </body>
