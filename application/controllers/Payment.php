@@ -57,6 +57,7 @@ class payment extends CI_Controller {
 
             if($this->m_cart->insertOrder($data))
             {
+                $this->m_cart->deletecartBrand($value->cid,$orderid);
                 $this->sendorder($cartitesms,$bach,$address);
                 $this->sendadmin($cartitesms,$bach,$address);
             }

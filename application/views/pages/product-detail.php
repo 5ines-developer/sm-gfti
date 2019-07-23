@@ -162,6 +162,7 @@
                                                 </div>
                                             </td>
                                             <td class="brand-td">
+                                            <?php if(!empty($brand)) { ?>
                                                 <div class="quanlity-box selectbrand" id="selectbrand">
                                                     <div class="">
                                                         <p class="brandc-price">Price : </p>
@@ -171,6 +172,7 @@
                                                         <a id="brand-plus" class="brandplus"><i class="fa fa-plus" aria-hidden="true"></i> </a>
                                                     </span>
                                                 </div>
+                                                <?php } ?>
 
                                             </td>
                                         </tr>

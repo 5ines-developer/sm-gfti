@@ -115,6 +115,40 @@ class M_cart extends CI_Model
 
     }
 
+    public function deletecartBrand($cid,$orderid)
+    {
+        if($this->updateorderBrand($cid,$orderid))
+        {
+            $this->db->where('cart_id', $cid);
+            $this->db->delete('cart_branding');
+        }
+        return true;
+    }
+
+    //update order branding charges
+    public function updateorderBrand($cid,$orderid)
+    {
+        $this->db->where('cart_id', $cid);
+       $query =  $this->db->get('cart_branding');
+
+       if ($query->num_rows() > 0) {
+
+        foreach ($query->result() as $key => $value) {
+            $insert =array(
+                'order_id' => $orderid,
+                'brand_title' => $value->brand_title,
+                'brand_price' => $value->brand_price,
+                'brand_id' => $value->brand_id,
+
+            );
+            $this->db->insert('order_branding', $insert); }
+       }
+        return true;
+
+    }
+
+    
+
     // decreez product qty
     public function protectedQty($data)
     {
