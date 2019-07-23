@@ -239,4 +239,19 @@ if(!empty($this->data['categories']['marquee']) && $this->session->userdata('sid
             </section>
 
     
-                        <?php } ?>
+<?php } 
+if(!empty($this->session->flashdata('msg'))){
+?>
+
+<section style="padding: 15px 0 0 0; background: #f8f8f8;">
+    <div class="container">
+        <div class="col-sm-8 push-sm-3">
+            <div class="alert alert-success alert-dismissible " style="margin:0px">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <?php echo $this->session->flashdata('msg') ?>
+            </div>
+        </div>
+    </div>
+</section>
+
+<?php } ?>

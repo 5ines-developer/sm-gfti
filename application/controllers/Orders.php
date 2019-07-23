@@ -45,5 +45,21 @@ class Orders extends CI_Controller {
             $this->load->view('pages/product-detail', $data, FALSE);
         }
 
+        // review
+        public function review()
+        {
+           $input = $this->input->post();
+           $data = array(
+               'rating' => $input['rating'],
+               'product' => $input['product'],
+               'headline' => $input['headline'],
+               'comments' => $input['cmd'],
+               'user' => $this->uid,
+           );
+           $this->m_orders->review($data);
+           $this->session->set_flashdata('msg', 'We’re processing your review. This may take several days, so we appreciate your patience. We’ll notify you when this is complete.');
+           redirect('my-orders','refresh');
+        }
+
 
 }
