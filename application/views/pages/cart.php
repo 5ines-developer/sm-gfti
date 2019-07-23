@@ -8,7 +8,7 @@
     <!-- Basic Page Needs -->
     <meta charset="UTF-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <title>Gifting Express</title>
+    <title>Gifting Express | cart</title>
 
     <meta name="author" content="CreativeLayers">
 
@@ -121,6 +121,18 @@
     <?php $this->load->view('includes/searchq'); ?>
     <script>
     $(function() {
+
+// cart cout fetch
+        function cartCout() { 
+            $.get("<?php echo base_url('cart/cartcount') ?>",
+                function (data) {
+                    $('.icon-cart span').text(data);
+                },
+                "html"
+            );
+         }
+        cartCout();
+
         // loder
         function loder(status) {
             if (status == true) {
@@ -229,6 +241,7 @@
                 data: "data",
                 success: function(response) {
                     cartitems();
+                    cartCout();
                 }
             });
         });

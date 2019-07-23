@@ -27,7 +27,8 @@ class Orders extends CI_Controller {
     public function index()
     {
         $data['title'] = 'Orders - Siemens';
-        $data['order']   = $this->Order_model->getorders();
+        $statuscode = $this->input->get('scode');
+        $data['order']   = $this->Order_model->getorders($statuscode);
         $this->load->view('order/manage-order',$data);
     }
 

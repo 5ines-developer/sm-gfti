@@ -8,8 +8,13 @@ class Order_model extends CI_Model {
          * @url : manage-order
          * 
         */
-        public function getorders()
+        public function getorders($statuscode = null)
 		{
+            if($statuscode == 1){
+                $this->db->where('payment_id is NOT NULL', NULL, FALSE);
+            }elseif($statuscode == 2){
+                $this->db->where('payment_id is NULL', NULL, FALSE);
+            }
             $this->db->order_by('id', 'desc');
 			$query = $this->db->get('orders');
 			if ($query->num_rows() > 0) 

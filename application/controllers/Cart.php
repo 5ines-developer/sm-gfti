@@ -381,6 +381,11 @@ class Cart extends CI_Controller {
             
         }
 
+        // cart cout
+        public function cartcount()
+        {
+            echo $this->m_cart->cart_item($this->session->userdata('sid'));
+        }
 
         
 
