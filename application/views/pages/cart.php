@@ -66,7 +66,7 @@
                     </div><!-- /.col-lg-8 -->
                     <div class="col-lg-4">
                         <div class="cart-totals ">
-                            <h3 style="border-bottom: 1px dotted gray; padding-bottom: 15px;">Price details</h3>
+                            <h3 style="border-bottom: 1px dotted gray; padding-bottom: 15px;">Price including GST</h3>
                             <form action="<?php echo base_url('checkout') ?>" method="post" >
                                 <table class="mt-50">
                                     <tbody>

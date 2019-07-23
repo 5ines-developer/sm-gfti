@@ -34,7 +34,16 @@ class M_cart extends CI_Model
 
     public function addcartbrand($insert)
     {
-        $this->db->insert('cart_branding', $insert);
+        $this->db->where('cart_id', $insert['cart_id']);
+        $this->db->where('brand_id', $insert['brand_id']);
+        $query = $this->db->get('cart_branding');
+        if ($query->num_rows() > 0) {
+            $this->db->where('cart_id', $insert['cart_id']);
+        $this->db->where('brand_id', $insert['brand_id']);
+            $this->db->update('cart_branding', $insert);
+        }else{
+            $this->db->insert('cart_branding', $insert);
+        }
         return true;
     }
 
@@ -66,7 +75,7 @@ class M_cart extends CI_Model
     // get cart item
     public function getCart($eid)
     {
-        $this->db->select('qty, p.id as prid, product_id, name,c.id as cid, p.title as ptitle, p.image_path, p.price as price, b.title as title, b.price as bprice ');
+        $this->db->select('qty, p.id as prid, product_id, name,c.id as cid, p.discount as pdiscount,p.gst as pgst,p.title as ptitle, p.image_path, p.price as price, b.title as title, b.price as bprice ');
         $this->db->where('emp_id', $eid);
         $this->db->from('cart c');
         $this->db->join('product p', 'p.id = c.product', 'left');
@@ -207,8 +216,8 @@ class M_cart extends CI_Model
 
     public function brandpriceFect($id = null)
     {
-        $this->db->where('product', $id);
-        return $this->db->get('brad_pricing')->result();
+        $this->db->where('cart_id', $id);
+        return $this->db->get('cart_branding')->result();
     }
 
     public function updateBrand($id, $prd)

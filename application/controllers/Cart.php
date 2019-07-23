@@ -33,7 +33,10 @@ class Cart extends CI_Controller {
         $datas = array('qty' => $qty,'product' => $pid, 'size' => $size);
         $data['cartid'] = $this->m_cart->addTocart($datas, $this->uid);
 
-        $this->cart_branding($brand,$data['cartid']);
+        if (!empty($brand)) {
+            $this->cart_branding($brand,$data['cartid']);
+        }
+
 
         // $data['cart'] = $this->m_cart->getCart($this->uid);
         $this->load->view('pages/cart', $data, FALSE);
@@ -70,41 +73,31 @@ class Cart extends CI_Controller {
     {
         $items = ''; $cout = 0; $total = 0;
         $cart = $this->m_cart->getCart($this->uid);
+
+        
        
         if(!empty($cart)){
             foreach ($cart as $key => $value) {
                 $brselect = '';
                 $nselect = '';
-            $brprice = $this->m_cart->brandpriceFect($value->prid);
-            
-                foreach ($brprice as $keys => $values) {
-                    if(!empty($values)){
-                        $brselect .= '<option value="'.$values->id.'">'.$values->title.'</option>';
-                    }
-                        
-                }
-
-                if(!empty($brprice)){
-                    $nselect .= '<div class="brand-charge">
-                                    <div class="footer-detail">
-                                        <div class="quanlity-box">
-                                            <div class="colors">
-                                            <select name="brandCharge"> 
-                                            <option value="">Branding Charges</option>
-                                            '.$brselect.' 
-                                            </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>';
-                    
+                $brndprice='';
+                $brprice='';
+                $dprice='';
+            $brprice = $this->m_cart->brandpriceFect($value->cid);
+                    if(!empty($brprice)){
+                    $nselect .= '<div class="brand-charge"> <div class="footer-detail c-category"><span>Branding Charges:</span> <ul>';
+                        foreach ($brprice as $keys => $values) {
+                            $brndprice[] = $values->brand_price;
+                            $nselect .= '<li>'.$values->brand_title.'&nbsp;&nbsp; &#8377;'.$values->brand_price.' </li>';
+                            }
+                                            $brcgprice = array_sum($brndprice);
+                    $nselect .=   '</ul> </div> </div>';
                 }else{
                     $nselect .= '';
                 }
-           
-            
-
-            $amount =  ($value->price * $value->qty) + ($value->qty * $value->bprice );
+            $discount =  ($value->price * $value->pdiscount) / 100 ;
+            $gst =  ($value->price * $value->pgst) / 100 ;
+            $amount =  ($value->price * $value->qty) + ($value->qty * $brcgprice ) + ($gst * $value->qty) - ($value->qty * $discount);
             $total = $total + $amount;
                 $items .= '<div class="cart-items">
                 <div class="cart-item" dataid="'.$value->cid.'">
@@ -202,10 +195,14 @@ class Cart extends CI_Controller {
         $data['cart'] = $this->m_cart->getCart($this->uid);
         $data['shipping'] = $this->m_cart->getShipping($this->uid);
         $data['billing'] = $this->m_cart->getBilling();
+        foreach($data['cart'] as $key => $value){
+            $brand[] = $this->m_cart->brandpriceFect($value->cid);
+        }
+        foreach ($brand as $key1 => $value1) { }
+        $data['branding'] = $value1;
         $this->load->model('m_account');
         $data['user'] = $this->m_account->profileGet($this->uid);
         $this->load->view('pages/checkout', $data, FALSE);
-        
        
     }
 
@@ -307,6 +304,7 @@ class Cart extends CI_Controller {
 
             if($this->m_cart->insertOrder($data))
             {
+                $this->m_cart->deletecartBrand($value->id);
                 $this->sendorder($cartitesms,$bach,$address);
                 $this->sendadmin($cartitesms,$bach,$address);
             }

@@ -325,21 +325,28 @@
                                 <tbody>
                                     <?php
                                     $total = 0;
-                                    foreach ($cart as $key => $value) {?>
+                                    foreach ($cart as $key => $value) { 
+
+                                            $discount =  ($value->price * $value->pdiscount) / 100 ;
+                                            $gst =  ($value->price * $value->pgst) / 100 ;
+                                            foreach ($branding as $keys => $values) { 
+                                                $brndprice[] = $values->brand_price;
+                                                $brcgprice = array_sum($brndprice);
+                                            } 
+                                            $amount =  ($value->price * $value->qty) + ($value->qty * $brcgprice ) + ($gst * $value->qty) - ($value->qty * $discount); }
+                                       ?>
                                     <tr>
                                         <td><?php echo $value->name ?><br><?php echo $value->product_id . ' (' . $value->qty . ' piece)' ?>
                                         </td>
-                                        <td>&#8377; <?php echo ($value->qty * $value->price) ?></td>
+                                        <td>&#8377; <?php echo $amount ?></td>
                                     </tr>
-                                    <?php $total = ($total + ($value->qty * $value->price));
-                                        }?>
                                 </tbody>
                             </table><!-- /.product -->
                             <table>
                                 <tbody>
                                     <tr>
                                         <td>Total</td>
-                                        <td class="price-total">&#8377; <?php echo $total ?></td>
+                                        <td class="price-total">&#8377; <?php echo $amount ?></td>
                                     </tr>
                                 </tbody>
                             </table>
