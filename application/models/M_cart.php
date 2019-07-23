@@ -8,22 +8,46 @@ class M_cart extends CI_Model
     // add to cart
     public function addTocart($datas, $eid)
     {
+        
         $prid = $this->getProductid($datas['product']);
 
-        $data = array('qty' =>$datas['qty'], 'size' => $datas['size'], 'barand_price' => $datas['barand_price'], 'product' => $prid, 'emp_id' => $eid);
+        $data = array('qty' =>$datas['qty'], 'size' => $datas['size'],'product' => $prid, 'emp_id' => $eid);
 
         $this->db->where('emp_id', $eid);
         $this->db->where('product', $prid);
         $query = $this->db->get('cart');
+
         if ($query->num_rows() > 0) {
             $this->db->where('emp_id', $eid);
             $this->db->where('product', $prid);
             $this->db->update('cart', $data);
+
+            foreach ($query->result() as $key => $value) {
+                return $value->id;
+            }
         } else {
             $this->db->insert('cart', $data);
+            return $insert_id = $this->db->insert_id();
         }
+        return $insert_id;
+    }
+
+    public function addcartbrand($insert)
+    {
+        $this->db->insert('cart_branding', $insert);
         return true;
     }
+
+    public function getbrand($brand='')
+    {
+        $this->db->where('id', $brand);
+        $query = $this->db->get('brad_pricing')->result();
+        return $query;
+    }
+
+
+
+    
 
     // get product
     public function getProductid($pid = null)

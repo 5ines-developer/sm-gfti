@@ -4780,25 +4780,74 @@ section.banner {
 
 /* check out page 18-07-2019 */
 
-input[type="checkbox"] { opacity: 0.7; }
-.form-check-input { position: absolute; margin-top: 7px; margin-left: 0; }
-#make-ship-div { display: none; }
-.select2-search__field { height: 35px !important; }
-.select2-container .select2-selection--single { height: 34px !important; }
-.select2-container--default .select2-results__option--highlighted[aria-selected] { background-color: #099 !important; }
-.team-purpose textarea { height: 75px; }
-.green { background: green !important; }
-.info-text h1, .info-text h2, .info-text h3, .info-text h4, .info-text h5, .info-text h6, .info-text p, .info-text span, .info-text b, .info-text strong { font-size: 13px !important; font-weight: 500 !important; }
-.percentace{font-size: 14px; margin-left: 10px; color: green;}
-.mr8{margin-right: 8px}
-.size-box ul li{
+input[type="checkbox"] {
+    opacity: 0.7;
+}
+
+.form-check-input {
+    position: absolute;
+    margin-top: 7px;
+    margin-left: 0;
+}
+
+#make-ship-div {
+    display: none;
+}
+
+.select2-search__field {
+    height: 35px !important;
+}
+
+.select2-container .select2-selection--single {
+    height: 34px !important;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #099 !important;
+}
+
+.team-purpose textarea {
+    height: 75px;
+}
+
+.green {
+    background: green !important;
+}
+
+.info-text h1,
+.info-text h2,
+.info-text h3,
+.info-text h4,
+.info-text h5,
+.info-text h6,
+.info-text p,
+.info-text span,
+.info-text b,
+.info-text strong {
+    font-size: 13px !important;
+    font-weight: 500 !important;
+}
+
+.percentace {
+    font-size: 14px;
+    margin-left: 10px;
+    color: green;
+}
+
+.mr8 {
+    margin-right: 8px
+}
+
+.size-box ul li {
     display: inline-block;
     margin-right: 3px;
 }
-.size-box ul li label input[type=radio]{
+
+.size-box ul li label input[type=radio] {
     position: absolute;
     opacity: 0;
 }
+
 .size-box ul li label {
     position: relative;
     width: 42px;
@@ -4849,4 +4898,57 @@ input[type="checkbox"] { opacity: 0.7; }
 
 .more-brandc a:hover {
     background-color: #2d2d2d;
+}
+
+
+/***** product detail 22-07-2019 ********/
+
+.brandc-price {
+    background-color: #fff;
+    box-shadow: 0px 2px 3px 0px rgba(234, 234, 234, 1);
+    height: 46px;
+    position: relative;
+    display: block;
+    font-family: 'Open Sans';
+    width: 100%;
+    line-height: 30px;
+    padding: 8px 15px 8px 30px;
+    color: #727272;
+    border: none;
+    border-radius: 2px;
+    cursor: context-menu;
+}
+
+#qantity-box {
+    margin-bottom: 20px;
+}
+
+.more-brandc a {
+    margin-left: 10px;
+    background-color: #f92400;
+    color: #fff !important;
+    padding: 7px 10px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.more-brandc a:hover {
+    background-color: #2d2d2d;
+}
+
+.selectbrand {
+    margin-top: 20px;
+}
+
+.brandclose {
+    margin-left: 10px;
+    background-color: #574c4a !important;
+    color: #fff !important;
+    padding: 7px 10px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.brand-td {
+    vertical-align: middle;
 }
