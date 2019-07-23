@@ -59,22 +59,44 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="banner-box one-half style2">
+                        <?php
+
+                        if (!empty($offer)) {
+                           foreach ($offer as $key => $value) {
+                               if ($value->position == '1') {
+                                  $image1 = $value->image;
+                                  $link1= $value->link;
+                               }elseif ($value->position == '2') {
+                                $image2 = $value->image;
+                                $link2 = $value->link;
+                               }elseif ($value->position == '3') {
+                                $image3 = $value->image;
+                                $link3 = $value->link;
+                               }elseif ($value->position == '4') {
+                                $image4 = $value->image;
+                                $link4 = $value->link;
+                               }
+                           }
+                        }
+                        
+                        
+                        ?>
                             <div class="inner-box">
-                                <a href="#" title="">
-                                    <img src="https://dummyimage.com/390x200/49c9b8/eff0f7" alt="">
+                                <a href="<?php echo (!empty($link1))?$link1:'';?>" title="">
+                                    <img src="<?php echo (!empty($image1))?$image1:'https://dummyimage.com/390x200/49c9b8/eff0f7' ?>" alt="">
                                 </a>
                             </div><!-- /.inner-box -->
                             <div class="inner-box">
-                                <a href="#" title="">
-                                    <img src="https://dummyimage.com/390x200/49c9b8/eff0f7" alt="">
+                                <a href="<?php echo (!empty($link2))?$link2:'';?>" title="">
+                                <img src="<?php echo (!empty($image2))?$image2:'https://dummyimage.com/390x200/49c9b8/eff0f7' ?>" alt="">
                                 </a>
                             </div><!-- /.inner-box -->
                             <div class="clearfix"></div>
                         </div><!-- /.box -->
                         <div class="banner-box">
                             <div class="inner-box">
-                                <a href="#" title="">
-                                    <img src="https://dummyimage.com/785x241/49c9b8/eff0f7" alt="">
+                                <a href="<?php echo (!empty($link3))?$link3:'';?>" title="">
+                                <img src="<?php echo (!empty($image3))?$image3:'https://dummyimage.com/785x241/49c9b8/eff0f7' ?>" alt="">
                                 </a>
                             </div>
                         </div><!-- /.box -->
@@ -82,8 +104,8 @@
                     <div class="col-md-4">
                         <div class="stylebox banner-box">
                             <div class="inner-box">
-                                <a href="#" title="">
-                                    <img src="https://dummyimage.com/380x470/49c9b8/eff0f7" alt="">
+                                <a href="<?php echo (!empty($link4))?$link4:'';?>" title="">
+                                <img src="<?php echo (!empty($image4))?$image4:'https://dummyimage.com/380x470/49c9b8/eff0f7' ?>" alt="">
                                 </a>
                             </div>
                         </div><!-- /.counter -->

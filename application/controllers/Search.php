@@ -114,6 +114,13 @@ class Search extends CI_Controller {
         $this->load->view('pages/product-detail', $data, FALSE);
     }
 
+
+    public function brand_price($id = null)
+    {
+        $brandid = $this->input->get('brandid');
+        echo $price = $this->m_search->brand_price($brandid);
+    }
+
     
 }
 

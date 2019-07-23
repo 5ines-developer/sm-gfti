@@ -4811,9 +4811,42 @@ input[type="checkbox"] { opacity: 0.7; }
     cursor: pointer;
 }
 
-.size-box ul li label.cheked { background-color: #099; color: #fff; border-color: #046a6a; box-shadow: inset 1px 2px 5px -2px #1a1919;3; }
-.size-box { margin-top: 20px; }
-.size-text{
-    color: #484848;
-font-weight: bold;
+.team-purpose textarea {
+    height: 75px;
+}
+
+
+/***** product detail 22-07-2019 ********/
+
+.brandc-price {
+    background-color: #fff;
+    box-shadow: 0px 2px 3px 0px rgba(234, 234, 234, 1);
+    height: 46px;
+    position: relative;
+    display: block;
+    font-family: 'Open Sans';
+    width: 100%;
+    line-height: 30px;
+    padding: 8px 15px 8px 30px;
+    color: #727272;
+    border: none;
+    border-radius: 30px;
+    cursor: context-menu;
+}
+
+#qantity-box {
+    margin-bottom: 20px;
+}
+
+.more-brandc a {
+    margin-left: 10px;
+    background-color: #f92400;
+    color: #fff !important;
+    padding: 7px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.more-brandc a:hover {
+    background-color: #2d2d2d;
 }

@@ -44,14 +44,14 @@ class Offers extends CI_Controller {
             $link       = $this->input->post('link');
 
             if ($position == '1' || $position == '2') {
-               $width = '360';
+               $width = '390';
                $height = '200';
             }else if ($position == '3') {
                 $width = '785';
                 $height = '241';
             }else if ($position == '4') {
-                $width = '400';
-                $height = '475';
+                $width = '380';
+                $height = '470';
             }else{
                 $width = '';
                 $height = '';
@@ -79,9 +79,10 @@ class Offers extends CI_Controller {
             {
                 $upload_data = $this->upload->data();
 
-                $config['image_library']    =   'gd2';
+                      $config['image_library']    =   'gd2';
                       $config['source_image']     =   $upload_data['full_path'];
                       $config['create_thumb']     =   TRUE;
+                      $config['maintain_ratio']   =   FALSE;
                       $config['width']            =   $width;
                       $config['height']           =   $height;
 

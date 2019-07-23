@@ -29,6 +29,7 @@ class Web extends CI_Controller {
         $data['recent'] = $this->recently_added_products();
         $data['ourproduct'] = $this->ourProducts();
         $data['banner'] = $this->bannerGet();
+        $data['offer'] = $this->offerGet();
         $this->load->view('pages/index', $data, FALSE);
         
     }
@@ -67,6 +68,13 @@ class Web extends CI_Controller {
         $data = $this->m_web->getBanner();
         return $data;
     }
+
+        // fetch offer images
+        public function offerGet($var = null)
+        {
+            $data = $this->m_web->getoffer();
+            return $data;
+        }
 
 }
 

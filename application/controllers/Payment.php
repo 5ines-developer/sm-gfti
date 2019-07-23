@@ -44,11 +44,11 @@ class payment extends CI_Controller {
             $this->m_cart->insertOrder($data);
 
             redirect('my-orders','refresh');
-            
-            
         }
         
     }
+
+    
 
 }
 

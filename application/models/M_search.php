@@ -1,66 +1,63 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_search extends CI_Model {
+class M_search extends CI_Model
+{
 
     // get result()
-    public function getResult($query = null, $category = null , $max = null, $min = null)
+    public function getResult($query = null, $category = null, $max = null, $min = null)
     {
-        
+
         $this->db->from('product p');
         $this->db->join('category c', 'c.id = p.category', 'left');
-        if($max != ''){
-           
+        if ($max != '') {
+
             $this->db->where('p.price <=', $max);
-            
+
         }
 
-        if($min != ''){
+        if ($min != '') {
             $this->db->where('p.price >=', $min);
         }
 
-        if($query != ''){
-            $this->db->like('title',$query)
-                    ->or_like('tags',$query)
-                    ->or_like('name', $query);
+        if ($query != '') {
+            $this->db->like('title', $query)
+                ->or_like('tags', $query)
+                ->or_like('name', $query);
         }
-        if($category != ''){
-            $this->db->like('name',$category);
+        if ($category != '') {
+            $this->db->like('name', $category);
         }
-
-        
 
         return $this->db->get()->result();
     }
 
     // get product with pagination
-    public function search_pagination($query,$category,$perpage,$page, $max, $min)
+    public function search_pagination($query, $category, $perpage, $page, $max, $min)
     {
         $this->db->from('product p');
         $this->db->join('category c', 'c.id = p.category', 'left');
 
-        if($max != ''){
-           
+        if ($max != '') {
+
             $this->db->where('p.price <=', $max);
-            
+
         }
 
-        if($min != ''){
+        if ($min != '') {
             $this->db->where('p.price >=', $min);
         }
 
-
-
-        if($query != ''){
-            $this->db->like('title',$query)
-                    ->or_like('tags',$query)
-                    ->or_like('name', $query);
+        if ($query != '') {
+            $this->db->like('title', $query)
+                ->or_like('tags', $query)
+                ->or_like('name', $query);
         }
-        if($category !=''){
-            $this->db->like('name',$category);
+        if ($category != '') {
+            $this->db->like('name', $category);
         }
-        $this->db->limit($perpage, $page); 
+        $this->db->limit($perpage, $page);
         return $this->db->get()->result();
     }
 
@@ -78,7 +75,14 @@ class M_search extends CI_Model {
     // brand select
     public function brand_product($id = null)
     {
-       return $this->db->where('product', $id)->get('brad_pricing')->result();
+        return $this->db->where('product', $id)->get('brad_pricing')->result();
+    }
+
+    // brand select
+    public function brand_price($id = null)
+    {
+        $query =  $this->db->select('price')->where('id', $id)->get('brad_pricing')->row();
+        return $query->price;
     }
 
     public function sizeList($id = null)

@@ -268,13 +268,17 @@ class Cart extends CI_Controller {
             if (!empty($this->session->userdata('bill_id'))) {
                 $data['billing'] = $this->session->userdata('bill_id');
                 $data['shipping'] = '0';
+                $address['bill'] = $this->m_cart->selectedbilling($data['billing']);
+                $address['ship'] = $this->m_cart->selectedbilling($data['billing']);
             }else{
-                $data['billing'] = '0';
+                $data['billing'] = $this->input->post('bill_val');
                 $data['shipping'] = $shipping;
+                $address['bill'] = $this->m_cart->selectedbilling($data['billing']);
+                $address['ship'] = $this->m_cart->selectedship($shipping);
             }
 
             $this->m_cart->insertOrder($data);
-            
+            $this->sendorder($cartitesms,$bach,$address);
         }
     }
 
@@ -286,6 +290,36 @@ class Cart extends CI_Controller {
        $this->m_cart->updateBrand($id, $prd);
        echo $id;
     }
+
+
+        //  place order request
+        function sendorder($cartitesms='', $bach='',$address='')
+        {
+
+            $c_email = $this->m_cart->getuseremail($this->uid);
+            $data['detail'] = $cartitesms;
+            $data['bach']   = $bach;
+            $data['bill']   = $address['bill'];
+            $data['ship']   = $address['ship'];
+            $this->load->config('email');
+            $this->load->library('email');
+            $from = $this->config->item('smtp_user');
+            $msg = $this->load->view('email/place-order', $data, true);
+            $this->email->set_newline("\r\n");
+            $this->email->from($from , 'Gifting Express');
+            $this->email->to($c_email);
+            $this->email->subject('Purchase order request'); 
+            $this->email->message($msg);
+            if($this->email->send())  
+            { 
+                return true;
+            } 
+            else
+            {
+                return false;
+            }
+            
+        }
 
 }
 

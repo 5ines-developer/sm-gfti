@@ -36,6 +36,15 @@
         <?php $this->load->view('includes/header');?>
 
         <section class="flat-product-detail">
+
+            <div class="loderbox">
+                <div class="text-center">
+                    <div class="spinner">
+                        <div class="double-bounce1"></div>
+                        <div class="double-bounce2"></div>
+                    </div>
+                </div>
+            </div>
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">

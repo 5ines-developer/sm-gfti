@@ -226,12 +226,12 @@
                                                                 <div id="demo" class="brand-pricing collapse <?php echo(!empty($brand))?'in':''; ?>">
 
                                                                 <?php if(!empty($brand)){ foreach ($brand as $key => $value) { ?>
-                                                                    <div class="row" id="addnext">
+                                                                    <div class="row">
                                                                         <div class="col-md-6 col-sm-6 col-xs-12 mar-12">
-                                                                            <input type="text" class="form-control " name="brand_title[]" placeholder="Brand title" value="<?php  echo(!empty($value->title))?$value->title:'';  ?>">
+                                                                            <input type="text" class="form-control " name="brand_title[]" placeholder="Title" value="<?php  echo(!empty($value->title))?$value->title:'';  ?>">
                                                                         </div>
                                                                         <div class="col-md-4 col-sm-4 col-xs-12">
-                                                                            <input type="number" class="form-control " name="brand_price[]" placeholder="Brand price" value="<?php  echo(!empty($value->title))?$value->price:'';  ?>">
+                                                                            <input type="number" class="form-control " name="brand_price[]" placeholder="Price" value="<?php  echo(!empty($value->title))?$value->price:'';  ?>">
                                                                             <input type="hidden" value="<?php  echo(!empty($value->brand_uniq))?$value->brand_uniq:'';  ?>" name="brndunq[]">
                                                                         </div>
                                                                         <div class="col-md-2 col-sm-2">
@@ -242,10 +242,10 @@
 
                                                                     <div class="row" id="addnext">
                                                                         <div class="col-md-6 col-sm-6 col-xs-12 mar-12">
-                                                                            <input type="text" class="form-control " name="brand_title[]" placeholder="Brand title" value="">
+                                                                            <input type="text" class="form-control " name="brand_title[]" placeholder="Title" value="">
                                                                         </div>
                                                                         <div class="col-md-4 col-sm-4 col-xs-12">
-                                                                            <input type="number" class="form-control " name="brand_price[]" placeholder="Brand price" value="">
+                                                                            <input type="number" class="form-control " name="brand_price[]" placeholder="Price" value="">
                                                                         </div>
                                                                         <div class="col-md-2 col-sm-2">
                                                                             <a id="brandplus" class="brandplus"><i class="fa fa-plus" aria-hidden="true"></i> </a>
@@ -269,12 +269,12 @@
                                                                 </div>
                                                                 <div id="marquee" class="brand-pricing collapse <?php echo(!empty($brand))?'in':''; ?>">
                                                                         <?php if(!empty($marquee)){ foreach ($marquee as $key => $value) { ?>
-                                                                            <div class="row" id="marqaddnext">
+                                                                            <div class="row">
                                                                                 <div class="col-md-6 col-sm-6 col-xs-12 mar-12">
-                                                                                    <input type="text" class="form-control " name="marquee_title[]" placeholder="Hyperlink title" value="<?php  echo(!empty($value->title))?$value->title:'';  ?>">
+                                                                                    <input type="text" class="form-control " name="marquee_title[]" placeholder="Scrolling Text" value="<?php  echo(!empty($value->title))?$value->title:'';  ?>">
                                                                                 </div>
                                                                                 <div class="col-md-4 col-sm-4 col-xs-12">
-                                                                                    <input type="test" class="form-control " name="marquee_link[]" placeholder="Hyperlink" value="<?php  echo(!empty($value->link))?$value->link:'';  ?>">
+                                                                                    <input type="test" class="form-control " name="marquee_link[]" placeholder="Link" value="<?php  echo(!empty($value->link))?$value->link:'';  ?>">
                                                                                     <input type="hidden" value="<?php  echo(!empty($value->uniq))?$value->uniq:'';  ?>" name="marqueeunq[]">
                                                                                 </div>
                                                                                 <div class="col-md-2 col-sm-2">
@@ -284,10 +284,10 @@
                                                                         <?php } } ?>
                                                                         <div class="row" id="marqaddnext">
                                                                             <div class="col-md-6 col-sm-6 col-xs-12 mar-12">
-                                                                                <input type="text" class="form-control " name="marquee_title[]" placeholder="Hyperlink title" value="">
+                                                                                <input type="text" class="form-control " name="marquee_title[]" placeholder="Scrolling Text" value="">
                                                                             </div>
                                                                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                                                                <input type="test" class="form-control " name="marquee_link[]" placeholder="Hyperlink" value="">
+                                                                                <input type="test" class="form-control " name="marquee_link[]" placeholder="Link" value="">
                                                                             </div>
                                                                             <div class="col-md-2 col-sm-2">
                                                                                 <a id="marqueeplus" class="marqueeplus"><i class="fa fa-plus" aria-hidden="true"></i> </a>
@@ -305,7 +305,7 @@
                                                                 </div>
                                                                 <div id="size" class="brand-pricing collapse <?php echo(!empty($size))?'in':''; ?>">
                                                                         <?php if(!empty($size)){ foreach ($size as $key => $values) { ?>
-                                                                            <div class="row" id="sizeaddnext">
+                                                                            <div class="row">
                                                                                 <div class="col-md-6 col-sm-6 col-xs-12 mar-12">
                                                                                     <input type="text" class="form-control " name="size_title[]" placeholder="ex: xl, L, M" value="<?php  echo(!empty($values->size_name))?$values->size_name:'';  ?>">
                                                                                 </div>
@@ -467,8 +467,8 @@
         $(function() {
             $('#brandplus').on('click', function(e) {
                 e.preventDefault();
-                $('<div class="row"><div class="col-md-6 col-sm-6 col-xs-12 mar-12"><input type="text"class="form-control " name="brand_title[]" placeholder="Brand title"></div> <div class="col-md-4 col-sm-4 col-xs-12"> <input type="number"class="form-control" name="brand_price[]" placeholder="Brand price"> </div> <div class="col-md-2 col-sm-2"> <a id="brandplus" class="brandplus remov"><i class="fa fa-times" aria-hidden="true"></i></a></div></div>')
-                    .append().insertAfter('#addnext');
+                $('<div class="row"><div class="col-md-6 col-sm-6 col-xs-12 mar-12"><input type="text"class="form-control " name="brand_title[]" placeholder="Title"></div> <div class="col-md-4 col-sm-4 col-xs-12"> <input type="number"class="form-control" name="brand_price[]" placeholder="Price"> </div> <div class="col-md-2 col-sm-2"> <a id="brandplus" class="brandplus remov"><i class="fa fa-times" aria-hidden="true"></i></a></div></div>')
+                    .append().insertBefore('#addnext');
 
             });
             $(document).on('click', '.brandplus.remov', function(e) {
@@ -481,7 +481,7 @@
             $('#sizep').on('click', function(e) {
                 e.preventDefault();
                 $('<div class="row"><div class="col-md-6 col-sm-6 col-xs-12 mar-12"><input type="text"class="form-control " name="size_title[]" placeholder="ex: xl, L, M"></div> <div class="col-md-4 col-sm-4 col-xs-12"> <input type="number"class="form-control" name="size[]" placeholder="32 cm"> </div> <div class="col-md-2 col-sm-2"> <a id="sizep" class="sizep remov"><i class="fa fa-times" aria-hidden="true"></i></a></div></div>')
-                    .append().insertAfter('#sizeaddnext');
+                    .append().insertBefore('#sizeaddnext');
 
             });
             $(document).on('click', '.sizep.remov', function(e) {
@@ -499,8 +499,8 @@
         $(function() {
             $('#marqueeplus').on('click', function(e) {
                 e.preventDefault();
-                $('<div class="row"><div class="col-md-6 col-sm-6 col-xs-12 mar-12"><input type="text"class="form-control " name="marquee_title[]" placeholder="Hyperlink title"></div> <div class="col-md-4 col-sm-4 col-xs-12"> <input type="text"class="form-control" name="marquee_link[]" placeholder="Hyperlink"> </div> <div class="col-md-2 col-sm-2"> <a id="brandplus" class="marqueeplus remov"><i class="fa fa-times" aria-hidden="true"></i></a></div></div>')
-                    .append().insertAfter('#marqaddnext');
+                $('<div class="row"><div class="col-md-6 col-sm-6 col-xs-12 mar-12"><input type="text"class="form-control " name="marquee_title[]" placeholder="Scrolling Text"></div> <div class="col-md-4 col-sm-4 col-xs-12"> <input type="text"class="form-control" name="marquee_link[]" placeholder="Link"> </div> <div class="col-md-2 col-sm-2"> <a id="brandplus" class="marqueeplus remov"><i class="fa fa-times" aria-hidden="true"></i></a></div></div>')
+                    .append().insertBefore('#marqaddnext');
 
             });
             $(document).on('click', '.marqueeplus.remov', function(e) {

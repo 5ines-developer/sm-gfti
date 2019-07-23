@@ -77,7 +77,7 @@
                                                     <div class="form-group">
                                                         <select class="form-control form-control-lg" id="biilingaddress"
                                                             required>
-                                                            <option selected="true" disabled="disabled" value="0">
+                                                            <option  value="">
                                                                 -----Choose the billing address-----</option>
                                                             <?php foreach ($billing as $key => $value) {
                                                                 echo '<option value=' . $value->id . '>' . $value->company_name . ',' . $value->street . '-' . $value->zip_code . '</option>';
@@ -289,7 +289,7 @@
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label for="purchase-purpose">Example textarea <span class="error">*</span></label>
+                                                        <label for="purchase-purpose">Purpose of Purchase <span class="error">*</span></label>
                                                         <textarea class="form-control team-d" id="purchase-purpose"
                                                             rows="1" required></textarea>
                                                     </div>
@@ -384,6 +384,7 @@
                                         <a href="#" class="razorpay-payment-button" id="less-lakh">Place Order</a>
                                         <input type="hidden" custom="Hidden Element place-taem" name="team"  id="less-taem">
                                         <input type="hidden" custom="Hidden Element place-purpose" name="purpose" id="less-purpose">
+                                        <input type="hidden" class="bill-val" name="bill_val">
                                     </form>
                                     <?php }?>
                                 </div>
@@ -495,19 +496,27 @@
             }
         });
 
-        
+        //send values if price is more than 1lakh 
         $("#more-lakh").click(function() {
             var team = $("#team-department").val();
             var purpose = $("#purchase-purpose").val();
+            var bill = $("#biilingaddress option:selected").val();
+
+            if (bill =='') {
+                $("#biilingaddress").after("<span class ='error'> Please Select the billing address</span>");
+                return false;
+            }
 
             if (team != '' && purpose != '') {
                 $("#more-taem").val(team);
                 $("#more-purpose").val(purpose);
+                $(".bill-val").val(bill);
 
                 var taemval = $("#more-taem").val();
                 var purposeval = $("#more-purpose").val();
+                var billval = $(".bill-val").val();
 
-                if (team != '' && purpose != '') {
+                if (team != '' && purpose != '' && bill!='') {
                     $('#place-order-more').submit();
                 }else{
                     return false;
@@ -522,16 +531,26 @@
 
         });
 
+        //send values if price is less than 1lakh
         $("#less-lakh").click(function() {
             var team = $("#team-department").val();
             var purpose = $("#purchase-purpose").val();
 
+            var bill = $("#biilingaddress option:selected").val();
+
+if (bill =='') {
+    $("#biilingaddress").after("<span class ='error'> Please Select the billing address</span>");
+    return false;
+}
+
             if (team != '' && purpose != '') {
                 $("#less-taem").val(team);
                 $("#less-purpose").val(purpose);
+                $(".bill-val").val(bill);
 
                 var taemval = $("#less-taem").val();
                 var purposeval = $("#less-purpose").val();
+                var billval = $(".bill-val").val();
 
                 if (team != '' && purpose != '') {
                     $('#place-order-less').submit();

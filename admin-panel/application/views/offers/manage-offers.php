@@ -109,7 +109,7 @@
                             <div class="x_panel">
                                 <div class="x_title">
                                     <h2>Offers</h2>
-                                    <?php if (!empty($offer) && count($offer) < 4 ) { ?>
+                                    <?php if (empty($offer) || count($offer) < 4 ) { ?>
                                     <div class="banner-button">
                                         <a type="button" class="btn btn-success"
                                             href="<?php echo base_url()?>add-offers"><i class="fa fa-plus"

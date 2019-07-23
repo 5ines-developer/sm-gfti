@@ -1,34 +1,42 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_cart extends CI_Model {
+class M_cart extends CI_Model
+{
 
     // add to cart
     public function addTocart($datas, $eid)
     {
-        $prid =  $this->getProductid($datas['product']);
+        $prid = $this->getProductid($datas['product']);
 
         $data = array('qty' =>$datas['qty'], 'size' => $datas['size'], 'barand_price' => $datas['barand_price'], 'product' => $prid, 'emp_id' => $eid);
 
         $this->db->where('emp_id', $eid);
         $this->db->where('product', $prid);
         $query = $this->db->get('cart');
-        if($query->num_rows() > 0){
+        if ($query->num_rows() > 0) {
             $this->db->where('emp_id', $eid);
             $this->db->where('product', $prid);
             $this->db->update('cart', $data);
-        }else{
+        } else {
             $this->db->insert('cart', $data);
         }
-        return true;        
+        return true;
     }
 
     // get product
     public function getProductid($pid = null)
     {
         $result = $this->db->select('id')->where('product_id', $pid)->get('product')->row();
-        return $result->id;        
+        return $result->id;
+    }
+
+    // get product name
+    public function getproduct($pid = null)
+    {
+        $result = $this->db->select('title')->where('product_id', $pid)->get('product')->row();
+        return $result->title;
     }
 
     // get cart item
@@ -48,11 +56,11 @@ class M_cart extends CI_Model {
     {
 
         $this->db->where('id', $pid)->where('emp_id', $eid)->delete('cart');
-        if($this->db->affected_rows() > 0){
+        if ($this->db->affected_rows() > 0) {
             return true;
-        }else{
+        } else {
             return false;
-        } 
+        }
     }
 
     //  update qty
@@ -62,34 +70,33 @@ class M_cart extends CI_Model {
             ->where('emp_id', $uid)
             ->update('cart', $data);
         return true;
-        
+
     }
 
     public function insertOrder($data)
     {
-       $this->db->insert('orders', $data);
-       $this->protectedQty($data);
-       $this->deleteCartitem();
-       return true;
-       
-    }
+        $this->db->insert('orders', $data);
+        $this->protectedQty($data);
+        $this->deleteCartitem();
+        return true;
 
+    }
 
     // decreez product qty
     public function protectedQty($data)
     {
         $this->db->where('id', $data['product'])
-            ->set('available_stock', 'available_stock-'.$data['qty'], FALSE)
+            ->set('available_stock', 'available_stock-' . $data['qty'], false)
             ->update('product');
-            return true;
-        
+        return true;
+
     }
 
     // delete cart items
     public function deleteCartitem()
     {
         $this->db->where('emp_id', $this->session->userdata('sid'))->delete('cart');
-        return true;        
+        return true;
     }
 
     // save shipping address
@@ -98,10 +105,10 @@ class M_cart extends CI_Model {
         $this->db->where('employee', $uid);
         $this->db->update('shipping_address', array('status' => 0));
         $this->db->group_start();
-            $this->db->insert('shipping_address', $data);
+        $this->db->insert('shipping_address', $data);
         $this->db->group_end();
-        return True;  
-        
+        return true;
+
     }
 
     // get shipping addres  detail
@@ -111,21 +118,21 @@ class M_cart extends CI_Model {
         return $this->db->get('shipping_address')->result();
     }
 
-       // get billing addres  detail
-       public function getBilling($id = null)
-       {
-           $this->db->order_by('id', 'DESC');
-           return $this->db->get('billing_address')->result();
-       }
+    // get billing addres  detail
+    public function getBilling($id = null)
+    {
+        $this->db->order_by('id', 'DESC');
+        return $this->db->get('billing_address')->result();
+    }
 
     // change address default
     public function cahnge_address($sid, $uid)
     {
-        
+
         $this->db->where('employee', $uid);
         $this->db->update('shipping_address', array('status' => 0));
         $this->cahnge_address_update($sid, $uid);
-        return True;  
+        return true;
     }
 
     public function cahnge_address_update($sid, $uid)
@@ -139,29 +146,52 @@ class M_cart extends CI_Model {
     // Get default shipping address
     public function getdefaultShipping($uid = null)
     {
-        $query  = $this->db->where('employee', $uid)->where('status', '1')->get('shipping_address')->row();
-        return  $query->id; 
+        $query = $this->db->where('employee', $uid)->where('status', '1')->get('shipping_address')->row();
+        return $query->id;
     }
+
+    // Get selected billing addres
+    public function selectedbilling($billing = null)
+    {
+        $query = $this->db->where('id', $billing)->get('billing_address')->row_array();
+        return $query;
+    }
+
+    // Get selected shipping address
+    public function selectedship($shipping = null)
+    {
+        $query = $this->db->where('id', $shipping)->get('shipping_address')->row_array();
+        return $query;
+    }
+
+        // Get getuseremail
+        public function getuseremail($cid = null)
+        {
+            $query = $this->db->where('id', $cid)->get('employee')->row();
+            return $query->email;
+        }
+
+    
 
     // carrt item
     public function cart_item($id = null)
     {
-        $result =$this->db->where('emp_id', $id)->get('cart');
+        $result = $this->db->where('emp_id', $id)->get('cart');
         return $result->num_rows();
-        
+
     }
 
     public function brandpriceFect($id = null)
     {
-       $this->db->where('product', $id);
-       return $this->db->get('brad_pricing')->result();
+        $this->db->where('product', $id);
+        return $this->db->get('brad_pricing')->result();
     }
 
     public function updateBrand($id, $prd)
     {
         $this->db->where('id', $prd);
         $this->db->update('cart', array('barand_price' => $id));
-        return true; 
+        return true;
     }
 
 }
