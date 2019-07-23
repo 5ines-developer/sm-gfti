@@ -67,19 +67,21 @@
 
                                 </div>
                                 <?php
+                                
+                                
                             foreach ($value as $vkey => $vale2) { ?>
                                 <div class="row order-list">
-                                    <div class="col-4">
+                                    <div class="col-4 col-sm-2">
                                         <div class="cart-item-image">
                                             <img src="<?php echo base_url().$vale2->image_path ?>" class=""
                                                 alt="">
 
                                         </div>
                                     </div>
-                                    <div class="col-8">
+                                    <div class="col-8 col-sm-6">
                                         <div class="cart-item-content">
                                             <div class="c-title">
-                                                <span><a href="<?php echo base_url().$vale2->product_id ?>"><?php echo $vale2->ptitle ?></a></span>
+                                                <p><a href="<?php echo base_url().$vale2->product_id ?>"><?php echo $vale2->ptitle ?></a></p>
                                             </div>
                                             <div class="c-category">
                                                 <p><span><?php echo $vale2->name ?></span></p>
@@ -101,6 +103,13 @@
                                         </div>
                                     </div>
 
+                                    <div class="col-12 col-sm-4">
+                                        <div class="review-button">
+                                            <div class="add-review">
+                                                <button type="button" class="btn btn-info btn-review " data-value="<?php echo $vale2->product_id?>" data-toggle="modal" data-target="#myModal"> Write a product review </button>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </div>
 
@@ -126,6 +135,72 @@
                 </div><!-- /.row -->
             </div><!-- /.container -->
         </main><!-- /#shop -->
+
+                <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+            
+            <!-- Modal content-->
+            <div class="modal-content">
+                
+                <div class="modal-body">
+                    <div class="m-title">
+                        <a type="button" class="close" data-dismiss="modal">&times;</a>
+                        <h4>Create Review</h4>
+                    </div>
+                    <div class="m-body">
+                        <div class='rating-stars text-center'>
+                            <h5>Overall rating</h5>
+                            <ul id='stars'>
+                                <li class='star' title='Poor' data-value='1'>
+                                    <i class='fa fa-star fa-fw'></i>
+                                </li>
+                                <li class='star' title='Fair' data-value='2'>
+                                    <i class='fa fa-star fa-fw'></i>
+                                </li>
+                                <li class='star' title='Good' data-value='3'>
+                                    <i class='fa fa-star fa-fw'></i>
+                                </li>
+                                <li class='star' title='Excellent' data-value='4'>
+                                    <i class='fa fa-star fa-fw'></i>
+                                </li>
+                                <li class='star' title='WOW!!!' data-value='5'>
+                                    <i class='fa fa-star fa-fw'></i>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-10 push-sm-1">
+                                 <form action="<?php echo base_url('review')  ?>" method="post">
+                                    <input type="hidden" value="1" name="rating" class="ratingcout">
+                                    <input type="hidden" name="product" class="products">
+                                    <div class="form-group">
+                                        <label for="">Add a headline</label>
+                                        <input type="text" name="headline" class="form-control" name="hedline">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="">Write your review</label>
+                                        <textarea  name="cmd" rows="5" class="form-control" ></textarea>
+                                    </div>
+                                        
+                                    <div class="form-group">
+                                        <button class="checkout" type="submit">Submit</button>
+                                    </div>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+                
+            </div>
+            
+            </div>
+        </div>
+        <!-- We’re processing your review. This may take several days, so we appreciate your patience. We’ll notify you when this is complete. -->
 
         <?php  $this->load->view('includes/footer');?>
 
@@ -174,6 +249,58 @@
             }
         });
     });
+
+    //  rating 
+    $(document).ready(function(){
+  
+            /* 1. Visualizing things on Hover - See next part for action on click */
+            $('#stars li').on('mouseover', function(){
+                var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
+            
+                // Now highlight all the stars that's not after the current hovered star
+                $(this).parent().children('li.star').each(function(e){
+                if (e < onStar) {
+                    $(this).addClass('hover');
+                }
+                else {
+                    $(this).removeClass('hover');
+                }
+                });
+                
+            }).on('mouseout', function(){
+                $(this).parent().children('li.star').each(function(e){
+                $(this).removeClass('hover');
+                });
+            });
+            
+            
+            /* 2. Action to perform on click */
+            $('#stars li').on('click', function(){
+                var onStar = parseInt($(this).data('value'), 10); // The star currently selected
+                var stars = $(this).parent().children('li.star');
+                
+                for (i = 0; i < stars.length; i++) {
+                $(stars[i]).removeClass('selected');
+                }
+                
+                for (i = 0; i < onStar; i++) {
+                $(stars[i]).addClass('selected');
+                }
+
+                var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
+                $('input.ratingcout').val(ratingValue);
+            });
+            
+            $('.btn-review').click(function (e) { 
+                e.preventDefault();
+                var vals = $(this).attr('data-value');
+                $('input.products').val(vals);                
+            });
+            
+        });
+
+
+           
     </script>
 
 </body>

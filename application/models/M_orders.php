@@ -36,5 +36,15 @@ class M_orders extends CI_Model {
             return  $this->db->get()->result();
     }
 
+    public function review($data = null)
+    {
+        $result = $this->db->where('product', $data['product'])->where('user', $data['user'])->get('review');
+        if($result->num_rows() > 0){
+            $this->db->where('product', $data['product'])->where('user',  $data['user'])->update('review', $data);
+        }else{
+            $this->db->insert('review', $data);
+        }
+        return true;
+    }
 
 }

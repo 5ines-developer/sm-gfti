@@ -449,7 +449,7 @@ input[type="color"]:focus {
 textarea {
     width: 100%;
     padding: 11px 18px;
-    height: 173px;
+    height: 100px;
 }
 
 input[type="checkbox"] {
@@ -4849,4 +4849,42 @@ input[type="checkbox"] { opacity: 0.7; }
 
 .more-brandc a:hover {
     background-color: #2d2d2d;
+}
+
+.c-title p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.btn-review {
+    transform: translateY(50px);
+    font-size: 12px;
+    padding: 10px 15px;
+    max-height: 35px;
+
+}
+.btn-review:hover {
+
+    border: 1px solid #129ec8;
+
+}
+
+.star {
+    color: #cecece;
+    display: contents;
+    font-size: 22px;
+}
+.rating-stars h5{
+    font-size: 18px;
+padding: 14px 0;
+}
+.star.hover{color:#FFCC36}
+.star.selected{color:#FF912C}
+.m-title{
+    border-bottom: 1px solid #f7f2f2;
+    padding-bottom: 14px;
+}
+
+.rating-stars {
+    margin-bottom: 20px;
 }

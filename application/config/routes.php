@@ -89,6 +89,7 @@ $route['change-brand']          = 'cart/change_brand';
 $route['bill-session']          = 'cart/bill_session';
 //my orders
 $route['my-orders']             = 'Orders/index';
+$route['review']                = 'Orders/review';
 $route['order/(:any)']          = 'Orders/order_detail/$1';
 // Payment 
 $route['payment/success']       = 'payment/success';
