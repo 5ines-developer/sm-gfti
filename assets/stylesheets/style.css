@@ -4860,6 +4860,12 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 
+.size-box ul li label.cheked{
+    background: teal;
+    color: #fff;
+    border-color: #034242 !important;
+}
+
 .team-purpose textarea {
     height: 75px;
 }
@@ -4900,7 +4906,6 @@ input[type="checkbox"] {
     background-color: #2d2d2d;
 }
 
-<<<<<<< HEAD
 .c-title p {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -4937,8 +4942,7 @@ padding: 14px 0;
 
 .rating-stars {
     margin-bottom: 20px;
-=======
-
+}
 /***** product detail 22-07-2019 ********/
 
 .brandc-price {
@@ -4989,5 +4993,4 @@ padding: 14px 0;
 
 .brand-td {
     vertical-align: middle;
->>>>>>> 4e0b65d38f0480ed0a2ef77f48789199991a825f
 }
