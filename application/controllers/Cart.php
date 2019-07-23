@@ -19,22 +19,50 @@ class Cart extends CI_Controller {
 
     public function index($pid = null)
     {
+ 
         $data['breadcrumbs'] = FALSE;
         $data['title'] = 'Cart';
 
         $qty = $this->input->post('qty');
         $brand = $this->input->post('brand');
         $size = $this->input->post('size');
-
         
         if (empty($qty)) { $qty = 1; }
         if (empty($brand)) { $brand = ''; }
         
-        $datas = array('qty' => $qty, 'barand_price' => $brand, 'product' => $pid, 'size' => $size);
-        $this->m_cart->addTocart($datas, $this->uid);
+        $datas = array('qty' => $qty,'product' => $pid, 'size' => $size);
+        $data['cartid'] = $this->m_cart->addTocart($datas, $this->uid);
+
+        $this->cart_branding($brand,$data['cartid']);
 
         // $data['cart'] = $this->m_cart->getCart($this->uid);
         $this->load->view('pages/cart', $data, FALSE);
+    }
+
+    // insert branding charges 
+    public function cart_branding($brand = null,$cartid= null)
+    {
+
+        for ($i=0; $i <count($brand) ; $i++) { 
+            $brand[$i] = $this->m_cart->getbrand($brand[$i]);
+        }
+
+        foreach ($brand as $key => $value) {
+            foreach ($value as $key1 => $value1) {
+                $barndDta[] = $value1;
+                $insert = array(
+                    'cart_id' => $cartid, 
+                    'brand_title' => $value1->title, 
+                    'brand_price' => $value1->price, 
+                    'brand_id' => $value1->id, 
+                );
+
+                $this->m_cart->addcartbrand($insert);
+
+
+            }
+        }
+       
     }
 
     // ajax shoping cart
