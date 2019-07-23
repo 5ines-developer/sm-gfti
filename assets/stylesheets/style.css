@@ -339,7 +339,7 @@ input[type="submit"] {
     font-size: 14px;
     color: #ffffff;
     background: #e5e5e5;
-    border-radius: 30px;
+    border-radius: 0px;
     font-weight: 600;
     font-family: "Nunito", sans-serif;
     position: relative;
@@ -395,10 +395,10 @@ input[type="email"] {
     width: 100%;
     line-height: 24px;
     padding: 8px 15px 8px 30px;
-    color: #222222;
-    border: 2px solid #e5e5e5;
-    height: 48px;
-    border-radius: 30px;
+    color: #727272;
+    border: 1px solid #e5e5e5;
+    height: 40px;
+    border-radius: 2px;
     background-color: transparent;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
@@ -4780,32 +4780,40 @@ section.banner {
 
 /* check out page 18-07-2019 */
 
-input[type="checkbox"] {
-    opacity: 0.7;
+input[type="checkbox"] { opacity: 0.7; }
+.form-check-input { position: absolute; margin-top: 7px; margin-left: 0; }
+#make-ship-div { display: none; }
+.select2-search__field { height: 35px !important; }
+.select2-container .select2-selection--single { height: 34px !important; }
+.select2-container--default .select2-results__option--highlighted[aria-selected] { background-color: #099 !important; }
+.team-purpose textarea { height: 75px; }
+.green { background: green !important; }
+.info-text h1, .info-text h2, .info-text h3, .info-text h4, .info-text h5, .info-text h6, .info-text p, .info-text span, .info-text b, .info-text strong { font-size: 13px !important; font-weight: 500 !important; }
+.percentace{font-size: 14px; margin-left: 10px; color: green;}
+.mr8{margin-right: 8px}
+.size-box ul li{
+    display: inline-block;
+    margin-right: 3px;
 }
-
-.form-check-input {
+.size-box ul li label input[type=radio]{
     position: absolute;
-    margin-top: 7px;
-    margin-left: 0;
+    opacity: 0;
+}
+.size-box ul li label {
+    position: relative;
+    width: 42px;
+    height: 35px;
+    text-align: center;
+    line-height: 33px;
+    border: 1px solid gray;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
 }
 
-#make-ship-div {
-    display: none;
-}
-
-.select2-search__field {
-    height: 35px !important;
-}
-
-.select2-container .select2-selection--single {
-    height: 34px !important;
-}
-
-.select2-container--default .select2-results__option--highlighted[aria-selected] {
-    background-color: #099 !important;
-}
-
-.team-purpose textarea {
-    height: 75px;
+.size-box ul li label.cheked { background-color: #099; color: #fff; border-color: #046a6a; box-shadow: inset 1px 2px 5px -2px #1a1919;3; }
+.size-box { margin-top: 20px; }
+.size-text{
+    color: #484848;
+font-weight: bold;
 }

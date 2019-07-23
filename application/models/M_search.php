@@ -68,7 +68,7 @@ class M_search extends CI_Model {
     public function single_product($id)
     {
         return $this->db->from('product p')
-        ->select('product_id, p.id as pid, image_path,title, price, mrp, des, tags, total_stock, available_stock, category, name, path, uniqid')
+        ->select('product_id,p.discount, p.hsn, p.id as pid, image_path,title, price, mrp, des, tags, total_stock, available_stock, category, name, path, uniqid')
         ->where('product_id', $id)
         ->join('category c', 'c.id = p.category', 'left')
         ->get()
@@ -79,6 +79,13 @@ class M_search extends CI_Model {
     public function brand_product($id = null)
     {
        return $this->db->where('product', $id)->get('brad_pricing')->result();
+    }
+
+    public function sizeList($id = null)
+    {
+        $this->db->where('prdid', $id);
+        $this->db->order_by('size', 'asc');
+        return $this->db->get('size_chart')->result();
     }
 
 }

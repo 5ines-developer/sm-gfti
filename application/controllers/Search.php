@@ -110,6 +110,7 @@ class Search extends CI_Controller {
         $data['breadcrumbs'] = FALSE;
         $data['title'] = $data['product']->title;
         $data['brand'] = $this->m_search->brand_product($data['product']->pid);
+        $data['size'] = $this->m_search->sizeList($data['product']->pid);
         $this->load->view('pages/product-detail', $data, FALSE);
     }
 
