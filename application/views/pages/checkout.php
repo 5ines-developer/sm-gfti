@@ -325,14 +325,17 @@
                                 <tbody>
                                     <?php
                                     $total = 0;
+                                    $brcgprice='';
                                     foreach ($cart as $key => $value) { 
 
                                             $discount =  ($value->price * $value->pdiscount) / 100 ;
                                             $gst =  ($value->price * $value->pgst) / 100 ;
-                                            foreach ($branding as $keys => $values) { 
-                                                $brndprice[] = $values->brand_price;
-                                                $brcgprice = array_sum($brndprice);
-                                            } 
+                                            if (!empty($branding)) {
+                                                foreach ($branding as $keys => $values) { 
+                                                    $brndprice[] = $values->brand_price;
+                                                    $brcgprice = array_sum($brndprice);
+                                                }
+                                            }
                                             $amount =  ($value->price * $value->qty) + ($value->qty * $brcgprice ) + ($gst * $value->qty) - ($value->qty * $discount); }
                                        ?>
                                     <tr>
