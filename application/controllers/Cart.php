@@ -96,9 +96,10 @@ class Cart extends CI_Controller {
                 }else{
                     $nselect .= '';
                 }
-            $discount =  ($value->price * $value->pdiscount) / 100 ;
-            $gst =  ($value->price * $value->pgst) / 100 ;
-            $amount =  ($value->price * $value->qty) + ($value->qty * $brcgprice ) + ($gst * $value->qty) - ($value->qty * $discount);
+            $discount =  ($value->price * $value->pdiscount) / 100 ;//discount 
+            $pricedsc =  $value->price - $discount; // price after subtract discount
+            $gst =  (($pricedsc + $brcgprice)* $value->pgst) / 100 ; //gst
+            $amount =  ($pricedsc * $value->qty) + ($value->qty * $brcgprice ) + ($gst * $value->qty);//total amount
             $total = $total + $amount;
                 $items .= '<div class="cart-items">
                 <div class="cart-item" dataid="'.$value->cid.'">
@@ -112,8 +113,14 @@ class Cart extends CI_Controller {
                                 </div>
                                 <div class="c-category">
                                     <p><span>'. $value->name .'</span> </p>
-                                    <p><span>SKU: </span> '. $value->product_id .'</p>
-                                </div>
+                                    <p><span>SKU: </span> '. $value->product_id .'</p>';
+                                        if(!empty($value->pgst)){ 
+                                            $items .= '<p><span>GST: </span> '. $value->pgst .'%</p>';
+                                        }
+                                        if(!empty($value->pdiscount)){ 
+                                            $items .= '<p><span>Discount: </span> '. $value->pdiscount .'%</p>';
+                                        }
+                                        $items .='</div>
                                 <div class="c-price">
                                     <p>&#8377;
                                         <span>'.$amount.'</span>
