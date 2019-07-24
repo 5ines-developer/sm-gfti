@@ -1,3 +1,5 @@
+<?php $this->ci =& get_instance(); ?>
+
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
@@ -323,33 +325,51 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                                    $total = 0;
-                                    $brcgprice='';
-                                    foreach ($cart as $key => $value) { 
+                                    <?php 
+                                        $this->ci->load->model('m_cart');
+                                        $total = 0;        
+                                        foreach ($cart as $key => $value) { 
 
-                                            $discount =  ($value->price * $value->pdiscount) / 100 ;
-                                            $gst =  ($value->price * $value->pgst) / 100 ;
-                                            if (!empty($branding)) {
-                                                foreach ($branding as $keys => $values) { 
-                                                    $brndprice[] = $values->brand_price;
-                                                    $brcgprice = array_sum($brndprice);
+                                            // brading charges
+                                            $brandingCharge = $this->m_cart->brandpriceFect($value->cid);
+                                            $Tbrandprice = 0;
+                                            if (!empty($brandingCharge)) {
+                                                foreach ($brandingCharge as $keys => $values) {
+                                                    $Tbrandprice += $values->brand_price;
                                                 }
                                             }
-                                            $amount =  ($value->price * $value->qty) + ($value->qty * $brcgprice ) + ($gst * $value->qty) - ($value->qty * $discount); }
-                                       ?>
+                                            
+                                            // discount calculation
+                                            $discount = ($value->price * $value->pdiscount) / 100 ;
+
+                                            // gst calculation
+                                            $nGst = 0;
+                                            if(!empty($value->pgst)){
+                                                $nGst = ((($value->price  - $discount) + $Tbrandprice) * $value->pgst) / 100;
+                                            }
+                                            
+                                            // nAmount
+                                            $amount = ((($value->price - $discount) + $Tbrandprice) + $nGst) * $value->qty;
+
+                                            // total amount
+                                            $total += $amount;
+
+                                    ?>
+
                                     <tr>
-                                        <td><?php echo $value->name ?><br><?php echo $value->product_id . ' (' . $value->qty . ' piece)' ?>
-                                        </td>
-                                        <td>&#8377; <?php echo $amount ?></td>
+                                        <td><?php echo $value->ptitle ?><br><?php echo $value->product_id . ' (' . $value->qty . ' piece)' ?></td>
+                                        <td><?php echo $amount; ?></td>
                                     </tr>
+
+                                    <?php } ?>
+                                    
                                 </tbody>
                             </table><!-- /.product -->
                             <table>
                                 <tbody>
                                     <tr>
                                         <td>Total</td>
-                                        <td class="price-total">&#8377; <?php echo $amount ?></td>
+                                        <td class="price-total">&#8377; <?php echo $total ?></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -369,7 +389,7 @@
                                     <?php if ($total >= 100000) {?>
                                     <form action="<?php echo base_url() ?>place-order" method="POST"
                                         id="place-order-more">
-                                        <a href="#" class="razorpay-payment-button" id="more-lakh">Purchase Order</a>
+                                        <a href="#" class="razorpay-payment-button" id="more-lakh">Purchase Request</a>
                                         <input type="hidden" custom="Hidden Element" name="team" id="more-taem">
                                         <input type="hidden" custom="Hidden Element" name="purpose" id="more-purpose">
                                     </form>
@@ -397,7 +417,7 @@
                                     <span style="float:left;line-height: 48px;margin-right:10px">OR</span>
                                     <form action="<?php echo base_url() ?>place-order" method="POST"
                                         id="place-order-less">
-                                        <a href="#" class="razorpay-payment-button" id="less-lakh">Purchase Order</a>
+                                        <a href="#" class="razorpay-payment-button" id="less-lakh" style="font-size: 12px;">Purchase Request</a>
                                         <input type="hidden" custom="Hidden Element place-taem" name="team"
                                             id="less-taem">
                                         <input type="hidden" custom="Hidden Element place-purpose" name="purpose"

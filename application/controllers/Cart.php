@@ -207,11 +207,6 @@ class Cart extends CI_Controller {
         $data['cart'] = $this->m_cart->getCart($this->uid);
         $data['shipping'] = $this->m_cart->getShipping($this->uid);
         $data['billing'] = $this->m_cart->getBilling();
-        foreach($data['cart'] as $key => $value){
-            $brand[] = $this->m_cart->brandpriceFect($value->cid);
-        }
-        foreach ($brand as $key1 => $value1) { }
-        $data['branding'] = $value1;
         $this->load->model('m_account');
         $data['user'] = $this->m_account->profileGet($this->uid);
         $this->load->view('pages/checkout', $data, FALSE);
