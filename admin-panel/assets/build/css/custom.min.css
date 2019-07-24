@@ -5184,3 +5184,6 @@ label { display: inline-block; max-width: 100%; margin-bottom: 5px; font-weight:
 .filter-box ul li a:hover { background: #bfbfbf; color: #fff; transform: scale(1.05); }
 .filter-box h4{text-align: center; padding: 5px 0;}
 table th{font-weight: 500 !important}
+.action-btn {  text-align: center; width: 35px; display: inline-block; height: 30px; line-height: 30px; font-size: 17px; border-radius: 3px;  box-sizing: border-box; box-shadow: none; color: #fff; }
+.r-start{color: #b0b0b0}
+.check-star{color: #f0ad4e}

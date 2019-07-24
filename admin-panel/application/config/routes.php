@@ -83,6 +83,8 @@ $route['view-product/(:any)']    = 'Product/view_product/$1';
 $route['delete-brand']           = 'Product/delete_brand';
 $route['delete-marquee']         = 'Product/delete_marquee';
 $route['edit-product/(:any)']    = 'Product/edit_product/$1';
+$route['product-ratings']        = 'Product/product_ratings';
+$route['product-ratings/(:any)'] = 'Product/product_ratings_single/$1';
 // Banner
 $route['add-banner'] 		     = 'Banner/index';
 $route['insert-banner'] 		 = 'Banner/add_banner';

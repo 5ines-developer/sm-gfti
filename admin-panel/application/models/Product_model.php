@@ -292,6 +292,33 @@ class Product_model extends CI_Model {
 			return $this->db->where('prdid', $productid)->get('size_chart')->result();
 			
 		}
+
+
+		// producta rating fetch
+		public function product_ratings()
+		{
+			return 
+			$this->db->from('review r')
+					->select('r.id as rid, r.rating, r.headline, r.comments, r.status, p.product_id, p.title, e.name, e.email, e.id as userid, r.created_on')
+					->join('product p', 'p.product_id = r.product', 'left')
+					->join('employee e', 'e.id = r.user', 'left')
+					->get()
+					->result();
+			
+		}
 		
+		// update rating
+		public function updateRatingStatus($status = null)
+		{
+			if($status['status'] == 'approve'){
+				$upt = 1;
+			}elseif($status['status'] == 'reject'){
+				$upt = 2;
+
+			}
+			$this->db->where('id', $status['ref']);
+			$this->db->update('review', array('status' => $upt ));
+			return true;
+		}
 
 }

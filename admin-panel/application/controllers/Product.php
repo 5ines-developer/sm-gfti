@@ -452,6 +452,18 @@ class Product extends CI_Controller {
 
  	}
 
+    // product Ratings and feed back from customer
+    public function product_ratings()
+    {
+        $data['title'] = 'Product Ratings';
+        if($this->input->get('status')){
+            $this->Product_model->updateRatingStatus($this->input->get());
+            $this->session->set_flashdata('success', 'Review Successfuly update');
+        }
+        $data['rating'] = $this->Product_model->product_ratings();
+        $this->load->view('Product/rating', $data, FALSE);
+        
+    }
     
 
 
