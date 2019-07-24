@@ -262,7 +262,7 @@ class Cart extends CI_Controller {
        $team = $this->input->post('team');
        
        $this->userorders($puropse,$team);
-       $this->session->set_flashdata('msg', 'order placed');
+       $this->session->set_flashdata('msg', 'Thank You for ordering. We recived your order and will begin processing it soon. Your order information send to registered email id. ');
        $this->session->unset_userdata('bill_id');
        redirect('my-orders','refresh');
        
@@ -282,15 +282,17 @@ class Cart extends CI_Controller {
         foreach ($cartitesms as $key => $value) {
             $orderid = 'SMG-'.random_string('numeric', 14);
             $data  = array(
-                'order_id'      => $orderid, 
-                'order_bach'    => $bach, 
+                'order_id'      =>  $orderid, 
+                'order_bach'    =>  $bach, 
                 'product'       =>  $value->prid, 
-                'order_by'      => $this->uid, 
-                'brand_price'   =>  $value->bprice, 
+                'order_by'      =>  $this->uid, 
                 'qty'           =>  $value->qty, 
                 'price'         =>  $value->price,
-                'team'          => $team,
-                'purpose'       => $puropse
+                'team'          =>  $team,
+                'purpose'       =>  $puropse,
+                'size'          => $value->size,
+                'discount'      => $value->pdiscount,
+                'gst'           => $value->pgst,
             );
 
             if (!empty($this->session->userdata('bill_id'))) {

@@ -33,11 +33,6 @@ class Orders extends CI_Controller {
         public function order_detail($id = null)
         {
             $data['order'] = $this->m_orders->single_order($id,$this->uid);
-
-            
-            echo "<pre>";
-            print_r ($data['order']);
-            echo "</pre>";
             
             $data['breadcrumbs'] = FALSE;
             // $data['title'] = $data['order']->title;
