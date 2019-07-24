@@ -43,7 +43,9 @@ class M_cart extends CI_Model
                 $this->db->insert('cart_branding', $insert);
             }
         }else{
-            $this->db->insert('cart_branding', $insert);
+            if (!empty($insert)) {
+                $this->db->insert('cart_branding', $insert);
+            }
         }
         return true;
     }
