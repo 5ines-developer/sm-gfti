@@ -4218,7 +4218,7 @@ button.checkout:hover::before {
     display: inline-block;
     background-color: #f92400;
     color: #fff;
-    font-size: 14px;
+    font-size: 12px !important;
     height: 45px;
     line-height: 45px;
     text-align: center;
