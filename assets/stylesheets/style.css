@@ -4221,7 +4221,6 @@ button.checkout:hover::before {
     font-size: 14px;
     height: 45px;
     line-height: 45px;
-    border-radius: 30px;
     text-align: center;
     position: relative;
     overflow: hidden;
