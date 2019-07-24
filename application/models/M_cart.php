@@ -32,15 +32,16 @@ class M_cart extends CI_Model
         return $insert_id;
     }
 
-    public function addcartbrand($insert)
+    public function addcartbrand($insert,$cartid)
     {
-        $this->db->where('cart_id', $insert['cart_id']);
-        $this->db->where('brand_id', $insert['brand_id']);
+        $this->db->where('cart_id',$cartid);
         $query = $this->db->get('cart_branding');
         if ($query->num_rows() > 0) {
-            $this->db->where('cart_id', $insert['cart_id']);
-        $this->db->where('brand_id', $insert['brand_id']);
-            $this->db->update('cart_branding', $insert);
+            $this->db->where('cart_id', $cartid);
+            $this->db->delete('cart_branding');
+            if (!empty($insert)) {
+                $this->db->insert('cart_branding', $insert);
+            }
         }else{
             $this->db->insert('cart_branding', $insert);
         }
