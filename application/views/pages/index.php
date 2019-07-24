@@ -24,7 +24,7 @@
     <!-- Reponsive -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/stylesheets/responsive.css">
 
-    <link rel="shortcut icon" href="<?php echo base_url() ?>assets/favicon/favicon.png">
+    <link rel="icon" type="image/png" sizes="60x60" href="<?php echo base_url() ?>assets/favicon/favicon.png">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 
 </head>
