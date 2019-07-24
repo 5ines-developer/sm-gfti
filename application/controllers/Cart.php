@@ -33,20 +33,20 @@ class Cart extends CI_Controller {
         $datas = array('qty' => $qty,'product' => $pid, 'size' => $size);
         $data['cartid'] = $this->m_cart->addTocart($datas, $this->uid);
 
-        if (!empty($brand)) {
+        if (!empty($brand[0])) {
             $this->cart_branding($brand,$data['cartid']);
+        }else{
+            $brand = '';
+            $this->m_cart->addcartbrand($brand,$data['cartid']);
         }
-
-
         // $data['cart'] = $this->m_cart->getCart($this->uid);
         $this->load->view('pages/cart', $data, FALSE);
     }
 
     // insert branding charges 
-    public function cart_branding($brand = null,$cartid= null)
+    public function cart_branding($brand = '',$cartid= null)
     {
-
-        for ($i=0; $i <count($brand) ; $i++) { 
+        for ($i=0; $i < count($brand) ; $i++) { 
             $brand[$i] = $this->m_cart->getbrand($brand[$i]);
         }
 
@@ -60,7 +60,7 @@ class Cart extends CI_Controller {
                     'brand_id' => $value1->id, 
                 );
 
-                $this->m_cart->addcartbrand($insert);
+                $this->m_cart->addcartbrand($insert,$cartid);
 
 
             }
@@ -115,10 +115,10 @@ class Cart extends CI_Controller {
                                     <p><span>'. $value->name .'</span> </p>
                                     <p><span>SKU: </span> '. $value->product_id .'</p>';
                                         if(!empty($value->pgst)){ 
-                                            $items .= '<p><span>GST: </span> '. $value->pgst .'%</p>';
+                                            $items .= '<p><span>GST: </span> '. $value->pgst .'% &nbsp;-&nbsp; &#8377; '.$gst.'</p>';
                                         }
                                         if(!empty($value->pdiscount)){ 
-                                            $items .= '<p><span>Discount: </span> '. $value->pdiscount .'%</p>';
+                                            $items .= '<p><span>Discount: </span> '. $value->pdiscount .'% &nbsp;-&nbsp; &#8377; '.$discount.' </p>';
                                         }
                                         $items .='</div>
                                 <div class="c-price">
