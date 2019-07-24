@@ -178,7 +178,9 @@
                                             </td>
                                         </tr>
                                     </table>
-                                    <span>Note : You can select maximum of 5 Branding Charges</span>
+                                    <?php if(!empty($brand)) { ?>
+                                        <span>Note : You can select maximum of 5 Branding Charges</span>
+                                    <?php } ?>
 
                                     <div class="box-cart style2">
                                         <div class="btn-add-cart">
