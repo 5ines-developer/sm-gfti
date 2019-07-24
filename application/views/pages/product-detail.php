@@ -162,14 +162,15 @@
                                                 </div>
                                             </td>
                                             <td class="brand-td">
-                                            <?php if(!empty($brand)) { ?>
+                                                <?php if(!empty($brand)) { ?>
                                                 <div class="quanlity-box selectbrand" id="selectbrand">
                                                     <div class="">
                                                         <p class="brandc-price">Price : </p>
                                                         <input type="hidden" name="brandprice[]" class="brandprice">
                                                     </div>
                                                     <span class="more-brandc">
-                                                        <a id="brand-plus" class="brandplus"><i class="fa fa-plus" aria-hidden="true"></i> </a>
+                                                        <a id="brand-plus" class="brandplus"><i class="fa fa-plus"
+                                                                aria-hidden="true"></i> </a>
                                                     </span>
                                                 </div>
                                                 <?php } ?>
@@ -196,7 +197,7 @@
                 </div><!-- /.row -->
             </div><!-- /.container -->
         </section><!-- /.flat-product-detail -->
-
+        <?php if(!empty($product->des)){ ?>
         <section class="product-des">
             <div class="container">
                 <div class="col-sm-12">
@@ -209,6 +210,158 @@
                 </div>
             </div>
         </section>
+
+
+        <!-- ratings -->
+        <?php } if(!empty($rating)){
+        
+        $ratingSum = 0;
+        $num1 = 0; $num2 = 0; $num3 = 0; $num4 = 0; $num5 = 0;
+        foreach ($rating as $key => $value) {
+            $ratingSum += $value->rating;
+            if($value->rating == 1){ $num1 += 1; }
+            elseif($value->rating == 2 ){ $num2 += 1; }
+            elseif($value->rating == 3 ){ $num3 += 1; }
+            elseif($value->rating == 4){ $num4 += 1; }
+            elseif($value->rating == 5){ $num5 += 1; }
+        }
+            $avg = $ratingSum / count($rating);
+        ?>
+        <section class="rating-section">
+            <div class="container">
+                <div class="row">
+                    <div class="push  col-md-6">
+                        <div class="rating">
+                            <div class="title">
+                                Based on <?php echo count($rating) ?> reviews
+                            </div>
+                            <div class="score">
+                                <div class="average-score">
+                                    <p class="numb"><?php echo  round($avg, 1); ?></p>
+                                    <p class="text">Average score</p>
+                                </div>
+                                <div class="queue">
+                                    <?php 
+
+                                        for ($i=0; $i < 5; $i++) { 
+                                            if($i < round($avg, 0, PHP_ROUND_HALF_DOWN)){ $startCheck = 'ratingStar';  }else{ $startCheck = '';  }
+                                            echo ' <i class="fa fa-star avg-start '.$startCheck.'" aria-hidden="true"></i>';
+                                        }
+                                    ?>
+                                </div>
+                            </div>
+                            <ul class="queue-box">
+                                <li class="five-star">
+                                    <span>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </span>
+                                    <span class="start-count"><?php echo $num5 ?></span>
+                                    <span class="start-progress">
+                                        <span class="start-bar"
+                                            style="width: <?php echo (($num5 / count($rating)) * 100)   ?>%"></span>
+                                    </span>
+                                </li>
+                                <li class="four-star">
+                                    <span>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </span>
+                                    <span class="start-count"><?php echo $num4 ?></span>
+                                    <span class="start-progress">
+                                        <span class="start-bar"
+                                            style="width:<?php echo (($num4 / count($rating)) * 100)   ?>%"></span>
+                                    </span>
+                                </li>
+                                <li class="three-star">
+                                    <span>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </span>
+                                    <span class="start-count"><?php echo $num3 ?></span>
+                                    <span class="start-progress">
+                                        <span class="start-bar"
+                                            style="width:<?php echo (($num3 / count($rating)) * 100)   ?>%"></span>
+                                    </span>
+
+                                </li>
+                                <li class="two-star">
+                                    <span>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </span>
+                                    <span class="start-count"><?php echo $num2 ?></span>
+                                    <span class="start-progress">
+                                        <span class="start-bar"
+                                            style="width:<?php echo (($num2 / count($rating)) * 100)   ?>%"></span>
+                                    </span>
+                                </li>
+                                <li class="one-star">
+                                    <span>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </span>
+                                    <span class="start-count"><?php echo $num1 ?></span>
+                                    <span class="start-progress">
+                                        <span class="start-bar"
+                                            style="width:<?php echo (($num1 / count($rating)) * 100)   ?>%"></span>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div><!-- /.rating -->
+                    </div><!-- /.col-md-6 -->
+
+                    <div class="col-md-6">
+                        <ul class="review-list">
+                            <?php foreach ($rating as $key => $value) { ?>
+                            <li>
+                                <div class="review-metadata">
+                                    <div class="name">
+                                        <?php echo (!empty($value->name))? $value->name : 'Unknown'; 
+                                        echo   ' : <span> '.date("M d, Y" , strtotime($value->created_on)) .'</span>'  ?>
+                                    </div>
+                                    <div class="queue">
+                                        <?php 
+                                            for ($i=0; $i < 5; $i++) { 
+                                                if($i < $value->rating){ $startCheck = 'ratingStar';  }else{ $startCheck = '';  }
+                                                echo ' <i class="fa fa-star avg-start '.$startCheck.'" aria-hidden="true"></i>';
+                                            }
+                                           
+                                           ?>
+
+                                    </div>
+                                </div><!-- /.review-metadata -->
+                                <div class="review-content">
+                                    <p>
+                                        <?php echo  '<span class="bold">'.$value->headline .'</span><br>'. $value->comments ?>
+                                    </p>
+                                </div><!-- /.review-content -->
+                            </li>
+                            <?php } ?>
+                        </ul><!-- /.review-list -->
+                    </div><!-- /.col-md-12 -->
+
+
+                </div>
+
+            </div>
+        </section>
+        <?php } ?>
         <?php $this->load->view('includes/footer');?>
 
     </div><!-- /.boxed -->
@@ -236,34 +389,35 @@
 
     <?php $this->load->view('includes/searchq'); ?>
     <script>
-$(function() {
+    $(function() {
 
-$(document).on('change', '.brandng-charge', function() {
-var id = $(this).closest('tr').attr('id');
-var brand = $(this).val();
-if (brand == '') {
-    $('#'+id+'>td .brandc-price>span').remove();
-    return false;
-} else {
-    loder(true);
-    $.ajax({
-        url: '<?php echo base_url() ?>Search/brand_price',
-        datatype: 'html',
-        data: {
-            'brandid': brand
-        }, // change this to send js object
-        type: "get",
-        success: function(data) {
-            if (data != '') {
-                $('#'+id+'>td .brandc-price>span').remove();
-                $('#'+id+'>td .brandc-price').append("<span>&#8377; " + data + "</span>");
-                $('#'+id+'>td .brandprice').val(data);
+        $(document).on('change', '.brandng-charge', function() {
+            var id = $(this).closest('tr').attr('id');
+            var brand = $(this).val();
+            if (brand == '') {
+                $('#' + id + '>td .brandc-price>span').remove();
+                return false;
+            } else {
+                loder(true);
+                $.ajax({
+                    url: '<?php echo base_url() ?>Search/brand_price',
+                    datatype: 'html',
+                    data: {
+                        'brandid': brand
+                    }, // change this to send js object
+                    type: "get",
+                    success: function(data) {
+                        if (data != '') {
+                            $('#' + id + '>td .brandc-price>span').remove();
+                            $('#' + id + '>td .brandc-price').append("<span>&#8377; " +
+                                data + "</span>");
+                            $('#' + id + '>td .brandprice').val(data);
+                        }
+                        loder(false);
+                    }
+                });
             }
-            loder(false);
-        }
-    });
-}
-});
+        });
 
 
 
@@ -274,7 +428,7 @@ if (brand == '') {
             $(this).addClass('cheked');
         });
         // fetch branding charges price and display
-       
+
 
 
         // loder
@@ -306,7 +460,7 @@ if (brand == '') {
             $('#qty').val(newqty);
         });
 
-        
+
 
 
 
@@ -320,7 +474,7 @@ if (brand == '') {
             if (len < 5) {
                 $('<tr id="' + time +
                         '"><td class="brand-td"> <div class="quanlity-box selectbrand" id="selectbrand"> <?php if(!empty($brand)) { ?> <div class="colors float-left"> <select name="brand[]" class="brandng-charge"> <option value="">Branding Charges</option> <?php foreach ($brand as $key => $value) { echo '<option  value="'. $value->id.'">'.$value->title.'</option>'; } ?> </select> </div> <?php } ?> </div> </td><td class="brand-td"> <div class="quanlity-box selectbrand" id="selectbrand"> <div class=""> <p class="brandc-price">Price : </p><input type="hidden" name="brandprice[]" class="brandprice"></div> <span class="more-brandc"> <a id="brand-close" class="brandclose"><i class="fa fa-close" aria-hidden="true"></i> </a> </span> </div> </td></tr>'
-                        )
+                    )
                     .append().insertBefore('#brand-tr');
             } else {
                 return false;

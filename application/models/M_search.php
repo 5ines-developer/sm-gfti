@@ -92,6 +92,24 @@ class M_search extends CI_Model
         return $this->db->get('size_chart')->result();
     }
 
+    // rating fetch
+    public function ratingSingleProduct($prid)
+    {
+        // $result['avg'] = $this->RatingAvg($prid);
+        $this->db->select('r.id as rid, r.rating, r.product, r.headline, r.comments, r.created_on, e.name');
+        $this->db->where('product', $prid);
+        $this->db->where('status', 1);
+        $this->db->from('review r');
+        $this->db->join('employee e', 'e.id = r.user', 'left');
+        return $this->db->get()->result();
+       
+    }
+
+    // // Rating avg
+    // public function FunctionName(Type $var = null)
+    // {
+    //     # code...
+    // }
 }
 
 /* End of file M_search.php */

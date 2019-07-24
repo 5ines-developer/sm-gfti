@@ -4994,3 +4994,25 @@ padding: 14px 0;
 .brand-td {
     vertical-align: middle;
 }
+
+
+/* Rating section */
+.rating-section { background: #fff; padding: 50px 0; }
+.avg-start{color: #919191 !important;}
+.avg-start.ratingStar{color: #22baba !important; }
+.bold{font-size: 15px;line-height:30px;  font-weight: 600;}
+.start-count { margin: 0 10px; }
+.start-progress {
+    height: 6px;
+    width: 220px;
+    background-color: #d6d6d6;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.start-bar{
+    height: 6px;
+    background-color: #b2b2b2;
+    border-radius: 5px;
+    display: block;
+}
