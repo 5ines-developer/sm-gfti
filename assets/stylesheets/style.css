@@ -394,7 +394,7 @@ input[type="email"] {
     font-family: 'Open Sans';
     width: 100%;
     line-height: 24px;
-    padding: 8px 15px 8px 30px;
+    padding: 8px 19px 8px 14px;
     color: #727272;
     border: 1px solid #e5e5e5;
     height: 40px;
@@ -405,6 +405,9 @@ input[type="email"] {
     -ms-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 select {
@@ -4861,7 +4864,7 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 
-.size-box ul li label.cheked{
+.size-box ul li label.cheked {
     background: teal;
     color: #fff;
     border-color: #034242 !important;
@@ -4912,17 +4915,16 @@ input[type="checkbox"] {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
 .btn-review {
     transform: translateY(50px);
     font-size: 12px;
     padding: 10px 15px;
     max-height: 35px;
-
 }
+
 .btn-review:hover {
-
     border: 1px solid #129ec8;
-
 }
 
 .star {
@@ -4930,13 +4932,21 @@ input[type="checkbox"] {
     display: contents;
     font-size: 22px;
 }
-.rating-stars h5{
+
+.rating-stars h5 {
     font-size: 18px;
-padding: 14px 0;
+    padding: 14px 0;
 }
-.star.hover{color:#FFCC36}
-.star.selected{color:#FF912C}
-.m-title{
+
+.star.hover {
+    color: #FFCC36
+}
+
+.star.selected {
+    color: #FF912C
+}
+
+.m-title {
     border-bottom: 1px solid #f7f2f2;
     padding-bottom: 14px;
 }
@@ -4944,6 +4954,8 @@ padding: 14px 0;
 .rating-stars {
     margin-bottom: 20px;
 }
+
+
 /***** product detail 22-07-2019 ********/
 
 .brandc-price {
@@ -4955,7 +4967,7 @@ padding: 14px 0;
     font-family: 'Open Sans';
     width: 100%;
     line-height: 30px;
-    padding: 8px 15px 8px 30px;
+    padding: 8px 15px 8px 10px;
     color: #727272;
     border: none;
     border-radius: 2px;
@@ -4998,11 +5010,30 @@ padding: 14px 0;
 
 
 /* Rating section */
-.rating-section { background: #fff; padding: 50px 0; }
-.avg-start{color: #919191 !important;}
-.avg-start.ratingStar{color: #22baba !important; }
-.bold{font-size: 15px;line-height:30px;  font-weight: 600;}
-.start-count { margin: 0 10px; }
+
+.rating-section {
+    background: #fff;
+    padding: 50px 0;
+}
+
+.avg-start {
+    color: #919191 !important;
+}
+
+.avg-start.ratingStar {
+    color: #22baba !important;
+}
+
+.bold {
+    font-size: 15px;
+    line-height: 30px;
+    font-weight: 600;
+}
+
+.start-count {
+    margin: 0 10px;
+}
+
 .start-progress {
     height: 6px;
     width: 220px;
@@ -5011,7 +5042,7 @@ padding: 14px 0;
     display: inline-block;
 }
 
-.start-bar{
+.start-bar {
     height: 6px;
     background-color: #b2b2b2;
     border-radius: 5px;
