@@ -23,9 +23,12 @@ class Orders extends CI_Controller {
         $result = $this->m_orders->getorders($this->uid);
         $bach = '';
         foreach ($result as $key => &$value) {
+           
             $bach[$value->bachid][$key] = $value;
         }
+        
         $data['orders'] =  $bach;
+        
         $this->load->view('account/myorders', $data);
     }
 

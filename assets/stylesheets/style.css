@@ -3890,24 +3890,33 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .c-title {
-    font-size: 16px;
-    color: #212121;
-    line-height: 1;
+
+    font-size: 14px;
+    color: #131313;
+    line-height: 16px;
     display: inline;
+
 }
+.c-category span::after {
+    content: ":";
+    float: right;
+    margin-right: 7px;
+}
+.c-title a{color: #0066c0;}
+.c-title a:hover{color: teal;}
 
 .c-category {
     color: #878787;
     font-size: 12px;
     padding: 10px 0;
+    line-height: 17px;
 }
 
 .c-category span {
     color: #3c3c3c;
     font-size: 12px;
-    font-weight: 600;
     display: inline-block;
-    min-width: 50%;
+    min-width: 34%;
 }
 
 .c-price {
@@ -4637,7 +4646,7 @@ a.small-btn {
         border-bottom-right-radius: 30px;
         margin-left: -60px;
         margin-right: 21px;
-        float: left;
+       
     }
     .btn-shop a {
         line-height: 40px;
@@ -5047,4 +5056,11 @@ input[type="checkbox"] {
     background-color: #b2b2b2;
     border-radius: 5px;
     display: block;
+}
+
+@media (max-width:768px){
+    .btn-review {
+        transform: translateY(0px);
+        margin-bottom: 10px;
+    }
 }
