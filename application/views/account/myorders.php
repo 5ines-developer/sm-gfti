@@ -129,23 +129,23 @@
                                         <div class="cart-item-content">
                                             <div class="c-title">
                                                 <p><a
-                                                        href="<?php echo base_url().$vale2->product_id ?>"><?php echo $vale2->ptitle ?></a>
+                                                        href="<?php echo base_url('product/').$vale2->product_id ?>"><?php echo $vale2->ptitle ?></a>
                                                 </p>
                                             </div>
                                             <div class="c-category">
-                                                <p><span><?php echo $vale2->name ?></span></p>
-                                                <p><span>Quantity : </span> <?php echo $vale2->quantity ?></p>
+                                                <p><?php echo $vale2->name ?></p>
+                                                <p><span>Quantity  </span> <?php echo $vale2->quantity ?></p>
                                                 <?php 
                                                 if(!$Tbrandprice == 0){
-                                                    echo '<p><span>Branding Charges :   </span> ₹ '. $Tbrandprice.' </p>';
+                                                    echo '<p><span>Branding Charges    </span> ₹ '. $Tbrandprice.' </p>';
                                                 } 
 
                                                 if(!$discount == 0){
-                                                    echo '<p><span>Discount - '.$vale2->discount.'%  : </span> ₹ '. $discount. '</p>';
+                                                    echo '<p><span>Discount - '.$vale2->discount.'%   </span> ₹ '. $discount. '</p>';
                                                 }
 
                                                 if(!$nGst == 0){
-                                                    echo '<p><span>GST - '.$vale2->gst.'%  : </span> ₹ '.$nGst.'</p>';
+                                                    echo '<p><span>GST - '.$vale2->gst.'%   </span> ₹ '.$nGst.'</p>';
                                                 }
 
                                                 

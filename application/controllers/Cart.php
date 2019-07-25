@@ -86,7 +86,7 @@ class Cart extends CI_Controller {
                 $brcgprice='';
             $brprice = $this->m_cart->brandpriceFect($value->cid);
                     if(!empty($brprice)){
-                    $nselect .= '<div class="brand-charge"> <div class="footer-detail c-category"><span>Branding Charges:</span> <ul>';
+                    $nselect .= '<div class="brand-charge"> <div class="footer-detail c-category"><p style="color:black">Branding Charges <p><ul>';
                         foreach ($brprice as $keys => $values) {
                             $brndprice[] = $values->brand_price;
                             $nselect .= '<li>'.$values->brand_title.'&nbsp;&nbsp; &#8377;'.$values->brand_price.' </li>';
@@ -112,13 +112,13 @@ class Cart extends CI_Controller {
                                     
                                 </div>
                                 <div class="c-category">
-                                    <p><span>'. $value->name .'</span> </p>
-                                    <p><span>SKU: </span> '. $value->product_id .'</p>';
+                                    <p>'. $value->name .'</p>
+                                    <p><span>SKU </span> '. $value->product_id .'</p>';
                                         if(!empty($value->pgst)){ 
-                                            $items .= '<p><span>GST: </span> '. $value->pgst .'% &nbsp;-&nbsp; &#8377; '.$gst.'</p>';
+                                            $items .= '<p><span>GST </span> '. $value->pgst .'% &nbsp;-&nbsp; &#8377; '.$gst.'</p>';
                                         }
                                         if(!empty($value->pdiscount)){ 
-                                            $items .= '<p><span>Discount: </span> '. $value->pdiscount .'% &nbsp;-&nbsp; &#8377; '.$discount.' </p>';
+                                            $items .= '<p><span>Discount </span> '. $value->pdiscount .'% &nbsp;-&nbsp; &#8377; '.$discount.' </p>';
                                         }
                                         $items .='</div>
                                 <div class="c-price">
