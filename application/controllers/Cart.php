@@ -28,17 +28,17 @@ class Cart extends CI_Controller {
         $size = $this->input->post('size');
         
         if (empty($qty)) { $qty = 1; }
-        if (empty($brand)) { $brand = ''; }
-        
         $datas = array('qty' => $qty,'product' => $pid, 'size' => $size);
         $data['cartid'] = $this->m_cart->addTocart($datas, $this->uid);
 
-        if (!empty($brand[0])) {
-            $this->cart_branding($brand,$data['cartid']);
+        if (empty($brand[0])) { 
+            $brand = ''; 
+            $this->m_cart->deletebrand($brand,$data['cartid']);
         }else{
-            $brand = '';
-            $this->m_cart->addcartbrand($brand,$data['cartid']);
+            $this->cart_branding($brand,$data['cartid']);
         }
+
+        
         // $data['cart'] = $this->m_cart->getCart($this->uid);
         $this->load->view('pages/cart', $data, FALSE);
     }
@@ -60,12 +60,12 @@ class Cart extends CI_Controller {
                     'brand_id' => $value1->id, 
                 );
 
+                $brandcr['id'][] = $insert['brand_id'];
+
                 $this->m_cart->addcartbrand($insert,$cartid);
-
-
             }
         }
-       
+            $this->m_cart->deletebrand($brandcr['id'],$cartid);
     }
 
     // ajax shoping cart

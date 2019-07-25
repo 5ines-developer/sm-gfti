@@ -50,9 +50,9 @@
                     <div class="col-md-6">
                         <div class="flexslider single-prd">
                             <ul class="slides">
-                                <li data-thumb="<?php echo base_url().$product->image_path ?>">
+                                <li data-thumb="<?php echo base_url() . $product->image_path ?>">
                                     <a href='#' id="zoom" class='zoom'><img
-                                            src="<?php echo base_url().$product->image_path ?>"
+                                            src="<?php echo base_url() . $product->image_path ?>"
                                             alt='<?php echo $product->title ?>' width='400' height='300' /></a>
                                     <!-- <span>NEW</span> -->
                                 </li>
@@ -84,12 +84,12 @@
                                     <div class="status-product">
                                         Availablity
                                         <?php
-                                            if($product->available_stock > 0){
-                                                echo '<span class="green">In stock</span>';
-                                            }else{
-                                                echo '<span >Out of stock</span>';
-                                            }
-                                        ?>
+if ($product->available_stock > 0) {
+    echo '<span class="green">In stock</span>';
+} else {
+    echo '<span >Out of stock</span>';
+}
+?>
 
                                     </div>
                                 </div>
@@ -102,23 +102,24 @@
                                             &#8377; <?php echo $product->price ?>
                                         </span>
                                         <span class="percentace">
-                                            <?php echo  (!empty($product->discount)) ? $product->discount.' % off' :'' ?>
+                                            <?php echo (!empty($product->discount)) ? $product->discount . ' % off' : '' ?>
                                         </span>
                                     </div>
                                     <div class="sale">
                                         &#8377;
-                                        <?php  $discount =  ($product->price * $product->discount) / 100 ; echo $product->price - $discount; ?>
+                                        <?php $discount = ($product->price * $product->discount) / 100;
+echo $product->price - $discount;?>
                                     </div>
                                 </div>
                                 <div class="info-text">
-                                    <?php echo   mb_strimwidth($product->des, 0, 120, "...") ?>
+                                    <?php echo mb_strimwidth($product->des, 0, 120, "...") ?>
                                 </div>
                                 <div class="product-id">
-                                    HSN: <span class="id"><?php echo $product->hsn  ?></span>
+                                    HSN: <span class="id"><?php echo $product->hsn ?></span>
                                 </div>
                             </div><!-- /.content-detail -->
                             <div class="footer-detail">
-                                <form action="<?php echo base_url('add-cart/').$product->product_id ?>" method="post">
+                                <form action="<?php echo base_url('add-cart/') . $product->product_id ?>" method="post">
                                     <div class="quanlity-box ">
                                         <div class="quanlity float-left mr8" id='qantity-box'>
                                             <span class="btn-down"></span>
@@ -128,41 +129,41 @@
                                         </div>
                                     </div><!-- /.quanlity-box -->
                                     <div class="clearfix"></div>
-                                    <?php if(!empty($size)){ ?>
+                                    <?php if (!empty($size)) {?>
                                     <div class="size-box">
                                         <span class="size-text">Size:</span>
                                         <ul>
-                                            <?php  foreach ($size as $key => $value) { ?>
+                                            <?php foreach ($size as $key => $value) {?>
                                             <li>
-                                                <label for="" class="<?php echo ($key == 0)? 'cheked' : '' ?>">
+                                                <label for="" class="<?php echo ($key == 0) ? 'cheked' : '' ?>">
                                                     <span class="c-box"><?php echo $value->size_name ?></span>
-                                                    <input <?php echo ($key == 0)? 'checked' : '' ?> type="radio"
+                                                    <input <?php echo ($key == 0) ? 'checked' : '' ?> type="radio"
                                                         value="<?php echo $value->id ?>" name="size" id="">
                                                 </label>
                                             </li>
-                                            <?php } ?>
+                                            <?php }?>
                                         </ul>
                                     </div>
-                                    <?php } ?>
+                                    <?php }?>
 
                                     <table id="brand-table">
                                         <tr id="brand-tr">
                                             <td class="brand-td">
                                                 <div class="quanlity-box selectbrand" id="selectbrand">
-                                                    <?php if(!empty($brand)) { ?>
+                                                    <?php if (!empty($brand)) {?>
                                                     <div class="colors float-left">
                                                         <select name="brand[]" class="brandng-charge">
                                                             <option value="">Branding Charges</option>
                                                             <?php foreach ($brand as $key => $value) {
-                                                             echo '<option  value="'. $value->id.'">'.$value->title.'</option>';
-                                                            } ?>
+    echo '<option  value="' . $value->id . '">' . $value->title . '</option>';
+}?>
                                                         </select>
                                                     </div>
-                                                    <?php } ?>
+                                                    <?php }?>
                                                 </div>
                                             </td>
                                             <td class="brand-td">
-                                                <?php if(!empty($brand)) { ?>
+                                                <?php if (!empty($brand)) {?>
                                                 <div class="quanlity-box selectbrand" id="selectbrand">
                                                     <div class="">
                                                         <p class="brandc-price">Price : </p>
@@ -173,20 +174,20 @@
                                                                 aria-hidden="true"></i> </a>
                                                     </span>
                                                 </div>
-                                                <?php } ?>
+                                                <?php }?>
 
                                             </td>
                                         </tr>
                                     </table>
-                                    <?php if(!empty($brand)) { ?>
-                                        <span>Note : You can select maximum of 5 Branding Charges</span>
-                                    <?php } ?>
+                                    <?php if (!empty($brand)) {?>
+                                    <span>Note : You can select maximum of 5 Branding Charges</span>
+                                    <?php }?>
 
                                     <div class="box-cart style2">
                                         <div class="btn-add-cart">
                                             <button class="add-cart"
-                                                type="<?php echo($product->available_stock > 0) ? 'disabled' : 'disabled' ?>"><img
-                                                    src="<?php echo base_url()?>assets/images/icons/add-cart.png"
+                                                type="<?php echo ($product->available_stock > 0) ? 'disabled' : 'disabled' ?>"><img
+                                                    src="<?php echo base_url() ?>assets/images/icons/add-cart.png"
                                                     alt="">Add to Cart</button>
                                         </div>
 
@@ -199,7 +200,7 @@
                 </div><!-- /.row -->
             </div><!-- /.container -->
         </section><!-- /.flat-product-detail -->
-        <?php if(!empty($product->des)){ ?>
+        <?php if (!empty($product->des)) {?>
         <section class="product-des">
             <div class="container">
                 <div class="col-sm-12">
@@ -215,20 +216,20 @@
 
 
         <!-- ratings -->
-        <?php } if(!empty($rating)){
-        
-        $ratingSum = 0;
-        $num1 = 0; $num2 = 0; $num3 = 0; $num4 = 0; $num5 = 0;
-        foreach ($rating as $key => $value) {
-            $ratingSum += $value->rating;
-            if($value->rating == 1){ $num1 += 1; }
-            elseif($value->rating == 2 ){ $num2 += 1; }
-            elseif($value->rating == 3 ){ $num3 += 1; }
-            elseif($value->rating == 4){ $num4 += 1; }
-            elseif($value->rating == 5){ $num5 += 1; }
-        }
-            $avg = $ratingSum / count($rating);
-        ?>
+        <?php }if (!empty($rating)) {
+
+    $ratingSum = 0;
+    $num1 = 0;
+    $num2 = 0;
+    $num3 = 0;
+    $num4 = 0;
+    $num5 = 0;
+    foreach ($rating as $key => $value) {
+        $ratingSum += $value->rating;
+        if ($value->rating == 1) {$num1 += 1;} elseif ($value->rating == 2) {$num2 += 1;} elseif ($value->rating == 3) {$num3 += 1;} elseif ($value->rating == 4) {$num4 += 1;} elseif ($value->rating == 5) {$num5 += 1;}
+    }
+    $avg = $ratingSum / count($rating);
+    ?>
         <section class="rating-section">
             <div class="container">
                 <div class="row">
@@ -239,17 +240,17 @@
                             </div>
                             <div class="score">
                                 <div class="average-score">
-                                    <p class="numb"><?php echo  round($avg, 1); ?></p>
+                                    <p class="numb"><?php echo round($avg, 1); ?></p>
                                     <p class="text">Average score</p>
                                 </div>
                                 <div class="queue">
-                                    <?php 
+                                    <?php
 
-                                        for ($i=0; $i < 5; $i++) { 
-                                            if($i < round($avg, 0, PHP_ROUND_HALF_DOWN)){ $startCheck = 'ratingStar';  }else{ $startCheck = '';  }
-                                            echo ' <i class="fa fa-star avg-start '.$startCheck.'" aria-hidden="true"></i>';
-                                        }
-                                    ?>
+    for ($i = 0; $i < 5; $i++) {
+        if ($i < round($avg, 0, PHP_ROUND_HALF_DOWN)) {$startCheck = 'ratingStar';} else { $startCheck = '';}
+        echo ' <i class="fa fa-star avg-start ' . $startCheck . '" aria-hidden="true"></i>';
+    }
+    ?>
                                 </div>
                             </div>
                             <ul class="queue-box">
@@ -264,7 +265,7 @@
                                     <span class="start-count"><?php echo $num5 ?></span>
                                     <span class="start-progress">
                                         <span class="start-bar"
-                                            style="width: <?php echo (($num5 / count($rating)) * 100)   ?>%"></span>
+                                            style="width: <?php echo (($num5 / count($rating)) * 100) ?>%"></span>
                                     </span>
                                 </li>
                                 <li class="four-star">
@@ -278,7 +279,7 @@
                                     <span class="start-count"><?php echo $num4 ?></span>
                                     <span class="start-progress">
                                         <span class="start-bar"
-                                            style="width:<?php echo (($num4 / count($rating)) * 100)   ?>%"></span>
+                                            style="width:<?php echo (($num4 / count($rating)) * 100) ?>%"></span>
                                     </span>
                                 </li>
                                 <li class="three-star">
@@ -292,7 +293,7 @@
                                     <span class="start-count"><?php echo $num3 ?></span>
                                     <span class="start-progress">
                                         <span class="start-bar"
-                                            style="width:<?php echo (($num3 / count($rating)) * 100)   ?>%"></span>
+                                            style="width:<?php echo (($num3 / count($rating)) * 100) ?>%"></span>
                                     </span>
 
                                 </li>
@@ -307,7 +308,7 @@
                                     <span class="start-count"><?php echo $num2 ?></span>
                                     <span class="start-progress">
                                         <span class="start-bar"
-                                            style="width:<?php echo (($num2 / count($rating)) * 100)   ?>%"></span>
+                                            style="width:<?php echo (($num2 / count($rating)) * 100) ?>%"></span>
                                     </span>
                                 </li>
                                 <li class="one-star">
@@ -321,7 +322,7 @@
                                     <span class="start-count"><?php echo $num1 ?></span>
                                     <span class="start-progress">
                                         <span class="start-bar"
-                                            style="width:<?php echo (($num1 / count($rating)) * 100)   ?>%"></span>
+                                            style="width:<?php echo (($num1 / count($rating)) * 100) ?>%"></span>
                                     </span>
                                 </li>
                             </ul>
@@ -330,31 +331,31 @@
 
                     <div class="col-md-6">
                         <ul class="review-list">
-                            <?php foreach ($rating as $key => $value) { ?>
+                            <?php foreach ($rating as $key => $value) {?>
                             <li>
                                 <div class="review-metadata">
                                     <div class="name">
-                                        <?php echo (!empty($value->name))? $value->name : 'Unknown'; 
-                                        echo   ' : <span> '.date("M d, Y" , strtotime($value->created_on)) .'</span>'  ?>
+                                        <?php echo (!empty($value->name)) ? $value->name : 'Unknown';
+        echo ' : <span> ' . date("M d, Y", strtotime($value->created_on)) . '</span>' ?>
                                     </div>
                                     <div class="queue">
-                                        <?php 
-                                            for ($i=0; $i < 5; $i++) { 
-                                                if($i < $value->rating){ $startCheck = 'ratingStar';  }else{ $startCheck = '';  }
-                                                echo ' <i class="fa fa-star avg-start '.$startCheck.'" aria-hidden="true"></i>';
-                                            }
-                                           
-                                           ?>
+                                        <?php
+for ($i = 0; $i < 5; $i++) {
+            if ($i < $value->rating) {$startCheck = 'ratingStar';} else { $startCheck = '';}
+            echo ' <i class="fa fa-star avg-start ' . $startCheck . '" aria-hidden="true"></i>';
+        }
+
+        ?>
 
                                     </div>
                                 </div><!-- /.review-metadata -->
                                 <div class="review-content">
                                     <p>
-                                        <?php echo  '<span class="bold">'.$value->headline .'</span><br>'. $value->comments ?>
+                                        <?php echo '<span class="bold">' . $value->headline . '</span><br>' . $value->comments ?>
                                     </p>
                                 </div><!-- /.review-content -->
                             </li>
-                            <?php } ?>
+                            <?php }?>
                         </ul><!-- /.review-list -->
                     </div><!-- /.col-md-12 -->
 
@@ -363,7 +364,7 @@
 
             </div>
         </section>
-        <?php } ?>
+        <?php }?>
         <?php $this->load->view('includes/footer');?>
 
     </div><!-- /.boxed -->
@@ -389,7 +390,7 @@
 
     <script type="text/javascript" src="<?php echo base_url() ?>assets/javascript/main.js"></script>
 
-    <?php $this->load->view('includes/searchq'); ?>
+    <?php $this->load->view('includes/searchq');?>
     <script>
     $(function() {
 
@@ -411,7 +412,8 @@
                     success: function(data) {
                         if (data != '') {
                             $('#' + id + '>td .brandc-price>span').remove();
-                            $('#' + id + '>td .brandc-price').append("<span>&#8377; " + data + "</span>");
+                            $('#' + id + '>td .brandc-price').append("<span>&#8377; " +
+                                data + "</span>");
                             $('#' + id + '>td .brandprice').val(data);
                         }
                         loder(false);
@@ -473,7 +475,8 @@
             var time = str.replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '-');
             var len = $('#brand-table tr').length;
             if (len < 5) {
-                $('<tr id="' + time + '"><td class="brand-td"> <div class="quanlity-box selectbrand" id="selectbrand"> <?php if(!empty($brand)) { ?> <div class="colors float-left"> <select name="brand[]" class="brandng-charge"> <option value="">Branding Charges</option> <?php foreach ($brand as $key => $value) { echo '<option  value="'. $value->id.'">'.$value->title.'</option>'; } ?> </select> </div> <?php } ?> </div> </td><td class="brand-td"> <div class="quanlity-box selectbrand" id="selectbrand"> <div class=""> <p class="brandc-price">Price : </p><input type="hidden" name="brandprice[]" class="brandprice"></div> <span class="more-brandc"> <a id="brand-close" class="brandclose"><i class="fa fa-close" aria-hidden="true"></i> </a> </span> </div> </td></tr>'
+                $('<tr id="' + time +
+                        '"><td class="brand-td"> <div class="quanlity-box selectbrand" id="selectbrand"> <?php if (!empty($brand)) {?> <div class="colors float-left"> <select name="brand[]" class="brandng-charge"> <option value="">Branding Charges</option> <?php foreach ($brand as $key => $value) {echo '<option  value="' . $value->id . '">' . $value->title . '</option>';}?> </select> </div> <?php }?> </div> </td><td class="brand-td"> <div class="quanlity-box selectbrand" id="selectbrand"> <div class=""> <p class="brandc-price">Price : </p><input type="hidden" name="brandprice[]" class="brandprice"></div> <span class="more-brandc"> <a id="brand-close" class="brandclose"><i class="fa fa-close" aria-hidden="true"></i> </a> </span> </div> </td></tr>'
                     )
                     .append().insertBefore('#brand-tr');
             } else {
