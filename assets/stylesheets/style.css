@@ -5017,3 +5017,10 @@ padding: 14px 0;
     border-radius: 5px;
     display: block;
 }
+
+@media (max-width:768px){
+    .btn-review {
+        transform: translateY(0px);
+        margin-bottom: 10px;
+    }
+}
