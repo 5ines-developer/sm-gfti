@@ -595,7 +595,7 @@ $this->ci->load->model('m_cart');
                                                 <div style="font-size:1px;line-height:10px"> </div><img align="center"
                                                     alt="Image" border="0" class="center autowidth fullwidth"
                                                     src="<?php echo(!empty($value->image_path))?base_url().$value->image_path:'' ?>"
-                                                    style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 152px; display: block;"
+                                                    style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 150px; max-width: 152px; display: block;"
                                                     title="Image" width="152" />
                                                 <div style="font-size:1px;line-height:10px"> </div>
                                                 <!--[if mso]></td></tr></table><![endif]-->
