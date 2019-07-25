@@ -329,12 +329,11 @@ class Cart extends CI_Controller {
         //  place order request
         function sendorder($cartitesms='', $bach='',$address='')
         {
-
             $c_email = $this->m_cart->getuseremail($this->uid);
             $data['detail'] = $cartitesms;
             $data['bach']   = $bach;
             $data['bill']   = $address['bill'];
-            $data['ship']   = $address['ship'];
+            
             $this->load->config('email');
             $this->load->library('email');
             $from = $this->config->item('smtp_user');
@@ -370,7 +369,7 @@ class Cart extends CI_Controller {
             $msg = $this->load->view('email/place-order-admin', $data, true);
             $this->email->set_newline("\r\n");
             $this->email->from($from , 'Gifting Express');
-            $this->email->to('prathwi@5ine.in');
+            $this->email->to('Vinayaka@giftingxpress.in');
             $this->email->subject('Purchase order request'); 
             $this->email->message($msg);
             if($this->email->send())  

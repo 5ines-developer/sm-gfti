@@ -274,6 +274,16 @@ class M_cart extends CI_Model
         return true;
     }
 
+    public function getphone($id = null)
+    {
+        $this->db->select('phone');
+        $this->db->where('id', $id);
+        $result = $this->db->get('employee')->row_array();
+        return $result['phone'];
+    }
+
+
+
 }
 
 /* End of file M_cart.php */
