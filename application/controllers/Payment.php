@@ -83,7 +83,7 @@ class payment extends CI_Controller {
                 $this->email->set_newline("\r\n");
                 $this->email->from($from , 'Gifting Express');
                 $this->email->to($to);
-                $this->email->subject('Purchase order request'); 
+                $this->email->subject('Order Placed Successfully'); 
                 $this->email->message($msg);
                 if($this->email->send())  
                 { 
@@ -111,8 +111,8 @@ class payment extends CI_Controller {
               $msg = $this->load->view('email/place-order-admin', $data, true);
               $this->email->set_newline("\r\n");
               $this->email->from($from , 'Gifting Express');
-              $this->email->to('prathwi@5ine.in');
-              $this->email->subject('Purchase order request'); 
+              $this->email->to('Vinayaka@giftingxpress.in');
+              $this->email->subject('Order Placed Successfully'); 
               $this->email->message($msg);
               if($this->email->send())  
               { 
