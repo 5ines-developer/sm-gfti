@@ -117,10 +117,8 @@
                           <th>Sl No.</th>
                           <th>Product</th>
                           <th>Headline</th>
-                          <th>Rating</th>
                           <th>User</th>
-                          <td>Status</td>
-                          <th>Action</th>
+                          <th>Created Date</th>
                           <td>Comment:</td>
                         </tr>
                       </thead>
@@ -136,37 +134,9 @@
                         <td><?php echo (!empty($rating))?$cont:'' ?></td>
                         <td><a href="<?php echo base_url('view-product/').$value->product_id ?>"><?php echo (!empty($value->title))?$value->title:'' ?></a></td>
                         <td><?php echo (!empty($value->headline))?$value->headline:'' ?></td>
-                        <td><?php 
-                             echo '<span class="hide">'.$value->rating.'</span>';
-                              for ($i=0; $i < 5; $i++) { 
-                               if($i < $value->rating){$check = 'check-star';}else{$check = '';}
-                                echo '<i class="fa fa-star r-start '.$check.'" aria-hidden="true"></i>';
-                              }
-                            ?>
-                        </td>
                         <td><a href="<?php echo base_url('view-employee/').$value->userid ?>"><?php echo (!empty($value->name))?$value->name:$value->email ?></a></td>
-                        
-                        <td><?php 
-                          if($value->status == 0){
-                            echo '<span class="label label-warning">Pending</span>';
-                          }
-                          if($value->status == 1){
-                            echo '<span class="label label-success">Approved</span>';
-                          }if($value->status == 2){
-                            echo '<span class="label label-danger">Reject</span>';
-                          }
-                        
-                        ?></td>
-                        <td>
-                             <a href="<?php echo base_url('product-ratings?status=approve&ref=').$value->rid ?>" data-toggle="tooltip" data-placement="bottom" title="Approve" class="action-btn btn-success">
-                                <i class="fa fa-check-square-o" aria-hidden="true"></i>
-                             </a>
-                             <a href="<?php echo base_url('product-ratings?status=reject&ref=').$value->rid ?>" data-toggle="tooltip" data-placement="bottom" title="Reject" class="action-btn btn-danger">
-                                <i class="fa fa-ban" aria-hidden="true"></i>
-                             </a> 
-                        </td>
+                        <td><?php echo (!empty($value->created_on))?date('M d, Y', strtotime($value->created_on)):'' ?></td>
                         <td><?php echo (!empty($value->comments))?$value->comments:'' ?></td>
-
                       </tr>
                     <?php } }?>
                       </tbody>

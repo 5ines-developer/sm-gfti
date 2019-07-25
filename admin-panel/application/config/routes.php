@@ -84,6 +84,8 @@ $route['delete-brand']           = 'Product/delete_brand';
 $route['delete-marquee']         = 'Product/delete_marquee';
 $route['edit-product/(:any)']    = 'Product/edit_product/$1';
 $route['product-ratings']        = 'Product/product_ratings';
+$route['escalation']             = 'Product/escalation';
+
 $route['product-ratings/(:any)'] = 'Product/product_ratings_single/$1';
 // Banner
 $route['add-banner'] 		     = 'Banner/index';
@@ -104,6 +106,9 @@ $route['view-employee/(:any)']   = 'Employee/view_employee/$1';
 //Orders
 $route['orders'] 		         = 'Orders/index';
 $route['view-order/(:any)'] 	 = 'Orders/view_order/$1';
+$route['courier-status/(:any)']  = 'Orders/courier_status/$1';
+
+
 //Billing address
 $route['add-billing-address'] 	 = 'Billing/index';
 $route['insert-billing-address'] = 'Billing/add_billing';

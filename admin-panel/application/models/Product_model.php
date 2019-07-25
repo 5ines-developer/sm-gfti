@@ -321,4 +321,18 @@ class Product_model extends CI_Model {
 			return true;
 		}
 
+		// escalation 
+		public function escalation()
+		{
+			return 
+			$this->db->from('escalation r')
+					->select('r.id as rid,  r.headline, r.comments, r.status, p.product_id, p.title, e.name, e.email, e.id as userid, r.created_on')
+					->join('product p', 'p.product_id = r.product', 'left')
+					->join('employee e', 'e.id = r.user', 'left')
+					->get()
+					->result();
+			
+		}
+
+
 }

@@ -44,4 +44,11 @@ class Orders extends CI_Controller {
         $this->load->view('order/view-order',$data);
     }
 
+    // order status
+    public function courier_status($var = null)
+    {
+        $data['title']      = 'courier status - Siemens';
+        $this->load->view('order/courier-status',$data);
+    }
+
 }

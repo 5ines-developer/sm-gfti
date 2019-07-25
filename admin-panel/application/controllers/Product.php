@@ -464,6 +464,15 @@ class Product extends CI_Controller {
         $this->load->view('Product/rating', $data, FALSE);
         
     }
+
+
+    // escation list
+    public function escalation()
+    {
+        $data['title'] = 'Product Escalation';
+        $data['rating'] = $this->Product_model->escalation();
+        $this->load->view('Product/escalation', $data, FALSE);
+    }
     
 
 

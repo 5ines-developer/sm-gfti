@@ -133,11 +133,13 @@
                                                 <th>Quantity</th>
                                                 <th>Status</th>
                                                 <th>Ordered By</th>
-                                                <th>Ordered On</th>
                                                 <th>Operations</th>
+                                                <th>Ordered On: &nbsp;&nbsp;</th>
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        
                                         <?php
                                         $cont = 0; if (!empty($order)) 
                                         {
@@ -148,9 +150,16 @@
                                             <td><?php echo (!empty($value1->qty))?$value1->qty:''  ?></td>
                                             <td><?php echo (!empty($value1->status))?$value1->status:''  ?></td>
                                             <td><?php echo $this->ci->Order_model->orderby((!empty($value1->order_by))?$value1->order_by:'') ?></td>
-                                            <td><?php echo (!empty($value1->orderd_on))?$value1->orderd_on:''  ?></td>
-                                            <td style="text-align:center;"> <a href="<?php echo base_url('view-order/').$value1->id?>" style="font-size: 20px;color: #257225" ><i class="fa fa-eye" aria-hidden="true"></i></a></td>
-                                        </tr>
+                                            <td style="text-align:center;"> 
+                                                <a href="<?php echo base_url('view-order/').$value1->id?>" class="action-btn btn-success" data-toggle="tooltip" data-placement="bottom"  data-original-title="Detail"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                                <a href="<?php echo base_url('courier-status/').$value1->id?>" class="action-btn btn-warning" data-toggle="tooltip" data-placement="bottom"  data-original-title="Courier Status"><i class="fa fa-gift" aria-hidden="true"></i></a>
+                                                <a href="" data-toggle="tooltip" data-placement="bottom" title="" class="action-btn btn-danger" data-original-title="Cancle the order">
+                                                    <i class="fa fa-ban" aria-hidden="true"></i>
+                                                </a>
+                                            </td>
+                                        
+                                            <td><?php echo (!empty($value1->orderd_on))? date('M d, Y',strtotime($value1->orderd_on)) :''  ?></td>
+                                            </tr>
                                         <?php } }?>
                                         </tbody>
                                     </table>
