@@ -52,4 +52,16 @@ class M_orders extends CI_Model {
     {
         return $this->db->where('order_id', $oderid)->get('order_branding')->result();
     }
+
+    // escalation
+    public function escalation($data)
+    {
+        $result = $this->db->where('product', $data['product'])->where('user', $data['user'])->get('escalation');
+        if($result->num_rows() > 0){
+            $this->db->where('product', $data['product'])->where('user',  $data['user'])->update('escalation', $data);
+        }else{
+            $this->db->insert('escalation', $data);
+        }
+        return true;
+    }
 }

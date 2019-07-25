@@ -90,6 +90,7 @@ $route['bill-session']          = 'cart/bill_session';
 //my orders
 $route['my-orders']             = 'Orders/index';
 $route['review']                = 'Orders/review';
+$route['escalation']            = 'Orders/escalation';
 $route['order/(:any)']          = 'Orders/order_detail/$1';
 // Payment 
 $route['payment/success']       = 'payment/success';

@@ -33,7 +33,7 @@ class Category_model extends CI_Model {
         */
         public function getcategory()
 		{
-			$this->db->order_by('id', 'desc');
+			$this->db->order_by('name', 'asc');
 			if(!empty($this->input->get('f'))){
 				$f =  $this->input->get('f');
 				$this->db->like('name', $f, 'after');

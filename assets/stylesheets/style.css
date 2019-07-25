@@ -52,224 +52,28 @@ body {
     -ms-text-size-adjust: 100%;
 }
 
-a,
-abbr,
-acronym,
-address,
-applet,
-article,
-aside,
-audio,
-b,
-big,
-blockquote,
-body,
-caption,
-canvas,
-center,
-cite,
-code,
-dd,
-del,
-details,
-dfn,
-dialog,
-div,
-dl,
-dt,
-em,
-embed,
-fieldset,
-figcaption,
-figure,
-form,
-footer,
-header,
-hgroup,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-html,
-i,
-iframe,
-img,
-ins,
-kbd,
-label,
-legend,
-li,
-mark,
-menu,
-nav,
-object,
-ol,
-output,
-p,
-pre,
-q,
-ruby,
-s,
-samp,
-section,
-small,
-span,
-strike,
-strong,
-sub,
-summary,
-sup,
-tt,
-table,
-tbody,
-textarea,
-tfoot,
-thead,
-time,
-tr,
-th,
-td,
-u,
-ul,
-var,
-video {
-    font-family: inherit;
-    font-size: 100%;
-    font-weight: inherit;
-    font-style: inherit;
-    vertical-align: baseline;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    background: transparent;
-}
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-    display: block;
-}
-
-ol,
-ul {
-    list-style: none;
-}
-
-blockquote,
-q {
-    -webkit-hyphens: none;
-    -moz-hyphens: none;
-    -ms-hyphens: none;
-    hyphens: none;
-    quotes: none;
-}
-
-figure {
-    margin: 0;
-}
-
-:focus {
-    outline: 0;
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-img {
-    border: 0;
-    -ms-interpolation-mode: bicubic;
-    vertical-align: middle;
-}
-
-legend {
-    white-space: normal;
-}
-
-button,
-input,
-select,
-textarea {
-    font-size: 100%;
-    margin: 0;
-    max-width: 100%;
-    vertical-align: baseline;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-button,
-input {
-    line-height: normal;
-}
-
-input,
-textarea {
-    background-image: -webkit-linear-gradient(hsla(0, 0%, 100%, 0), hsla(0, 0%, 100%, 0));
-}
-
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-    line-height: 1;
-    cursor: pointer;
-    -webkit-appearance: button;
-    border: none;
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-    padding: 0;
-}
-
-input[type="search"] {
-    -webkit-appearance: textfield;
-}
-
-input[type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none;
-}
-
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-    border: 0;
-    padding: 0;
-}
-
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, caption, canvas, center, cite, code, dd, del, details, dfn, dialog, div, dl, dt, em, embed, fieldset, figcaption, figure, form, footer, header, hgroup, h1, h2, h3, h4, h5, h6, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, tt, table, tbody, textarea, tfoot, thead, time, tr, th, td, u, ul, var, video { font-family: inherit; font-size: 100%; font-weight: inherit; font-style: inherit; vertical-align: baseline; margin: 0; padding: 0; border: 0; outline: 0; background: transparent; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+ol, ul { list-style: none; }
+blockquote, q { -webkit-hyphens: none; -moz-hyphens: none; -ms-hyphens: none; hyphens: none; quotes: none; }
+figure { margin: 0; }
+:focus { outline: 0; }
+table { border-collapse: collapse; border-spacing: 0; }
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+legend { white-space: normal; }
+button, input, select, textarea { font-size: 100%; margin: 0; max-width: 100%; vertical-align: baseline; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+button, input { line-height: normal; }
+input, textarea { background-image: -webkit-linear-gradient(hsla(0, 0%, 100%, 0), hsla(0, 0%, 100%, 0)); }
+button, input[type="button"], input[type="reset"], input[type="submit"] { line-height: 1; cursor: pointer; -webkit-appearance: button; border: none; }
+input[type="checkbox"], input[type="radio"] { padding: 0; }
+input[type="search"] { -webkit-appearance: textfield; }
+input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; } 
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
 
 /* Repeatable Patterns
 -------------------------------------------------------------- */
-
-*,
-*:before,
-*:after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
+*, *:before, *:after { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+*, *:before, *:after { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 13px;
@@ -279,6 +83,7 @@ body {
     color: #656565;
     overflow: hidden;
     position: relative;
+    padding: 0 !important;
 }
 
 a {
@@ -4924,12 +4729,37 @@ input[type="checkbox"] {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+.btn-info1{
+    background-color: #1565c0;
+    border-color: #0d47a1;
+}
+.btn-info1:hover{
+    background-color: #1e88e5;
+    border-color: #1565c0;
+    box-shadow: 0px 2px 7px -3px gray;
+}
+.btn-danger1:focus {
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 2px rgba(2,117,216,0);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0);
+}
+.btn-danger1{
+    background-color: #e53935;
+    border-color: #d32f2f;
+}
+.btn-danger1:hover{
+    background-color: #ef5350;
+    border-color: #e53935 !important;
+    box-shadow: 0px 2px 7px -3px gray;
+}
 
-.btn-review {
-    transform: translateY(50px);
+
+.btn-review, .btn-escalation {
     font-size: 12px;
     padding: 10px 15px;
     max-height: 35px;
+    min-width: 155px;
+    margin: 5px 0;
 }
 
 .btn-review:hover {
@@ -5064,3 +4894,8 @@ input[type="checkbox"] {
         margin-bottom: 10px;
     }
 }
+
+
+.esimage-box { padding: 5px 0 12px 0; }
+.esimage-box p{font-size: 16px;color: #000;}
+.esimage-box img{max-height: 80px;}

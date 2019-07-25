@@ -170,9 +170,18 @@
                                     <div class="col-12 col-sm-4">
                                         <div class="review-button">
                                             <div class="add-review">
-                                                <button type="button" class="btn btn-info btn-review "
+                                                <button type="button" class="btn btn-info1 btn-review "
                                                     data-value="<?php echo $vale2->product_id?>" data-toggle="modal"
                                                     data-target="#myModal"> Write a product review </button>
+
+                                                <button 
+                                                    type="button" 
+                                                    class="btn btn-danger1 btn-escalation "
+                                                    data-value="<?php echo $vale2->product_id?>" 
+                                                    data-toggle="modal"
+                                                    data-img = "<?php echo base_url().$vale2->image_path?>"
+                                                    data-name = "<?php echo $vale2->ptitle?>"
+                                                    data-target="#escalation"> Write a Escalation </button>
                                             </div>
                                         </div>
                                     </div>
@@ -266,7 +275,51 @@
 
             </div>
         </div>
-        <!-- We’re processing your review. This may take several days, so we appreciate your patience. We’ll notify you when this is complete. -->
+        
+
+        <!-- escalation popup -->
+        <div class="modal fade" id="escalation" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="m-title">
+                            <a type="button" class="close" data-dismiss="modal">&times;</a>
+                            <h4>Write a escation about the product</h4>
+                        </div>
+                        <div class="m-body">
+                            <form action="<?php echo base_url('escalation')?>" method="post">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="esimage-box text-center">
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-sm-10 push-sm-1">
+                                        <div class="form-group">
+                                            <label for="">Add a headline</label>
+                                            <input type="hidden" name="product" class="esproductsid">
+                                            <input type="text" name="headline" class="form-control" name="hedline">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="">Write Description</label>
+                                            <textarea name="cmd" rows="5" class="form-control"></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                                <button class="checkout" type="submit">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>                
+                    </div>                
+                </div>                
+            </div>                
+        </div>                
+
 
         <?php  $this->load->view('includes/footer');?>
 
@@ -295,26 +348,7 @@
     <script type="text/javascript" src="<?php echo base_url() ?>assets/javascript/jquery.validate.min.js"></script>
     <?php $this->load->view('includes/searchq'); ?>
     <script>
-    $(document).ready(function() {
-        $("#accountsettings").validate({
-            rules: {
-                phone: {
-                    required: true,
-
-                },
-
-                email: {
-                    required: true,
-                    email: true
-                },
-
-            },
-            messages: {
-                phone: "Please provide a Phone number",
-                email: "Please enter a valid email address",
-            }
-        });
-    });
+    $(document).ready(function() { $("#accountsettings").validate({ rules: { phone: { required: true, }, email: { required: true, email: true }, }, messages: { phone: "Please provide a Phone number", email: "Please enter a valid email address", } }); });
 
     //  rating 
     $(document).ready(function() {
@@ -360,6 +394,16 @@
             e.preventDefault();
             var vals = $(this).attr('data-value');
             $('input.products').val(vals);
+        });
+
+        $('.btn-escalation').click(function(e) {
+            e.preventDefault();
+            var vals = $(this).attr('data-value');
+            var img = $(this).attr('data-img');
+            var name = $(this).attr('data-name');
+            $('input.esproductsid').val(vals);
+            var prdDetail = '<img src="'+img+'" alt=""> <p>'+name+'</p>';
+            $('.esimage-box').html(prdDetail);
         });
 
     });

@@ -59,5 +59,20 @@ class Orders extends CI_Controller {
            redirect('my-orders','refresh');
         }
 
+        // escalation
+        public function escalation()
+        {
+            $input = $this->input->post();
+            $data = array(
+                'product' => $input['product'],
+                'headline' => $input['headline'],
+                'comments' => $input['cmd'],
+                'user' => $this->uid,
+            );
+            $this->m_orders->escalation($data);
+            $this->session->set_flashdata('msg', 'Thank you for the feedback. We will check and rectify the issue.');
+            redirect('my-orders','refresh');
+        }
+
 
 }
