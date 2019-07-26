@@ -4903,3 +4903,22 @@ input[type="checkbox"] {
 .esimage-box { padding: 5px 0 12px 0; }
 .esimage-box p{font-size: 16px;color: #000;}
 .esimage-box img{max-height: 80px;}
+
+.brandfilter{
+    float: right;
+    border: 1px solid #098888;
+    transition: 0.3s;
+    border-radius: 2px;
+    background: #099;
+    max-height: 30px;
+    line-height: 30px;
+    padding: 0px 10px;
+    position: absolute;
+    top: 38px;
+    right: 50px;
+}
+
+.brandfilter:hover {
+    border: 1px solid #1aa;
+    background: #23caca;
+}

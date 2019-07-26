@@ -16,6 +16,7 @@ class Search extends CI_Controller {
         $this->data['cart_item'] = $this->m_cart->cart_item($this->session->userdata('sid'));
         $this->load->model('m_web');
         $this->data['categories'] = $this->m_web->categories();
+        $this->data['brand'] = $this->m_web->brand();
     }
     
     // search suggetion
@@ -57,9 +58,10 @@ class Search extends CI_Controller {
         $query = $this->input->get('q');
         $min = $this->input->get('min');
         $max = $this->input->get('max');
-
-        $data = $this->m_search->getResult($query, $category, $max, $min);
-        $result =  $this->m_search->search_pagination($query,$category,$perpage,$page, $max, $min);
+        $brand = $this->input->get('brand');
+       
+        $data = $this->m_search->getResult($query, $category, $max, $min, $brand);
+        $result =  $this->m_search->search_pagination($query,$category,$perpage,$page, $max, $min, $brand);
 
         $config['base_url'] = base_url().'search';
         $config['total_rows'] = count($data);
