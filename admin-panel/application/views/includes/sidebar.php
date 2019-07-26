@@ -18,6 +18,12 @@
                       <li><a href="<?php echo base_url() ?>manage-category">Manage Category</a></li>
                       </ul>
                   </li>
+                  <li><a><i class="fa fa-list-alt" aria-hidden="true"></i> Brand <i class="fa fa-bandcamp" aria-hidden="true"></i></a>
+                    <ul class="nav child_menu">
+                      <li><a href="<?php echo base_url() ?>add-brand">Add Brand</a></li>
+                      <li><a href="<?php echo base_url() ?>manage-brand">Manage Brand</a></li>
+                      </ul>
+                  </li>
                   <li><a><i class="fa fa-cubes" aria-hidden="true"></i>Product<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo base_url() ?>add-product">Add Product</a></li>

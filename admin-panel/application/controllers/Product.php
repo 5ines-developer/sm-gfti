@@ -30,6 +30,7 @@ class Product extends CI_Controller {
     {
         $data['title'] = 'Add Product - Siemens';
         $data['category'] = $this->Category_model->getcategory();
+        $data['brandlogo'] = $this->Product_model->getbrandLogo();
 		$this->load->view('Product/add-product',$data);
     }
 
@@ -54,7 +55,8 @@ class Product extends CI_Controller {
             $desc        = trim($description);
             $size_title  = $this->input->post('size_title');
             $size        = $this->input->post('size');
-
+            $brandlogo   = $this->input->post('brandlogo');
+            
             
            
             
@@ -131,6 +133,7 @@ class Product extends CI_Controller {
                 'hsn'               =>  $this->input->post('hsn'),
                 'gst'               =>  $this->input->post('gst'),
                 'other_tax'         =>  $this->input->post('otax'),
+                'brand'             =>  $brandlogo,
             );
             if(file_exists($_FILES['pimage']['tmp_name'])) {
              $insert['image_path'] =   'product-image/'.$file_name ;
