@@ -64,4 +64,20 @@ class M_orders extends CI_Model {
         }
         return true;
     }
+
+    public function product_name($id = null)
+    {
+        $result =  $this->db->select('title')->where('product_id', $id)->get('product')->row_array();
+        return $result['title'];
+    }
+
+    public function customer($id = null)
+    {
+        return $this->db->select('name,email,phone')->where('id', $id)->get('employee')->row_array();
+    }
+
+    
+
+
+
 }
