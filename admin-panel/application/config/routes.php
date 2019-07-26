@@ -74,6 +74,12 @@ $route['insert-category'] 		 = 'Category/add_category';
 $route['manage-category'] 		 = 'Category/manage_category';
 $route['edit-category/(:any)']   = 'Category/edit_category/$1';
 $route['delete-category/(:any)'] = 'Category/delete_category/$1';
+// brand
+$route['add-brand'] 		     = 'brand/index';
+$route['insert-brand'] 		     = 'brand/add_brand';
+$route['manage-brand'] 		     = 'brand/manage_brand';
+$route['edit-brand/(:any)']      = 'brand/edit_brand/$1';
+$route['delete-brand/(:any)']    = 'brand/delete_brand/$1';
 // Product
 $route['add-product'] 		     = 'Product/index';
 $route['insert-product'] 		 = 'Product/add_product';
