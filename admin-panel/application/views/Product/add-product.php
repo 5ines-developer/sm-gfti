@@ -131,12 +131,27 @@
                                                                 <label class="control-label " for="first-name"> Product Name <span class="required">*</span> </label>
                                                                 <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12" name="product" value="<?php echo (!empty($product['title']))?$product['title']:''; ?>">
                                                             </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label">Select Category <span class="required">*</span></label>
+                                                                    <select class="form-control" name="category" required="required">
+                                                                        <option value="">-----Select-----</option>
+                                                                        <?php
+                                                                            if (!empty($category)) {
+                                                                                foreach ($category as $key => $value) { 
+                                                                        ?>
+                                                                            <option value="<?php echo $value->id ?>" <?php if(!empty($product['category']) && $value->id == $product['category']){ echo 'selected'; } ?>>
+                                                                                <?php echo $value->name ?> 
+                                                                            </option>
+                                                                        <?php } } ?>
+                                                                    </select>
+                                                            </div>
 
                                                             <div class="form-group">
                                                                 <label class="control-label " for="upload ">Product Image <?php echo (empty($product['image_path']))?' <span class="required">*</span>':''; ?></label>
                                                                 <input type="file" id="upload" class="form-control col-md-7 col-xs-12" name="pimage" <?php echo (empty($product['image_path']))?'required="required"':''; ?>>
                                                                 <p><small class="text-info">Only PNG|JPG|JPEG Files are allowed</small>
                                                             </div>
+                                                            
 
                                                             <?php if(!empty($product['image_path'])) {?>
                                                                 <div class="form-group">
@@ -149,23 +164,25 @@
                                                                 </div>
                                                             <?php }?>
 
-                                                            <div class="form-group">
-                                                                <label class="control-label " for="hsn"> HSN Code <span class="required">*</span> </label>
-                                                                <input type="text" id="hsn" required="required" class="form-control col-md-7 col-xs-12" name="hsn" value="<?php echo (!empty($product['hsn']))?$product['hsn']:''; ?>">
-                                                            </div>
+                                                            
 
                                                         </div>
 
                                                         <div class="col-md-6 col-sm-12">
+                                                        <div class="form-group">
+                                                                <label class="control-label " for="hsn"> HSN Code <span class="required">*</span> </label>
+                                                                <input type="text" id="hsn" required="required" class="form-control col-md-7 col-xs-12" name="hsn" value="<?php echo (!empty($product['hsn']))?$product['hsn']:''; ?>">
+                                                            </div>
                                                             <div class="form-group">
-                                                                <label class="control-label">Select Category <span class="required">*</span></label>
-                                                                    <select class="form-control" name="category" required="required">
+                                                                <label class="control-label">Select Brand <span class="required"></span></label>
+                                                                    <select class="form-control" name="brandlogo" >
                                                                         <option value="">-----Select-----</option>
                                                                         <?php
-                                                                            if (!empty($category)) {
-                                                                                foreach ($category as $key => $value) { 
+                                                                            if (!empty($brandlogo)) {
+
+                                                                                foreach ($brandlogo as $key => $value) { 
                                                                         ?>
-                                                                            <option value="<?php echo $value->id ?>" <?php if(!empty($product['category']) && $value->id == $product['category']){ echo 'selected'; } ?>>
+                                                                            <option value="<?php echo $value->name ?>" <?php if(!empty($product['brand']) && $value->name == $product['brand']){ echo 'selected'; } ?>>
                                                                                 <?php echo $value->name ?> 
                                                                             </option>
                                                                         <?php } } ?>

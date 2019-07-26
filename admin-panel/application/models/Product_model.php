@@ -11,6 +11,8 @@ class Product_model extends CI_Model {
 		 */
         public function insert($insert)
 		{
+			
+
 			$this->db->where('product_id', $insert['product_id']);
 			$query = $this->db->get('product');
 			if ($query->num_rows() > 0) 
@@ -332,6 +334,12 @@ class Product_model extends CI_Model {
 					->get()
 					->result();
 			
+		}
+
+		// Brands Logo
+		public function getbrandLogo()
+		{
+			return $this->db->get('brand')->result();
 		}
 
 

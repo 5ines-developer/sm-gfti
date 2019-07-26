@@ -197,6 +197,10 @@
                                                     <td><?php echo (!empty($product['title']))?$product['title']:''?></td>
                                                 </tr>
                                                 <tr>
+                                                    <th>Brand</th>
+                                                    <td><?php echo (!empty($product['brand']))?$product['brand']:''?></td>
+                                                </tr>
+                                                <tr>
                                                     <th>Category</th>
                                                     <td><?php echo $this->ci->Category_model->categoryname($product['category']) ?></td>
                                                 </tr>
