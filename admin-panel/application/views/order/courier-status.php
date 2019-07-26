@@ -79,13 +79,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 }
 
 .content{
-	margin:3% auto 0 auto;
 	height:460px;
 	background-color:#F5F5F5;
 }
 .content1 {
 	background-color:#98d091;
-	text-align:center;
 	padding:2em;
 }
 .content1 h2 {
@@ -99,8 +97,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 }
 .content2-header1 {
 	float:left;
-	width:27%;
-	text-align:center;
+	width: 46%;
+    text-align: left;
 	padding:1.5em;
 }
 .content2-header1 p {
@@ -121,7 +119,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 span.line {
     height: 5px;
     width: 90px;
-    background-color:#F5998E;
+    background-color:#aaa;
     display: block;
     position: absolute;
     top: 36%;
@@ -134,10 +132,10 @@ span.line {
 	float:left;
 	margin-left:5%;
 }
-.confirm .imgcircle , .process .imgcircle, .quality .imgcircle {
+.cupdate .imgcircle{
 	background-color:#98D091;
 }
-.confirm span.line, .process span.line {
+.cupdate span.line {
 	background-color:#98D091; 
 }
 .content3 p {
@@ -149,7 +147,7 @@ span.line {
 	height:75px;
 	width:75px;
 	border-radius:50%;
-	background-color:#F5998E;
+	background-color:#AAA;
 	position:relative;
 }
 .imgcircle img {
@@ -652,51 +650,82 @@ span.line {
                                 <div class="x_content">
                                     <div class="content">
                                         <div class="content1">
-                                            <h2>Order Tracking: Order No</h2>
+                                            <div class="container">
+                                                <div class="col-sm-6">
+                                                    <p style="color:#000">Order Bach Id : <?php echo $order->order_bach ?></p>
+                                                    <h2>Order Id : <?php echo $order->order_id ?></h2>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-4 control-label text-right" style="color:#fff;font-weight:500">Update Courier Status</label>
+                                                        <div class="col-sm-8">
+                                                            <select name="ostatus" class="form-control" id="">
+                                                                <option <?php echo($order->status == 1) ? "selected" : "" ?> value="1">Confirmed Order process order </option>
+                                                                <option <?php echo($order->status == 2) ? "selected" : "" ?> value="2">Processing Order</option>
+                                                                <option <?php echo($order->status == 3) ? "selected" : "" ?> value="3">Quality Check</option>
+                                                                <option <?php echo($order->status == 4) ? "selected" : "" ?> value="4">Dispatched Item</option>
+                                                                <option <?php echo($order->status == 5) ? "selected" : "" ?>  value="5">Product Delivered</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                           
                                         </div>
                                         <div class="content2">
                                             <div class="content2-header1">
-                                                <p>Shipped Via : <span>Ipsum Dolor</span></p>
+                                                <p>Order By : <span></span></p>
                                             </div>
                                             <div class="content2-header1">
-                                                <p>Status : <span>Checking Quality</span></p>
+                                                <p>Status : <span>
+                                                    <?php 
+                                                    if($order->status){} 
+                                                        if($order->status == 1){ $status = 'Confirmed Order process order';} 
+                                                        if($order->status == 2){ $status = 'Processing Order';} 
+                                                        if($order->status == 3){ $status = 'Quality Check';} 
+                                                        if($order->status == 4){ $status = 'Dispatched Item';} 
+                                                        if($order->status == 5){ $status = 'Product Delivered';} 
+                                                        echo $status;
+                                                    ?>
+                                                Checking Quality
+                                            
+                                            </span></p>
                                             </div>
-                                            <div class="content2-header1">
-                                                <p>Expected Date : <span>7-NOV-2015</span></p>
-                                            </div>
+                                           
                                             <div class="clear"></div>
                                         </div>
                                         <div class="content3">
                                             <div class="shipment">
-                                                <div class="confirm">
+                                                <div class="confirm <?php echo($order->status == 1 ||  $order->status == 2 || $order->status == 3 || $order->status == 4 || $order->status == 5 )? 'cupdate': '' ?>">
                                                     <div class="imgcircle">
                                                         <img src="<?php echo base_url() ?>assets/images/confirm.png" alt="confirm order">
                                                     </div>
                                                     <span class="line"></span>
                                                     <p>Confirmed Order</p>
                                                 </div>
-                                                <div class="process">
+                                                <div class="process <?php echo($order->status == 2 || $order->status == 3 || $order->status == 4 || $order->status == 5)? 'cupdate': '' ?>">
                                                     <div class="imgcircle">
                                                         <img src="<?php echo base_url() ?>assets/images/process.png" alt="process order">
                                                     </div>
                                                     <span class="line"></span>
                                                     <p>Processing Order</p>
                                                 </div>
-                                                <div class="quality">
+                                                <div class="quality <?php echo($order->status == 3 || $order->status == 4 || $order->status == 5)? 'cupdate': '' ?>">
                                                     <div class="imgcircle">
                                                         <img src="<?php echo base_url() ?>assets/images/quality.png" alt="quality check">
                                                     </div>
                                                     <span class="line"></span>
                                                     <p>Quality Check</p>
                                                 </div>
-                                                <div class="dispatch">
+                                                <div class="dispatch <?php echo($order->status == 4 || $order->status == 5)? 'cupdate': '' ?>">
                                                     <div class="imgcircle">
                                                         <img src="<?php echo base_url() ?>assets/images/dispatch.png" alt="dispatch product">
                                                     </div>
                                                     <span class="line"></span>
                                                     <p>Dispatched Item</p>
                                                 </div>
-                                                <div class="delivery">
+                                                <div class="delivery <?php echo($order->status == 5)? 'cupdate': '' ?>">
                                                     <div class="imgcircle">
                                                         <img src="<?php echo base_url() ?>assets/images/delivery.png" alt="delivery">
                                                     </div>
@@ -764,6 +793,22 @@ span.line {
             if (!confirm("Are you sure you want to delete this item?")) {
                 return false;
             }
+        });
+
+        $('select[name=ostatus]').change(function (e) { 
+            e.preventDefault();
+            var value = $(this).val()
+            var data = {status: value, id: '<?php echo $order->id ?>'}
+           $.ajax({
+               type: "post",
+               url: "<?php echo base_url('orders/orderStatus')  ?>",
+               data: data,
+               dataType: "html",
+               success: function (response) {
+                 location.reload(true);
+               }
+           });
+            
         });
     })
     </script>

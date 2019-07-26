@@ -1487,6 +1487,10 @@ ul.flat-unstyled li>ul>li>a {
     line-height: 1;
     position: relative;
     z-index: 8;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 180px;
 }
 
 #mainnav ul.menu>li>a:after {

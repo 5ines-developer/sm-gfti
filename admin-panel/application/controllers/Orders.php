@@ -45,10 +45,19 @@ class Orders extends CI_Controller {
     }
 
     // order status
-    public function courier_status($var = null)
+    public function courier_status($id = null)
     {
         $data['title']      = 'courier status - Siemens';
+        $data['order']      = $this->Order_model->getSingle($id);
         $this->load->view('order/courier-status',$data);
+    }
+
+    // order status
+    public function orderStatus()
+    {
+        $input = $this->input->post();
+        $this->Order_model->UpdateStatus($input);
+        echo  $input['id'];       
     }
 
 }
