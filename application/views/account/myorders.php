@@ -172,7 +172,7 @@
                                             <div class="add-review">
                                                 <button type="button" class="btn btn-info1 btn-review "
                                                     data-value="<?php echo $vale2->product_id?>" data-toggle="modal"
-                                                    data-target="#myModal"> Write a product review </button>
+                                                    data-target="#myModal"> Write a review </button>
 
                                                 <button 
                                                     type="button" 
@@ -181,7 +181,7 @@
                                                     data-toggle="modal"
                                                     data-img = "<?php echo base_url().$vale2->image_path?>"
                                                     data-name = "<?php echo $vale2->ptitle?>"
-                                                    data-target="#escalation"> Write a Escalation </button>
+                                                    data-target="#escalation">Rise an Escalation </button>
                                             </div>
                                         </div>
                                     </div>
@@ -221,7 +221,7 @@
                     <div class="modal-body">
                         <div class="m-title">
                             <a type="button" class="close" data-dismiss="modal">&times;</a>
-                            <h4>Create Review</h4>
+                            <h4>Write a Review</h4>
                         </div>
                         <div class="m-body">
                             <div class='rating-stars text-center'>
@@ -285,7 +285,7 @@
                     <div class="modal-body">
                         <div class="m-title">
                             <a type="button" class="close" data-dismiss="modal">&times;</a>
-                            <h4>Write a escation about the product</h4>
+                            <h4>Rise an escation about the product</h4>
                         </div>
                         <div class="m-body">
                             <form action="<?php echo base_url('escalation')?>" method="post">

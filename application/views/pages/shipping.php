@@ -75,7 +75,7 @@
                                                     <label class="bg-lable">
                                                         <input <?php echo $ncheck ?> type="radio" name="optionShipp"
                                                             id="optionShipp2" value="new">
-                                                        A new address
+                                                        Add a new address
                                                     </label>
                                                 </div>
                                             </div>

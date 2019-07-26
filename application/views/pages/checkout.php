@@ -151,7 +151,7 @@
                                                             <label class="bg-lable">
                                                                 <input <?php echo $ncheck ?> type="radio"
                                                                     name="optionShipp" id="optionShipp2" value="new">
-                                                                A new address
+                                                                Add a new address
                                                             </label>
                                                         </div>
                                                     </div>
@@ -292,7 +292,7 @@
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label for="purchase-purpose">Purpose of Purchase <span
+                                                        <label for="purchase-purpose">Event or Purpose of Purchase <span
                                                                 class="error">*</span></label>
                                                         <textarea class="form-control team-d" id="purchase-purpose"
                                                             rows="1" required></textarea>
