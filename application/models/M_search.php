@@ -6,7 +6,7 @@ class M_search extends CI_Model
 {
 
     // get result()
-    public function getResult($query = null, $category = null, $max = null, $min = null)
+    public function getResult($query = null, $category = null, $max = null, $min = null, $brand = 'null')
     {
 
         $this->db->from('product p');
@@ -20,6 +20,14 @@ class M_search extends CI_Model
         if ($min != '') {
             $this->db->where('p.price >=', $min);
         }
+
+        if ($brand != '') {
+            foreach ($brand as $key => $value) {
+                
+                $this->db->or_where('p.brand ', $value);
+            }
+        }
+
 
         if ($query != '') {
             $this->db->like('title', $query)
@@ -34,7 +42,7 @@ class M_search extends CI_Model
     }
 
     // get product with pagination
-    public function search_pagination($query, $category, $perpage, $page, $max, $min)
+    public function search_pagination($query, $category, $perpage, $page, $max, $min, $brand = 'null')
     {
         $this->db->from('product p');
         $this->db->join('category c', 'c.id = p.category', 'left');
@@ -57,6 +65,7 @@ class M_search extends CI_Model
         if ($category != '') {
             $this->db->like('name', $category);
         }
+        $this->db->order_by('p.created_on', 'desc');
         $this->db->limit($perpage, $page);
         return $this->db->get()->result();
     }

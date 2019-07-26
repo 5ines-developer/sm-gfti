@@ -176,6 +176,8 @@
     <script type="text/javascript" src="<?php echo base_url() ?>assets/javascript/main.js"></script>
 
     <?php $this->load->view('includes/searchq'); ?>
+
+    
 </body>
 
 </html>

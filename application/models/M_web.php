@@ -89,6 +89,13 @@ class M_web extends CI_Model {
         return $this->db->get('category', 6)->result();
     }
 
+    // GET BRAND
+    public function brand()
+    {
+        $this->db->order_by('name', 'desc');
+        return $this->db->get('brand')->result();
+    }
+
     // get banner
     public function getBanner($var = null)
     {
