@@ -148,7 +148,13 @@
                                             <td><?php echo (!empty($order))?$cont:'' ?></td>
                                             <td><?php echo $this->ci->Product_model->productname($value1->product) ?></td> 
                                             <td><?php echo (!empty($value1->qty))?$value1->qty:''  ?></td>
-                                            <td><?php echo (!empty($value1->status))?$value1->status:''  ?></td>
+                                            <td>
+                                                <?php echo($value1->status == 1) ? "<span class='label label-danger'>Confirmed Order </span>" : "" ?>
+                                                <?php echo($value1->status == 2) ? "<span class='label label-warning'>Processing Order </span>" : "" ?>
+                                                <?php echo($value1->status == 3) ? "<span class='label label-info'>Quality Check </span>" : "" ?>
+                                                <?php echo($value1->status == 4) ? "<span class='label label-primary'>Dispatched Item </span>" : "" ?>
+                                                <?php echo($value1->status == 5) ? "<span class='label label-success'>Product Delivered </span>" : "" ?>
+                                            </td>
                                             <td><?php echo $this->ci->Order_model->orderby((!empty($value1->order_by))?$value1->order_by:'') ?></td>
                                             <td style="text-align:center;"> 
                                                 <a href="<?php echo base_url('view-order/').$value1->id?>" class="action-btn btn-success" data-toggle="tooltip" data-placement="bottom"  data-original-title="Detail"><i class="fa fa-eye" aria-hidden="true"></i></a>

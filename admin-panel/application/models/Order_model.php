@@ -92,7 +92,24 @@ class Order_model extends CI_Model {
 			return $result;
 		}
         
-        
+        // Courrior status
+        public function getSingle($id)
+        {
+           return $this->db->where('id', $id)->get('orders')->row();
+        }
+
+        // update courier status
+        public function UpdateStatus($data)
+        {
+            if($data['status'] == 5){
+                $updateData = array('is_deliverd' => 1 , 'deliverd_on' =>date('Y-m-d H:i:s'), 'status' => $data['status'] );
+            }else{
+                $updateData = array('status' => $data['status'] );
+            }
+            $this->db->where('id', $data['id']);
+            $this->db->update('orders', $updateData);
+            return true;
+        }
         
         
 
