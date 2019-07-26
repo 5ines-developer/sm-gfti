@@ -282,6 +282,24 @@ class M_cart extends CI_Model
         return $result['phone'];
     }
 
+    public function hsncode($prid = null)
+    {
+        $this->db->select('hsn');
+        $this->db->where('id', $prid);
+        $result = $this->db->get('product')->row_array();
+        return $result['hsn'];
+    }
+    public function size($prid = null,$size=null)
+    {
+        $this->db->select('size_name');
+        $this->db->where('prdid', $prid);
+        $this->db->where('id', $size);
+        $result = $this->db->get('size_chart')->row_array();
+        return $result['size_name'];
+    }
+    
+    
+
 
 
 }

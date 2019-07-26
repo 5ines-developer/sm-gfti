@@ -394,14 +394,10 @@ $this->ci->load->model('m_cart');
                                                     style="font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; font-size: 12px; line-height: 14px; color: #555555;">
                                                     <p style="font-size: 12px; line-height: 14px; margin: 0;">
                                                         <strong><span style="font-size: 15px; line-height: 18px;"><span
-                                                                    style="line-height: 18px; font-size: 15px;">Purchase
-                                                                    Order Request!</span></span></strong></p>
+                                                                    style="line-height: 18px; font-size: 15px;">Payment Failed!</span></span></strong></p>
                                                     <p style="font-size: 12px; line-height: 14px; margin: 0;"><span
                                                             style="font-size: 12px; line-height: 14px;"><span
-                                                                style="line-height: 14px; font-size: 12px;">Thank you
-                                                                for Shopping with Gifting Xpress!.<br> We have sent your
-                                                                purchase order request to admin. Our team will contact
-                                                                you soon.</span></span></p>
+                                                                style="line-height: 14px; font-size: 12px;">Customer Payment has been failed for the below order.</span></span></p>
                                                 </div>
                                             </div>
                                             <!--[if mso]></td></tr></table><![endif]-->

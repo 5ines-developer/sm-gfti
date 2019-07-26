@@ -194,13 +194,12 @@ $this->ci->load->model('m_cart');
                                             style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
                                             <!--<![endif]-->
                                             <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
-                                            <div
-                                                style="color:#555555;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+                                            <div style="color:#555555;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:120%;padding-top:10px;padding-right:0px;padding-bottom:10px;padding-left:0px;">
                                                 <div
                                                     style="font-size: 14px; line-height: 16px; font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; color: #555555;">
                                                     <p
-                                                        style="font-size: 14px; line-height: 16px; text-align: center; margin: 0;">
-                                                        TIN No: 29860885343 GST No: 29AAJFG0105H1ZP</p>
+                                                        style="font-size: 13px; line-height: 16px; text-align: left; margin: 0;">
+                                                        TIN No: 29860885343 &nbsp; GST No: 29AAJFG0105H1ZP</p>
                                                 </div>
                                             </div>
                                             <!--[if mso]></td></tr></table><![endif]-->
@@ -223,8 +222,7 @@ $this->ci->load->model('m_cart');
                                                 style="color:#555555;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:120%;padding-top:10px;padding-right:15px;padding-bottom:10px;padding-left:10px;">
                                                 <div
                                                     style="font-size: 14px; line-height: 16px; font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; color: #555555;">
-                                                    <p
-                                                        style="font-size: 14px; line-height: 16px; text-align: right; margin: 0;">
+                                                    <p style="font-size: 13px; line-height: 16px; text-align: right; margin: 0;">
                                                         Vendor Code:50245751</p>
                                                 </div>
                                             </div>
@@ -622,7 +620,7 @@ $this->ci->load->model('m_cart');
                                                     style="font-size: 12px; line-height: 14px; font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; color: #555555;">
                                                     <p style="font-size: 14px; line-height: 16px; margin: 0;">
                                                         <strong><?php echo(!empty($value->ptitle))?$value->ptitle:'' ?><br /></strong>
-                                                        <!-- Unit Price: <?php echo(!empty($value->price))?'&#8377; '.$value->price:'' ?> -->
+                                                        Size : <?php echo $this->ci->m_cart->size($value->prid,$value->size); ?>
                                                         </p>
                                                 </div>
                                             </div>
@@ -639,7 +637,10 @@ $this->ci->load->model('m_cart');
                                                         <span
                                                             style="font-size: 11px;"><?php echo(!empty($values->brand_title))?$values->brand_title:'' ?>:
                                                             <?php echo(!empty($values->brand_price))?'&#8377; '.$values->brand_price:'' ?></span><br>
-                                                        <?php } } } ?>
+                                                        <?php } } } ?><br>
+                                                        <span style="font-size: 11px;">HSN Code &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <?php echo $this->ci->m_cart->hsncode((!empty($value->prid))?$value->prid:''); ?></span><br>
+                                                        <span style="font-size: 11px;">Team & Dept. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?php echo(!empty($team))?$team:'' ?></span><br>
+                                                        <span style="font-size: 11px;">Purpose Of Purchase &nbsp;&nbsp;&nbsp;: <?php echo(!empty($puropse))?$puropse:'' ?></span>
                                                     </p>
                                                 </div>
                                             </div>
@@ -1133,15 +1134,12 @@ $this->ci->load->model('m_cart');
                                             style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 10px; padding-left: 10px;">
                                             <!--<![endif]-->
                                             <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 20px; padding-left: 10px; padding-top: 5px; padding-bottom: 5px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
-                                            <div
-                                                style="color:#555555;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:120%;padding-top:5px;padding-right:20px;padding-bottom:5px;padding-left:10px;">
+                                            <div style="color:#555555;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:120%;padding-top:10px;padding-right:25px;padding-bottom:10px;padding-left:10px;">
                                                 <div
                                                     style="font-size: 12px; line-height: 14px; font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; color: #555555;">
                                                     <p
-                                                        style="font-size: 14px; line-height: 26px; text-align: right; margin: 0;">
-                                                        <span style="font-size: 22px;"><strong> <span
-                                                                    style="font-size: 16px; line-height: 19px;"><?php echo(!empty($total))?'&#8377; '.$total:'' ?></span><span
-                                                                    style="font-size: 16px; line-height: 19px;"> </span></strong></span>
+                                                        style="font-size: 14px; line-height: 16px; text-align: right; margin: 0;">
+                                                        <strong><?php echo(!empty($total))?'&#8377; '.$total:'' ?></strong>
                                                     </p>
                                                 </div>
                                             </div>

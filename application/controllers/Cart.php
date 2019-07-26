@@ -262,7 +262,7 @@ class Cart extends CI_Controller {
        $team = $this->input->post('team');
        
        $this->userorders($puropse,$team);
-       $this->session->set_flashdata('msg', 'Thank You for ordering. We recived your order and will begin processing it soon. Your order information send to registered email id. ');
+       $this->session->set_flashdata('msg', 'Thank You for ordering. We have recieved your order and will begin processing it soon. Your order information will send to registered email id. ');
        $this->session->unset_userdata('bill_id');
        redirect('my-orders','refresh');
        
@@ -310,8 +310,8 @@ class Cart extends CI_Controller {
             if($this->m_cart->insertOrder($data))
             {
                 $this->m_cart->deletecartBrand($value->cid,$orderid);
-                $this->sendorder($cartitesms,$bach,$address);
-                $this->sendadmin($cartitesms,$bach,$address);
+                $this->sendorder($cartitesms,$bach,$address,$puropse,$team);
+                $this->sendadmin($cartitesms,$bach,$address,$puropse,$team);
             }
         }
     }
@@ -327,13 +327,14 @@ class Cart extends CI_Controller {
 
 
         //  place order request
-        function sendorder($cartitesms='', $bach='',$address='')
+        function sendorder($cartitesms='', $bach='',$address='',$puropse='',$team='')
         {
             $c_email = $this->m_cart->getuseremail($this->uid);
             $data['detail'] = $cartitesms;
             $data['bach']   = $bach;
             $data['bill']   = $address['bill'];
-            
+            $data['team']   = $team;
+            $data['puropse']   = $puropse;
             $this->load->config('email');
             $this->load->library('email');
             $from = $this->config->item('smtp_user');
