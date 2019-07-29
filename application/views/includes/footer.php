@@ -10,7 +10,7 @@
 							</div><!-- /.logo-ft -->
 							<div class="widget-content">
 								<div class="icon">
-									<img src="<?php echo base_url() ?>assets/images/icons/call.png" alt="">
+									<img src="<?php echo base_url() ?>assets/images/icons/phone.png" alt="">
 								</div>
 								<div class="info">
 									<p class="questions">Got Questions ? Call us 9am to 7pm</p>
@@ -22,29 +22,6 @@
 									</p>
 								</div>
 							</div><!-- /.widget-content -->
-							<ul class="social-list text-center align-center">
-								<li>
-									<a href="#" title="">
-										<i class="fa fa-facebook" aria-hidden="true"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#" title="">
-										<i class="fa fa-twitter" aria-hidden="true"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#" title="">
-										<i class="fa fa-instagram" aria-hidden="true"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#" title="">
-										<i class="fa fa-youtube" aria-hidden="true"></i>
-									</a>
-								</li>
-								
-							</ul><!-- /.social-list -->
 						</div><!-- /.widget-about -->
 					</div><!-- /.col-lg-3 col-md-6 -->
 					<?php if($this->session->userdata('sid') != ''){ ?>

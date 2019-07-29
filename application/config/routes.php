@@ -94,4 +94,8 @@ $route['escalation']            = 'Orders/escalation';
 $route['order/(:any)']          = 'Orders/order_detail/$1';
 // Payment 
 $route['payment/success']       = 'payment/success';
+// pages
+$route['contact-us']            =   'bf_auth/contact';
+$route['about-us']              =   'bf_auth/about';
+$route['privacy-policy']        =   'bf_auth/privacy';
 

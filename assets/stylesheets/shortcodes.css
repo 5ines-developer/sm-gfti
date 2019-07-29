@@ -6756,9 +6756,6 @@ table.product thead tr th:last-child {
 
 .testimonial-item {
     text-align: center;
-    border: 2px solid #e5e5e5;
-    border-radius: 10px;
-    padding-bottom: 56px;
     margin-top: 50px;
     margin-bottom: 14px;
 }

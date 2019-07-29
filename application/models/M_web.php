@@ -114,6 +114,11 @@ class M_web extends CI_Model {
                     ->result();        
         }
 
+    // brand logo
+    public function brandlogo()
+    {
+        return $this->db->order_by('name', 'asc')->get('brand')->result();
+    }
     
 }
 

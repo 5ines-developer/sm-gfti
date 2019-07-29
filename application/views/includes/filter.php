@@ -53,10 +53,19 @@
                                    
                                         <ul class="cat-list style1 widget-content">
                                             <?php
+                                                $ativeBrand = $this->input->get('brand');
+                                                
                                                 foreach ($this->data['brand'] as $key => $value) {
+                                                    $cheked = '';
+                                                    if(!empty($ativeBrand)){
+                                                        foreach ($ativeBrand as $brandkey => $brandValue) {
+                                                            if($brandValue == $value->name){ $cheked = 'checked';}
+                                                        }
+                                                    }
+                                                    
                                                 echo '<li>
                                                     <label for="'.$value->id.'" style="color: #424242;">
-                                                        <input id="'.$value->id.'" value="'.$value->name.'" type="checkbox" name="brand[]"> &nbsp;&nbsp;&nbsp;
+                                                        <input id="'.$value->id.'" value="'.$value->name.'" '.$cheked.' type="checkbox" name="brand[]"> &nbsp;&nbsp;&nbsp;
                                                         '.$value->name.'
                                                     </label>
                                                 </li>';

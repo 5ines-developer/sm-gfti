@@ -6,7 +6,7 @@ class M_search extends CI_Model
 {
 
     // get result()
-    public function getResult($query = null, $category = null, $max = null, $min = null, $brand = 'null')
+    public function getResult($query = null, $category = null, $max = null, $min = null, $brand = null)
     {
 
         $this->db->from('product p');
@@ -21,13 +21,20 @@ class M_search extends CI_Model
             $this->db->where('p.price >=', $min);
         }
 
-        if ($brand != '') {
-            foreach ($brand as $key => $value) {
-                
-                $this->db->or_where('p.brand ', $value);
-            }
-        }
 
+
+        if ($brand != '') {
+            $this->db->group_start();
+                foreach ($brand as $key => $value) {
+                    if($key == 0)
+                    {
+                        $this->db->where('p.brand ', $value);
+                    }elseif($key > 0){
+                        $this->db->or_where('p.brand ', $value);
+                    }
+                }
+            $this->db->group_end();
+        }
 
         if ($query != '') {
             $this->db->like('title', $query)
@@ -55,6 +62,18 @@ class M_search extends CI_Model
 
         if ($min != '') {
             $this->db->where('p.price >=', $min);
+        }
+        if ($brand != '') {
+            $this->db->group_start();
+                foreach ($brand as $key => $value) {
+                    if($key == 0)
+                    {
+                        $this->db->where('p.brand ', $value);
+                    }elseif($key > 0){
+                        $this->db->or_where('p.brand ', $value);
+                    }
+                }
+            $this->db->group_end();
         }
 
         if ($query != '') {

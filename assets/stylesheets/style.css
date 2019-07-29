@@ -3509,7 +3509,7 @@ ol.comment-list li.comment .comment-text .comment-content p {
 .box-image img {
     max-width: 100%;
     height: auto;
-    max-height: 209px
+    max-height: 153px
 }
 
 .bg-white {
@@ -4511,6 +4511,7 @@ a.small-btn {
     padding: 0;
     background-color: #fff;
     opacity: .25;
+    box-shadow: 0px 0px 5px gray;
 }
 
 .slick-slider .slick-dots li button {
@@ -4921,4 +4922,9 @@ input[type="checkbox"] {
 .brandfilter:hover {
     border: 1px solid #1aa;
     background: #23caca;
+}
+.pb25{padding-bottom: 25px}
+.term-conditions p {
+    margin-bottom: 12px;
+    color: #646262 !important;
 }

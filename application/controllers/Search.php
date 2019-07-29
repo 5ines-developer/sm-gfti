@@ -59,7 +59,7 @@ class Search extends CI_Controller {
         $min = $this->input->get('min');
         $max = $this->input->get('max');
         $brand = $this->input->get('brand');
-       
+
         $data = $this->m_search->getResult($query, $category, $max, $min, $brand);
         $result =  $this->m_search->search_pagination($query,$category,$perpage,$page, $max, $min, $brand);
 

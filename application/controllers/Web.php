@@ -29,6 +29,7 @@ class Web extends CI_Controller {
         $data['recent'] = $this->recently_added_products();
         $data['ourproduct'] = $this->ourProducts();
         $data['banner'] = $this->bannerGet();
+        $data['brandlogo'] = $this->brandlogo();
         $data['offer'] = $this->offerGet();
         $this->load->view('pages/index', $data, FALSE);
         
@@ -41,6 +42,13 @@ class Web extends CI_Controller {
         return  $data;
     }
 
+    // brand logo 
+    public function brandlogo()
+    {
+        $data = $this->m_web->brandlogo();
+        return  $data;
+    }
+    
     // recently added product   
     public function recently_added_products($var = null)
     {

@@ -245,6 +245,30 @@
                 </div><!-- /.row -->
             </div><!-- /.container -->
         </section><!-- /.flat-imagebox style1 -->
+        <section class="flat-row flat-brand">
+				<div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="flat-row-title">
+                            <h3>Top Brands</h3>
+                        </div><!-- /.flat-row-title -->
+                    </div><!-- /.col-md-12 -->
+                </div><!-- /.row -->
+					<div class="row pb25">
+						<div class="col-md-12">
+							<ul class="owl-carousel-5">
+                                <?php foreach ($brandlogo as $key => $value) { ?> 
+                                    <li>
+                                        <a href="<?php echo base_url('search?q=&c=&brand[]=').$value->name ?>" title=" <?php echo $value->name ?>">
+                                            <img src="<?php echo base_url().$value->path ?>" alt="<?php echo $value->name ?>">
+                                        </a>
+                                    </li>
+                                <?php } ?>
+							</ul><!-- /.owl-carousel-5 -->
+						</div><!-- /.col-md-12 -->
+					</div><!-- /.row -->
+				</div><!-- /.container -->
+			</section><!-- /.flat-brand -->
 
         <section class="flat-row flat-imagebox style4">
             <div class="container">
