@@ -27,7 +27,7 @@ if($this->session->userdata('sid') != ''){
                         </a>
                     </div><!-- /#logo -->
                 </div><!-- /.col-md-3 -->
-                <div class="col-md-6 col-8">
+                <div class="col-md-6 col-12">
                     <div class="top-search">
                         <form action="<?php echo base_url('search') ?>" method="get" class="form-search" accept-charset="utf-8">
                             

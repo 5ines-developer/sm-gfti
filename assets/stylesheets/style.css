@@ -4488,6 +4488,13 @@ a.small-btn {
         overflow: hidden;
         z-index: 5;
     }
+    .nav-ul {
+
+        max-height: 72px;
+        overflow-y: auto;
+        white-space: nowrap;
+    
+    }
 }
 
 .product-box {
