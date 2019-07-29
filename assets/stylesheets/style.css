@@ -1483,7 +1483,7 @@ ul.flat-unstyled li>ul>li>a {
     font-size: 14px;
     font-weight: 500;
     padding: 0 21.5px;
-    border-right: 1px solid #fec579;
+    position: relative;
     line-height: 1;
     position: relative;
     z-index: 8;
@@ -1491,7 +1491,23 @@ ul.flat-unstyled li>ul>li>a {
     text-overflow: ellipsis;
     white-space: nowrap;
     max-width: 180px;
+    line-height: 48px;
+    
 }
+#mainnav ul.menu>li>a:before{
+    content: '';
+    border-right: 1px solid #fec579;
+}
+#mainnav ul.menu > li > a:nth-child(1):before{
+    border-right:transparent;
+}
+#mainnav ul.menu > li > a::before {
+    content: '';
+    border-right: 1px solid #fec579;
+    position: relative;
+    left: -21px;
+}
+
 
 #mainnav ul.menu>li>a:after {
     content: '';
@@ -1505,6 +1521,7 @@ ul.flat-unstyled li>ul>li>a {
     z-index: -3;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    top: 6px;
 }
 
 #mainnav ul.menu>li:hover>a {
@@ -4590,7 +4607,7 @@ section.banner {
 @media (min-width:1340px) {
     .slick-slider-iteme img {
         border-radius: 4px;
-        max-width: 700px;
+        width:calc(100% - 10px);
     }
 }
 

@@ -87,7 +87,7 @@
 							<div class="widget-title">
 								<h3>Products & Seasonal gifts</h3>
 							</div>
-							<p>Sign Up To New Products & Seasonal gifts</p>
+							<p>Sign Up For New Products & Seasonal gifts</p>
 							<p>Make sure that you never miss our interesting <br />
 							New Products & Seasonal gifts updates
 							</p>
