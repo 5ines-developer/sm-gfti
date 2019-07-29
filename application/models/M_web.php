@@ -120,6 +120,20 @@ class M_web extends CI_Model {
         return $this->db->order_by('name', 'asc')->get('brand')->result();
     }
     
+    // enquirey
+    public function enquiry($data = null)
+    {
+       $fiedls = array(
+           'name' => $data['name'], 
+           'phone' => $data['phone'], 
+           'email' => $data['email'], 
+           'subject' => $data['subject'], 
+           'message' => $data['comment'], 
+        );
+        $this->db->insert('enquiry', $fiedls);
+        return true;
+        
+    }
 }
 
 /* End of file M_web.php */

@@ -400,7 +400,7 @@
                                         <script src="https://checkout.razorpay.com/v1/checkout.js"
                                             data-key="rzp_test_ZPtHNE4hO3uWul" data-amount="<?php echo round($total).'00' ?>"
                                             data-currency="INR" data-buttontext="Pay via Credit Card"
-                                            data-name="Gifting express" data-description="Gifting express"
+                                            data-name="Gifting Xpress" data-description="Gifting Xpress"
                                             data-image="<?php echo base_url() ?>assets/images/img/logo.svg"
                                             data-prefill.name="<?php echo $user["name"] ?>"
                                             data-prefill.email="<?php echo $user["email"] ?>"

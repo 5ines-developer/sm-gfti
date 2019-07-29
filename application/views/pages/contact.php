@@ -47,26 +47,26 @@
         						</p>
         					</div><!-- /.form-contact-header -->
         					<div class="form-contact-content">
-        						<form action="#" method="get" id="form-contact" accept-charset="utf-8">
+        						<form action="<?php echo base_url('bf_auth/enquiry') ?>" method="post" id="form-contact" accept-charset="utf-8">
 									<div class="form-box one-half name-contact">
-										<label for="name-contact">Name*</label>
-										<input type="text" id="name-contact" name="name-contact" placeholder="">
+										<label for="name">Name*</label>
+										<input type="text" id="name" name="name" required placeholder="">
 									</div>
 									<div class="form-box one-half password-contact">
-										<label for="password-contact">Email*</label>
-										<input type="text" id="password-contact" name="password-contact" placeholder="">
+										<label for="email">Email*</label>
+										<input type="email" id="email" name="email" required placeholder="">
 									</div>
 									<div class="form-box one-half name-contact">
-										<label for="subject-contact">Phone</label>
-										<input type="text" id="subject-contact" name="subject-contact" placeholder="">
+										<label for="phone">Phone</label>
+										<input type="number" id="phone" name="phone" placeholder="">
 									</div>
 									<div class="form-box one-half password-contact">
-										<label for="subject-contact">Subject</label>
-										<input type="text" id="subject-contact" name="subject-contact" placeholder="">
+										<label for="subject">Subject</label>
+										<input type="text" id="subject" name="subject" placeholder="">
 									</div>
 									<div class="form-box">
-										<label for="comment-contact">Comment</label>
-										<textarea id="comment-contact"></textarea>
+										<label for="comment">Comment</label>
+										<textarea id="comment" name="comment"></textarea>
 									</div>
 									<div class="form-box">
 										<button type="submit" class="contact">Send</button>

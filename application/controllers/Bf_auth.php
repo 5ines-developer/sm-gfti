@@ -27,18 +27,22 @@ class bf_auth extends CI_Controller {
         $this->load->view('pages/contact');
     }
 
-    // contact
+    // privacy
     public function privacy()
     {
         $this->load->view('pages/privacy');
     }
 
-    // contact
-    public function termsCondition()
+    // enquiry
+    public function enquiry()
     {
-        $this->load->view('pages/terms-condition');
+        $input = $this->input->post();
+        $this->m_web->enquiry($input);
+        $this->session->set_flashdata('success', 'We received your message! Will get back to you shortly!!!');
+        redirect('contact-us','refresh');
     }
 
+    
 }
 
 /* End of file bf_auth.php */
