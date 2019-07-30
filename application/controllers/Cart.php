@@ -115,10 +115,10 @@ class Cart extends CI_Controller {
                                     <p>'. $value->name .'</p>
                                     <p><span>SKU </span> '. $value->product_id .'</p>';
                                         if(!empty($value->pgst)){ 
-                                            $items .= '<p><span>GST </span> '. $value->pgst .'% &nbsp;-&nbsp; &#8377; '.$gst.'</p>';
+                                            $items .= '<p><span>GST </span> '. $value->pgst .'% &nbsp;-&nbsp; &#8377; '.$gst * $value->qty.'</p>';
                                         }
                                         if(!empty($value->pdiscount)){ 
-                                            $items .= '<p><span>Discount </span> '. $value->pdiscount .'% &nbsp;-&nbsp; &#8377; '.$discount.' </p>';
+                                            $items .= '<p><span>Discount </span> '. $value->pdiscount .'% &nbsp;-&nbsp; &#8377; '.$discount * $value->qty.' </p>';
                                         }
                                         $items .='</div>
                                 <div class="c-price">

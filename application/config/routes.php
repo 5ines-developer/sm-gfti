@@ -92,6 +92,7 @@ $route['my-orders']             = 'Orders/index';
 $route['review']                = 'Orders/review';
 $route['escalation']            = 'Orders/escalation';
 $route['order/(:any)']          = 'Orders/order_detail/$1';
+$route['order-status']          = 'Orders/order_status';
 // Payment 
 $route['payment/success']       = 'payment/success';
 // pages

@@ -76,6 +76,16 @@ class M_orders extends CI_Model {
         return $this->db->select('name,email,phone')->where('id', $id)->get('employee')->row_array();
     }
 
+    // order / courrir status
+    public function order_status($id)
+    {
+        return  $this->db->where('order_bach', $id)
+        ->from('orders o')
+        ->join('product p', 'o.product  = p.id', 'left')
+        ->get()->result();
+        
+        
+    }
     
 
 

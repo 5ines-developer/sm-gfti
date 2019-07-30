@@ -224,7 +224,7 @@
        
         $(document).on('change', '.qtyi', function(e) {
             e.preventDefault();
-            var qty = $('.qtyi').val();
+            var qty = $(this).val();
             var id = $(this).closest('.cart-item').attr('dataid');
             cartqty(id, qty);
         });

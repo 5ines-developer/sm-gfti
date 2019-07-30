@@ -72,7 +72,7 @@
                             <div class="cart-item">
 
                                 <div class="ord-header">
-                                    <a href="#!" class="track-order">Track order</a>
+                                    <a href="<?php echo base_url('order-status?oid=').$key ?>" class="track-order">Track order</a>
                                     <ul class="ord-header-list">
                                         <li>
                                             <p>Order Placed</p>

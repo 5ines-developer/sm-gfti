@@ -129,6 +129,7 @@
                                         <thead>
                                             <tr>
                                                 <th>Sl No.</th>
+                                                <th>Order Id</th>
                                                 <th>Product</th>
                                                 <th>Quantity</th>
                                                 <th>Status</th>
@@ -143,9 +144,12 @@
                                         <?php
                                         $cont = 0; if (!empty($order)) 
                                         {
+                                     
+                                            
                                         foreach ($order as $key1 => $value1) {$cont = $cont + 1;?>
                                         <tr>
                                             <td><?php echo (!empty($order))?$cont:'' ?></td>
+                                            <td><?php echo (!empty($order))?$value1->order_id:'' ?></td>
                                             <td><?php echo $this->ci->Product_model->productname($value1->product) ?></td> 
                                             <td><?php echo (!empty($value1->qty))?$value1->qty:''  ?></td>
                                             <td>

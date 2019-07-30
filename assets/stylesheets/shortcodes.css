@@ -6303,7 +6303,7 @@ table.product thead tr th:last-child {
 .order-tracking {
     background-color: #fff;
     border-radius: 10px;
-    padding: 120px 90px 116px;
+    padding: 50px 20px;
     text-align: center;
     box-shadow: 0px 2px 3px 0px rgba(234, 234, 234, 1);
 }

@@ -99,4 +99,12 @@ class Orders extends CI_Controller
 
     }
 
+    // order status fetch
+    public function order_status()
+    {
+        $data['orderStatus'] = $this->m_orders->order_status($this->input->get('oid'));    
+        $this->load->view('account/order-status', $data, FALSE);
+        
+    }
+
 }
