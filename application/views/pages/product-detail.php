@@ -395,6 +395,15 @@ for ($i = 0; $i < 5; $i++) {
     $(function() {
 
         $(document).on('change', '.brandng-charge', function() {
+            var $selects = $('.brandng-charge');
+            $selects.find('option').prop('disabled', false);
+            $selects.each(function() {
+                $selects.not(this)
+                    .find('option[value="' + this.value + '"]')
+                    .prop('disabled', true);
+            });
+
+
             var id = $(this).closest('tr').attr('id');
             var brand = $(this).val();
             if (brand == '') {
@@ -415,6 +424,7 @@ for ($i = 0; $i < 5; $i++) {
                             $('#' + id + '>td .brandc-price').append("<span>&#8377; " +
                                 data + "</span>");
                             $('#' + id + '>td .brandprice').val(data);
+
                         }
                         loder(false);
                     }
@@ -470,13 +480,13 @@ for ($i = 0; $i < 5; $i++) {
 
         $('#brand-plus').on('click', function(e) {
             e.preventDefault();
+
             var dt = new Date();
             var str = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
             var time = str.replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '-');
             var len = $('#brand-table tr').length;
             if (len < 5) {
-                $('<tr id="' + time +
-                        '"><td class="brand-td"> <div class="quanlity-box selectbrand" id="selectbrand"> <?php if (!empty($brand)) {?> <div class="colors float-left"> <select name="brand[]" class="brandng-charge"> <option value="">Branding Charges</option> <?php foreach ($brand as $key => $value) {echo '<option  value="' . $value->id . '">' . $value->title . '</option>';}?> </select> </div> <?php }?> </div> </td><td class="brand-td"> <div class="quanlity-box selectbrand" id="selectbrand"> <div class=""> <p class="brandc-price">Price : </p><input type="hidden" name="brandprice[]" class="brandprice"></div> <span class="more-brandc"> <a id="brand-close" class="brandclose"><i class="fa fa-close" aria-hidden="true"></i> </a> </span> </div> </td></tr>'
+                $('<tr id="' + time + '"><td class="brand-td"> <div class="quanlity-box selectbrand" id="selectbrand"> <?php if (!empty($brand)) {?> <div class="colors float-left"> <select name="brand[]" class="brandng-charge"> <option value="">Branding Charges</option> <?php $i=0; foreach ($brand as $key => $value) {echo '<option  value="' . $value->id .'">' . $value->title . '</option>';} $i+=1; ?> </select> </div> <?php }?> </div> </td><td class="brand-td"> <div class="quanlity-box selectbrand" id="selectbrand"> <div class=""> <p class="brandc-price">Price : </p><input type="hidden" name="brandprice[]" class="brandprice"></div> <span class="more-brandc"> <a id="brand-close" class="brandclose"><i class="fa fa-close" aria-hidden="true"></i> </a> </span> </div> </td></tr>'
                     )
                     .append().insertBefore('#brand-tr');
             } else {
