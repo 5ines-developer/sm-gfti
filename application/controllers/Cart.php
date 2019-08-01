@@ -307,12 +307,12 @@ class Cart extends CI_Controller {
                 $address['ship'] = $this->m_cart->selectedship($shipping);
             }
 
-            if($this->m_cart->insertOrder($data))
-            {
-                $this->m_cart->deletecartBrand($value->cid,$orderid);
+            // if($this->m_cart->insertOrder($data))
+            // {
+                // $this->m_cart->deletecartBrand($value->cid,$orderid);
                 $this->sendorder($cartitesms,$bach,$address,$puropse,$team);
-                $this->sendadmin($cartitesms,$bach,$address,$puropse,$team);
-            }
+                // $this->sendadmin($cartitesms,$bach,$address,$puropse,$team);
+            // }
         }
     }
 
