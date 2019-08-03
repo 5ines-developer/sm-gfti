@@ -146,42 +146,37 @@ echo $product->price - $discount;?>
                                     </div>
                                     <?php }?>
 
-                                    <table id="brand-table">
-                                        <tr id="brand-tr">
-                                            <td class="brand-td">
-                                                <div class="quanlity-box selectbrand" id="selectbrand">
-                                                    <?php if (!empty($brand)) {?>
-                                                    <div class="colors float-left">
-                                                        <select name="brand[]" class="brandng-charge">
-                                                            <option value="">Branding Charges</option>
-                                                            <?php foreach ($brand as $key => $value) {
-    echo '<option  value="' . $value->id . '">' . $value->title . '</option>';
-}?>
-                                                        </select>
-                                                    </div>
-                                                    <?php }?>
-                                                </div>
-                                            </td>
-                                            <td class="brand-td">
-                                                <?php if (!empty($brand)) {?>
-                                                <div class="quanlity-box selectbrand" id="selectbrand">
-                                                    <div class="">
-                                                        <p class="brandc-price">Price : </p>
-                                                        <input type="hidden" name="brandprice[]" class="brandprice">
-                                                    </div>
-                                                    <span class="more-brandc">
-                                                        <a id="brand-plus" class="brandplus"><i class="fa fa-plus"
-                                                                aria-hidden="true"></i> </a>
-                                                    </span>
-                                                </div>
-                                                <?php }?>
-
-                                            </td>
-                                        </tr>
-                                    </table>
                                     <?php if (!empty($brand)) {?>
-                                    <span>Note : You can select maximum of 5 Branding Charges</span>
-                                    <?php }?>
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <div id="accordion">
+                                                    <div class="accordion-box">
+                                                        <div class="card-header" data-toggle="collapse" href="#collapseOne">
+                                                            <a class="card-link" >
+                                                                Select Branding Charges
+                                                            </a>
+                                                            <span class="float-right">&#43;</span>
+                                                        </div>
+                                                        <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                                                            <div class="card-body">
+                                                                <p>Note : You can select maximum of 5 Branding Charges</p>
+                                                                <?php foreach ($brand as $key => $value) { ?>
+                                                                <div class="form-check">
+                                                                    <label class="form-check-label">
+                                                                        <input type="checkbox" class="form-check-input brandcheck" name="brand[]" value="<?php echo $value->id ?>">
+                                                                        <span class="pl25"><?php echo $value->title.' &nbsp; - &nbsp;  &#8377;'.$value->price ?></span>
+                                                                    </label>
+                                                                </div>
+                                                            <?php } ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- end accordian -->
+                                            </div>
+                                            
+                                        </div>
+                                       
+                            <?php } ?>  
 
                                     <div class="box-cart style2">
                                         <div class="btn-add-cart">
@@ -193,6 +188,7 @@ echo $product->price - $discount;?>
 
                                     </div><!-- /.box-cart -->
                                 </form>
+                             
 
                             </div><!-- /.footer-detail -->
                         </div><!-- /.product-detail -->
@@ -394,32 +390,14 @@ for ($i = 0; $i < 5; $i++) {
     <script>
     $(function() {
 
-        $(document).on('change', '.brandng-charge', function() {
-            var id = $(this).closest('tr').attr('id');
-            var brand = $(this).val();
-            if (brand == '') {
-                $('#' + id + '>td .brandc-price>span').remove();
-                return false;
-            } else {
-                loder(true);
-                $.ajax({
-                    url: '<?php echo base_url() ?>Search/brand_price',
-                    datatype: 'html',
-                    data: {
-                        'brandid': brand
-                    }, // change this to send js object
-                    type: "get",
-                    success: function(data) {
-                        if (data != '') {
-                            $('#' + id + '>td .brandc-price>span').remove();
-                            $('#' + id + '>td .brandc-price').append("<span>&#8377; " +
-                                data + "</span>");
-                            $('#' + id + '>td .brandprice').val(data);
-                        }
-                        loder(false);
-                    }
-                });
-            }
+        $(document).on('change', '.brandcheck', function() {
+           var ln =  $(".brandcheck:checked").length
+           if( ln >= 5){
+                $(".brandcheck:not(:checked)").attr("disabled", true);
+           }else{
+                $(".brandcheck:not(:checked)").removeAttr("disabled");
+           }
+            
         });
 
 
