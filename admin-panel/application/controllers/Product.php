@@ -342,21 +342,23 @@ class Product extends CI_Controller
                         $size_title = $worksheet->getCellByColumnAndRow(17, $row)->getValue();
                         $size = $worksheet->getCellByColumnAndRow(18, $row)->getValue();
 
-                        $brand_title = explode(" ", $bran);
-                        $brand_price = explode(" ", $brandprice);
-                        $marquee_title = explode(" ", $marq);
-                        $marquee_link = explode(" ", $marqueelink);
+                        $brand_title = explode(",", $bran);
+                        $brand_price = explode(",", $brandprice);
+                        $marquee_title = explode(",", $marq);
+                        $marquee_link = explode(",", $marqueelink);
+                        $sizetitle = explode(",", $size_title);
+                        $sizes = explode(",", $size);
 
                         $categoryid = $this->Product_model->categoryid($category);
 
+                        if ($categoryid != '') {
                         $txt = strtoupper(substr($product, 0, 2)) . substr($product, 2);
                         $result = mb_substr($txt, 0, 2);
                         $uniq = random_string('numeric', 8);
                         $product_id = $result . $uniq;
-                        $splittedstring = str_replace(" ", ', ', $tags);
 
                         $insert = array(
-                            'tags' => $splittedstring,
+                            'tags' => $tags,
                             'product_id' => $product_id,
                             'title' => $product,
                             'price' => $price,
@@ -418,19 +420,23 @@ class Product extends CI_Controller
                         }
 
                         if ($size_title != '') {
-                            foreach ($size_title as $key => $value) {
-                                if (!empty($value)) {
+                            for ($i = 0; $i < count($sizetitle); $i++) {
+                                if ($sizetitle[$i] != '') {
                                     $data = array(
                                         'prdid' => $output1['product']['id'],
-                                        'size_name' => $value,
-                                        'size' => $size[$key],
+                                        'size_name' => $sizetitle[$i],
+                                        'size' => $sizes[$i],
                                     );
-                                    $this->Product_model->insertSize($data, $key);
                                 }
+                                $this->Product_model->insertSize($data, $i);
                             }
                         }
 
+                    }else{
+                        $this->session->set_flashdata('error', 'Please enter the valid category');
+                        redirect('add-product', 'refresh');
                     }
+                }
                 }
 
             }

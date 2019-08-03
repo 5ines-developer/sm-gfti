@@ -297,6 +297,17 @@ class M_cart extends CI_Model
         $result = $this->db->get('size_chart')->row_array();
         return $result['size_name'];
     }
+    public function description($prid = null)
+    {
+        $this->db->select('des');
+        $this->db->where('id', $prid);
+        $result = $this->db->get('product')->row_array();
+        return $result['des'];
+    }
+
+
+
+    
     
     
 

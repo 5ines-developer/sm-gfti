@@ -122,121 +122,102 @@ $this->ci->load->model('m_cart');
     </style>
 </head>
 
-<body class="clean-body" style="margin: 0; padding: 0; -webkit-text-size-adjust: 100%; background-color: #DFDFDF;">
+<body class="clean-body" style="margin: 0; padding: 0; -webkit-text-size-adjust: 100%; background-color: #fff;">
     <!--[if IE]><div class="ie-browser"><![endif]-->
-    <table bgcolor="#DFDFDF" cellpadding="0" cellspacing="0" class="nl-container" role="presentation"
-        style="table-layout: fixed; vertical-align: top; min-width: 320px; Margin: 0 auto; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #DFDFDF; width: 100%;"
+    <table bgcolor="#fff" cellpadding="0" cellspacing="0" class="nl-container" role="presentation"
+        style="table-layout: fixed; vertical-align: top; min-width: 320px; Margin: 0 auto; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #FFF; width: 100%;"
         valign="top" width="100%">
         <tbody>
             <tr style="vertical-align: top;" valign="top">
                 <td style="word-break: break-word; vertical-align: top;" valign="top">
                     <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color:#DFDFDF"><![endif]-->
-                    <div style="background-color:#DFDFDF;">
-                        <div class="block-grid two-up no-stack"
-                            style="Margin: 0 auto; min-width: 320px; max-width: 690px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;">
-                            <div
-                                style="border-collapse: collapse;display: table;width: 100%;background-color:transparent;">
-                                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#DFDFDF;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:690px"><tr class="layout-full-width" style="background-color:transparent"><![endif]-->
-                                <!--[if (mso)|(IE)]><td align="center" width="345" style="background-color:transparent;width:345px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:15px; padding-bottom:0px;"><![endif]-->
-                                <div class="col num6"
-                                    style="min-width: 320px; max-width: 345px; display: table-cell; vertical-align: top; width: 345px;">
-                                    <div style="width:100% !important;">
-                                        <!--[if (!mso)&(!IE)]><!-->
-                                        <div
-                                            style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
-                                            <!--<![endif]-->
-                                            <div align="left" class="img-container left fixedwidth"
-                                                style="padding-right: 0px;padding-left: 0px;">
-                                                <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="left"><![endif]--><img
-                                                    alt="Image" border="0" class="left fixedwidth"
-                                                    src="<?php echo base_url() ?>assets/images/giftingxpress.png"
-                                                    style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 155px; display: block;"
-                                                    title="Image" width="155" />
-                                                <!--[if mso]></td></tr></table><![endif]-->
-                                            </div>
-                                            <!--[if (!mso)&(!IE)]><!-->
-                                        </div>
-                                        <!--<![endif]-->
-                                    </div>
-                                </div>
-                                <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-                                <!--[if (mso)|(IE)]></td><td align="center" width="345" style="background-color:transparent;width:345px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:60px; padding-bottom:0px;"><![endif]-->
-                                <div class="col num6"
-                                    style="min-width: 320px; max-width: 345px; display: table-cell; vertical-align: top; width: 345px;">
-                                    <div style="width:100% !important;">
-                                        <!--[if (!mso)&(!IE)]><!-->
-                                        <div
-                                            style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:60px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
-                                            <!--<![endif]-->
-                                            <div></div>
-                                            <!--[if (!mso)&(!IE)]><!-->
-                                        </div>
-                                        <!--<![endif]-->
-                                    </div>
-                                </div>
-                                <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-                                <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
-                            </div>
-                        </div>
-                    </div>
-                    <div style="background-color:#DFDFDF;">
-                        <div class="block-grid two-up"
-                            style="Margin: 0 auto; min-width: 320px; max-width: 690px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;">
-                            <div
-                                style="border-collapse: collapse;display: table;width: 100%;background-color:transparent;">
-                                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#DFDFDF;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:690px"><tr class="layout-full-width" style="background-color:transparent"><![endif]-->
-                                <!--[if (mso)|(IE)]><td align="center" width="345" style="background-color:transparent;width:345px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->
-                                <div class="col num6"
-                                    style="min-width: 320px; max-width: 345px; display: table-cell; vertical-align: top; width: 345px;">
-                                    <div style="width:100% !important;">
-                                        <!--[if (!mso)&(!IE)]><!-->
-                                        <div
-                                            style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
-                                            <!--<![endif]-->
-                                            <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
-                                            <div style="color:#555555;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:120%;padding-top:10px;padding-right:0px;padding-bottom:10px;padding-left:0px;">
-                                                <div
-                                                    style="font-size: 14px; line-height: 16px; font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; color: #555555;">
-                                                    <p
-                                                        style="font-size: 13px; line-height: 16px; text-align: left; margin: 0;">
-                                                        TIN No: 29860885343 &nbsp; GST No: 29AAJFG0105H1ZP</p>
-                                                </div>
-                                            </div>
-                                            <!--[if mso]></td></tr></table><![endif]-->
-                                            <!--[if (!mso)&(!IE)]><!-->
-                                        </div>
-                                        <!--<![endif]-->
-                                    </div>
-                                </div>
-                                <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-                                <!--[if (mso)|(IE)]></td><td align="center" width="345" style="background-color:transparent;width:345px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->
-                                <div class="col num6"
-                                    style="min-width: 320px; max-width: 345px; display: table-cell; vertical-align: top; width: 345px;">
-                                    <div style="width:100% !important;">
-                                        <!--[if (!mso)&(!IE)]><!-->
-                                        <div
-                                            style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
-                                            <!--<![endif]-->
-                                            <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 15px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
-                                            <div
-                                                style="color:#555555;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:120%;padding-top:10px;padding-right:15px;padding-bottom:10px;padding-left:10px;">
-                                                <div
-                                                    style="font-size: 14px; line-height: 16px; font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; color: #555555;">
-                                                    <p style="font-size: 13px; line-height: 16px; text-align: right; margin: 0;">
-                                                        Vendor Code:50245751</p>
-                                                </div>
-                                            </div>
-                                            <!--[if mso]></td></tr></table><![endif]-->
-                                            <!--[if (!mso)&(!IE)]><!-->
-                                        </div>
-                                        <!--<![endif]-->
-                                    </div>
-                                </div>
-                                <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-                                <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
-                            </div>
-                        </div>
-                    </div>
+                    <div style="background-color:#FFFFFF;">
+<div class="block-grid two-up no-stack" style="Margin: 0 auto; min-width: 320px; max-width: 690px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #FFFFFF;">
+<div style="border-collapse: collapse;display: table;width: 100%;background-color:#FFFFFF;">
+<!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FFFFFF;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:690px"><tr class="layout-full-width" style="background-color:#FFFFFF"><![endif]-->
+<!--[if (mso)|(IE)]><td align="center" width="345" style="background-color:#FFFFFF;width:345px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:15px; padding-bottom:0px;"><![endif]-->
+<div class="col num6" style="min-width: 320px; max-width: 345px; display: table-cell; vertical-align: top; width: 345px;">
+<div style="width:100% !important;">
+<!--[if (!mso)&(!IE)]><!-->
+<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:15px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
+<!--<![endif]-->
+<div align="left" class="img-container left fixedwidth" style="padding-right: 0px;padding-left: 0px;">
+<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="left"><![endif]--><img alt="Image" border="0" class="left fixedwidth" src="<?php echo base_url() ?>assets/images/giftingxpress.png" style="text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 155px; display: block;" title="Image" width="155"/>
+<!--[if mso]></td></tr></table><![endif]-->
+</div>
+<!--[if (!mso)&(!IE)]><!-->
+</div>
+<!--<![endif]-->
+</div>
+</div>
+<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+<!--[if (mso)|(IE)]></td><td align="center" width="345" style="background-color:#FFFFFF;width:345px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:60px; padding-bottom:0px;"><![endif]-->
+<div class="col num6" style="min-width: 320px; max-width: 345px; display: table-cell; vertical-align: top; width: 345px;">
+<div style="width:100% !important;">
+<!--[if (!mso)&(!IE)]><!-->
+<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:60px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
+<!--<![endif]-->
+<div></div>
+<!--[if (!mso)&(!IE)]><!-->
+</div>
+<!--<![endif]-->
+</div>
+</div>
+<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
+</div>
+</div>
+</div>
+<div style="background-color:#FFFFFF;">
+<div class="block-grid two-up" style="Margin: 0 auto; min-width: 320px; max-width: 690px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #FFFFFF;">
+<div style="border-collapse: collapse;display: table;width: 100%;background-color:#FFFFFF;">
+<!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FFFFFF;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:690px"><tr class="layout-full-width" style="background-color:#FFFFFF"><![endif]-->
+<!--[if (mso)|(IE)]><td align="center" width="345" style="background-color:#FFFFFF;width:345px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->
+<div class="col num6" style="min-width: 320px; max-width: 345px; display: table-cell; vertical-align: top; width: 345px;">
+<div style="width:100% !important;">
+<!--[if (!mso)&(!IE)]><!-->
+<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
+<!--<![endif]-->
+<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
+<div style="color:#555555;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+<div style="font-size: 14px; line-height: 16px; font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; color: #555555;">
+<p style="font-size: 14px; line-height: 16px; text-align: center; margin: 0;">TIN No: 29860885343 GST No: 29AAJFG0105H1ZP</p>
+</div>
+</div>
+<!--[if mso]></td></tr></table><![endif]-->
+<!--[if (!mso)&(!IE)]><!-->
+</div>
+<!--<![endif]-->
+</div>
+</div>
+<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+<!--[if (mso)|(IE)]></td><td align="center" width="345" style="background-color:#FFFFFF;width:345px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->
+<div class="col num6" style="min-width: 320px; max-width: 345px; display: table-cell; vertical-align: top; width: 345px;">
+<div style="width:100% !important;">
+<!--[if (!mso)&(!IE)]><!-->
+<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
+<!--<![endif]-->
+<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 15px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
+<div style="color:#555555;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:120%;padding-top:10px;padding-right:15px;padding-bottom:10px;padding-left:10px;">
+<div style="font-size: 14px; line-height: 16px; font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; color: #555555;">
+<p style="font-size: 14px; line-height: 16px; text-align: right; margin: 0;">Vendor Code:50245751</p>
+</div>
+</div>
+<!--[if mso]></td></tr></table><![endif]-->
+<!--[if (!mso)&(!IE)]><!-->
+</div>
+<!--<![endif]-->
+</div>
+</div>
+<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
+</div>
+</div>
+</div>
+
+
+
+
                     <div style="background-color:#FFFFFF;">
                         <div class="block-grid"
                             style="Margin: 0 auto; min-width: 320px; max-width: 690px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;">
@@ -300,42 +281,101 @@ $this->ci->load->model('m_cart');
                                             </div>
                                             <!--[if mso]></td></tr></table><![endif]-->
                                             <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
-                                            <div
-                                                style="color:#555555;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-                                                <div
-                                                    style="font-size: 14px; line-height: 16px; font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; color: #555555;">
-                                                    <p style="font-size: 14px; line-height: 14px; margin: 0;"><span
-                                                            style="font-size: 12px;">To,</span></p>
-                                                    <p style="font-size: 14px; line-height: 14px; margin: 0;"><span
-                                                            style="font-size: 12px;">Ms. Sowmya</span>
-                                                    </p>
-
-                                                    <p style="font-size: 14px; line-height: 14px; margin: 0;">
-                                                        <span style="font-size: 12px;">Buying Professional-Events & Marcom </span>
-                                                    </p>
-                                                    <p style="font-size: 14px; line-height: 14px; margin: 0;"><span
+                                            <div style="background-color:#FFFFFF;">
+<div class="block-grid two-up" style="Margin: 0 auto; min-width: 320px; max-width: 690px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;">
+<div style="border-collapse: collapse;display: table;width: 100%;background-color:transparent;">
+<!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FFFFFF;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:690px"><tr class="layout-full-width" style="background-color:transparent"><![endif]-->
+<!--[if (mso)|(IE)]><td align="center" width="345" style="background-color:transparent;width:345px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->
+<div class="col num6" style="min-width: 400px; max-width: 570px; display: table-cell; vertical-align: top; width: 400px;">
+<div style="width:100% !important;">
+<!--[if (!mso)&(!IE)]><!-->
+<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
+<!--<![endif]-->
+<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
+<div style="color:#555555;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+<div style="font-size: 12px; line-height: 16px; font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; color: #555555;">
+<p style="font-size: 12px; line-height: 16px; text-align: left; margin: 0;">To,</p>
+<p style="font-size: 12px; line-height: 16px; text-align: left; margin: 0;">Ms. Sowmya</p>
+<p style="font-size: 12px; line-height: 16px; text-align: left; margin: 0;">Buying Professional-Events &amp; Marcom</p>
+<p style="font-size: 12px; line-height: 16px; text-align: left; margin: 0;">Siemens Ltd.</p>
+<p style="font-size: 12px; line-height: 16px; text-align: left; margin: 0;">GS SCM C AA IN IM MS</p>
+<p style="font-size: 12px; line-height: 16px; text-align: left; margin: 0;">48, Thane-Belapur Road</p>
+<p style="font-size: 12px; line-height: 16px; text-align: left; margin: 0;">Thane 400601, Indien</p>
+</div>
+</div>
+<!--[if mso]></td></tr></table><![endif]-->
+<!--[if (!mso)&(!IE)]><!-->
+</div>
+<!--<![endif]-->
+</div>
+</div>
+<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+<!--[if (mso)|(IE)]></td><td align="center" width="345" style="background-color:transparent;width:345px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->
+<div class="col num6" style="min-width: 300px; max-width: 345px; display: table-cell; vertical-align: top; width: 345px;">
+<div style="width:100% !important;">
+<!--[if (!mso)&(!IE)]><!-->
+<div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
+<!--<![endif]-->
+<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
+<div style="color:#555555;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left: 100px;">
+<div
+                                                    style="font-size: 12px; line-height: 16px; font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; color: #555555;">
+                                                    <p style="font-size: 12px; line-height: 14px; margin: 0;"><span
+                                                            style="font-size: 12px;">From,</span></p>
+                                                    
+                                                    <p style="font-size: 12px; line-height: 14px; margin: 0;"><span
                                                             style="font-size: 12px;"><?php echo (!empty($bill['company_name']))?$bill['company_name']:''; ?></span>
                                                     </p>
-                                                    <p style="font-size: 14px; line-height: 14px; margin: 0;"><span
+                                                    <p style="font-size: 12px; line-height: 14px; margin: 0;"><span
                                                             style="font-size: 12px;"><?php echo (!empty($bill['street']))?$bill['street']:''; ?></span>
                                                     </p>
-                                                    <p style="font-size: 14px; line-height: 14px; margin: 0;"><span
+                                                    <p style="font-size: 12px; line-height: 14px; margin: 0;"><span
                                                             style="font-size: 12px;"><?php echo (!empty($bill['city']))?$bill['city'].','.$bill['religion']:''; ?></span>
                                                     </p>
-                                                    <p style="font-size: 14px; line-height: 14px; margin: 0;"><span
+                                                    <p style="font-size: 12px; line-height: 14px; margin: 0;"><span
                                                             style="font-size: 12px;"><?php echo (!empty($bill['country']))?$bill['country'].'-'.$bill['zip_code']:''; ?></span>
                                                     </p>
-                                                    <p style="font-size: 14px; line-height: 14px; margin: 0;"><span
+                                                    <p style="font-size: 12px; line-height: 14px; margin: 0;"><span
                                                             style="font-size: 12px;"><?php echo (!empty($bill['gst_number']))?$bill['gst_number']:''; ?></span>
                                                     </p>
-                                                    <p style="font-size: 14px; line-height: 14px; margin: 0;"><span
+                                                    <p style="font-size: 12px; line-height: 14px; margin: 0;"><span
                                                             style="font-size: 12px;"><?php echo (!empty($ship['name']))?$ship['name']:$this->session->userdata('suser'); ?></span>
                                                     </p>
-                                                    <p style="font-size: 14px; line-height: 14px; margin: 0;"><span
+                                                    <p style="font-size: 12px; line-height: 14px; margin: 0;"><span
                                                             style="font-size: 12px;">
                                                             <?php echo $this->ci->m_cart->getphone($this->session->userdata('sid')); ?></span>
                                                     </p>
+                                                    <p style="font-size: 12px; line-height: 14px; margin: 0;"><span
+                                                            style="font-size: 12px;"> Team & Dept. : </span><span
+                                                            style="font-size: 12px;">
+                                                            <?php echo(!empty($team))?$team:'' ?></span>
+                                                    </p>
+                                                    <p style="font-size: 12px; line-height: 14px; margin: 0;"><span
+                                                            style="font-size: 12px;"> Event Or Purpose : </span><span
+                                                            style="font-size: 12px;"><span style="font-size: 12px;"> <?php echo(!empty($puropse))?$puropse:'' ?></span>
+                                                    </p>
+
+                                                    
+
+                                                    
                                                 </div>
+</div>
+<!--[if mso]></td></tr></table><![endif]-->
+<!--[if (!mso)&(!IE)]><!-->
+</div>
+<!--<![endif]-->
+</div>
+</div>
+<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
+</div>
+</div>
+</div>
+<div
+                                                style="color:#555555;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;width: 250px;">
+                                                
+
+                                                
                                             </div>
                                             <!--[if mso]></td></tr></table><![endif]-->
                                             <!--[if (!mso)&(!IE)]><!-->
@@ -356,8 +396,8 @@ $this->ci->load->model('m_cart');
                                             <div
                                                 style="color:#555555;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                                                 <div
-                                                    style="font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; font-size: 12px; line-height: 14px; text-align: right; color: #555555;">
-                                                    <span style="font-size: 14px; line-height: 16px;">DATE:
+                                                    style="font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; font-size: 12px; line-height: 14px; text-align: left; color: #555555;">
+                                                    <span style="font-size: 13px; line-height: 16px;">DATE:
                                                         <?php echo date("d-m-Y H:i:s"); ?> <span
                                                             style="line-height: 16px; font-size: 14px;"></span></span>
                                                 </div>
@@ -411,7 +451,7 @@ $this->ci->load->model('m_cart');
                             </div>
                         </div>
                     </div>
-                    <div style="background-color:#DFDFDF;">
+                    <div style="background-color:#FFF;">
                         <div class="block-grid four-up no-stack"
                             style="Margin: 0 auto; min-width: 320px; max-width: 690px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #F3BF02;">
                             <div style="border-collapse: collapse;display: table;width: 100%;background-color:#F3BF02;">
@@ -445,7 +485,7 @@ $this->ci->load->model('m_cart');
                                 <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
                                 <!--[if (mso)|(IE)]></td><td align="center" width="172" style="background-color:#F3BF02;width:172px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 1px solid #E3B305;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->
                                 <div class="col num3"
-                                    style="max-width: 320px; min-width: 172px; display: table-cell; vertical-align: top; width: 171px;">
+                                    style="max-width: 320px; min-width: 220px; display: table-cell; vertical-align: top; width: 171px;">
                                     <div style="width:100% !important;">
                                         <!--[if (!mso)&(!IE)]><!-->
                                         <div
@@ -485,7 +525,7 @@ $this->ci->load->model('m_cart');
                                 <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
                                 <!--[if (mso)|(IE)]></td><td align="center" width="172" style="background-color:#F3BF02;width:172px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->
                                 <div class="col num3"
-                                    style="max-width: 320px; min-width: 172px; display: table-cell; vertical-align: top; width: 172px;">
+                                    style="max-width: 320px; min-width: 125px; display: table-cell; vertical-align: top; width: 172px;">
                                     <div style="width:100% !important;">
                                         <!--[if (!mso)&(!IE)]><!-->
                                         <div
@@ -616,8 +656,7 @@ $this->ci->load->model('m_cart');
                                 <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
                                 <!--[if (mso)|(IE)]></td><td align="center" width="172" style="background-color:#FFFFFF;width:172px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->
                                 <div class="col num3"
-                                    style="max-width: 320px; min-width: 172px; display: table-cell; vertical-align: top; width: 172px;">
-                                    <div style="width:100% !important;">
+                                    style="max-width: 324px; min-width: 220px; display: table-cell; vertical-align: top; width: 172px;"> <div style="width:100% !important;">
                                         <!--[if (!mso)&(!IE)]><!-->
                                         <div
                                             style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;">
@@ -640,7 +679,8 @@ $this->ci->load->model('m_cart');
                                                 style="color:#555555;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                                                 <div
                                                     style="font-size: 12px; line-height: 14px; font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; color: #555555;">
-                                                    <p style="font-size: 14px; line-height: 13px; margin: 0;">
+                                                    <p style="font-size: 12px; line-height: 13px; margin: 0;">
+                                                        Branding Charges :<br>
                                                         <?php  if (!empty($brandingCharge)) {
                                                         foreach ($brandingCharge as $keys => $values) { 
                                                           if ($values->cart_id == $value->cid) { ?>
@@ -649,18 +689,21 @@ $this->ci->load->model('m_cart');
                                                             <?php echo(!empty($values->brand_price))?'&#8377; '.$values->brand_price:'' ?></span><br>
                                                         <?php } } } ?><br>
 
+                                                        <span style="font-size: 11px;">GST &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?php echo (!empty($value->pgst))?$value->pgst*$value->qty.'%':''; ?></span><br>
 
-
-                                                        <span style="font-size: 11px;">HSN Code
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                            :
-                                                            <?php echo $this->ci->m_cart->hsncode((!empty($value->prid))?$value->prid:''); ?></span><br>
-                                                        <span style="font-size: 11px;">Team & Dept.
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
-                                                            <?php echo(!empty($team))?$team:'' ?></span><br>
-                                                        <span style="font-size: 11px;">Purpose Of Purchase
-                                                            &nbsp;&nbsp;&nbsp;:
-                                                            <?php echo(!empty($puropse))?$puropse:'' ?></span>
+                                                        <span style="font-size: 11px;">HSN Code &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <?php echo $this->ci->m_cart->hsncode((!empty($value->prid))?$value->prid:''); ?></span><br>
+                                                       
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div
+                                                style="color:#555555;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+                                                <div
+                                                    style="font-size: 12px; line-height: 14px; font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; color: #555555;">
+                                                    <p style="font-size: 14px; line-height: 13px; margin: 0;">
+                                                        Description :<br>
+                                                        <span style="font-size: 11px;"><?php echo $this->ci->m_cart->description($value->prid); ?></span><br>
+                                                        
                                                     </p>
                                                 </div>
                                             </div>
@@ -699,7 +742,7 @@ $this->ci->load->model('m_cart');
                                 <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
                                 <!--[if (mso)|(IE)]></td><td align="center" width="172" style="background-color:#FFFFFF;width:172px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->
                                 <div class="col num3"
-                                    style="max-width: 320px; min-width: 172px; display: table-cell; vertical-align: top; width: 172px;">
+                                    style="max-width: 320px; min-width: 125px; display: table-cell; vertical-align: top; width: 172px;">
                                     <div style="width:100% !important;">
                                         <!--[if (!mso)&(!IE)]><!-->
                                         <div
@@ -1118,7 +1161,7 @@ $this->ci->load->model('m_cart');
                     </div>
                     <div style="background-color:transparent;">
                         <div class="block-grid mixed-two-up no-stack"
-                            style="Margin: 0 auto; min-width: 320px; max-width: 690px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #FFFFFF;">
+                            style="Margin: 0 auto; min-width: 320px; max-width: 690px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #FFFFFF;border-bottom: 4px solid #DFDFDF;">
                             <div style="border-collapse: collapse;display: table;width: 100%;background-color:#FFFFFF;">
                                 <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:transparent;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:690px"><tr class="layout-full-width" style="background-color:#FFFFFF"><![endif]-->
                                 <!--[if (mso)|(IE)]><td align="center" width="460" style="background-color:#FFFFFF;width:460px; border-top: 1px solid transparent; border-left: 1px solid transparent; border-bottom: 4px solid #DFDFDF; border-right: 1px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 15px; padding-top:0px; padding-bottom:0px;"><![endif]-->
@@ -1127,7 +1170,7 @@ $this->ci->load->model('m_cart');
                                     <div style="width:100% !important;">
                                         <!--[if (!mso)&(!IE)]><!-->
                                         <div
-                                            style="border-top:1px solid transparent; border-left:1px solid transparent; border-bottom:4px solid #DFDFDF; border-right:1px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 10px; padding-left: 15px;">
+                                            style="border-top:1px solid transparent; border-left:1px solid transparent;  border-right:1px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 10px; padding-left: 15px;">
                                             <!--<![endif]-->
                                             <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
                                             <div
