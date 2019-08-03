@@ -120,6 +120,8 @@ echo $product->price - $discount;?>
                             </div><!-- /.content-detail -->
                             <div class="footer-detail">
                                 <form action="<?php echo base_url('add-cart/') . $product->product_id ?>" method="post">
+
+                                <?php if ($product->available_stock > 0) { ?>
                                     <div class="quanlity-box ">
                                         <div class="quanlity float-left mr8" id='qantity-box'>
                                             <span class="btn-down"></span>
@@ -128,6 +130,10 @@ echo $product->price - $discount;?>
                                             <span class="btn-up"></span>
                                         </div>
                                     </div><!-- /.quanlity-box -->
+
+                                
+
+
                                     <div class="clearfix"></div>
                                     <?php if (!empty($size)) {?>
                                     <div class="size-box">
@@ -147,48 +153,61 @@ echo $product->price - $discount;?>
                                     <?php }?>
 
                                     <?php if (!empty($brand)) {?>
-                                        <div class="row">
-                                            <div class="col-md-10">
-                                                <div id="accordion">
-                                                    <div class="accordion-box">
-                                                        <div class="card-header" data-toggle="collapse" href="#collapseOne">
-                                                            <a class="card-link" >
-                                                                Select Branding Charges
-                                                            </a>
-                                                            <span class="float-right">&#43;</span>
-                                                        </div>
-                                                        <div id="collapseOne" class="collapse show" data-parent="#accordion">
-                                                            <div class="card-body">
-                                                                <p>Note : You can select maximum of 5 Branding Charges</p>
-                                                                <?php foreach ($brand as $key => $value) { ?>
-                                                                <div class="form-check">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" class="form-check-input brandcheck" name="brand[]" value="<?php echo $value->id ?>">
-                                                                        <span class="pl25"><?php echo $value->title.' &nbsp; - &nbsp;  &#8377;'.$value->price ?></span>
-                                                                    </label>
-                                                                </div>
-                                                            <?php } ?>
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <div id="accordion">
+                                                <div class="accordion-box">
+                                                    <div class="card-header" data-toggle="collapse" href="#collapseOne">
+                                                        <a class="card-link">
+                                                            Select Branding Charges
+                                                        </a>
+                                                        <span class="float-right">&#43;</span>
+                                                    </div>
+                                                    <div id="collapseOne" class="collapse show"
+                                                        data-parent="#accordion">
+                                                        <div class="card-body">
+                                                            <p>Note : You can select maximum of 5 Branding Charges</p>
+                                                            <?php foreach ($brand as $key => $value) { ?>
+                                                            <div class="form-check">
+                                                                <label class="form-check-label">
+                                                                    <input type="checkbox"
+                                                                        class="form-check-input brandcheck"
+                                                                        name="brand[]" value="<?php echo $value->id ?>">
+                                                                    <span
+                                                                        class="pl25"><?php echo $value->title.' &nbsp; - &nbsp;  &#8377;'.$value->price ?></span>
+                                                                </label>
                                                             </div>
+                                                            <?php } ?>
                                                         </div>
                                                     </div>
-                                                </div><!-- end accordian -->
-                                            </div>
-                                            
+                                                </div>
+                                            </div><!-- end accordian -->
                                         </div>
-                                       
-                            <?php } ?>  
+
+                                    </div>
+
+                                    <?php } }?>
 
                                     <div class="box-cart style2">
                                         <div class="btn-add-cart">
+                                            <?php
+
+                                        if ($product->available_stock > 0) { ?>
                                             <button class="add-cart"
-                                                type="<?php echo ($product->available_stock > 0) ? 'disabled' : 'disabled' ?>"><img
+                                                type="<?php echo ($product->available_stock <= 0) ? 'disabled' : 'disabled' ?>"
+                                                <?php echo ($product->available_stock <= 0) ? 'disabled' : 'disabled' ?>><img
                                                     src="<?php echo base_url() ?>assets/images/icons/add-cart.png"
                                                     alt="">Add to Cart</button>
+                                            <?php }else{ ?>
+                                            <button type="button" class="add-cart con-stock"
+                                                data-value="<?php echo $product->product_id?>" data-toggle="modal"
+                                                data-target="#cnt-update">Contact for stock update</button>
+                                            <?php } ?>
                                         </div>
 
                                     </div><!-- /.box-cart -->
                                 </form>
-                             
+
 
                             </div><!-- /.footer-detail -->
                         </div><!-- /.product-detail -->
@@ -365,6 +384,52 @@ for ($i = 0; $i < 5; $i++) {
 
     </div><!-- /.boxed -->
 
+
+     <!-- The Modal -->
+     <div class="modal fade" id="cnt-update">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+
+                                                        <!-- Modal Header -->
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Contact for stock update</h4>
+                                                            <button type="button" class="close"
+                                                                data-dismiss="modal">&times;</button>
+                                                        </div>
+
+                                                        <!-- Modal body -->
+                                                        <div class="modal-body">
+                                                            <div class="container">
+                                                                <div class="col-sm-10 offset-sm-1">
+                                                                <!-- contact for stock update form -->
+                                                                <form action="http://localhost/siemens/contact-stockupdate"
+                                                                method="post">
+                                                                <input type="hidden" name="cn_product" class="products" value="<?php echo $product->product_id ?>">
+                                                                <input type="hidden" name="cn_pname" class="products" value="<?php echo $product->title ?>">
+                                                                <div class="form-group">
+                                                                    <label for="cnt-qty">Enter a Quantity</label>
+                                                                    <input type="number" name="cn_quantity" class="form-control" required>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="">Description</label>
+                                                                    <textarea rows="5" class="form-control" name="cn_desc"></textarea>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <button class="checkout" type="submit">Submit</button>
+                                                                </div>
+                                                            </form>
+
+                                                                </div>
+                                                            </div>
+                                                            
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
     <!-- Javascript -->
     <script type="text/javascript" src="<?php echo base_url() ?>assets/javascript/jquery.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>assets/javascript/tether.min.js"></script>
@@ -391,13 +456,13 @@ for ($i = 0; $i < 5; $i++) {
     $(function() {
 
         $(document).on('change', '.brandcheck', function() {
-           var ln =  $(".brandcheck:checked").length
-           if( ln >= 5){
+            var ln = $(".brandcheck:checked").length
+            if (ln >= 5) {
                 $(".brandcheck:not(:checked)").attr("disabled", true);
-           }else{
+            } else {
                 $(".brandcheck:not(:checked)").removeAttr("disabled");
-           }
-            
+            }
+
         });
 
 
@@ -454,7 +519,8 @@ for ($i = 0; $i < 5; $i++) {
             var time = str.replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '-');
             var len = $('#brand-table tr').length;
             if (len < 5) {
-                $('<tr id="' + time + '"><td class="brand-td"> <div class="quanlity-box selectbrand" id="selectbrand"> <?php if (!empty($brand)) {?> <div class="colors float-left"> <select name="brand[]" class="brandng-charge"> <option value="">Branding Charges</option> <?php $i=0; foreach ($brand as $key => $value) {echo '<option  value="' . $value->id .'">' . $value->title . '</option>';} $i+=1; ?> </select> </div> <?php }?> </div> </td><td class="brand-td"> <div class="quanlity-box selectbrand" id="selectbrand"> <div class=""> <p class="brandc-price">Price : </p><input type="hidden" name="brandprice[]" class="brandprice"></div> <span class="more-brandc"> <a id="brand-close" class="brandclose"><i class="fa fa-close" aria-hidden="true"></i> </a> </span> </div> </td></tr>'
+                $('<tr id="' + time +
+                        '"><td class="brand-td"> <div class="quanlity-box selectbrand" id="selectbrand"> <?php if (!empty($brand)) {?> <div class="colors float-left"> <select name="brand[]" class="brandng-charge"> <option value="">Branding Charges</option> <?php $i=0; foreach ($brand as $key => $value) {echo '<option  value="' . $value->id .'">' . $value->title . '</option>';} $i+=1; ?> </select> </div> <?php }?> </div> </td><td class="brand-td"> <div class="quanlity-box selectbrand" id="selectbrand"> <div class=""> <p class="brandc-price">Price : </p><input type="hidden" name="brandprice[]" class="brandprice"></div> <span class="more-brandc"> <a id="brand-close" class="brandclose"><i class="fa fa-close" aria-hidden="true"></i> </a> </span> </div> </td></tr>'
                     )
                     .append().insertBefore('#brand-tr');
             } else {

@@ -117,6 +117,35 @@ class Search extends CI_Controller {
         $this->load->view('pages/product-detail', $data, FALSE);
     }
 
+    //contact for stock update
+    public function con_stockupdate($var = null)
+    {
+        $this->load->model('m_orders');
+        $data['quantity']        = $this->input->post('cn_quantity');
+        $data['productid']       = $this->input->post('cn_product');
+        $data['desc']            =  $this->input->post('cn_desc');
+        $data['productname']     =  $this->input->post('cn_pname');
+        $data['customer']        = $this->m_orders->customer($this->uid);
+        $this->load->config('email');
+        $this->load->library('email');
+        $from = $this->config->item('smtp_user');
+        $msg = $this->load->view('email/stockupdate', $data, true);
+        $this->email->set_newline("\r\n");
+        $this->email->from($from, 'Gifting Express');
+        // $this->email->to('Vinayaka@giftingxpress.in');
+        $this->email->to('prathwi@5ine.in');
+        $this->email->subject('Stock update request');
+        $this->email->message($msg);
+        if ($this->email->send()) {
+            $this->session->set_flashdata('success', 'Your request has been submitted successfully, Our team will take care of your concern.');
+            redirect('product/'.$data['productid'],'refresh');
+        } else {
+            $this->session->set_flashdata('error', 'Unable to submit your request, Please try again later!');
+            redirect('product/'.$data['productid'],'refresh');
+        }
+    }
+
+
 
     public function brand_price($id = null)
     {

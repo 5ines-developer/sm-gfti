@@ -74,6 +74,8 @@ $route['search/(:any)']         = 'search/search/$1';
 $route['search']                = 'search/search';
 $route['product/(:any)']        = 'search/product_detail/$1';
 $route['category/(:any)']       =  'search/category/$1';
+$route['contact-stockupdate']   = 'search/con_stockupdate';
+
 // cart
 $route['add-cart/(:any)']       = 'cart/index/$1';
 $route['get-cart']              = 'cart/get_cart';
