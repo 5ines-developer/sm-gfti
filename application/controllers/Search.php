@@ -132,8 +132,7 @@ class Search extends CI_Controller {
         $msg = $this->load->view('email/stockupdate', $data, true);
         $this->email->set_newline("\r\n");
         $this->email->from($from, 'Gifting Express');
-        // $this->email->to('Vinayaka@giftingxpress.in');
-        $this->email->to('prathwi@5ine.in');
+        $this->email->to('Vinayaka@giftingxpress.in');
         $this->email->subject('Stock update request');
         $this->email->message($msg);
         if ($this->email->send()) {

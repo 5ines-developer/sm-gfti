@@ -262,6 +262,7 @@ class M_cart extends CI_Model
         // Get getuseremail
         public function getuseremail($cid = null)
         {
+            
             $query = $this->db->where('id', $cid)->get('employee')->row();
             return $query->email;
         }

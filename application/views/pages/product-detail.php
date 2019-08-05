@@ -402,7 +402,7 @@ for ($i = 0; $i < 5; $i++) {
                                                             <div class="container">
                                                                 <div class="col-sm-10 offset-sm-1">
                                                                 <!-- contact for stock update form -->
-                                                                <form action="http://localhost/siemens/contact-stockupdate"
+                                                                <form action="<?php echo base_url()?>contact-stockupdate"
                                                                 method="post">
                                                                 <input type="hidden" name="cn_product" class="products" value="<?php echo $product->product_id ?>">
                                                                 <input type="hidden" name="cn_pname" class="products" value="<?php echo $product->title ?>">
