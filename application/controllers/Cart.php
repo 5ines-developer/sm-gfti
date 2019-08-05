@@ -111,9 +111,9 @@ class Cart extends CI_Controller {
                                     <span><a href="'.base_url("product/").$value->product_id.'">'. $value->ptitle .'</a></span>
                                     
                                 </div>
-                                <div class="c-category">
+                                <div class="c-category pro-cat">
                                     <p>'. $value->name .'</p>
-                                    <p><span>SKU </span> '. $value->product_id .'</p>';
+                                    <p><span>SKU </span> '. $value->product_id .'</p> <input type="hidden" name="pro_id" class="pro_id" value="'.$value->product_id.'">';
                                         if(!empty($value->pgst)){ 
                                             $items .= '<p><span>GST </span> '. $value->pgst .'% &nbsp;-&nbsp; &#8377; '.$gst * $value->qty.'</p>';
                                         }
@@ -150,6 +150,7 @@ class Cart extends CI_Controller {
                                     <span class="btn-up"></span>
                                 </div>
                             </div>
+                            <div class="qermsg" style="background: #fff;padding: 10px; color: black;"></div>
                         </div>
                     </div>
                 </div>
@@ -167,7 +168,7 @@ class Cart extends CI_Controller {
         $data = array(
             'items' => $items,
             'count' => count($cart),
-            'total' => '&#8377; '. $total,
+            'total' => '&#8377; '. $total
         );
         echo json_encode($data);
     }
@@ -190,10 +191,19 @@ class Cart extends CI_Controller {
     // update qty
     public function update_qty()
     {
+       $qmsg='';
        $cid = $this->input->post('id');
        $qty = $this->input->post('qty');
-       $data = array('qty' =>$qty);
-       $this->m_cart->setQty($cid, $data, $this->uid);
+       $proid = $this->input->post('proid');
+
+       if($this->m_cart->checkQty($proid,$qty))
+       {
+        $data = array('qty' =>$qty);
+        $this->m_cart->setQty($cid, $data, $this->uid);
+       }else{
+        $qmsg = 'qerror';
+        echo json_encode($qmsg);
+        }
     }
 
 

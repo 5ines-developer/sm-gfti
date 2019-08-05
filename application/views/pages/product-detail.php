@@ -194,8 +194,8 @@ echo $product->price - $discount;?>
 
                                         if ($product->available_stock > 0) { ?>
                                             <button class="add-cart"
-                                                type="<?php echo ($product->available_stock <= 0) ? 'disabled' : 'disabled' ?>"
-                                                <?php echo ($product->available_stock <= 0) ? 'disabled' : 'disabled' ?>><img
+                                                type="<?php echo ($product->available_stock <= 0) ? 'disabled' : '' ?>"
+                                                ><img
                                                     src="<?php echo base_url() ?>assets/images/icons/add-cart.png"
                                                     alt="">Add to Cart</button>
                                             <?php }else{ ?>

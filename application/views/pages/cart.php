@@ -144,7 +144,7 @@
 
 
         // cart page
-        function cartitems() {
+        function cartitems(qe='') {
             $.ajax({
                 type: "get",
                 url: "<?php echo base_url('get-cart') ?>",
@@ -158,23 +158,31 @@
                     if(response.count <= 0){
                         $('.checkout ').hide();
                     }
+                    if (qe !='') {
+                        $(".qermsg").html('<span>'+qe+'</span>');
+                    }
                     loder(false);
                 }
             });
         }
 
         // change qty update
-        function cartqty(id, newqty) {
+        function cartqty(id, newqty,proid) {
             loder(true);
             $.ajax({
                 type: "post",
                 url: "<?php echo base_url('update-qty') ?>",
+                dataType: "json",
                 data: {
                     'id': id,
+                    'proid': proid,
                     'qty': newqty
                 },
                 success: function(response) {
-                    cartitems();
+                    if (response == "qerror") {
+                        var qe = 'Requested quantity is not available';
+                    }
+                    cartitems(qe);
                 }
             });
         }
@@ -191,7 +199,8 @@
                 var newqty = qty -= 1;
                 $(this).siblings('.qtyi').val(newqty);
                 var id = $(this).closest('.cart-item').attr('dataid');
-                cartqty(id, newqty);
+                var proid = $(this).closest('.cart-item').find("input[name='pro_id']").val();
+                cartqty(id, newqty,proid);
             }
         });
         $(document).on("click", '.btn-up', function(e) {
@@ -200,7 +209,8 @@
             var newqty = parseInt(qty) + parseInt(1);
             $(this).siblings('.qtyi').val(newqty);
             var id = $(this).closest('.cart-item').attr('dataid');
-            cartqty(id, newqty);
+            var proid = $(this).closest('.cart-item').find("input[name='pro_id']").val();
+            cartqty(id, newqty,proid);
         }); /****** QTY increement and decrement end *******/
 
         /****  brand change ****/
@@ -226,7 +236,8 @@
             e.preventDefault();
             var qty = $(this).val();
             var id = $(this).closest('.cart-item').attr('dataid');
-            cartqty(id, qty);
+            var proid = $(this).closest('.cart-item').find("input[name='pro_id']").val();
+            cartqty(id, qty,proid);
         });
 
 

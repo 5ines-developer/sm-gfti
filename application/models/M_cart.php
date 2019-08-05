@@ -119,6 +119,21 @@ class M_cart extends CI_Model
 
     }
 
+    public function checkQty($proid,$qty)
+    {
+        $this->db->where('product_id', $proid)
+            ->where('available_stock >= ', $qty);
+        $query = $this->db->get('product');
+        if ($query->num_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    
+
     public function insertOrder($data)
     {
         $this->db->insert('orders', $data);
