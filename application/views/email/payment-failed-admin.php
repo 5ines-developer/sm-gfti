@@ -1276,9 +1276,9 @@ $this->ci->load->model('m_cart');
                                                             style="font-size: 12px; line-height: 18px;">9. Quotation
                                                             validity in 30 days.</span><br /><span
                                                             style="font-size: 12px; line-height: 18px;">10. Once sold
-                                                            stock can’t be returned back or exchanged.</span><br /><span
+                                                            stock can't be returned back or exchanged.</span><br /><span
                                                             style="font-size: 12px; line-height: 18px;">11. Branded
-                                                            product carry standard manufacturer’s warranty.</span></p>
+                                                            product carry standard manufacturer's warranty.</span></p>
                                                 </div>
                                             </div>
                                             <!--[if mso]></td></tr></table><![endif]-->
