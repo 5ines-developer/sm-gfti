@@ -74,7 +74,7 @@ class Cart extends CI_Controller {
         $items = ''; $cout = 0; $total = 0;
         $cart = $this->m_cart->getCart($this->uid);
 
-        
+        $dataid = $this->input->get('dataid');
        
         if(!empty($cart)){
             foreach ($cart as $key => $value) {
@@ -150,7 +150,12 @@ class Cart extends CI_Controller {
                                     <span class="btn-up"></span>
                                 </div>
                             </div>
-                            <div class="qermsg" style="background: #fff;padding: 10px; color: black;"></div>
+                            <div class="qermsg" style="background: #fff;padding: 10px; color: black;">';
+                            if($dataid === $value->cid ){
+                                $items .='<span class="error">Requested quantity is not available</span>';
+                            }
+                            $items .=
+                            '</div>
                         </div>
                     </div>
                 </div>
@@ -200,10 +205,11 @@ class Cart extends CI_Controller {
        {
         $data = array('qty' =>$qty);
         $this->m_cart->setQty($cid, $data, $this->uid);
+        $qmsg = '';
        }else{
         $qmsg = 'qerror';
-        echo json_encode($qmsg);
         }
+        echo json_encode($qmsg);
     }
 
 
