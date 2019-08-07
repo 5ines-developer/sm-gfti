@@ -110,6 +110,22 @@ class Order_model extends CI_Model {
             $this->db->update('orders', $updateData);
             return true;
         }
+
+
+    // orde discount
+    public function orders_discount($var = null)
+    {
+        return $this->db->where('status', 1)->get('order_discount')->result();
+        
+    }
+
+    // order discount update
+    public function orders_discount_update($data)
+    {
+        $this->db->where('id', $this->input->post('id'))->update('order_discount', $data);
+        return true;
+        
+    }
         
         
 

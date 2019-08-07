@@ -49,6 +49,7 @@
                       <li><a href="<?php echo base_url() ?>orders">All Orders</a></li>
                       <li><a href="<?php echo base_url() ?>orders?q=payment-orders&scode=1">Payment Orders</a></li>
                       <li><a href="<?php echo base_url() ?>orders?q=place-orders&scode=2">Purchase Request</a></li>
+                      <li><a href="<?php echo base_url() ?>orders-discount">Orders Discount</a></li>
                     </ul>
                 </li>
                 <li><a><i class="fa fa-newspaper-o" aria-hidden="true"></i> Billing Address<span class="fa fa-chevron-down"></span></a>

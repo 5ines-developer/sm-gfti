@@ -113,7 +113,7 @@ $route['view-employee/(:any)']   = 'Employee/view_employee/$1';
 $route['orders'] 		         = 'Orders/index';
 $route['view-order/(:any)'] 	 = 'Orders/view_order/$1';
 $route['courier-status/(:any)']  = 'Orders/courier_status/$1';
-
+$route['orders-discount']        = 'Orders/orders_discount';
 
 //Billing address
 $route['add-billing-address'] 	 = 'Billing/index';

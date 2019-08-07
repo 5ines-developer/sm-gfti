@@ -60,4 +60,19 @@ class Orders extends CI_Controller {
         echo  $input['id'];       
     }
 
+    // order Discount
+    public function orders_discount($var = null)
+    {
+        if(!empty($this->input->post())){
+            $data = array(
+                'discount' => $this->input->post('discount')
+            );
+            $this->Order_model->orders_discount_update($data);
+        }
+
+        $data['title']      = 'courier status - Siemens';
+        $data['discount']   = $this->Order_model->orders_discount();
+        $this->load->view('order/discount',$data);
+    }
+
 }
