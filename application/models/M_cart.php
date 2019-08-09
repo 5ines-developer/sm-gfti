@@ -321,6 +321,12 @@ class M_cart extends CI_Model
         return $result['des'];
     }
 
+    // order discount
+    public function orderdiscount()
+    {
+        return $this->db->where('status', 1)->get('order_discount')->result();
+    }
+
 
 
     

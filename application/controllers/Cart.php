@@ -215,6 +215,7 @@ class Cart extends CI_Controller {
         $data['billing'] = $this->m_cart->getBilling();
         $this->load->model('m_account');
         $data['user'] = $this->m_account->profileGet($this->uid);
+        $data['odiscount'] = $this->m_cart->orderdiscount();
         $this->load->view('pages/checkout', $data, FALSE);
        
     }
@@ -288,6 +289,13 @@ class Cart extends CI_Controller {
             $shipping = $this->m_cart->getdefaultShipping($this->uid);
         }
         $cartitesms = $this->m_cart->getCart($this->uid);
+        $odiscount = $this->m_cart->orderdiscount();
+        foreach ($odiscount as $keyo => $valueo) { 
+
+            if($valueo->title == 'Purchase Request'){
+                $exDiscount = $valueo->discount;
+            }
+        }
 
         foreach ($cartitesms as $key => $value) {
             $orderid = 'SMG-'.random_string('numeric', 14);
@@ -300,9 +308,10 @@ class Cart extends CI_Controller {
                 'price'         =>  $value->price,
                 'team'          =>  $team,
                 'purpose'       =>  $puropse,
-                'size'          => $value->size,
-                'discount'      => $value->pdiscount,
-                'gst'           => $value->pgst,
+                'size'          =>  $value->size,
+                'discount'      =>  $value->pdiscount,
+                'gst'           =>  $value->pgst,
+                'ex_discount'   =>  $exDiscount,
             );
 
             if (!empty($this->session->userdata('bill_id'))) {
@@ -320,10 +329,12 @@ class Cart extends CI_Controller {
             if($this->m_cart->insertOrder($data))
             {
                 $this->m_cart->deletecartBrand($value->cid,$orderid);
-                $this->sendorder($cartitesms,$bach,$address,$puropse,$team);
-                $this->sendadmin($cartitesms,$bach,$address,$puropse,$team);
+                
             }
         }
+
+        $this->sendorder($cartitesms,$bach,$address,$puropse,$team, $exDiscount);
+        $this->sendadmin($cartitesms,$bach,$address,$puropse,$team, $exDiscount);
     }
 
     // change brand
@@ -337,7 +348,7 @@ class Cart extends CI_Controller {
 
 
         //  place order request
-        function sendorder($cartitesms='', $bach='',$address='',$puropse='',$team='')
+        function sendorder($cartitesms='', $bach='',$address='',$puropse='',$team='', $exDiscount='')
         {
             $c_email = $this->m_cart->getuseremail($this->uid);
             $data['detail'] = $cartitesms;
@@ -345,6 +356,7 @@ class Cart extends CI_Controller {
             $data['bill']   = $address['bill'];
             $data['team']   = $team;
             $data['puropse']   = $puropse;
+            $data['pdiscount'] = $exDiscount;
             $this->load->config('email');
             $this->load->library('email');
             $from = $this->config->item('smtp_user');
@@ -367,13 +379,14 @@ class Cart extends CI_Controller {
 
 
         //  place order request
-        function sendadmin($cartitesms='', $bach='',$address='')
+        function sendadmin($cartitesms='', $bach='',$address='', $exDiscount='')
         {
 
             $data['detail'] = $cartitesms;
             $data['bach']   = $bach;
             $data['bill']   = $address['bill'];
             $data['ship']   = $address['ship'];
+            $data['pdiscount'] = $exDiscount;
             $this->load->config('email');
             $this->load->library('email');
             $from = $this->config->item('smtp_user');

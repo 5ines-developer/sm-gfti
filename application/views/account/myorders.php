@@ -36,9 +36,11 @@
                     <div class="col-lg-3 col-md-4">
                         <?php $this->load->view('includes/ds_sidebar'); ?>
                         <!-- /.sidebar -->
-                    </div><!-- /.col-lg-3 col-md-4 -->
+                    </div><!-- /.col-lg-3 col-md-4 payment_id-->
                     <div class="col-lg-9 col-md-8">
                         <?php   if(!empty($orders)){ 
+                           
+                           
                             $this->ci->load->model('m_orders');
                             
                             foreach ($orders as $key => $value) {
@@ -65,7 +67,22 @@
                                     $amount = ((($valuesd->price - $discount) + $Tbrandprice) + $nGst) * $valuesd->quantity;
 
                                     $date = date('d M Y', strtotime($valuesd->orderd_on));
-                                    $toatalP =  $toatalP + $amount;
+                                    
+                                    if(!empty($orders->ex_discount)){
+                                        $ex_discount = $orders->ex_discount;
+                                    }else{
+                                        $ex_discount = 0;
+                                    }
+
+                                    $crdiscount = ($valuesd->price * $ex_discount) / 100 ;
+                                    $crTotal = (((($valuesd->price - $discount) + $Tbrandprice) - $crdiscount)+ $nGst) * $valuesd->quantity;
+                                    
+                                    
+                                    $toatalP =  $toatalP + $crTotal;
+                                    
+                                    
+
+
                                 }
                         ?>
                         <div class="cart-items">
@@ -111,10 +128,31 @@
                                     $nGst = ((($vale2->price  - $discount) + $Tbrandprice) * $vale2->gst) / 100;
                                 }
                                  // nAmount
-                                $amount = ((($vale2->price - $discount) + $Tbrandprice) + $nGst) * $vale2->quantity;
+                                // $amount = ((($vale2->price - $discount) + $Tbrandprice) + $nGst) * $vale2->quantity;
+                               
 
-                                $date = date('d M Y', strtotime($vale2->orderd_on));
-                                $toatalP =  $toatalP + $amount;
+                                if(!empty($vale2->ex_discount)){
+                                    $ex_discount = $vale2->ex_discount;
+                                }else{
+                                    $ex_discount = 0;
+                                }
+
+                                $crdiscount = ($vale2->price * $ex_discount) / 100 ;
+                                $crTotal = (((($vale2->price - $discount) + $Tbrandprice) - $crdiscount)+ $nGst) * $vale2->quantity;
+                                
+                                
+                                $amount =  $crTotal;
+                                $sexdiscount = '';
+                                if(!empty($vale2->payment_id)){
+                                    $sexdiscount = '<p><span>Credit card payment discount - '.$vale2->ex_discount.'%   </span> ₹ '. $crdiscount. '</p>';
+                                }else{
+                                    $sexdiscount = '<p><span> Purchase Request discount - '.$vale2->ex_discount.'%   </span> ₹ '. $crdiscount. '</p>';
+                                }
+                                if($ex_discount < 1 ){
+                                    $sexdiscount = '';
+                                }
+                                // $date = date('d M Y', strtotime($vale2->orderd_on));
+                                // $toatalP =  $toatalP + $amount;
                                 
                                 
                             ?>
@@ -147,6 +185,8 @@
                                                 if(!$nGst == 0){
                                                     echo '<p><span>GST - '.$vale2->gst.'%   </span> ₹ '.$nGst.'</p>';
                                                 }
+
+                                                echo $sexdiscount;
 
                                                 
                                                 ?>

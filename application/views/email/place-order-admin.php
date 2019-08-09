@@ -587,6 +587,7 @@ $this->ci->load->model('m_cart');
                       $totgst = 0;
                       $subtotal = 0;
                       $totdiscount = 0;
+                      $tocrdiscount=0;
 
                         foreach ($detail as $key => $value) {
                           
@@ -616,10 +617,22 @@ $this->ci->load->model('m_cart');
                           $amount = ((($value->price - $discount) + $Tbrandprice) + $nGst) * $value->qty;
 
                           // total amount
-                          $total += $amount;
+                          
+
+                          if(!empty($pdiscount)){
+                            $crdiscount = ($value->price * $pdiscount) / 100 ;
+                            $crTotal = (((($value->price - $discount) + $Tbrandprice) - $crdiscount)+ $nGst) * $value->qty;
+                            $crmsg = 'You have get '.$pdiscount. '%  extra discount for using Credit Card  payment'   ;
+                            $total += $crTotal;
+                          }else{
+                            $total += $amount;
+                          }
+                         
+                          $tocrdiscount = ($crdiscount + $tocrdiscount) * $value->qty;
                           $totgst = $totgst + $nGst;
                           $totdiscount +=$discount;
                           $subtotal += ($value->price+$Tbrandprice)* $value->qty;
+                          $Cgtal = $crTotal;
                           
                           
 
@@ -681,7 +694,7 @@ $this->ci->load->model('m_cart');
                                                 <div
                                                     style="font-size: 12px; line-height: 14px; font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; color: #555555;">
                                                     <p style="font-size: 12px; line-height: 13px; margin: 0;">
-                                                        Branding Charges :<br>
+                                                        <b>Branding Charges :</b><br>
                                                         <?php  if (!empty($brandingCharge)) {
                                                         foreach ($brandingCharge as $keys => $values) { 
                                                           if ($values->cart_id == $value->cid) { ?>
@@ -693,6 +706,7 @@ $this->ci->load->model('m_cart');
                                                         <span style="font-size: 11px;">GST &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?php echo (!empty($value->pgst))?$value->pgst*$value->qty.'%':''; ?></span><br>
 
                                                         <span style="font-size: 11px;">HSN Code &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <?php echo $this->ci->m_cart->hsncode((!empty($value->prid))?$value->prid:''); ?></span><br>
+                                                        <span style="font-size: 11px;"><?php echo (!empty($crmsg))? $crmsg :''; ?></span><br>
                                                        
                                                     </p>
                                                 </div>
@@ -782,7 +796,7 @@ $this->ci->load->model('m_cart');
                                                     style="font-size: 12px; line-height: 14px; font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; color: #555555;">
                                                     <p
                                                         style="font-size: 14px; line-height: 16px; text-align: center; margin: 0;">
-                                                        <strong><?php echo '&#8377; '.$amount; ?></strong></p>
+                                                        <strong><?php echo '&#8377; '.$Cgtal; ?></strong></p>
                                                 </div>
                                             </div>
                                             <!--[if mso]></td></tr></table><![endif]-->
@@ -949,9 +963,11 @@ $this->ci->load->model('m_cart');
                                                 style="color:#555555;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                                                 <div
                                                     style="font-size: 12px; line-height: 14px; font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; color: #555555;">
+                                                    <?php if(!empty($totgst)) {?>
                                                     <p
                                                         style="font-size: 14px; line-height: 16px; text-align: right; margin: 0;">
                                                         GST:</p>
+                                                    <?php } ?>
                                                 </div>
                                             </div>
                                             <!--[if mso]></td></tr></table><![endif]-->
@@ -1051,6 +1067,7 @@ $this->ci->load->model('m_cart');
                             </div>
                         </div>
                     </div>
+
                     <div style="background-color:transparent;">
                         <div class="block-grid mixed-two-up no-stack"
                             style="Margin: 0 auto; min-width: 320px; max-width: 690px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #FFFFFF;">
@@ -1069,9 +1086,11 @@ $this->ci->load->model('m_cart');
                                                 style="color:#555555;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                                                 <div
                                                     style="font-size: 12px; line-height: 14px; font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; color: #555555;">
+                                                    <?php if(!empty($totdiscount)){ ?>
                                                     <p
                                                         style="font-size: 14px; line-height: 16px; text-align: right; margin: 0;">
                                                         Discount:</p>
+                                                    <?php } ?>
                                                 </div>
                                             </div>
                                             <!--[if mso]></td></tr></table><![endif]-->
@@ -1111,6 +1130,72 @@ $this->ci->load->model('m_cart');
                             </div>
                         </div>
                     </div>
+
+                    <div style="background-color:transparent;">
+                        <div class="block-grid mixed-two-up no-stack"
+                            style="Margin: 0 auto; min-width: 320px; max-width: 690px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #FFFFFF;">
+                            <div style="border-collapse: collapse;display: table;width: 100%;background-color:#FFFFFF;">
+                                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:transparent;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:690px"><tr class="layout-full-width" style="background-color:#FFFFFF"><![endif]-->
+                                <!--[if (mso)|(IE)]><td align="center" width="460" style="background-color:#FFFFFF;width:460px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top:0px; padding-bottom:0px;"><![endif]-->
+                                <div class="col num8"
+                                    style="display: table-cell; vertical-align: top; min-width: 320px; max-width: 456px; width: 460px;">
+                                    <div style="width:100% !important;">
+                                        <!--[if (!mso)&(!IE)]><!-->
+                                        <div
+                                            style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 10px; padding-left: 10px;">
+                                            <!--<![endif]-->
+                                            <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
+                                            <div
+                                                style="color:#555555;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:120%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+                                                <div
+                                                    style="font-size: 12px; line-height: 14px; font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; color: #555555;">
+                                                    <?php if(!empty($tocrdiscount)){ ?>
+                                                    <p
+                                                        style="font-size: 14px; line-height: 16px; text-align: right; margin: 0;">
+                                                        Creadit card discount:</p>
+                                                    <?php } ?>
+                                                </div>
+                                            </div>
+                                            <!--[if mso]></td></tr></table><![endif]-->
+                                            <!--[if (!mso)&(!IE)]><!-->
+                                        </div>
+                                        <!--<![endif]-->
+                                    </div>
+                                </div>
+                                <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+                                <!--[if (mso)|(IE)]></td><td align="center" width="230" style="background-color:#FFFFFF;width:230px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top:0px; padding-bottom:0px;"><![endif]-->
+                                <div class="col num4"
+                                    style="display: table-cell; vertical-align: top; max-width: 320px; min-width: 228px; width: 230px;">
+                                    <div style="width:100% !important;">
+                                        <!--[if (!mso)&(!IE)]><!-->
+                                        <div
+                                            style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 10px; padding-left: 10px;">
+                                            <!--<![endif]-->
+                                            <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 25px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
+                                            <div
+                                                style="color:#555555;font-family:'Roboto', Tahoma, Verdana, Segoe, sans-serif;line-height:120%;padding-top:10px;padding-right:25px;padding-bottom:10px;padding-left:10px;">
+                                                <div
+                                                    style="font-size: 12px; line-height: 14px; font-family: 'Roboto', Tahoma, Verdana, Segoe, sans-serif; color: #555555;">
+                                                    <p
+                                                        style="font-size: 14px; line-height: 16px; text-align: right; margin: 0;">
+                                                        <strong><?php echo(!empty($tocrdiscount))?'-  &#8377; '.$tocrdiscount:'' ?></strong>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <!--[if mso]></td></tr></table><![endif]-->
+                                            <!--[if (!mso)&(!IE)]><!-->
+                                        </div>
+                                        <!--<![endif]-->
+                                    </div>
+                                </div>
+                                <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+                                <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
+                            </div>
+                        </div>
+                    </div>
+
+
+
                     <div style="background-color:transparent;">
                         <div class="block-grid"
                             style="Margin: 0 auto; min-width: 320px; max-width: 690px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #FFFFFF;">

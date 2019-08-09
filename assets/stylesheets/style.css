@@ -5212,3 +5212,42 @@ input[type="checkbox"] {
 .accordion-box .card-body p {
     margin-bottom: 15px
 }
+
+/*  order discount  */
+.extra-offer h4 {
+    color: #262626;
+    margin-bottom: 10px;
+}
+
+.extra-offer ul li span i{ color: teal; margin-right: 5px; }
+.extra-offer .off-title{font-weight: 600 }
+.extra-offer ul li{color:#262626 }
+
+.icon-baru {
+    position: fixed;
+    top: 85%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    right: 0;
+    background-color: #099;
+  z-index: 999999;
+  }
+  
+  .icon-baru a {
+    display: block;
+    text-align: center;
+    padding: 5px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 20px;
+  }
+  
+  .icon-baru a:hover {
+    background-color: #099;
+  }
+  
+  .facebookd {
+   background-color: #099;
+    color: white;
+  }

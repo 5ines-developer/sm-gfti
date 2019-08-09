@@ -25,24 +25,33 @@ class payment extends CI_Controller
         if (empty($this->session->userdata('bill_id'))) {
             $shipping = $this->m_cart->getdefaultShipping($this->uid);
         }
-
+        $odiscount = $this->m_cart->orderdiscount();
         $cartitesms = $this->m_cart->getCart($this->uid);
+
+        foreach ($odiscount as $keyo => $valueo) { 
+
+            if($valueo->title == 'Pay Via Credit Card'){
+                $exDiscount = $valueo->discount;
+            }
+        }
+       
 
         foreach ($cartitesms as $key => $value) {
             $orderid = 'SMG-' . random_string('numeric', 14);
             $data = array(
-                'order_id' => $orderid,
-                'order_bach' => $bach,
-                'product' => $value->prid,
-                'order_by' => $this->uid,
-                'qty' => $value->qty,
-                'price' => $value->price,
-                'team' => $team,
-                'purpose' => $puropse,
-                'payment_id' => $paymentid,
+                'order_id'      => $orderid,
+                'order_bach'    => $bach,
+                'product'       => $value->prid,
+                'order_by'      => $this->uid,
+                'qty'           => $value->qty,
+                'price'         => $value->price,
+                'team'          => $team,
+                'purpose'       => $puropse,
+                'payment_id'    => $paymentid,
                 'size'          => $value->size,
                 'discount'      => $value->pdiscount,
-                'gst'           => $value->pgst
+                'gst'           => $value->pgst,
+                'ex_discount'   => $exDiscount,
             );
 
             if (!empty($this->session->userdata('bill_id'))) {
@@ -60,22 +69,24 @@ class payment extends CI_Controller
             if (!empty($paymentid)) {
                 if ($this->m_cart->insertOrder($data)) {
                     $this->m_cart->deletecartBrand($value->cid, $orderid);
-                    $this->sendorder($cartitesms, $bach, $address, $puropse, $team);
-                    $this->sendadmin($cartitesms, $bach, $address, $puropse, $team);
+                    $this->sendorder($cartitesms, $bach, $address, $puropse, $team, $exDiscount);
+                    $this->sendadmin($cartitesms, $bach, $address, $puropse, $team, $exDiscount);
+                    $this->session->set_flashdata('msg', 'Thank You for ordering. We have recieved your order and will begin processing it soon. Your order information will send to registered email id. ');
                     redirect('my-orders', 'refresh');
                 }
             } else {
-                $this->p_failed($cartitesms, $bach, $address, $puropse, $team);
-                $this->p_failedadmin($cartitesms, $bach, $address, $puropse, $team);
+                $this->p_failed($cartitesms, $bach, $address, $puropse, $team, $exDiscount);
+                $this->p_failedadmin($cartitesms, $bach, $address, $puropse, $team, $exDiscount);
                 redirect('cart', 'refresh');
             }
 
         }
+        
 
     }
 
     //  place order request
-    public function sendorder($cartitesms = '', $bach = '', $address = '', $puropse = '', $team = '')
+    public function sendorder($cartitesms = '', $bach = '', $address = '', $puropse = '', $team = '', $exDiscount)
     {
 
         $to = $this->session->userdata('suser');
@@ -85,10 +96,11 @@ class payment extends CI_Controller
         $data['ship'] = $address['ship'];
         $data['team'] = $team;
         $data['puropse'] = $puropse;
+        $data['pdiscount'] = $exDiscount;
         $this->load->config('email');
         $this->load->library('email');
         $from = $this->config->item('smtp_user');
-        $msg = $this->load->view('email/place-order', $data, true);
+        $msg = $this->load->view('email/order-placed', $data, true);
         $this->email->set_newline("\r\n");
         $this->email->from($from, 'Gifting Express');
         $this->email->to($to);
@@ -103,7 +115,7 @@ class payment extends CI_Controller
     }
 
     //  place order request
-    public function sendadmin($cartitesms = '', $bach = '', $address = '', $puropse = '', $team = '')
+    public function sendadmin($cartitesms = '', $bach = '', $address = '', $puropse = '', $team = '', $exDiscount)
     {
 
         $data['detail'] = $cartitesms;
@@ -112,13 +124,15 @@ class payment extends CI_Controller
         $data['ship'] = $address['ship'];
         $data['team'] = $team;
         $data['puropse'] = $puropse;
+        $data['pdiscount'] = $exDiscount;
         $this->load->config('email');
         $this->load->library('email');
         $from = $this->config->item('smtp_user');
-        $msg = $this->load->view('email/place-order-admin', $data, true);
+        $msg = $this->load->view('email/order-placed-admin', $data, true);
         $this->email->set_newline("\r\n");
         $this->email->from($from, 'Gifting Express');
         $this->email->to('Vinayaka@giftingxpress.in');
+        $this->email->cc('shahirkm@5ine.in');
         $this->email->subject('Order Placed Successfully');
         $this->email->message($msg);
         if ($this->email->send()) {
@@ -130,7 +144,7 @@ class payment extends CI_Controller
     }
 
     //  place order request
-    public function p_failed($cartitesms = '', $bach = '', $address = '', $puropse = '', $team = '')
+    public function p_failed($cartitesms = '', $bach = '', $address = '', $puropse = '', $team = '', $exDiscount)
     {
 
         $to = $this->session->userdata('suser');
@@ -139,6 +153,7 @@ class payment extends CI_Controller
         $data['bill'] = $address['bill'];
         $data['ship'] = $address['ship'];
         $data['team'] = $team;
+        $data['pdiscount'] = $exDiscount;
         $data['puropse'] = $puropse;
         $this->load->config('email');
         $this->load->library('email');
@@ -158,7 +173,7 @@ class payment extends CI_Controller
     }
 
     //  place order request
-    public function p_failedadmin($cartitesms = '', $bach = '', $address = '', $puropse = '', $team = '')
+    public function p_failedadmin($cartitesms = '', $bach = '', $address = '', $puropse = '', $team = '', $exDiscount)
     {
 
         $to = $this->session->userdata('suser');
@@ -167,6 +182,7 @@ class payment extends CI_Controller
         $data['bill'] = $address['bill'];
         $data['ship'] = $address['ship'];
         $data['team'] = $team;
+        $data['pdiscount'] = $exDiscount;
         $data['puropse'] = $puropse;
         $this->load->config('email');
         $this->load->library('email');
@@ -175,6 +191,7 @@ class payment extends CI_Controller
         $this->email->set_newline("\r\n");
         $this->email->from($from, 'Gifting Express');
         $this->email->to('Vinayaka@giftingxpress.in');
+        $this->email->cc('shahirkm@5ine.in');
         $this->email->subject('Payment Failed');
         $this->email->message($msg);
         if ($this->email->send()) {

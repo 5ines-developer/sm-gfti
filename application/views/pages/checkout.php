@@ -328,6 +328,10 @@
                                     <?php 
                                         $this->ci->load->model('m_cart');
                                         $total = 0;        
+                                        $Cgtal = 0;        
+                                        $pgtal = 0;        
+                                        $pTotal = 0;
+                                        $crTotal = 0;
                                         foreach ($cart as $key => $value) { 
 
                                             // brading charges
@@ -351,17 +355,39 @@
                                             // nAmount
                                             $amount = ((($value->price - $discount) + $Tbrandprice) + $nGst) * $value->qty;
 
+                                            
+
                                             // total amount
                                             $total += $amount;
+                                             
+                                            foreach ($odiscount as $keyo => $valueo) { 
+                                                
+                                                if($valueo->title == 'Pay Via Credit Card')    {
+                                                    $crdiscount = ($value->price * $valueo->discount) / 100 ;
+                                                    $crTotal = (((($value->price - $discount) + $Tbrandprice) - $crdiscount)+ $nGst) * $value->qty;
+                                                    $crmsg = 'You will get '.$valueo->discount. '%  extra discount for using Credit Card  payment'   ;
+                                                }elseif($valueo->title == 'Purchase Request'){
+                                                    $pdiscount = ($value->price * $valueo->discount) / 100 ;
+                                                    $pTotal = (((($value->price - $discount) + $Tbrandprice) - $pdiscount)+ $nGst) * $value->qty;
+                                                    
+                                                }
+                                            }
+                                            $Cgtal += $crTotal;
+                                            $pgtal += $pTotal;
 
                                     ?>
 
                                     <tr>
                                         <td><?php echo $value->ptitle ?><br><?php echo $value->product_id . ' (' . $value->qty . ' piece)' ?></td>
-                                        <td><?php echo $amount; ?></td>
+                                        <td><?php echo $amount; 
+                                        
+                                        
+                                        ?></td>
                                     </tr>
 
-                                    <?php } ?>
+                                    <?php } 
+                                        
+                                    ?>
                                     
                                 </tbody>
                             </table><!-- /.product -->
@@ -369,7 +395,7 @@
                                 <tbody>
                                     <tr>
                                         <td>Total</td>
-                                        <td class="price-total">&#8377; <?php echo $total ?></td>
+                                        <td class="price-total">&#8377; <?php echo $total?></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -398,9 +424,10 @@
                                     <form action="<?php echo base_url() ?>payment/success/" method="POST"
                                         style="float:left;margin-right:10px" id="pay-form">
                                         <script src="https://checkout.razorpay.com/v1/checkout.js"
-                                            data-key="rzp_test_ZPtHNE4hO3uWul" data-amount="<?php echo round($total).'00' ?>"
+                                            data-key="rzp_test_ZPtHNE4hO3uWul" data-amount="<?php echo round($Cgtal).'00' ?>"
                                             data-currency="INR" data-buttontext="Pay via Credit Card"
-                                            data-name="Gifting Xpress" data-description="Gifting Xpress"
+                                            data-name="Gifting Xpress" 
+                                            data-description="<?php echo  $crmsg; ?>"
                                             data-image="<?php echo base_url() ?>assets/images/img/logo.svg"
                                             data-prefill.name="<?php echo $user["name"] ?>"
                                             data-prefill.email="<?php echo $user["email"] ?>"
@@ -412,6 +439,7 @@
                                             id="pay-team">
                                         <input type="hidden" custom="Hidden Element place-purpose" name="purpose"
                                             id="pay-purpose">
+                                            <input type="hidden" class="bill-val" name="bill_val">
                                     </form>
 
                                     <span style="float:left;line-height: 48px;margin-right:10px">OR</span>
@@ -427,6 +455,21 @@
                                     <?php }?>
                                 </div>
                             </div><!-- /.btn-order -->
+
+                            <div class="extra-offer">
+                            <hr>
+                                <h4>Get Extra Offers</h4>
+                                <ul>
+                                    <?php foreach ($odiscount as $key => $value) { 
+                                        if($value->discount > 0)    {
+                                    ?>     
+                                        <li>
+                                            <span><i class="fa fa-tag" aria-hidden="true"></i></span>
+                                            <?php echo '<span class="off-title">'.$value->title .'</span> Get extra '. $value->discount. '% off'  ?>  
+                                        </li>
+                                    <?php } }?>    
+                                </ul>
+                            </div>
 
                         </div><!-- /.cart-totals style2 -->
                     </div><!-- /.col-md-5 -->
@@ -611,7 +654,21 @@
 
         });
 
+        $('.razorpay-payment-button[type=submit]').click(function(e){
+            var bill = $("#biilingaddress option:selected").val();
+            if(bill == ''){
+                e.preventDefault();
+                $("#biilingaddress").next(".error").remove();
+                $("#biilingaddress").after(
+                    "<span class ='error'> Please Select the billing address</span>");
+                return false;
+            }else{
+                $("#biilingaddress").next(".error").remove();
+                return true;
+            }            
 
+            
+        });
 
 
         //send values if price is less than 1lakh

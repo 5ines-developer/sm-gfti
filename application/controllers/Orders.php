@@ -28,7 +28,7 @@ class Orders extends CI_Controller
         }
 
         $data['orders'] = $bach;
-
+        $data['odiscount'] = $this->m_cart->orderdiscount();
         $this->load->view('account/myorders', $data);
     }
 
