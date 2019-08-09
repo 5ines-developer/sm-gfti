@@ -144,11 +144,12 @@
 
 
         // cart page
-        function cartitems(qe='') {
+        function cartitems(qe='',proid='',dataid='') {
+            if (qe =='') { dataid='null' }
             $.ajax({
                 type: "get",
                 url: "<?php echo base_url('get-cart') ?>",
-                data: "data",
+                data: {"dataid" : dataid },
                 dataType: "json",
                 success: function(response) {
                     $('#cart-box').html(response.items);
@@ -158,16 +159,16 @@
                     if(response.count <= 0){
                         $('.checkout ').hide();
                     }
-                    if (qe !='') {
-                        $(".qermsg").html('<span>'+qe+'</span>');
-                    }
+                    // if (qe !='') {
+                    //     $(".qermsg").html('<span>'+qe+'</span>');
+                    // }
                     loder(false);
                 }
             });
         }
 
         // change qty update
-        function cartqty(id, newqty,proid) {
+        function cartqty(id, newqty, proid) {
             loder(true);
             $.ajax({
                 type: "post",
@@ -182,7 +183,7 @@
                     if (response == "qerror") {
                         var qe = 'Requested quantity is not available';
                     }
-                    cartitems(qe);
+                    cartitems(qe,proid, id);
                 }
             });
         }
@@ -210,8 +211,8 @@
             $(this).siblings('.qtyi').val(newqty);
             var id = $(this).closest('.cart-item').attr('dataid');
             var proid = $(this).closest('.cart-item').find("input[name='pro_id']").val();
-            cartqty(id, newqty,proid);
-        }); /****** QTY increement and decrement end *******/
+            cartqty(id, newqty, proid);
+        }); /****** QTY increement and  decrement end *******/
 
         /****  brand change ****/
         $(document).on('change', '.colors select', function (e) {
